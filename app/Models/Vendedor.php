@@ -22,6 +22,6 @@ class Vendedor extends Model
     public $timestamps = false;
 
     protected $fillable = [
-        'nomeVendedor', 'emailVendedor', 'senhaVendedor', 'telefoneVendedor', 'cepVendedor', 'ruaVendedor', 'bairroVendedor', 'cidadeVendedor', 'estadoVendedor', 'complementoVendedor',
+        'nomeVendedor', 'emailVendedor', 'senhaVendedor', 'telefoneVendedor', 'cepVendedor', 'ruaVendedor', 'bairroVendedor', 'cidadeVendedor', 'estadoVendedor', 'complementoVendedor','imagemVendedor'
     ];
 }

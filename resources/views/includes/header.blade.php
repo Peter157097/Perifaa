@@ -176,7 +176,7 @@
 
 <!-- Modal 2 -->
 <dialog id="modal-2" >
-    <form class="form" action="{{ url('/Cliente') }}" method="post">
+    <form class="form" action="{{ url('/Cliente') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="modal-header">
             <h1 class="modal-title">Cadastre-se na Perifa</h1>
@@ -214,13 +214,94 @@
                 <input type="text" id="bairro" name="bairroCliente">
             </div>
             <div class="inputs">
-                <label for="cidade">Cidade</label>
-                <input type="text" id="cidade" name="cidadeCliente">
-            </div>
-            <div class="inputs">
-                <label for="estado">Estado</label>
-                <input type="text" id="estado" name="estadoCliente">
-            </div>
+        <label for="estadoCliente">Estado</label>
+        <select name="estadoCliente" id="estadoCliente">
+            <option value="" disabled selected>Selecione</option>
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+        </select>
+    </div>
+    <div class="inputs">
+        <label for="cidadeCliente">Cidade</label>
+        <select name="cidadeCliente" id="cidadeCliente">
+            <option value="" disabled selected>Selecione a cidade</option>
+        </select>
+    </div>
+
+    <!-- JavaScript para gerenciamento dinâmico -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const estadoSelect = document.getElementById('estadoCliente');
+        const cidadeSelect = document.getElementById('cidadeCliente');
+
+        // Dados de exemplo para cidades por estado
+        const cidadesPorEstado = {
+            'AC': ['Rio Branco', 'Cruzeiro do Sul'],
+            'AL': ['Maceió', 'Arapiraca'],
+            'AP': ['Macapá', 'Santana'],
+            'AM': ['Manaus', 'Parintins'],
+            'BA': ['Salvador', 'Feira de Santana', 'Vitória da Conquista'],
+            'CE': ['Fortaleza', 'Juazeiro do Norte', 'Sobral'],
+            'DF': ['Brasília'],
+            'ES': ['Vitória', 'Vila Velha', 'Cariacica'],
+            'GO': ['Goiânia', 'Anápolis', 'Rio Verde', 'Catalão', 'Pirenópolis'],
+            'MA': ['São Luís', 'Imperatriz', 'Caxias', 'Timon', 'Barreirinhas'],
+            'MT': ['Cuiabá', 'Várzea Grande', 'Sinop', 'Rondonópolis', 'Tangará da Serra'],
+            'MS': ['Campo Grande', 'Dourados', 'Corumbá', 'Ponta Porã', 'Três Lagoas'],
+            'MG': ['Belo Horizonte', 'Uberlândia', 'Juiz de Fora', 'Ouro Preto', 'Contagem'],
+            'PA': ['Belém', 'Santarém', 'Marabá', 'Ananindeua', 'Castanhal'],
+            'PB': ['João Pessoa', 'Campina Grande', 'Santa Rita', 'Patos', 'Bayeux'],
+            'PR': ['Curitiba', 'Londrina', 'Maringá', 'Ponta Grossa', 'Foz do Iguaçu'],
+            'PE': ['Recife', 'Olinda', 'Jaboatão dos Guararapes', 'Caruaru', 'Petrolina'],
+            'PI': ['Teresina', 'Parnaíba', 'Picos', 'Floriano', 'Esperantina'],
+            'RJ': ['Rio de Janeiro', 'Niterói', 'Duque de Caxias', 'São Gonçalo', 'Nova Iguaçu'],
+            'RN': ['Natal', 'Mossoró', 'Parnamirim', 'Caicó', 'Açu'],
+            'RS': ['Porto Alegre', 'Caxias do Sul', 'Pelotas', 'Santa Maria', 'Novo Hamburgo'],
+            'RO': ['Porto Velho', 'Ji-Paraná', 'Cacoal', 'Rolim de Moura', 'Ariquemes'],
+            'RR': ['Boa Vista'],
+            'SC': ['Florianópolis', 'Joinville', 'Blumenau', 'Criciúma', 'Chapecó'],
+            'SP': ['São Paulo', 'Campinas', 'Santos', 'Sorocaba', 'São Bernardo do Campo']
+        };
+
+        estadoSelect.addEventListener('change', function() {
+            cidadeSelect.innerHTML = '<option value="" disabled selected>Selecione a cidade</option>';
+
+            const estadoSelecionado = estadoSelect.value;
+
+            if (cidadesPorEstado[estadoSelecionado]) {
+                cidadesPorEstado[estadoSelecionado].forEach(function(cidade) {
+                    const option = document.createElement('option');
+                    option.value = cidade;
+                    option.textContent = cidade;
+                    cidadeSelect.appendChild(option);
+                });
+            }
+        });
+    });
+    </script>
             <div class="inputs">
                 <label for="complemento">Complemento</label>
                 <input type="text" id="complemento" name="complementoCliente">
@@ -230,6 +311,13 @@
                 <input type="password" id="password" name="senhaCliente" placeholder="••••••••">
             </div>
         </div>
+        <div class="inputs">
+        <label for="imagemCliente"> <span class="text-primary">Anexar imagem</span></label>
+        <div class="custom-file-upload">
+            <input type="file" id="imagemCliente" name="imagemCliente" accept="image/*">
+            <label for="imagemCliente" id="fileLabel">Nenhuma imagem selecionada</label>
+        </div>
+    </div>
         <div class="login-botao">
             <input type="submit" value="Cadastrar">
         </div>
@@ -242,7 +330,7 @@
 
 <!-- Modal 3 -->
 <dialog id="modal-3">
-    <form class="form" action="{{ url('/Vendedor') }}" method="post">
+    <form class="form" action="{{ url('/Vendedor') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="modal-header">
             <h1 class="modal-title">Venda na Perifa</h1>
@@ -276,13 +364,96 @@
                 <input type="text" id="bairro" name="bairroVendedor">
             </div>
             <div class="inputs">
-                <label for="estado">Estado</label>
-                <input type="text" id="estado" name="estadoVendedor">
-            </div>
-            <div class="inputs">
-                <label for="cidade">Cidade</label>
-                <input type="text" id="cidade" name="cidadeVendedor">
-            </div>
+        <label for="estadoVendedor">Estado</label>
+        <select name="estadoVendedor" id="estadoVendedor">
+            <option value="" disabled selected>Selecione</option>
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+        </select>
+    </div>
+    <div class="inputs">
+        <label for="cidadeVendedor">Cidade</label>
+        <select name="cidadeVendedor" id="cidadeVendedor">
+            <option value="" disabled selected>Selecione a cidade</option>
+        </select>
+    </div>
+
+    <!-- JavaScript para gerenciamento dinâmico -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const estadoSelect = document.getElementById('estadoVendedor');
+        const cidadeSelect = document.getElementById('cidadeVendedor');
+
+        // Dados de exemplo para cidades por estado
+        const cidadesPorEstado = {
+            'AC': ['Rio Branco', 'Cruzeiro do Sul'],
+            'AL': ['Maceió', 'Arapiraca'],
+            'AP': ['Macapá', 'Santana'],
+            'AM': ['Manaus', 'Parintins'],
+            'BA': ['Salvador', 'Feira de Santana', 'Vitória da Conquista'],
+            'CE': ['Fortaleza', 'Juazeiro do Norte', 'Sobral'],
+            'DF': ['Brasília'],
+            'ES': ['Vitória', 'Vila Velha', 'Cariacica'],
+            'GO': ['Goiânia', 'Anápolis', 'Rio Verde', 'Catalão', 'Pirenópolis'],
+            'MA': ['São Luís', 'Imperatriz', 'Caxias', 'Timon', 'Barreirinhas'],
+            'MT': ['Cuiabá', 'Várzea Grande', 'Sinop', 'Rondonópolis', 'Tangará da Serra'],
+            'MS': ['Campo Grande', 'Dourados', 'Corumbá', 'Ponta Porã', 'Três Lagoas'],
+            'MG': ['Belo Horizonte', 'Uberlândia', 'Juiz de Fora', 'Ouro Preto', 'Contagem'],
+            'PA': ['Belém', 'Santarém', 'Marabá', 'Ananindeua', 'Castanhal'],
+            'PB': ['João Pessoa', 'Campina Grande', 'Santa Rita', 'Patos', 'Bayeux'],
+            'PR': ['Curitiba', 'Londrina', 'Maringá', 'Ponta Grossa', 'Foz do Iguaçu'],
+            'PE': ['Recife', 'Olinda', 'Jaboatão dos Guararapes', 'Caruaru', 'Petrolina'],
+            'PI': ['Teresina', 'Parnaíba', 'Picos', 'Floriano', 'Esperantina'],
+            'RJ': ['Rio de Janeiro', 'Niterói', 'Duque de Caxias', 'São Gonçalo', 'Nova Iguaçu'],
+            'RN': ['Natal', 'Mossoró', 'Parnamirim', 'Caicó', 'Açu'],
+            'RS': ['Porto Alegre', 'Caxias do Sul', 'Pelotas', 'Santa Maria', 'Novo Hamburgo'],
+            'RO': ['Porto Velho', 'Ji-Paraná', 'Cacoal', 'Rolim de Moura', 'Ariquemes'],
+            'RR': ['Boa Vista'],
+            'SC': ['Florianópolis', 'Joinville', 'Blumenau', 'Criciúma', 'Chapecó'],
+            'SP': ['São Paulo', 'Campinas', 'Santos', 'Sorocaba', 'São Bernardo do Campo']
+        };
+
+        estadoSelect.addEventListener('change', function() {
+            cidadeSelect.innerHTML = '<option value="" disabled selected>Selecione a cidade</option>';
+
+            const estadoSelecionado = estadoSelect.value;
+
+            if (cidadesPorEstado[estadoSelecionado]) {
+                cidadesPorEstado[estadoSelecionado].forEach(function(cidade) {
+                    const option = document.createElement('option');
+                    option.value = cidade;
+                    option.textContent = cidade;
+                    cidadeSelect.appendChild(option);
+                });
+            }
+        });
+    });
+    </script>
+
+            
             <div class="inputs">
                 <label for="complemento">Complemento</label>
                 <input type="text" id="complemento" name="complementoVendedor">
@@ -290,6 +461,13 @@
             <div class="inputs">
                 <label for="password">Senha</label>
                 <input type="password" id="password" name="senhaVendedor" placeholder="••••••••">
+            </div>
+        </div>
+        <div class="inputs">
+            <label for="imagemVendedor"> <span class="text-primary">Anexar imagem</span></label>
+            <div class="custom-file-upload">
+            <input type="file" id="imagemVendedor" name="imagemVendedor" accept="image/*">
+                <label for="imagemVendedor" id="fileLabel">Nenhuma imagem selecionada</label>
             </div>
         </div>
         <div class="login-botao">

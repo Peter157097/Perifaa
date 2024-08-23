@@ -1,4 +1,4 @@
-<nav><!--Começo da nav-->
+<nav class="web"><!--Começo da nav-->
         <ul>
             <li class="drop-hover"><a href="#" class="nav-hover">ROUPAS <i class="fa-solid fa-caret-down"></i></a>
                 <div class="drop"> <!--Começo menu dropdown das roupas-->

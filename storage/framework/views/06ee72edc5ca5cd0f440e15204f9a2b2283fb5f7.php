@@ -1,267 +1,42 @@
-<!--Começo head-->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"><!--Import do bootstrap-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!--Import do fontawesome-->
-    <link rel="stylesheet" href="<?php echo e(url('css/styles.css')); ?>"><!--Import css-->
-    <title>Perifa</title>
-</head>
-<!--Começo fim da head-->
+<?php echo $__env->make('includes.head', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <!--Começo do body-->
 <body>  
-    <header> <!--Começo da header-->
-        <div class="header_direita">
-            <img class="logo" src="<?php echo e(url('images/logo.png')); ?>" alt="Logo perifa">
-        </div> <!--Logo-->
-        <div class="header_final">
-            <div class="header_esquerda">
-                <input type="text" placeholder="PESQUISAR PRODUTOS" class="input-pesquisa">
-                <button class="botao-pesquisa">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button><!--Pesquisar-->
-            </div>
-            <div class="icons-header">
-                <button><!--botão do carrinho-->
-                    <i class="fa-solid fa-bag-shopping"></i>
-                </button>
-                <button class="abrir-modal" data-modal="modal-1"><!--Perfil do user-->
-                    <i class="fa-solid fa-circle"></i>
-                </button>
-
-                <dialog id="modal-1">
-                    <form>
-                        <div class="modal-header">
-                            <h1 class="modal-title">
-                                Entrar na Perifa
-                            </h1>
-
-                            <button class="fechar-modal" data-modal="modal-1" type="button">
-                            <i class="fa-solid fa-xmark"></i>
-                            </button>
-                        </div>
-                            <div class="modal-body">
-                                <div class="inputs">
-                                    <label for="email">Email</label>
-                                    <input type="email" id="email" name="email" placeholder="nome@gmail.com">
-                                </div>  
-                                <div class="inputs">
-                                    <label for="password">Senha</label>
-                                    <input type="password" id="password" name="password" placeholder="••••••••">
-                                </div> 
-
-                                <div class="senha-opcoes">
-                                    <a href="#" class="esqueci-senha">Esqueci minha senha</a>
-                                </div>
-                            </div>
-                        <div class="login-botao">
-                            <button >Entrar</button>
-                        </div>
-                            
-
-                            <div class="cadastrar">
-                                <span>Não tem uma conta?</span>
-                                <a href="#" class="abrir-modal" data-modal="modal-2">
-                                    Clique aqui
-                                </a>
-                            </div>
-                       
-                    </form>
-                    
-
-                </dialog>
-                <dialog id="modal-2">
-                    <form class="form" action="<?php echo e(url('/Cliente')); ?>" method="post">
-                                <?php echo csrf_field(); ?>
-                            <div class="modal-header">
-                                <h1 class="modal-title">
-                                    Cadastre-se na Perifa
-                                </h1>
-
-                                <button class="fechar-modal" data-modal="modal-2" type="button">
-                                <i class="fa-solid fa-xmark"></i>
-                                </button>
-                            </div>
-
-                                <!-- Outros campos -->
-                                <div class="inputs">
-                                    <label for="name">Nome</label>
-                                    <input type="text" id="name" name="nomeCliente" placeholder="Ex:Maria Eduarda Silva">
-                                </div>
-                                <div class="inputs">
-                                    <label for="email">Email</label>
-                                    <input type="email" id="email" name="emailCliente" placeholder="nome@gmail.com">
-                                </div>
-                                <div class="inputs">
-                                    <label for="telefone">Telefone</label>
-                                    <input type="text" id="telefone" name="telefoneCliente" placeholder="(DD)XXXXX-XXXX">
-                                </div>
-                                <div class="inputs">
-                                    <label for="cep">CEP</label>
-                                    <input type="text" id="cep" name="cepCliente">
-                                </div>
-                                <div class="inputs">
-                                    <label for="rua">Rua</label>
-                                    <input type="text" id="rua" name="logradouroCliente">
-                                </div>
-                                <div class="inputs">
-                                    <label for="bairro">Bairro</label>
-                                    <input type="text" id="bairro" name="bairroCliente">
-                                </div>
-                                <div class="inputs">
-                                    <label for="cidade">Cidade</label>
-                                    <input type="text" id="cidade" name="cidadeCliente">
-                                </div>
-                                <div class="inputs">
-                                    <label for="estado">Estado</label>
-                                    <input type="text" id="estado" name="estadoCliente">
-                                </div>
-                                <div class="inputs">
-                                    <label for="complemento">Complemento</label>
-                                    <input type="text" id="complemento" name="complementoCliente">
-                                </div>
-                                <div class="inputs">
-                                    <label for="password">Senha</label>
-                                    <input type="password" id="password" name="senhaCliente" placeholder="••••••••">
-                                </div>
-                                <div class="login-botao">
-                                    <input type="submit" value="Cadastrar">
-                                </div>
-
-            
-                                <div class="cadastrar2">
-                                    <a class="fechar-modal" data-modal="modal-2" id="have-account">
-                                        Já tenho conta
-                                    </a>
-                                    <a href="#" class="abrir-modal" data-modal="modal-2">
-                                        Quero vender na perifa
-                                    </a>
-                                </div>
-                        </form>
-                </dialog>
-
-            </div>    
-        </div>
-    </header>  <!--Fim da header-->
-  
+    <?php echo $__env->make('includes.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     
-    <nav><!--Começo da nav-->
-        <ul>
-            <li class="drop-hover"><a href="#" class="nav-hover">ROUPAS <i class="fa-solid fa-caret-down"></i></a>
-                <div class="drop"> <!--Começo menu dropdown das roupas-->
-                    <a href="#">Blazeres & Ternos</a>
-                    <a href="#">Blusas & Body</a>
-                    <a href="#">Calças & Leggings</a>
-                    <a href="#">Camisas</a>
-                    <a href="#">Camisetas & Regatas</a>
-                    <a href="#">Casacos & Sobretudos</a>
-                    <a href="#">Jaquetas & Moletons</a>
-                    <a href="#">Coletes & Kimonos</a>
-                    <a href="#">Conjuntos</a>
-                    <a href="#">Macacões & Jardineiras</a>
-                    <a href="#">Saias</a>
-                    <a href="#">Shorts & Bermudas</a>
-                    <a href="#">Suéteres & Cardigans</a>
-                    <a href="#">Tops & Croppeds</a>
-                    <a href="#">Vestidos</a>
-                </div> <!--Fim menu dropdown das roupas-->             
-            </li>
-            <li class="drop-hover"><a href="#" class="nav-hover">FEMININAS <i class="fa-solid fa-caret-down"></i></a>
-                <div class="drop"> <!--Começo menu dropdown da categoria feminina-->
-                    <a href="#">Bermudas</a>
-                    <a href="#">Blazer</a>
-                    <a href="#">Camisa</a>
-                    <a href="#">Body</a>
-                    <a href="#">Calça</a>
-                    <a href="#">Croppeds</a>
-                    <a href="#">Camisa</a>
-                    <a href="#">Shorts</a>
-                    <a href="#">Casaco</a>
-                    <a href="#">Colete</a>
-                    <a href="#">Conjuntos</a>
-                    <a href="#">Macacão</a>
-                    <a href="#">Saia</a>
-                    <a href="#">Vestido</a>
-                    <a href="#">Kimono</a>
-                </div> <!--Fim menu dropdown da categoria feminina-->
-            </li>
-            <li class="drop-hover"><a href="#" class="nav-hover">MASCULINAS <i class="fa-solid fa-caret-down"></i></a>
-                <div class="drop"> <!--Começo menu dropdown da categoria Masculina-->
-                        <a href="#">Bermudas</a>
-                        <a href="#">Camisas</a>
-                        <a href="#">Blusa</a>
-                        <a href="#">Body</a>
-                        <a href="#">Calças</a>
-                        <a href="#">Croppeds</a>
-                        <a href="#">Camisa</a>
-                        <a href="#">Shorts</a>
-                        <a href="#">Casaco</a>
-                        <a href="#">Colete</a>
-                        <a href="#">Conjuntos</a>
-                        <a href="#">Suéteres</a>
-                </div> <!--Fim menu dropdown da categoria Masculina-->
-            </li>
-            <li class="drop-hover"><a href="#" class="nav-hover">CALÇADOS <i class="fa-solid fa-caret-down"></i></a>
-                <div class="drop"> <!--Começo menu dropdown da categoria calçados-->
-                        <a href="#">Botas</a>
-                        <a href="#">Sandálias</a>
-                        <a href="#">Sapatos</a>
-                        <a href="#">Tênis</a>
-                </div> <!--Fim menu dropdown da categoria calçados-->
-            </li>
-            <li class="drop-hover" ><a href="#" class="nav-hover" >INFANTIL <i class="fa-solid fa-caret-down"></i></a>
-                <div class="drop"> <!--Começo menu dropdown da categoria Infantil-->
-                        <a href="#">Bermudas</a>
-                        <a href="#">Blazer</a>
-                        <a href="#">Camisa</a>
-                        <a href="#">Body</a>
-                        <a href="#">Calça</a>
-                        <a href="#">Croppeds</a>
-                        <a href="#">Camisa</a>
-                        <a href="#">Shorts</a>
-                        <a href="#">Casaco</a>
-                        <a href="#">Colete</a>
-                        <a href="#">Conjuntos</a>
-                        <a href="#">Macaquinho</a>
-                        <a href="#">Saia</a>
-                        <a href="#">Vestido</a>
-                    </div> <!--Fim menu dropdown da categoria infantil-->
-            </li>
-            <li class="drop-hover" id="hover-marrom"><a href="#" class="nav-hover">BOLSAS & MOCHILAS <i class="fa-solid fa-caret-down"></i></a>
-               <div class="drop"> <!--Começo menu dropdown da categoria Infantil-->
-                        <a href="#">Bolsas</a>
-                        <a href="#">Mochilas & Pochetes</a>
-               </div> <!--Fim menu dropdown da categoria infantil-->
-            </li>
-            <li><a href="#" class="nav-hover">CONTATO</i></a></li>
-        </ul>
-    </nav><!--Fim da nav-->
+    <?php echo $__env->make('includes.nav', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
+
+    
+
+
+    <?php if(Session::has('nome')): ?>   
+        <a href="<?php echo e(url('/logout')); ?>">Sair</a>
+        <?php endif; ?>
+    
 <!--Começo do carousel-->
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-        <img class="slide1" src="<?php echo e(url('images/carousel-image-one.png')); ?>" alt="Primerio Slide">
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block w-100 custom-carousel-img" src="<?php echo e(url('images/carousel-image-one.png')); ?>" alt="Primeiro Slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100 custom-carousel-img" src="<?php echo e(url('images/carousel-image-two.png')); ?>" alt="Segundo Slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100 custom-carousel-img" src="<?php echo e(url('images/carousel-image-one.png')); ?>" alt="Terceiro Slide">
+        </div>
     </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="<?php echo e(url('images/carousel-image-two.png')); ?>" alt="Segundo Slide">
-    </div>
-    <div class="carousel-item">
-      <img class="d-block w-100" src="<?php echo e(url('images/carousel-image-one.png')); ?>" alt="Terceiro Slide">
-    </div>
-  </div>
-  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Anterior</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Próximo</span>
-  </a>
-    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Próximo</span>
+    </a>
+</div>
+
 <!--Fim do carousel-->
 
     <main><!--Começo do corpo do site-->
@@ -336,7 +111,7 @@
 <!--Card 2 termina aqui-->
 <!--Card 3 começa aqui-->
 <div class="card-1">
-                    <img class="image-card" src="<?php echo e(url('images/teste.jpg')); ?>" alt="imagem paapa">
+                    <img class="image-card" src="<?php echo e(url('images/card-image-two.png')); ?>" alt="imagem paapa">
                     <div class="card-body">
                         <div class="card-top">
                                 <div class="card-nome-brecho">
@@ -433,6 +208,8 @@
         </div>
     </main><!--Fim do corpo do site-->
 
+    <?php echo $__env->make('includes.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+    
 <!--Import do javascript-->
 <script src="<?php echo e(('js/script.js')); ?>"></script>
 <!--Imports do bootstrap do body-->

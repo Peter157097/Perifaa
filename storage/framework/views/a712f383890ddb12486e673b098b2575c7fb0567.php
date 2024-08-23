@@ -43,91 +43,88 @@
                 </div>
             </div>
         </div>
-        <form action="<?php echo e(route('produto.store')); ?>" method="POST" enctype="multipart/form-data">
-    <?php echo csrf_field(); ?>
-    <div class="row">
-        <div class="col" id="cadastro">
-            <div class="cadastrar-roupas">
-                <div class="input-group">
-                    <div class="inputs">
-                        <label for="name">Nome</label>
-                        <input type="text" id="name" name="nomeProduto">
+        <div class="row">
+            <div class="col" id="cadastro">
+                <div class="cadastrar-roupas">
+                    <div class="input-group">
+                        <div class="inputs">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" name="nomeRoupa">
+                        </div>
+                        <div class="inputs">
+                            <label for="valor">Valor</label>
+                            <input type="text" id="valor" name="valorRoupa" placeholder="R$">
+                        </div>
+                        <div class="inputs">
+                            <label for="descricao">Descrição</label>
+                            <input type="text" id="descricao" name="descricaoRoupa">
+                        </div>
+                        <div class="inputs">
+                            <label for="cor">Cor</label>
+                            <select name="cor" id="cor">
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="rj">Rio de Janeiro</option>
+                                <!-- Adicione mais opções aqui -->
+                            </select>
+                        </div>
+                        <div class="inputs">
+                            <label for="tamanho">Tamanho</label>
+                            <select name="tamanho" id="tamanho">
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="sp">São Paulo</option>
+                                <!-- Adicione mais opções aqui -->
+                            </select>
+                        </div>
+                        <div class="inputs">
+                            <label for="regiao">Região</label>
+                            <select name="regiao" id="regiao">
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="sp">São Paulo</option>
+                                <!-- Adicione mais opções aqui -->
+                            </select>
+                        </div>
+                        <div class="inputs">
+                            <label for="categoria">Categoria</label>
+                            <select name="categoria" id="categoria">
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="sp">São Paulo</option>
+                                <!-- Adicione mais opções aqui -->
+                            </select>
+                        </div>
+                        <div class="inputs">
+                            <label for="roupa">Roupa</label>
+                            <select name="roupa" id="roupa">
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="sp">São Paulo</option>
+                                <!-- Adicione mais opções aqui -->
+                            </select>
+                        </div>
+                        <div class="inputs">
+                            <label for="condicao">Condição</label>
+                            <select name="condicao" id="condicao">
+                                <option value="" disabled selected>Selecione</option>
+                                <option value="sp">São Paulo</option>
+                                <!-- Adicione mais opções aqui -->
+                            </select>
+                        </div>
+
+                        
+                        
                     </div>
                     <div class="inputs">
-                        <label for="valor">Valor</label>
-                        <input type="text" id="valor" name="valorProduto" placeholder="R$">
+                        <label for="imagem"> <span class="text-primary">Anexar imagem</span></label>
+                        <div class="custom-file-upload">
+                            <input type="file" id="imagem" name="imagemRoupa" accept="image/*" multiple>
+                            <label for="imagem" id="fileLabel">Nenhuma imagem selecionada</label>
+                        </div>
                     </div>
-                    <div class="inputs">
-                        <label for="descricao">Descrição</label>
-                        <input type="text" id="descricao" name="descricaoProduto">
-                    </div>
-                    <div class="inputs">
-                        <label for="cor">Cor</label>
-                        <select name="cor" id="cor">
-                            <option value="" disabled selected>Selecione</option>
-                            <?php $__currentLoopData = $cores; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <option value="<?php echo e($cor->idCor); ?>"><?php echo e($cor->nomeCor); ?></option>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </select>
-                    </div>
-                    <div class="inputs">
-                        <label for="tamanho">Tamanho</label>
-                        <select name="tamanho" id="tamanho">
-                            <option value="" disabled selected>Selecione</option>
-                            <?php $__currentLoopData = $tamanhos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $tamanho): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <option value="<?php echo e($tamanho->idTamanho); ?>"><?php echo e($tamanho->nomeTamanho); ?></option>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </select>
-                    </div>
-                    <div class="inputs">
-                        <label for="regiao">Região</label>
-                        <select name="regiao" id="regiao">
-                            <option value="" disabled selected>Selecione</option>
-                            <?php $__currentLoopData = $regioes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $regiao): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <option value="<?php echo e($regiao->idRegiao); ?>"><?php echo e($regiao->nomeRegiao); ?></option>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </select>
-                    </div>
-                    <div class="inputs">
-                        <label for="categoria">Categoria</label>
-                        <select name="categoria" id="categoria">
-                            <option value="" disabled selected>Selecione</option>
-                            <?php $__currentLoopData = $categorias; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $categoria): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <option value="<?php echo e($categoria->idCategoriaProduto); ?>"><?php echo e($categoria->nomeCategoriaProduto); ?></option>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </select>
-                    </div>
-                    <div class="inputs">
-                        <label for="roupa">Genero</label>
-                        <select name="roupa" id="roupa">
-                            <option value="" disabled selected>Selecione</option>
-                            <?php $__currentLoopData = $roupas; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $roupa): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <option value="<?php echo e($roupa->idGenero); ?>"><?php echo e($roupa->nomeGenero); ?></option>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </select>
-                    </div>
-                    <div class="inputs">
-                        <label for="condicao">Condição</label>
-                        <select name="condicao" id="condicao">
-                            <option value="" disabled selected>Selecione</option>
-                            <?php $__currentLoopData = $condicoes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $condicao): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <option value="<?php echo e($condicao->idCondicao); ?>"><?php echo e($condicao->nomeCondicao); ?></option>
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                        </select>
-                    </div>
+
+
+
+                    <input type="submit" value="Cadastrar">
                 </div>
-                <div class="inputs">
-                    <label for="imagemProduto"> <span class="text-primary">Anexar imagem</span></label>
-                    <div class="custom-file-upload">
-                    <input type="file" id="imagemProduto" name="imagemProduto" accept="image/*">
-                        <label for="imagemProduto" id="fileLabel">Nenhuma imagem selecionada</label>
-                    </div>
-                </div>
-                <input type="submit" value="Cadastrar">
             </div>
         </div>
-    </div>
-</form>
     </div>
 </div>
 

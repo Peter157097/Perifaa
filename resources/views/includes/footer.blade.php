@@ -7,20 +7,26 @@
             </div>
             <div class="section">
                 <h5 class="titulo-section">Empresa</h5>
-                <p>Home</p>
-                <p>Desenvolvedores</p>
+                <div class="letras">
+                    <p>Home</p>
+                    <p>Desenvolvedores</p>
+                </div>
             </div>
             <div class="section">
                 <h5 class="titulo-section">Documentação</h5>
-                <p>Contato</p>
-                <p>Politicas de privacidade</p>
+                <div class="letras">
+                    <p>Contato</p>
+                    <p>Politicas de privacidade</p>
+                </div>
             </div>
             <div class="section">
                 <h5 class="titulo-section">Social</h5>
-                <p>Facebook</p>
-                <p>Instagram</p>
-                <p>Youtube</p>
-                <p>Twitter</p>
+                <div class="letras">
+                    <p>Facebook</p>
+                    <p>Instagram</p>
+                    <p>Youtube</p>
+                    <p>Twitter</p>
+                </div>
             </div>
             
         </div>

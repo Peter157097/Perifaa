@@ -9,10 +9,20 @@ class Cliente extends Model
 {
     use HasFactory;
 
-    protected $table = 'Usuario'; // Certifique-se de que o nome da tabela está correto
-    public $timestamps = false;
+
+      protected $table = 'tbCliente';
+
+      protected $primaryKey = 'idCliente';
+  
+      public $incrementing = true;
+  
+   
+      protected $keyType = 'int';
+  
+      public $timestamps = false;
 
     protected $fillable = [
         'nomeCliente', 'emailCliente', 'telefoneCliente', 'cepCliente', 'logradouroCliente', 'bairroCliente', 'cidadeCliente', 'estadoCliente', 'complementoCliente', 'senhaCliente',
     ];
+
 }

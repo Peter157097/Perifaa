@@ -37,6 +37,8 @@ class AuthController extends Controller
                 Session::put('cidade', $usuario->cidadeCliente);
                 Session::put('estado', $usuario->estadoCliente);
 
+                Session::put('imagemCliente', $usuario->imagemCliente);
+
 
                 // Redireciona para o perfil
                 return redirect('/');

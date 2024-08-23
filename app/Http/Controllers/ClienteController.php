@@ -14,8 +14,7 @@ class ClienteController extends Controller
 {
     public function store(Request $request)
     {
-
- 
+    
         $cliente = new Cliente;
         $cliente->nomeCliente = $request->nomeCliente;
         $cliente->emailCliente = $request->emailCliente;
@@ -28,13 +27,23 @@ class ClienteController extends Controller
         $cliente->estadoCliente = $request->estadoCliente;
         $cliente->complementoCliente = $request->complementoCliente;
         $cliente->senhaCliente = Hash::make($request->senhaCliente);
-
-       
+    
+        if ($request->hasFile('imagemCliente')) {
+            $file = $request->file('imagemCliente');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            // Move o arquivo para o diretório public/images/perfil
+            $file->move(public_path('images/perfil'), $filename);
+            $cliente->imagemCliente = 'images/perfil/' . $filename; // Caminho relativo
+        } else {
+            $cliente->imagemCliente = null; // Define como null se a imagem não for fornecida
+        }
+    
         $cliente->save();
-
-       
-        return redirect("/");
+    
+        return redirect("/")->with('success', 'Cliente cadastrado com sucesso!');
     }
+    
+    
     public function showProfile()
     {
         return view('perfil', [

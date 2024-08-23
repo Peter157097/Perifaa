@@ -11,6 +11,7 @@ use App\Models\Roupa;
 use App\Models\Condicao;
 use App\Models\Produto;
 
+
 class DashboardController extends Controller
 {
     public function index()
@@ -34,7 +35,7 @@ class DashboardController extends Controller
     public function store(Request $request)
     {
 
-        \Log::info('Dados recebidos:', $request->all());
+
 
         $validated = $request->validate([
             'nomeProduto' => 'required|string|max:100',
@@ -49,9 +50,7 @@ class DashboardController extends Controller
             'imagemProduto' => 'nullable|image|max:2048',
         ]);
     
-        \Log::info('Dados validados com sucesso.');
-
-        \Log::info('Dados após validação:', $request->all());
+     
     
         // Criar um novo registro de produto
         $produto = new Produto();
@@ -61,7 +60,7 @@ class DashboardController extends Controller
         $produto->idCor = $request->input('cor');
         $produto->idTamanho = $request->input('tamanho');
         $produto->idRegiao = $request->input('regiao');
-        $produto->idCategoria = $request->input('categoria', null); // Pode ser nulo
+        $produto->idCategoriaProduto = $request->input('categoria', null); // Pode ser nulo
         $produto->idGenero = $request->input('roupa');
         $produto->idCondicao = $request->input('condicao');
         $produto->idVendedor = 1; // Definir idVendedor como 1
@@ -78,7 +77,7 @@ class DashboardController extends Controller
         // Salvar no banco de dados
         $produto->save();
     
-        \Log::info('Produto salvo:', $produto->toArray());
+   
 
 
         return redirect()->route('dashboard')->with('success', 'Produto cadastrado com sucesso!');

@@ -144,11 +144,11 @@
                                 @csrf
                                     <div class="inputs">
                                         <label for="email">Email</label>
-                                        <input type="email" id="emailCliente" name="emailCliente" placeholder="nome@gmail.com">
+                                        <input type="email" id="emailCliente" name="emailCliente" placeholder="nome@gmail.com" required>
                                     </div>  
                                     <div class="inputs">
                                         <label for="password">Senha</label>
-                                        <input type="password" id="senhaCliente" name="senhaCliente" placeholder="••••••••">
+                                        <input type="password" id="senhaCliente" name="senhaCliente" placeholder="••••••••" required>
                                     </div> 
 
                                     <div class="senha-opcoes">
@@ -187,134 +187,53 @@
         <div class="input-group">
             <div class="inputs">
                 <label for="name">Nome</label>
-                <input type="text" id="name" name="nomeCliente" placeholder="Ex: Maria Eduarda Silva">
+                <input type="text" id="name" name="nomeCliente" placeholder="Ex: Maria Eduarda Silva" required>
             </div>
             <div class="inputs">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="emailCliente" placeholder="nome@gmail.com">
+                <input type="email" id="email" name="emailCliente" placeholder="nome@gmail.com" required>
             </div>
             <div class="inputs">
                 <label for="email">CPF</label>
-                <input type="text" id="cpf" name="cpfCliente" placeholder="nome@gmail.com">
+                <input type="text" id="cpf" name="cpfCliente" placeholder="nome@gmail.com" required>
             </div>
             <div class="inputs">
                 <label for="telefone">Telefone</label>
-                <input type="text" id="telefone" name="numeroCliente" placeholder="(DD)XXXXX-XXXX">
+                <input type="text" id="telefone" name="numeroCliente" placeholder="(DD)XXXXX-XXXX" required>
             </div>
             <div class="inputs">
                 <label for="cep">CEP</label>
-                <input type="text" id="cep" name="cepCliente">
+                <input type="text" id="cep" name="cepCliente" onblur="pesquisacep(this.value);" required>
             </div>
             <div class="inputs">
                 <label for="rua">Rua</label>
-                <input type="text" id="rua" name="logradouroCliente">
+                <input type="text" id="rua" name="logradouroCliente" required>
             </div>
             <div class="inputs">
                 <label for="bairro">Bairro</label>
-                <input type="text" id="bairro" name="bairroCliente">
+                <input type="text" id="bairro" name="bairroCliente" required>
             </div>
             <div class="inputs">
-        <label for="estadoCliente">Estado</label>
-        <select name="estadoCliente" id="estadoCliente">
-            <option value="" disabled selected>Selecione</option>
-            <option value="AC">Acre</option>
-            <option value="AL">Alagoas</option>
-            <option value="AP">Amapá</option>
-            <option value="AM">Amazonas</option>
-            <option value="BA">Bahia</option>
-            <option value="CE">Ceará</option>
-            <option value="DF">Distrito Federal</option>
-            <option value="ES">Espírito Santo</option>
-            <option value="GO">Goiás</option>
-            <option value="MA">Maranhão</option>
-            <option value="MT">Mato Grosso</option>
-            <option value="MS">Mato Grosso do Sul</option>
-            <option value="MG">Minas Gerais</option>
-            <option value="PA">Pará</option>
-            <option value="PB">Paraíba</option>
-            <option value="PR">Paraná</option>
-            <option value="PE">Pernambuco</option>
-            <option value="PI">Piauí</option>
-            <option value="RJ">Rio de Janeiro</option>
-            <option value="RN">Rio Grande do Norte</option>
-            <option value="RS">Rio Grande do Sul</option>
-            <option value="RO">Rondônia</option>
-            <option value="RR">Roraima</option>
-            <option value="SC">Santa Catarina</option>
-            <option value="SP">São Paulo</option>
-        </select>
-    </div>
+                <label for="estadoCliente">Estado</label>
+                <input type="text" name="estadoCliente" id="estado" required>
+            </div>
     <div class="inputs">
         <label for="cidadeCliente">Cidade</label>
-        <select name="cidadeCliente" id="cidadeCliente">
-            <option value="" disabled selected>Selecione a cidade</option>
-        </select>
+        <input type="text" name="cidadeCliente" id="cidade" required>
     </div>
-
-    <!-- JavaScript para gerenciamento dinâmico -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const estadoSelect = document.getElementById('estadoCliente');
-        const cidadeSelect = document.getElementById('cidadeCliente');
-
-        // Dados de exemplo para cidades por estado
-        const cidadesPorEstado = {
-            'AC': ['Rio Branco', 'Cruzeiro do Sul'],
-            'AL': ['Maceió', 'Arapiraca'],
-            'AP': ['Macapá', 'Santana'],
-            'AM': ['Manaus', 'Parintins'],
-            'BA': ['Salvador', 'Feira de Santana', 'Vitória da Conquista'],
-            'CE': ['Fortaleza', 'Juazeiro do Norte', 'Sobral'],
-            'DF': ['Brasília'],
-            'ES': ['Vitória', 'Vila Velha', 'Cariacica'],
-            'GO': ['Goiânia', 'Anápolis', 'Rio Verde', 'Catalão', 'Pirenópolis'],
-            'MA': ['São Luís', 'Imperatriz', 'Caxias', 'Timon', 'Barreirinhas'],
-            'MT': ['Cuiabá', 'Várzea Grande', 'Sinop', 'Rondonópolis', 'Tangará da Serra'],
-            'MS': ['Campo Grande', 'Dourados', 'Corumbá', 'Ponta Porã', 'Três Lagoas'],
-            'MG': ['Belo Horizonte', 'Uberlândia', 'Juiz de Fora', 'Ouro Preto', 'Contagem'],
-            'PA': ['Belém', 'Santarém', 'Marabá', 'Ananindeua', 'Castanhal'],
-            'PB': ['João Pessoa', 'Campina Grande', 'Santa Rita', 'Patos', 'Bayeux'],
-            'PR': ['Curitiba', 'Londrina', 'Maringá', 'Ponta Grossa', 'Foz do Iguaçu'],
-            'PE': ['Recife', 'Olinda', 'Jaboatão dos Guararapes', 'Caruaru', 'Petrolina'],
-            'PI': ['Teresina', 'Parnaíba', 'Picos', 'Floriano', 'Esperantina'],
-            'RJ': ['Rio de Janeiro', 'Niterói', 'Duque de Caxias', 'São Gonçalo', 'Nova Iguaçu'],
-            'RN': ['Natal', 'Mossoró', 'Parnamirim', 'Caicó', 'Açu'],
-            'RS': ['Porto Alegre', 'Caxias do Sul', 'Pelotas', 'Santa Maria', 'Novo Hamburgo'],
-            'RO': ['Porto Velho', 'Ji-Paraná', 'Cacoal', 'Rolim de Moura', 'Ariquemes'],
-            'RR': ['Boa Vista'],
-            'SC': ['Florianópolis', 'Joinville', 'Blumenau', 'Criciúma', 'Chapecó'],
-            'SP': ['São Paulo', 'Campinas', 'Santos', 'Sorocaba', 'São Bernardo do Campo']
-        };
-
-        estadoSelect.addEventListener('change', function() {
-            cidadeSelect.innerHTML = '<option value="" disabled selected>Selecione a cidade</option>';
-
-            const estadoSelecionado = estadoSelect.value;
-
-            if (cidadesPorEstado[estadoSelecionado]) {
-                cidadesPorEstado[estadoSelecionado].forEach(function(cidade) {
-                    const option = document.createElement('option');
-                    option.value = cidade;
-                    option.textContent = cidade;
-                    cidadeSelect.appendChild(option);
-                });
-            }
-        });
-    });
-    </script>
             <div class="inputs">
                 <label for="complemento">Complemento</label>
                 <input type="text" id="complemento" name="complementoCliente">
             </div>
             <div class="inputs">
                 <label for="password">Senha</label>
-                <input type="password" id="password" name="senhaCliente" placeholder="••••••••">
+                <input type="password" id="password" name="senhaCliente" placeholder="••••••••" required>
             </div>
         </div>
         <div class="inputs">
         <label for="imagemCliente"> <span class="text-primary">Anexar imagem</span></label>
         <div class="custom-file-upload">
-            <input type="file" id="imagemCliente" name="imagemCliente" accept="image/*">
+            <input type="file" id="imagemCliente" name="imagemCliente" accept="image/*" required>
             <label for="imagemCliente" id="fileLabel">Nenhuma imagem selecionada</label>
         </div>
     </div>
@@ -330,7 +249,7 @@
 
 <!-- Modal 3 -->
 <dialog id="modal-3">
-    <form class="form" action="{{ url('/Vendedor') }}" method="post" enctype="multipart/form-data">
+    <form class="form" action="{{ url('/Vendedor') }}" method="post" enctype="multipart/form-data" >
         @csrf
         <div class="modal-header">
             <h1 class="modal-title">Venda na Perifa</h1>
@@ -341,119 +260,37 @@
         <div class="input-group">
             <div class="inputs">
                 <label for="name">Nome</label>
-                <input type="text" id="name" name="nomeVendedor" placeholder="Ex: Maria Eduarda Silva">
+                <input type="text" id="name" name="nomeVendedor" placeholder="Ex: Maria Eduarda Silva" required>
             </div>
             <div class="inputs">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="emailVendedor" placeholder="nome@gmail.com">
+                <input type="email" id="email" name="emailVendedor" placeholder="nome@gmail.com" required>
             </div>
             <div class="inputs">
                 <label for="telefone">Telefone</label>
-                <input type="text" id="telefone" name="telefoneVendedor" placeholder="(DD)XXXXX-XXXX">
+                <input type="text" id="telefone" name="telefoneVendedor" placeholder="(DD)XXXXX-XXXX" required>
             </div>
             <div class="inputs">
                 <label for="cep">CEP</label>
-                <input type="text" id="cep" name="cepVendedor">
+                <input type="text" id="cep" name="cepVendedor" onblur="pesquisacep(this.value);" required>
             </div>
             <div class="inputs">
                 <label for="rua">Rua</label>
-                <input type="text" id="rua" name="ruaVendedor">
+                <input type="text"  name="ruaVendedor" id="rua" required>
             </div>
             <div class="inputs">
                 <label for="bairro">Bairro</label>
-                <input type="text" id="bairro" name="bairroVendedor">
+                <input type="text" name="bairroVendedor" id="bairro" required>
             </div>
             <div class="inputs">
         <label for="estadoVendedor">Estado</label>
-        <select name="estadoVendedor" id="estadoVendedor">
-            <option value="" disabled selected>Selecione</option>
-            <option value="AC">Acre</option>
-            <option value="AL">Alagoas</option>
-            <option value="AP">Amapá</option>
-            <option value="AM">Amazonas</option>
-            <option value="BA">Bahia</option>
-            <option value="CE">Ceará</option>
-            <option value="DF">Distrito Federal</option>
-            <option value="ES">Espírito Santo</option>
-            <option value="GO">Goiás</option>
-            <option value="MA">Maranhão</option>
-            <option value="MT">Mato Grosso</option>
-            <option value="MS">Mato Grosso do Sul</option>
-            <option value="MG">Minas Gerais</option>
-            <option value="PA">Pará</option>
-            <option value="PB">Paraíba</option>
-            <option value="PR">Paraná</option>
-            <option value="PE">Pernambuco</option>
-            <option value="PI">Piauí</option>
-            <option value="RJ">Rio de Janeiro</option>
-            <option value="RN">Rio Grande do Norte</option>
-            <option value="RS">Rio Grande do Sul</option>
-            <option value="RO">Rondônia</option>
-            <option value="RR">Roraima</option>
-            <option value="SC">Santa Catarina</option>
-            <option value="SP">São Paulo</option>
-        </select>
-    </div>
+        <input type="text"  name="estadoVendedor" id="estado" required>  
+        </div>
     <div class="inputs">
         <label for="cidadeVendedor">Cidade</label>
-        <select name="cidadeVendedor" id="cidadeVendedor">
-            <option value="" disabled selected>Selecione a cidade</option>
-        </select>
+        <input type="text"  name="cidadeVendedor" id="cidade" required>
     </div>
-
-    <!-- JavaScript para gerenciamento dinâmico -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const estadoSelect = document.getElementById('estadoVendedor');
-        const cidadeSelect = document.getElementById('cidadeVendedor');
-
-        // Dados de exemplo para cidades por estado
-        const cidadesPorEstado = {
-            'AC': ['Rio Branco', 'Cruzeiro do Sul'],
-            'AL': ['Maceió', 'Arapiraca'],
-            'AP': ['Macapá', 'Santana'],
-            'AM': ['Manaus', 'Parintins'],
-            'BA': ['Salvador', 'Feira de Santana', 'Vitória da Conquista'],
-            'CE': ['Fortaleza', 'Juazeiro do Norte', 'Sobral'],
-            'DF': ['Brasília'],
-            'ES': ['Vitória', 'Vila Velha', 'Cariacica'],
-            'GO': ['Goiânia', 'Anápolis', 'Rio Verde', 'Catalão', 'Pirenópolis'],
-            'MA': ['São Luís', 'Imperatriz', 'Caxias', 'Timon', 'Barreirinhas'],
-            'MT': ['Cuiabá', 'Várzea Grande', 'Sinop', 'Rondonópolis', 'Tangará da Serra'],
-            'MS': ['Campo Grande', 'Dourados', 'Corumbá', 'Ponta Porã', 'Três Lagoas'],
-            'MG': ['Belo Horizonte', 'Uberlândia', 'Juiz de Fora', 'Ouro Preto', 'Contagem'],
-            'PA': ['Belém', 'Santarém', 'Marabá', 'Ananindeua', 'Castanhal'],
-            'PB': ['João Pessoa', 'Campina Grande', 'Santa Rita', 'Patos', 'Bayeux'],
-            'PR': ['Curitiba', 'Londrina', 'Maringá', 'Ponta Grossa', 'Foz do Iguaçu'],
-            'PE': ['Recife', 'Olinda', 'Jaboatão dos Guararapes', 'Caruaru', 'Petrolina'],
-            'PI': ['Teresina', 'Parnaíba', 'Picos', 'Floriano', 'Esperantina'],
-            'RJ': ['Rio de Janeiro', 'Niterói', 'Duque de Caxias', 'São Gonçalo', 'Nova Iguaçu'],
-            'RN': ['Natal', 'Mossoró', 'Parnamirim', 'Caicó', 'Açu'],
-            'RS': ['Porto Alegre', 'Caxias do Sul', 'Pelotas', 'Santa Maria', 'Novo Hamburgo'],
-            'RO': ['Porto Velho', 'Ji-Paraná', 'Cacoal', 'Rolim de Moura', 'Ariquemes'],
-            'RR': ['Boa Vista'],
-            'SC': ['Florianópolis', 'Joinville', 'Blumenau', 'Criciúma', 'Chapecó'],
-            'SP': ['São Paulo', 'Campinas', 'Santos', 'Sorocaba', 'São Bernardo do Campo']
-        };
-
-        estadoSelect.addEventListener('change', function() {
-            cidadeSelect.innerHTML = '<option value="" disabled selected>Selecione a cidade</option>';
-
-            const estadoSelecionado = estadoSelect.value;
-
-            if (cidadesPorEstado[estadoSelecionado]) {
-                cidadesPorEstado[estadoSelecionado].forEach(function(cidade) {
-                    const option = document.createElement('option');
-                    option.value = cidade;
-                    option.textContent = cidade;
-                    cidadeSelect.appendChild(option);
-                });
-            }
-        });
-    });
-    </script>
-
-            
+  
             <div class="inputs">
                 <label for="complemento">Complemento</label>
                 <input type="text" id="complemento" name="complementoVendedor">
@@ -481,3 +318,69 @@
     </div>
 
 </header>  <!--Fim da header-->
+
+
+<script>
+function limpa_formulario_cep(modal) {
+    modal.querySelector('#rua').value = "";
+    modal.querySelector('#bairro').value = "";
+    modal.querySelector('#cidade').value = "";
+    modal.querySelector('#estado').value = "";
+}
+
+// Função de callback para processar a resposta da API ViaCEP
+function meu_callback(conteudo, modal) {
+    if (!("erro" in conteudo)) {
+        modal.querySelector('#rua').value = conteudo.logradouro;
+        modal.querySelector('#bairro').value = conteudo.bairro;
+        modal.querySelector('#cidade').value = conteudo.localidade;
+        modal.querySelector('#estado').value = conteudo.uf;
+    } else {
+        limpa_formulario_cep(modal);
+        alert("CEP não encontrado.");
+    }
+}
+
+// Função para pesquisar o CEP e obter os dados da API ViaCEP
+function pesquisacep(valor, modal) {
+    var cep = valor.replace(/\D/g, '');
+
+    if (cep !== "") {
+        var validacep = /^[0-9]{8}$/;
+
+        if (validacep.test(cep)) {
+            modal.querySelector('#rua').value = "...";
+            modal.querySelector('#bairro').value = "...";
+            modal.querySelector('#cidade').value = "...";
+            modal.querySelector('#estado').value = "...";
+
+            var script = document.createElement('script');
+            script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=callbackCep';
+            document.body.appendChild(script);
+
+            window.callbackCep = function(conteudo) {
+                meu_callback(conteudo, modal);
+            };
+
+        } else {
+            limpa_formulario_cep(modal);
+            alert("Formato de CEP inválido.");
+        }
+    } else {
+        limpa_formulario_cep(modal);
+    }
+}
+
+
+document.querySelector('#modal-3').addEventListener('blur', function(e) {
+    if (e.target.id === 'cep') {
+        pesquisacep(e.target.value, document.querySelector('#modal-3'));
+    }
+}, true);
+
+document.querySelector('#modal-2').addEventListener('blur', function(e) {
+    if (e.target.id === 'cep') {
+        pesquisacep(e.target.value, document.querySelector('#modal-2'));
+    }
+}, true);
+    </script>

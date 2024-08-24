@@ -53,7 +53,8 @@ class ClienteController extends Controller
             'logradouro' => Session::get('logradouro'),
             'cep' => Session::get('cep'),
             'cidade' => Session::get('cidade'),
-            'estado' => Session::get('estado')
+            'estado' => Session::get('estado'),
+            'imagemCliente' => Session::get('imagemCliente')
         ]);
     }
 
@@ -68,6 +69,7 @@ class ClienteController extends Controller
             'cepCliente' => 'required|string|max:10',
             'cidadeCliente' => 'required|string|max:100',
             'estadoCliente' => 'required|string|max:50',
+            'imagemCliente' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validação da imagem
         ]);
 
         // Verifica se o idCliente está na sessão
@@ -85,6 +87,20 @@ class ClienteController extends Controller
         $cliente->cepCliente = $request->cepCliente;
         $cliente->cidadeCliente = $request->cidadeCliente;
         $cliente->estadoCliente = $request->estadoCliente;
+
+        // Lidar com a imagem
+        if ($request->hasFile('imagemCliente')) {
+            // Exclua a imagem antiga, se existir
+            if ($cliente->imagemCliente && file_exists(public_path($cliente->imagemCliente))) {
+                unlink(public_path($cliente->imagemCliente));
+            }
+
+            $file = $request->file('imagemCliente');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('images/perfil'), $filename);
+            $cliente->imagemCliente = 'images/perfil/' . $filename;
+        }
+
         $cliente->save();
 
         // Atualiza as informações na sessão
@@ -95,6 +111,10 @@ class ClienteController extends Controller
         Session::put('cep', $request->cepCliente);
         Session::put('cidade', $request->cidadeCliente);
         Session::put('estado', $request->estadoCliente);
+
+        if ($request->hasFile('imagemCliente')) {
+            Session::put('imagemCliente', $cliente->imagemCliente);
+        }
 
         session()->flash('success', 'Perfil atualizado com sucesso!');
         return redirect('/perfil');

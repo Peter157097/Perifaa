@@ -12,6 +12,8 @@ body{
     gap: 4%
 }
 
+
+
 .frame-perfil {
     background-color: #ffffff;
     width: 50vh;
@@ -34,7 +36,7 @@ body{
     border-color: #ffffff;
     border-width: 0.5vh;
     border-style: solid;
-    background-color: red;
+    background-color: white;
     width: 30vh;
     height: 30vh;
     border-radius: 100%;
@@ -381,7 +383,7 @@ body{
         border-color: #ffffff;
         border-width: 1vh;
         border-style: solid;
-        background-color: red;
+        background-color: white;
         width: 30vh;
         height: 30vh;
         border-radius: 100%;
@@ -610,7 +612,7 @@ header {
     border-color: #ffffff;
     border-width: 0.5vh;
     border-style: solid;
-    background-color: red;
+    background-color: #ffffff;
     width: 30vh;
     height: 30vh;
     border-radius: 100%;
@@ -957,7 +959,7 @@ header {
         border-color: #ffffff;
         border-width: 1vh;
         border-style: solid;
-        background-color: red;
+        background-color: #ffffff;
         width: 30vh;
         height: 30vh;
         border-radius: 100%;
@@ -2623,10 +2625,10 @@ dialog #modal-2::backdrop{
     height: 20vh;     
 }
 .foto-perfil{
-    border-color: #ffffff;
+    border-color: black;
     border-width: 0.5vh;
     border-style:solid;
-    background-color: red;
+    background-color: #ffffff;
     width: 30vh;
     height: 30vh;
     border-radius: 100%;

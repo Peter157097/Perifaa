@@ -2,6 +2,49 @@
 <html lang="en">
 <head>
     @include('includes.head')
+    <style>
+        /* Estilização do campo de upload de imagem */
+        .form-group {
+            margin-top: 20px;
+        }
+
+        .file-upload-wrapper {
+            position: relative;
+            display: inline-block;
+            width: 200px;
+            height: 50px;
+        }
+
+        .file-upload-wrapper input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file-upload-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            background-color: #5e3e24;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            border: 2px solid transparent;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .file-upload-btn:hover {
+            background-color: #442a17;
+            border-color: #ffffff;
+        }
+    </style>
 </head>
 <body>
     @include('includes.header')
@@ -11,17 +54,19 @@
         <div class="container-perfil">
             <div class="frame-perfil">
                 <div class="img-topo-perfil">
-                    <div class="foto-perfil"></div>
+                    <div class="foto-perfil">
+                        <img src="{{ url($imagemCliente) }}" alt="Foto do Perfil" class="img-fluid rounded-circle" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
                 </div>
             </div>
             <div class="align-info">
                 <div class="titulo-perfil">
-                    <img class="user-icon" src="{{ url('images/user-icon.png') }}" alt="Icone usuario">
+                    <img class="user-icon" src="{{ url('images/user-icon.png') }}" alt="Ícone usuário">
                     <h4 class="titulo-font">Meu perfil</h4>
                 </div>
 
                 <div class="info-perfil">
-                    <form action="{{ url('/perfil/update') }}" method="POST">
+                    <form action="{{ url('/perfil/update') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="titulo-info">
                             <div class="titulo-info-font">
@@ -39,6 +84,13 @@
                                     <li class="lista-item"><input type="text" name="numeroCliente" value="{{ $numero }}"></li>
                                 </ul>
                             </div>
+
+                            <!-- Campo para upload da imagem -->
+                            <div class="form-group">
+                                <label for="imagemCliente">Atualizar imagem de perfil:</label>
+                                <input type="file" name="imagemCliente" class="form-control" id="imagemCliente" style="width: 200px;">
+                            </div>
+
                             <div class="titulo-info-font">
                                 <h5 class="info-texto">Endereços</h5>
                             </div>
@@ -60,10 +112,9 @@
                         <button type="submit" class="btn btn-primary" style="background-color: #5e3e24; margin-top: 70%;">Salvar alterações</button>
                     </form>
                     <div class="container">
-                            <p class="excluir-txt">Excluir minha conta</p>
-                            
-                            <p class="aviso-excluir">Ao excluir a conta, torna-se impossivel recupera-la.</p>
-                        </div>
+                        <p class="excluir-txt">Excluir minha conta</p>
+                        <p class="aviso-excluir">Ao excluir a conta, torna-se impossível recuperá-la.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -71,9 +122,9 @@
 
     @include('includes.footer')
 
-    <!--Import do javascript-->
+    <!-- Import do javascript -->
     <script src="{{ url('js/script.js') }}"></script>
-    <!--Imports do bootstrap do body-->
+    <!-- Imports do bootstrap do body -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

@@ -1,25 +1,27 @@
 <nav class="web"><!--Começo da nav-->
     
         <ul>
-            <li class="drop-hover"><a href="#" class="nav-hover">ROUPAS <i class="fa-solid fa-caret-down"></i></a>
-                <div class="drop"> <!--Começo menu dropdown das roupas-->
-                    <a href="#">Blazeres & Ternos</a>
-                    <a href="#">Blusas & Body</a>
-                    <a href="#">Calças & Leggings</a>
-                    <a href="#">Camisas</a>
-                    <a href="#">Camisetas & Regatas</a>
-                    <a href="#">Casacos & Sobretudos</a>
-                    <a href="#">Jaquetas & Moletons</a>
-                    <a href="#">Coletes & Kimonos</a>
-                    <a href="#">Conjuntos</a>
-                    <a href="#">Macacões & Jardineiras</a>
-                    <a href="#">Saias</a>
-                    <a href="#">Shorts & Bermudas</a>
-                    <a href="#">Suéteres & Cardigans</a>
-                    <a href="#">Tops & Croppeds</a>
-                    <a href="#">Vestidos</a>
-                </div> <!--Fim menu dropdown das roupas-->             
-            </li>
+        <li class="drop-hover">
+        <a href="{{ url('/produtos') }}" class="nav-hover">ROUPAS <i class="fa-solid fa-caret-down"></i></a>
+        <div class="drop"> <!-- Começo menu dropdown das roupas -->
+            <a href="#">Blazeres & Ternos</a>
+            <a href="#">Blusas & Body</a>
+            <a href="#">Calças & Leggings</a>
+            <a href="#">Camisas</a>
+            <a href="#">Camisetas & Regatas</a>
+            <a href="#">Casacos & Sobretudos</a>
+            <a href="#">Jaquetas & Moletons</a>
+            <a href="#">Coletes & Kimonos</a>
+            <a href="#">Conjuntos</a>
+            <a href="#">Macacões & Jardineiras</a>
+            <a href="#">Saias</a>
+            <a href="#">Shorts & Bermudas</a>
+            <a href="#">Suéteres & Cardigans</a>
+            <a href="#">Tops & Croppeds</a>
+            <a href="#">Vestidos</a>
+        </div> <!-- Fim menu dropdown das roupas -->
+    </li>
+
             <li class="drop-hover"><a href="#" class="nav-hover">FEMININAS <i class="fa-solid fa-caret-down"></i></a>
                 <div class="drop"> <!--Começo menu dropdown da categoria feminina-->
                     <a href="#">Bermudas</a>

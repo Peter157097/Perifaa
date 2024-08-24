@@ -55,7 +55,7 @@
                     </div>
                     <div class="inputs">
                         <label for="valor">Valor</label>
-                        <input type="text" id="valor" name="valorProduto" placeholder="R$">
+                        <input type="number" id="valor" name="valorProduto" placeholder="R$">
                     </div>
                     <div class="inputs">
                         <label for="descricao">Descrição</label>

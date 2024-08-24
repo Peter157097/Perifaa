@@ -28,9 +28,10 @@ Route::get('/perfil', function () {
     $cep = Session::get('cep');
     $cidade = Session::get('cidade');
     $estado = Session::get('estado');
+    $imagemCliente = Session::get('imagemCliente');
 
-    if ($nome && $email && $id && $numero && $logradouro && $cep && $cidade && $estado) {
-        return view('perfil', compact('nome', 'email', 'id', 'numero', 'logradouro', 'cep', 'cidade', 'estado'));
+    if ($nome && $email && $id && $numero && $logradouro && $cep && $cidade && $estado && $imagemCliente) {
+        return view('perfil', compact('nome', 'email', 'id', 'numero', 'logradouro', 'cep', 'cidade', 'estado', 'imagemCliente'));
     } else {
         Session::flash('alert', 'Para acessar esta página, faça o login!');
         return redirect('/');

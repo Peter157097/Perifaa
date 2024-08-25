@@ -16,7 +16,9 @@
                     <button class="botao-pesquisa">
                         <i class="fa-solid fa-magnifying-glass" id="pesquisa"></i>
                     </button>
+                        
                 </div>   
+               
     <nav class="nav-mobile"><!--Começo da nav-->
         <ul>
             <li class="drop-hover"><a href="#" class="nav-hover">ROUPAS <i class="fa-solid fa-caret-right"></i></a>
@@ -126,9 +128,19 @@
             <button class="botao-carrinho">
                 <i class="fa-solid fa-bag-shopping"></i>
             </button>
-            <button class="abrir-modal" data-modal="modal-1">
+            
+            <li class="drop-hover-perfil">
+            <a href="#" class="nav-hover"><button class="abrir-modal" data-modal="modal-1">
                 <i class="fa-solid fa-circle"></i>
-            </button>
+            </button> </a>
+                        <div class="drop-perfil"> <!--Começo menu dropdown das roupas-->
+                                <a href="#"><i class="fa-solid fa-user"></i>Meu perfil</a>
+                                <a href="#"><i class="fa-solid fa-heart"></i>Favoritos</a>
+                                <a href="#"><i class="fa-solid fa-cart-shopping"></i>Minhas compras</a>
+                                <a href="#"><i class="fa-solid fa-circle-question"></i>Ajuda</a>
+                                <a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a>
+                        </div> <!--Fim menu dropdown das roupas-->             
+            </li>
             <!--modal 1-->
             <dialog id="modal-1">
                         <div class="modal-header">

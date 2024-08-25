@@ -268,7 +268,7 @@
         <div class="inputs">
         <label for="imagemCliente"> <span class="text-primary">Anexar imagem</span></label>
         <div class="custom-file-upload">
-            <input type="file" id="imagemCliente" name="imagemCliente" accept="image/*" required>
+            <input type="file" id="imagemCliente" name="imagemCliente" accept="image/*" >
             <label for="imagemCliente" id="fileLabel">Nenhuma imagem selecionada</label>
         </div>
     </div>

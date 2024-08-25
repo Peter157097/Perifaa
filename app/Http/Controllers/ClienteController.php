@@ -28,6 +28,7 @@ class ClienteController extends Controller
         $cliente->complementoCliente = $request->complementoCliente;
         $cliente->senhaCliente = Hash::make($request->senhaCliente);
     
+
         if ($request->hasFile('imagemCliente')) {
             $file = $request->file('imagemCliente');
             $filename = time() . '.' . $file->getClientOriginalExtension();
@@ -35,7 +36,7 @@ class ClienteController extends Controller
             $file->move(public_path('images/perfil'), $filename);
             $cliente->imagemCliente = 'images/perfil/' . $filename; // Caminho relativo
         } else {
-            $cliente->imagemCliente = null; // Define como null se a imagem não for fornecida
+            $cliente->imagemCliente = 'images/logo3.png'; // Define como null se a imagem não for fornecida
         }
     
         $cliente->save();

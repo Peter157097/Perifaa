@@ -16,10 +16,12 @@
                     <button class="botao-pesquisa">
                         <i class="fa-solid fa-magnifying-glass" id="pesquisa"></i>
                     </button>
+                        
                 </div>   
+               
     <nav class="nav-mobile"><!--Começo da nav-->
         <ul>
-            <li class="drop-hover"><a href="#" class="nav-hover">ROUPAS <i class="fa-solid fa-caret-right"></i></a>
+            <li class="drop-hover"><a class="nav-hover" >ROUPAS <i class="fa-solid fa-caret-right"></i></a>
                 <div class="drop"> <!--Começo menu dropdown das roupas-->
                     <a href="#">Blazeres & Ternos</a>
                     <a href="#">Blusas & Body</a>
@@ -110,8 +112,9 @@
     </nav><!--Fim do menu mobile-->
             
 
-            </div>
+            </div><a href="{{ url('/') }}">
             <img class="logo" src="{{url('images/logo.png')}}" alt="Logo perifa">
+            </a>
         </div>
        
         <div class="header_icones">
@@ -126,9 +129,41 @@
             <button class="botao-carrinho">
                 <i class="fa-solid fa-bag-shopping"></i>
             </button>
-            <button class="abrir-modal" data-modal="modal-1">
-                <i class="fa-solid fa-circle"></i>
-            </button>
+
+            
+            <li class="drop-hover-perfil">
+            @if (session('is_vendedor') || session('is_Cliente'))
+    <button class="abrir-modal" data-modal="modal-1" disabled>
+        <i class="bi bi-person-circle"></i>
+    </button>
+@else
+        <a href="#">
+    <button class="abrir-modal" data-modal="modal-1">
+       <i class="bi bi-person-circle"></i>
+    </button>
+    </a>
+@endif
+
+            @if(session('is_vendedor'))
+                <div class="drop-perfil"> <!--Começo menu dropdown das roupas-->
+                        <a href="{{ url('/dashboard') }}" id="link-perfil"><i class="bi bi-kanban"></i>Dashboard</a>
+                        <a href="#" id="link-perfil"><i class="fa-solid fa-cart-shopping"></i>Minhas vendas</a>
+                        <a href="#" id="link-perfil"><i class="fa-solid fa-circle-question"></i>Ajuda</a>
+                        <a href="{{ url('/logout') }}" id="link-perfil"><i class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a>
+                 </div> <!--Fim menu dropdown das roupas--> 
+            <!--vendedor -->
+            @elseif(session('is_Cliente'))
+                 <!--cliente -->
+                 <div class="drop-perfil"> <!--Começo menu dropdown das roupas-->
+                        <a href="{{ url('/perfil') }}"><i class="fa-solid fa-user"></i>Meu perfil</a>
+                        <a href="#"><i class="fa-solid fa-heart"></i>Favoritos</a>
+                        <a href="#"><i class="fa-solid fa-cart-shopping"></i>Minhas compras</a>
+                        <a href="#"><i class="fa-solid fa-circle-question"></i>Ajuda</a>
+                        <a href="{{ url('/logout') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a>
+                 </div> <!--Fim menu dropdown das roupas-->
+                @endif
+                           
+            </li>
             <!--modal 1-->
             <dialog id="modal-1">
                         <div class="modal-header">
@@ -233,7 +268,7 @@
         <div class="inputs">
         <label for="imagemCliente"> <span class="text-primary">Anexar imagem</span></label>
         <div class="custom-file-upload">
-            <input type="file" id="imagemCliente" name="imagemCliente" accept="image/*" required>
+            <input type="file" id="imagemCliente" name="imagemCliente" accept="image/*" >
             <label for="imagemCliente" id="fileLabel">Nenhuma imagem selecionada</label>
         </div>
     </div>

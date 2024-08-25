@@ -260,18 +260,17 @@
                 <label for="complemento">Complemento</label>
                 <input type="text" id="complemento" name="complementoCliente">
             </div>
+
+            <div class="inputs">
+                <label for="numeroCasa">Número da casa</label>
+                <input type="text" id="numeroCasa" name="numeroCasaCliente">
+            </div>
             <div class="inputs">
                 <label for="password">Senha</label>
                 <input type="password" id="password" name="senhaCliente" placeholder="••••••••" required>
             </div>
         </div>
-        <div class="inputs">
-        <label for="imagemCliente"> <span class="text-primary">Anexar imagem</span></label>
-        <div class="custom-file-upload">
-            <input type="file" id="imagemCliente" name="imagemCliente" accept="image/*" >
-            <label for="imagemCliente" id="fileLabel">Nenhuma imagem selecionada</label>
-        </div>
-    </div>
+        
         <div class="login-botao">
             <input type="submit" value="Cadastrar">
         </div>
@@ -300,6 +299,10 @@
             <div class="inputs">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="emailVendedor" placeholder="nome@gmail.com" required>
+            </div>
+            <div class="inputs">
+                <label for="email">CPF</label>
+                <input type="text" id="cpf" name="cpfVendedor" placeholder="nome@gmail.com" required>
             </div>
             <div class="inputs">
                 <label for="telefone">Telefone</label>
@@ -331,17 +334,15 @@
                 <input type="text" id="complemento" name="complementoVendedor">
             </div>
             <div class="inputs">
+                <label for="numeroCasa">Número da casa</label>
+                <input type="text" id="numeroCasa" name="numeroCasaVendedor">
+            </div>
+            <div class="inputs">
                 <label for="password">Senha</label>
                 <input type="password" id="password" name="senhaVendedor" placeholder="••••••••">
             </div>
         </div>
-        <div class="inputs">
-            <label for="imagemVendedor"> <span class="text-primary">Anexar imagem</span></label>
-            <div class="custom-file-upload">
-            <input type="file" id="imagemVendedor" name="imagemVendedor" accept="image/*">
-                <label for="imagemVendedor" id="fileLabel">Nenhuma imagem selecionada</label>
-            </div>
-        </div>
+       
         <div class="login-botao">
             <input type="submit" value="Cadastrar">
         </div>

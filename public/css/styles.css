@@ -197,7 +197,7 @@ body{
 }
 
 
-/media querie para desktops/
+/* /media querie para desktops/ */
 @media screen and (max-width: 1920px) {
     .info-texto{
         width: 100%;
@@ -282,7 +282,7 @@ body{
 
 }
 
-    /media querie para tablets/
+    /* /media querie para tablets/ */
 @media screen and (max-width: 768px) {
     
     
@@ -324,7 +324,7 @@ body{
         padding: 1%
     }
 }
-/media querie para mobile/
+/* /media querie para mobile/ */
 @media screen and (max-width: 475px) {
 
     .img-topo-perfil {
@@ -773,7 +773,7 @@ header {
 }
 
 
-/media querie para desktops/
+/* /media querie para desktops/ */
 @media screen and (max-width: 1920px) {
     .info-texto{
         width: 100%;
@@ -858,7 +858,7 @@ header {
 
 }
 
-    /media querie para tablets/
+    /* /media querie para tablets/ */
 @media screen and (max-width: 768px) {
     
     
@@ -900,7 +900,7 @@ header {
         padding: 1%
     }
 }
-/media querie para mobile/
+/* /media querie para mobile/ */
 @media screen and (max-width: 475px) {
 
     .img-topo-perfil {
@@ -1197,7 +1197,7 @@ header {
         font-size: 2vh;
     }
 
-    /style do accordion dos filtros/
+    /* /style do accordion dos filtros/ */
 
 
 
@@ -1250,7 +1250,7 @@ header {
         width: 80%
     }
 
-    /style do card dos produtos/
+    /* /style do card dos produtos/ */
     .container-cards {
         display: flex;
         gap: 2vh;
@@ -1536,6 +1536,66 @@ header {
 
 .menu-mobile .drop.show {
     display: block;
+}
+
+
+.drop-hover-perfil{
+    position: relative;
+    list-style: none;
+}
+
+.drop-hover-perfil .drop-perfil{
+    position: absolute;
+    background-color: #fff;
+    width: 210px; 
+    padding: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 4px; 
+    overflow: hidden;
+    z-index: 20; 
+    display: none;
+    right: 0; 
+    flex-direction: column;
+    transition: padding 0.3s ease; 
+    align-items:flex-start;
+   
+}
+
+.drop-hover-perfil .drop-perfil a i {
+    margin-right: 10px; 
+  
+}
+.drop-perfil i{
+    
+    color: #5b3a2e;
+}
+
+.drop-hover-perfil .drop-perfil a{
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 20px;
+    padding: 10px 20px; 
+    font-size: 14px; 
+    color: #252525; 
+    text-decoration: none; 
+    transition: background 0.3s ease; 
+    transition: opacity 0.3s ease; 
+    display: flex;
+    width: 100%;
+    box-sizing: border-box; 
+}
+
+.drop-hover-perfil:hover .drop-perfil{
+    display: flex;
+    padding: 10px 0; 
+}
+.drop-hover-perfil:hover .drop-perfil a {
+    opacity: 1; 
+}
+
+.drop-hover-perfil .drop-perfil a:hover {
+    background-color: #f5f5f5; 
 }
 
 
@@ -2951,3 +3011,106 @@ dialog #modal-2::backdrop{
 }
 
 
+.container-entrar-produto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 35px;
+}
+
+
+.entrar-produto{
+    background-color: #fff;
+    width: 80%;
+    height: 500px;
+    display: flex;
+}
+
+.direita-produto{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.direita-produto, .esquerda-produto {
+    flex: 1; /* Dividem o espaço igualmente */
+}
+
+.imagem-entrar-produto {
+    width: 95%;
+    height: 95%;
+    object-fit: cover; /* Faz a imagem preencher todo o espaço sem distorcer */
+    border-radius: 5px;
+}
+
+.esquerda-produto{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+   
+}
+
+.esquerda-produto .parte1-esquerda{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 100px;
+   
+}
+.parte1-esquerda a{
+    color: #363636;
+}
+
+
+
+.esquerda-produto .parte2-esquerda{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding-left: 1rem;
+}
+
+.parte3-esquerda{
+    padding-left: 1rem;
+   
+}
+
+.esquerda-produto .parte4-esquerda{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+    padding-bottom: 50px;
+}
+
+.adicionar-carrinho-entrada-produto {
+    background-color: #fff;
+    padding: 10px 10px;
+    border: solid  #5e3e24;
+    color: #5e3e24;
+    border-radius: 5px;  
+}
+
+.adicionar-carrinho-entrada-produto:focus{
+    outline: 1px solid #5e3e24;
+}
+
+
+.comprar-agora{
+    background-color: #5e3e24;
+    padding: 13px 45px;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+}
+.comprar-agora:focus{
+    outline: 1px solid #5e3e24;
+}
+
+#link-perfil{
+    text-align: center;
+    display: flex;
+    align-items: center;
+}

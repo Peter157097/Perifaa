@@ -5,11 +5,7 @@
     @include('includes.header')
     
     @include('includes.nav')
-
-    @if(Session::has('nome'))   
-        <a href="{{ url('/logout') }}">Sair</a>
-        @endif
-    
+ 
 <!--Começo do carousel-->
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">

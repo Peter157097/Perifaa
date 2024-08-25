@@ -38,3 +38,8 @@ Route::post('/login', [AuthController::class, 'login']);
 
 // Rota para logout
 Route::get('/logout', [AuthController::class, 'logout']);
+
+// Rota para editarPerfilvendedor
+Route::get('/editarPerfillVendedor', function () {
+    return view('editarPerfillVendedor');
+});

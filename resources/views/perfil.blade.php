@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <div class="nome-usuario">
-                    <p style="margin:0">Matheus Santos Silva Da Cruz Machado Nascimento Gomes Pereira Leite</p>
+                    <p style="margin:0">{{ $nome }}</p>
                 </div>
                 <div class="opcoes-usuario">
                     <p style="margin:0; padding: 1vh">Meus favoritos &hearts;</p>

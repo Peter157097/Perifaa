@@ -54,3 +54,8 @@ Route::get('/produtos', [ProdutoController::class, 'index']);
 Route::get('/entrar-produto', function () {
     return view('entrar-produto');
 });
+
+// Rota para editarPerfilvendedor
+Route::get('/editarPerfillVendedor', function () {
+    return view('editarPerfillVendedor');
+});

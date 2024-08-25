@@ -30,7 +30,7 @@ class VendedorController extends Controller
             $file->move(public_path('images/perfil'), $filename);
             $vendedor->imagemVendedor = 'images/perfil/' . $filename; // Caminho relativo
         } else {
-            $vendedor->imagemVendedor = null; // Define como null se a imagem não for fornecida
+            $vendedor->imagemVendedor = 'images/logo3.png'; // Define como null se a imagem não for fornecida
         }
 
         $vendedor->save();

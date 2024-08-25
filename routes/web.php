@@ -50,3 +50,7 @@ Route::get('/logout', [AuthController::class, 'logout']);
 
 
 Route::get('/produtos', [ProdutoController::class, 'index']);
+
+Route::get('/entrar-produto', function () {
+    return view('entrar-produto');
+});

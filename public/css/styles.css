@@ -4255,3 +4255,58 @@ dialog #modal-2::backdrop {
 =======
 >>>>>>> 45d61c5b0ed0f3f9e11113c3a9b1f92ee7db4c38
 >>>>>>> 22074b00d12e3acc054ffdfeaed616f7213f3641
+
+/* Estilo geral da lista de paginação */
+.pagination {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 20px auto; /* Centraliza a lista horizontalmente com margem automática */
+    justify-content: center; /* Centraliza os itens na horizontal */
+    max-width: 600px; /* Opcional: limita a largura da paginação */
+}
+
+.pagination .page-item {
+    margin: 0 5px; /* Espaçamento entre os itens */
+}
+
+.pagination .page-link {
+    display: block;
+    padding: 10px 15px;
+    color: #fff; /* Cor do texto */
+    text-decoration: none;
+    border: 1px solid #5e3e24; /* Cor da borda */
+    border-radius: 5px;
+    background-color: #5e3e24; /* Cor de fundo */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination .page-link:hover {
+    background-color: #4a3a1e; /* Cor de fundo ao passar o mouse */
+    color: #fff; /* Cor do texto ao passar o mouse */
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #4a3a1e; /* Cor de fundo da página ativa */
+    border: 1px solid #4a3a1e; /* Cor da borda da página ativa */
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #d6cfc6; /* Cor do texto desativado */
+    background-color: #5e3e24; /* Cor de fundo desativado */
+    border: 1px solid #5e3e24; /* Cor da borda desativada */
+    cursor: not-allowed; /* Desabilita o cursor */
+}
+
+/* Adicional para garantir a centralização vertical se necessário */
+.pagination-container {
+    text-align: center;
+    margin: 20px 0; /* Margem superior e inferior */
+}
+.quebra-pagina{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+

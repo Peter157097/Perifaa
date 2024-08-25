@@ -238,27 +238,27 @@
             </div>
             <div class="inputs">
                 <label for="cep">CEP</label>
-                <input type="text" id="cep" name="cepCliente" placeholder="00000-000" onblur="pesquisacep(this.value);" required >
+                <input type="text" id="cep" name="cepCliente" onblur="pesquisacep(this.value);" required>
             </div>
             <div class="inputs">
                 <label for="rua">Rua</label>
-                <input type="text" id="rua" name="logradouroCliente" placeholder="rua das flores" required>
+                <input type="text" id="rua" name="logradouroCliente" required>
             </div>
             <div class="inputs">
                 <label for="bairro">Bairro</label>
-                <input type="text" id="bairro" name="bairroCliente" placeholder="vila curuçá" required>
+                <input type="text" id="bairro" name="bairroCliente" required>
             </div>
             <div class="inputs">
                 <label for="estadoCliente">Estado</label>
-                <input type="text" name="estadoCliente" id="estado" placeholder="SP" required>
+                <input type="text" name="estadoCliente" id="estado" required>
             </div>
     <div class="inputs">
         <label for="cidadeCliente">Cidade</label>
-        <input type="text" name="cidadeCliente" id="cidade" placeholder="São Paulo" required>
+        <input type="text" name="cidadeCliente" id="cidade" required>
     </div>
             <div class="inputs">
                 <label for="complemento">Complemento</label>
-                <input type="text" id="complemento" name="complementoCliente" placeholder="apartamento 3">
+                <input type="text" id="complemento" name="complementoCliente">
             </div>
             <div class="inputs">
                 <label for="password">Senha</label>
@@ -266,7 +266,7 @@
             </div>
         </div>
         <div class="inputs">
-        <label for="imagemCliente"> <span class="text-primary">Anexar foto de perfil</span></label>
+        <label for="imagemCliente"> <span class="text-primary">Anexar imagem</span></label>
         <div class="custom-file-upload">
             <input type="file" id="imagemCliente" name="imagemCliente" accept="image/*" required>
             <label for="imagemCliente" id="fileLabel">Nenhuma imagem selecionada</label>
@@ -307,28 +307,28 @@
             </div>
             <div class="inputs">
                 <label for="cep">CEP</label>
-                <input type="text" id="cep" name="cepVendedor" placeholder="00000-000" onblur="pesquisacep(this.value);" required>
+                <input type="text" id="cep" name="cepVendedor" onblur="pesquisacep(this.value);" required>
             </div>
             <div class="inputs">
                 <label for="rua">Rua</label>
-                <input type="text"  name="ruaVendedor" id="rua" placeholder="rua das flores" required>
+                <input type="text"  name="ruaVendedor" id="rua" required>
             </div>
             <div class="inputs">
                 <label for="bairro">Bairro</label>
-                <input type="text" name="bairroVendedor" id="bairro" placeholder="vila curuçá" required>
+                <input type="text" name="bairroVendedor" id="bairro" required>
             </div>
             <div class="inputs">
         <label for="estadoVendedor">Estado</label>
-        <input type="text"  name="estadoVendedor" id="estado" placeholder="SP" required>  
+        <input type="text"  name="estadoVendedor" id="estado" required>  
         </div>
     <div class="inputs">
         <label for="cidadeVendedor">Cidade</label>
-        <input type="text"  name="cidadeVendedor" id="cidade" placeholder="São Paulo" required>
+        <input type="text"  name="cidadeVendedor" id="cidade" required>
     </div>
   
             <div class="inputs">
                 <label for="complemento">Complemento</label>
-                <input type="text" id="complemento" name="complementoVendedor" placeholder="apartamento 3">
+                <input type="text" id="complemento" name="complementoVendedor">
             </div>
             <div class="inputs">
                 <label for="password">Senha</label>
@@ -336,7 +336,7 @@
             </div>
         </div>
         <div class="inputs">
-            <label for="imagemVendedor"> <span class="text-primary">Anexar foto de perfil</span></label>
+            <label for="imagemVendedor"> <span class="text-primary">Anexar imagem</span></label>
             <div class="custom-file-upload">
             <input type="file" id="imagemVendedor" name="imagemVendedor" accept="image/*">
                 <label for="imagemVendedor" id="fileLabel">Nenhuma imagem selecionada</label>

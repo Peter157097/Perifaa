@@ -15350,3 +15350,4 @@ Did you mean one of these?
 #51 C:\\laravel\\Perifaa\\server.php(21): require_once('C:\\\\laravel\\\\Peri...')
 #52 {main}
 "} 
+[2024-08-25 04:48:53] local.INFO: Usuário buscado na tabela Cliente {"usuario":{"stdClass":{"idCliente":21,"nomeCliente":"NADIA AUGUSTA DA SILVA","cpfCliente":"24056783810","emailCliente":"nnadiasilva@gmail.com","senhaCliente":"$2y$10$3ASRp4C/YSGxJ3d5oYz9cOambtHpgoJvf/Yl6RIugDbYhxd4PZ4Ji","logradouroCliente":"Rua Doutor Wilson Issamo Minada","numeroCliente":"11951788048","complementoCliente":null,"bairroCliente":"Vila Nova Curuçá","cepCliente":"08031400","cidadeCliente":"São Paulo","estadoCliente":"SP","imagemCliente":"images/perfil/1724534870.png"}}} 

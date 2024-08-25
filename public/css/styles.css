@@ -1598,7 +1598,10 @@ header {
     background-color: #f5f5f5; 
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 45d61c5b0ed0f3f9e11113c3a9b1f92ee7db4c38
 /* Oculta o campo de pesquisa e o botão em telas menores */
 @media (min-width: 907px ){
     .botao-abrir-menu{
@@ -2853,9 +2856,6 @@ dialog #modal-2::backdrop{
 }
 
 
-
-
-
 .accordion {
     background-color: #D2CFC8;
     color: #444;
@@ -3022,7 +3022,11 @@ dialog #modal-2::backdrop{
 .entrar-produto{
     background-color: #fff;
     width: 80%;
+<<<<<<< HEAD
     height: 500px;
+=======
+    height: 700px;
+>>>>>>> 45d61c5b0ed0f3f9e11113c3a9b1f92ee7db4c38
     display: flex;
 }
 
@@ -3062,8 +3066,11 @@ dialog #modal-2::backdrop{
     color: #363636;
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 45d61c5b0ed0f3f9e11113c3a9b1f92ee7db4c38
 .esquerda-produto .parte2-esquerda{
     display: flex;
     flex-direction: row;
@@ -3109,8 +3116,11 @@ dialog #modal-2::backdrop{
     outline: 1px solid #5e3e24;
 }
 
+<<<<<<< HEAD
 #link-perfil{
     text-align: center;
     display: flex;
     align-items: center;
 }
+=======
+>>>>>>> 45d61c5b0ed0f3f9e11113c3a9b1f92ee7db4c38

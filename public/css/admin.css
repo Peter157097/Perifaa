@@ -1,0 +1,235 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    overflow-x: hidden;
+}
+
+.containerVendedor {
+    display: flex;
+}
+
+.parte1 {
+    background-color: #5e3e24;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 350px;
+    height: 100vh;
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.parte2 {
+    margin-left: 350px;
+    padding: 10px;
+    display: flex;
+    background-color: #ede9e2;
+    justify-content: center;
+    align-items: flex-start;
+    width: calc(100% - 350px);
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+.img-dashboard {
+    max-width: 60%;
+}
+
+.links-dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.links-dashboard ul {
+    list-style: none;
+}
+
+.links-dashboard li {
+    margin-bottom: 35px;
+    display: flex;
+    align-items: center;
+}
+
+.links-dashboard a {
+    color: #fff;
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.links-dashboard li a:hover {
+    color: #000000be;
+    transition: 0.2s;
+}
+
+.links-dashboard i {
+    color: #fff;
+    font-size: 40px;
+    margin-right: 10px;
+}
+
+.links-dashboard i:hover {
+    color: #000000be;
+    transition: 0.2s;
+}
+
+.peido {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 50px;
+}
+
+.header-conteudo2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30rem;
+}
+
+.header-conteudo2 h2 {
+    margin: 0;
+}
+
+h2 {
+    white-space: nowrap;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.header-conteudo2 i {
+    color: #5e3e24;
+    font-size: 30px;
+    padding: 5px;
+}
+
+.tiposDenuncias {
+    display: flex;
+    padding-top: 40px;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4vh;
+}
+
+.cardDenuncia {
+    display: flex;
+    padding: 20px;
+    flex-direction: row;
+    background-color: #fdfdfd;
+    border-radius: 10px 20px 30px 40px;
+    font-size: 5vh;
+    gap: 5vh;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+
+}
+
+.cardDenuncia:hover {
+    background-color: #ebd7bd; 
+}
+
+.caixa {
+    color: #5e3e24;
+    font-size: 3rem;
+}
+
+.conteudoCardAdmin h3 {
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #242424; 
+  }
+  
+  a:hover {
+    text-decoration: none;
+    color: #5e3e24; 
+  }
+
+.denunciasCards{
+    padding-top: 10vh;
+    
+}
+
+.denuncia{
+    display: flex;
+    padding: 50px;
+    flex-direction: row;
+    background-color: #fdfdfd;
+    border-radius: 10px 20px 30px 40px;
+    gap: 20vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.iconAdminDenuncia{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.parte2icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: center; 
+    padding: 10px;
+}
+
+.trash-icon {
+    color: #5e3e24;
+    font-size: 30px;
+    margin-left: 8px; 
+}
+
+.parte2icon a {
+    text-decoration: none; 
+    color: #5e3e24;
+}
+
+.parte2icon h5 {
+    margin: 0; 
+    display: inline; 
+    font-size: 15px;
+    font-weight: 400; 
+}
+
+.parte1Icon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.parte1Icon h3{
+    color: #5e3e24;
+    font-size: 20px;
+}
+
+.parte1Icon h4{
+    font-size: 21px;
+    font-weight: 700; 
+    margin: 0;
+}
+
+.tituloAdminDenunciaProduto{
+    font-size: 21px;
+    color: #5e3e24;
+}

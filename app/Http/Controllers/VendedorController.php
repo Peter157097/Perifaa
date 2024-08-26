@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Vendedor;
 use Illuminate\Support\Facades\Hash;
 
+
 class VendedorController extends Controller
 {
     public function store(Request $request)
@@ -13,13 +14,15 @@ class VendedorController extends Controller
         $vendedor = new Vendedor;
         $vendedor->nomeVendedor = $request->nomeVendedor;
         $vendedor->emailVendedor = $request->emailVendedor;
-        $vendedor->telefoneVendedor = $request->telefoneVendedor;
+        $vendedor->numeroVendedor = $request->numeroVendedor;
+        $vendedor->cpfVendedor = $request->cpfVendedor;
         $vendedor->cepVendedor = $request->cepVendedor;
         $vendedor->ruaVendedor = $request->ruaVendedor;
         $vendedor->bairroVendedor = $request->bairroVendedor;
         $vendedor->cidadeVendedor = $request->cidadeVendedor;
         $vendedor->estadoVendedor = $request->estadoVendedor;
         $vendedor->complementoVendedor = $request->complementoVendedor;
+        $vendedor->numCasaVendedor = $request->numCasaVendedor;
         $vendedor->senhaVendedor = Hash::make($request->senhaVendedor);
 
         // Verifica se o arquivo foi enviado
@@ -36,4 +39,6 @@ class VendedorController extends Controller
         $vendedor->save();
         return redirect("/");
     }
+
+
 }

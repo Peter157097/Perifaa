@@ -53,6 +53,7 @@ class AuthController extends Controller
                 Session::put('cep', $usuario->cepCliente);
                 Session::put('cidade', $usuario->cidadeCliente);
                 Session::put('estado', $usuario->estadoCliente);
+                Session::put('numCasaCliente', $usuario->numCasaCliente);
                 Session::put('imagemCliente', $usuario->imagemCliente);
 
                 $isCliente = isset($usuario->idCliente);

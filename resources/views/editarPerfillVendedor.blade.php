@@ -16,7 +16,8 @@
 <body>
     <div class="containerVendedor">
         <div class="parte1">
-            <img class="img-dashboard" src="{{url('images/logo-branca.png')}}" alt="Logo Perifa">
+        <img src="{{ url($imagemVendedor) }}" alt="Foto do Perfil" class="img-fluid rounded-circle"
+        style="width: 50%; height: 50%; object-fit: cover;">
             <div class="links-dashboard">
                 <ul>
                     <li><a href="#"><i class="fa-solid fa-house-chimney"></i>Dashboard </a></li>
@@ -44,97 +45,71 @@
                         </div>
                     </div>
                 </div>
-                <form action="" method="POST" enctype="">
+                <form action="{{ url('/editarPerfillVendedor/update') }}" method="POST" enctype="multipart/form-data" class="form-info">
+                @csrf
                     <div class="editarPerfil">
                         <div class="inputItens">
                             <div class="inputsVendedor">
                                 <label for="name">Nome</label>
-                                <input type="text" id="name" name="nomeVendedor">
+                                <input type="text" name="nomeVendedor" value="{{ $nomeVendedor }}"></li>
                                 <i class="fa-solid fa-pen"></i>
                             </div>
 
                             <div class="inputsVendedor">
                                 <label for="name">Email</label>
-                                <input type="email" id="email" name="emailVendedor" placeholder="seuemail@exemplo.com">
+                                <input type="email" name="emailVendedor" value="{{ $emailVendedor }}">
                                 <i class="fa-solid fa-pen"></i>
                             </div>
 
 
                             <div class="inputsVendedor">
                                 <label for="telefone">Telefone</label>
-                                <input type="tel" id="telefone" name="telefoneVendedor" placeholder="(XX) XXXXX-XXXX">
+                                <input type="text" name="numeroVendedor" value="{{ $numeroVendedor }}">
                                 <i class="fa-solid fa-pen"></i>
                             </div>
-
-                            <div class="inputsVendedor">
-                                <label for="telefone">Telefone</label>
-                                <input type="tel" id="telefone" name="telefoneVendedor" placeholder="(XX) XXXXX-XXXX">
-                                <i class="fa-solid fa-pen"></i>
-                            </div>
-
+  
                             <div class="inputsVendedor">
                                 <label for="cep">CEP</label>
-                                <input type="text" id="cep" name="cepVendedor" placeholder="XXXXX-XXX">
+                                <input type="text" name="cepVendedor" value="{{ $cepVendedor }}">
                                 <i class="fa-solid fa-pen"></i>
                             </div>
 
                             <div class="inputsVendedor">
                                 <label for="rua">Rua</label>
-                                <input type="text" id="rua" name="ruaVendedor" placeholder="Nome da Rua">
+                                <input type="text" name="ruaVendedor" value="{{ $ruaVendedor }}">
                                 <i class="fa-solid fa-pen"></i>
                             </div>
 
-                            <div class="inputsVendedor">
-                                <label for="bairro">Bairro</label>
-                                <input type="text" id="bairro" name="bairroVendedor" placeholder="Nome do Bairro">
-                                <i class="fa-solid fa-pen"></i>
-                            </div>
 
                             <div class="inputsVendedor">
                                 <label for="cidade">Cidade</label>
-                                <input type="text" id="cidade" name="cidadeVendedor" placeholder="Nome da Cidade">
+                                <input type="text" name="cidadeVendedor" value="{{ $cidadeVendedor }}">
                                 <i class="fa-solid fa-pen"></i>
                             </div>
 
                             <div class="inputsVendedor">
                                 <label for="estado">Estado</label>
-                                <input type="text" id="estado" name="estadoVendedor" placeholder="UF">
+                                <input type="text" name="estadoVendedor" value="{{ $estadoVendedor }}">
+                                <i class="fa-solid fa-pen"></i>
+                            </div>
+
+                            
+                            <div class="inputsVendedor">
+                                <label for="estado">Numero da casa</label>
+                                <input type="text" name="numCasaVendedor" value="{{ $numCasaVendedor }}">
                                 <i class="fa-solid fa-pen"></i>
                             </div>
 
                             <div class="inputsVendedor">
-                                <label for="complemento">Complemento</label>
-                                <input type="text" id="complemento" name="complementoVendedor"
-                                    placeholder="Apto, Bloco, etc.">
-                                <i class="fa-solid fa-pen"></i>
-                            </div>
-
-                            <div class="inputsVendedor">
-                                <label for="fotoPerfil">Foto de Perfil</label>
-                                <input type="file" id="fotoPerfil" name="fotoPerfilVendedor" accept="image/*">
-                                <i class="fa-solid fa-upload"></i>
-                            </div>
-
-                            <div class="inputsVendedor">
-                                <label for="senha">Senha</label>
-                                <input type="password" id="senha" name="senhaVendedor">
+                                <label for="estado">Imagem de perfil</label>
+                                <input type="file" name="imagemVendedor" value="{{ $imagemVendedor }}">
                                 <i class="fa-solid fa-pen"></i>
                             </div>
 
 
-                            <input type="submit" value="Salvar">
-                            <!--   `idVendedor` int(11) NOT NULL,
-  `nomeVendedor` varchar(100) NOT NULL, v
-  `emailVendedor` varchar(70) NOT NULL, v
-  `senhaVendedor` varchar(500) DEFAULT NULL, v
-  `numeroVendedor` varchar(15) NOT NULL, v
-  `cepVendedor` varchar(255) NOT NULL,v
-  `ruaVendedor` varchar(255) NOT NULL, v
-  `bairroVendedor` varchar(255) NOT NULL, v
-  `cidadeVendedor` varchar(255) NOT NULL, v
-  `estadoVendedor` varchar(255) NOT NULL, v
-  `complementoVendedor` varchar(255) DEFAULT NULL, v
-  `imagemVendedor` varchar(255) DEFAULT NULL --> 
+                            <button type="submit" class="btn btn-primary" style="background-color: #5e3e24;">Salvar
+                            alterações</button>
+
                         </div>
                     </div>
                 </form>

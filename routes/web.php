@@ -6,6 +6,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\VendedorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProdutoController;
+use App\Models\Vendedor;
 use Illuminate\Support\Facades\Session;
 
 Route::get('/', function () {
@@ -54,17 +55,30 @@ Route::get('/produtos', [ProdutoController::class, 'index']);
 
 
 
-Route::get('/entrar-produto', function () {
-    return view('entrar-produto');
-});
+Route::get('/entrar-produto/{idProduto}', [ProdutoController::class, 'show'])->name('show');
 
-
-
-// Rota para editarPerfilvendedor
 Route::get('/editarPerfillVendedor', function () {
-    return view('editarPerfillVendedor');
-});
+    $nomeVendedor = Session::get('nomeVendedor');
+    $emailVendedor = Session::get('emailVendedor');
+    $idVendedor = Session::get('idVendedor');
+    $numeroVendedor = Session::get('numeroVendedor');
+    $ruaVendedor = Session::get('ruaVendedor');
+    $cepVendedor = Session::get('cepVendedor');
+    $cidadeVendedor = Session::get('cidadeVendedor');
+    $estadoVendedor = Session::get('estadoVendedor');
+    $numCasaVendedor = Session::get('numCasaVendedor');
+    $imagemVendedor = Session::get('imagemVendedor');
 
+    if ($nomeVendedor && $emailVendedor && $idVendedor && $numeroVendedor && $ruaVendedor && $cepVendedor && $cidadeVendedor && $estadoVendedor && $imagemVendedor && $numCasaVendedor) {
+        return view('editarPerfillVendedor', compact('nomeVendedor', 'emailVendedor', 'idVendedor', 'numeroVendedor', 'ruaVendedor', 'cepVendedor', 'cidadeVendedor', 'estadoVendedor', 'imagemVendedor', 'numCasaVendedor'));
+    } else {
+        Session::flash('alert', 'Para acessar esta página, faça o login!');
+        return redirect('/');
+    }
+}, [VendedorController::class, 'showProfile']);
+
+
+Route::post('/editarPerfillVendedor/update', [VendedorController::class, 'update']);
 
 // Rota para adminDenuncias
 Route::get('/adminDenuncias', function () {

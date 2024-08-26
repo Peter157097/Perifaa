@@ -2,45 +2,62 @@
 @include('includes.header')
 @include('includes.nav')
 
-
-<div class="container-entrar-produto">
-    <div class="entrar-produto">
-        <div class="direita-produto">
-          
-                    <img class="imagem-entrar-produto" src="{{ url('images/card-image-two.png') }}" alt="image produto" >
-        
-        </div>
-
-        <div class="esquerda-produto">
-        
-            <div class="parte1-esquerda">
-                <h2>Blusa rosa verde</h2>
-                <a href="#">Denunciar</a>
-            </div>
-          
-            
-
-           <div class="juntar">
-            <div class="parte2-esquerda">
-                        <span><h3>R$ 55</h3></span>
-                        <h3><del>R$ 70<del></h3>
+<main>
+    <section>
+        <div class="container-entrar-produto">
+            <div class="esquerdo">
+                <div class="itens">
+                    <div class="select-image">
+                        <img src="{{ url('images/card-image-four.png') }}" alt="image produto">
                     </div>
-                    <div class="parte3-esquerda">
-                        <p>em até 8x R$ 5,40 sem juros</p>
-            </div>
-           </div>
-               
-                <div class="parte4-esquerda">
-                    <button class="adicionar-carrinho-entrada-produto"><i class="fa-solid fa-cart-shopping"></i>Adicionar ao carrinho</button>
-                    <button class="comprar-agora">Comprar agora</button>
+                    <div class="thumbnails">
+                        <div class="thumbnail">
+                            <img src="{{ url('images/card-image-one.png') }}" alt="image produto">
+                        </div>
+
+                        <div class="thumbnail">
+                            <img src="{{ url('images/card-image-two.png') }}" alt="image produto">
+                        </div>
+
+                        <div class="thumbnail">
+                            <img src="{{ url('images/card-image-three.png') }}" alt="image produto">
+                        </div>
+
+                        <div class="thumbnail">
+                            <img src="{{ url('images/card-image-four.png') }}" alt="image produto">
+                        </div>
+
+                    </div>
                 </div>
-           
-            
+            </div>
+            <div class="direito">
+                <div class="conteudo-entrada-produto">
+                    <h6><a href="#">Masculinas</a>/ <a href="#">Casaco</a>/ </h6>
 
+                        <div class="parte1">
+                            <h2>Blusa rosa verde</h2>
+                            <a href="#">Denunciar</a>
+                        </div>
+                        <h4>Descrição</h4>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo laboriosam nobis quibusdam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quas obcaecati unde.</p>  
+
+                        <div class="parte2">
+                            <span class="price">R$ 55.99</span>
+                            <span class="off"><del>R$ 75.00</del></span>
+                        </div>
+
+                        <div class="opcao-entrar-produto">
+                            <div class="botaos-entrar">
+                                <button class="adicionar-carrinho-entrada-produto"><i class="fa-solid fa-cart-shopping"></i>Adicionar ao carrinho</button>
+                                <button class="comprar-agora">Comprar agora</button>
+                            </div>
+                        </div>
+                
+                </div>
+                
         </div>
-    </div>
-</div>
-
+    </section>
+</main>
 
     
 <!--Import do javascript-->

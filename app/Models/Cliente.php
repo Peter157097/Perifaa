@@ -24,6 +24,7 @@ use Illuminate\Database\Eloquent\Model;
         'complementoCliente',
         'senhaCliente',
         'imagemCliente',
+        'numCasaCliente',
     ];
     public $timestamps = false; // Desative timestamps se não estiver usando
 }

@@ -26,6 +26,7 @@ class ClienteController extends Controller
         $cliente->cidadeCliente = $request->cidadeCliente;
         $cliente->estadoCliente = $request->estadoCliente;
         $cliente->complementoCliente = $request->complementoCliente;
+        $cliente->numCasaCliente = $request->numCasaCliente;
         $cliente->senhaCliente = Hash::make($request->senhaCliente);
     
 
@@ -36,7 +37,7 @@ class ClienteController extends Controller
             $file->move(public_path('images/perfil'), $filename);
             $cliente->imagemCliente = 'images/perfil/' . $filename; // Caminho relativo
         } else {
-            $cliente->imagemCliente = 'images/logo3.png'; // Define como null se a imagem não for fornecida
+            $cliente->imagemCliente = 'images/logo3.jpeg'; // Define como null se a imagem não for fornecida
         }
     
         $cliente->save();
@@ -55,7 +56,8 @@ class ClienteController extends Controller
             'cep' => Session::get('cep'),
             'cidade' => Session::get('cidade'),
             'estado' => Session::get('estado'),
-            'imagemCliente' => Session::get('imagemCliente')
+            'imagemCliente' => Session::get('imagemCliente'),
+            'numCasaCliente' => Session::get('numCasaCliente')
         ]);
     }
 
@@ -70,6 +72,7 @@ class ClienteController extends Controller
             'cepCliente' => 'required|string|max:10',
             'cidadeCliente' => 'required|string|max:100',
             'estadoCliente' => 'required|string|max:50',
+            'numCasaCliente' => 'required|string|max:50',
             'imagemCliente' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validação da imagem
         ]);
 
@@ -88,6 +91,7 @@ class ClienteController extends Controller
         $cliente->cepCliente = $request->cepCliente;
         $cliente->cidadeCliente = $request->cidadeCliente;
         $cliente->estadoCliente = $request->estadoCliente;
+        $cliente->numCasaCliente = $request->numCasaCliente;
 
         // Lidar com a imagem
         if ($request->hasFile('imagemCliente')) {
@@ -112,6 +116,7 @@ class ClienteController extends Controller
         Session::put('cep', $request->cepCliente);
         Session::put('cidade', $request->cidadeCliente);
         Session::put('estado', $request->estadoCliente);
+        Session::put('numCasaCliente', $request->numCasaCliente);
 
         if ($request->hasFile('imagemCliente')) {
             Session::put('imagemCliente', $cliente->imagemCliente);

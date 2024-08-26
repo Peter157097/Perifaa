@@ -64,11 +64,7 @@
                     </div>
                 </div>
                 <div class="nome-usuario">
-<<<<<<< HEAD
-                    <p style="margin:0">{{ $nome }}</p>
-=======
                     <p style="margin:0">{{$nome}}</p>
->>>>>>> e4a840a4e04cc0b7fa6932fd19c404482717f88d
                 </div>
                 <div class="opcoes-usuario">
                     <p style="margin:0; padding: 1vh">Meus favoritos &hearts;</p>
@@ -116,13 +112,14 @@
                         <div class="container-info">
                             <ul class="lista-info">
                                 <li class="lista-item">Endereço</li>
+                                <li class="lista-item">Numero da casa</li>
                                 <li class="lista-item">CEP</li>
                                 <li class="lista-item">Cidade</li>
                                 <li class="lista-item">Estado</li>
                             </ul>
                             <ul class="lista-info">
-                                <li class="lista-item"><input type="text" name="logradouroCliente"
-                                        value="{{ $logradouro }}"></li>
+                                <li class="lista-item"><input type="text" name="logradouroCliente" value="{{ $logradouro }}"></li>
+                                <li class="lista-item"><input type="text" name="numCasaCliente" value="{{ $numCasaCliente }}"></li>
                                 <li class="lista-item"><input type="text" name="cepCliente" value="{{ $cep }}"></li>
                                 <li class="lista-item"><input type="text" name="cidadeCliente" value="{{ $cidade }}">
                                 </li>

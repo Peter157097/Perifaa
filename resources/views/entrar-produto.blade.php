@@ -8,7 +8,8 @@
             <div class="esquerdo">
                 <div class="itens">
                     <div class="select-image">
-                        <img src="{{ url('images/card-image-four.png') }}" alt="image produto">
+                    <img src="{{ asset($produtos->imagemProduto) }}" alt="imagem produto">
+
                     </div>
                     <div class="thumbnails">
                         <div class="thumbnail">
@@ -33,17 +34,16 @@
             <div class="direito">
                 <div class="conteudo-entrada-produto">
                     <h6><a href="#">Masculinas</a>/ <a href="#">Casaco</a>/ </h6>
-
+                  
                         <div class="parte1">
-                            <h2>Blusa rosa verde</h2>
+                            <h2>{{$produtos->nomeProduto}}</h2>
                             <a href="#">Denunciar</a>
                         </div>
-                        <h4>Descrição</h4>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo laboriosam nobis quibusdam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum quas obcaecati unde.</p>  
 
+                        <p>{{$produtos->descricaoProduto}}</p>  
+                    
                         <div class="parte2">
-                            <span class="price">R$ 55.99</span>
-                            <span class="off"><del>R$ 75.00</del></span>
+                            <span class="price">{{$produtos->valorProduto}}</span>
                         </div>
 
                         <div class="opcao-entrar-produto">
@@ -52,7 +52,7 @@
                                 <button class="comprar-agora">Comprar agora</button>
                             </div>
                         </div>
-                
+                        
                 </div>
                 
         </div>

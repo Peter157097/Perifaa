@@ -78,8 +78,7 @@
                 </div>
 
                 <div class="info-perfil">
-                    <form action="{{ url('/perfil/update') }}" method="POST" enctype="multipart/form-data"
-                        class="form-info">
+                    <form action="{{ url('/perfil/update') }}" method="POST" enctype="multipart/form-data" class="form-info">
                         @csrf
 
                         <div class="titulo-info-font">

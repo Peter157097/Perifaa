@@ -95,11 +95,6 @@ class ClienteController extends Controller
 
         // Lidar com a imagem
         if ($request->hasFile('imagemCliente')) {
-            // Exclua a imagem antiga, se existir
-            if ($cliente->imagemCliente && file_exists(public_path($cliente->imagemCliente))) {
-                unlink(public_path($cliente->imagemCliente));
-            }
-
             $file = $request->file('imagemCliente');
             $filename = time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('images/perfil'), $filename);

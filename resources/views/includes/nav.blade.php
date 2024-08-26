@@ -2,7 +2,7 @@
     
         <ul>
         <li class="drop-hover">
-        <a href="{{ url('/produtos') }}" class="nav-hover">ROUPAS <i class="fa-solid fa-caret-down"></i></a>
+        <a href="{{ url('/produtos') }}" class="nav-hover">ROUPA <i class="fa-solid fa-caret-down"></i></a>
         <div class="drop"> <!-- Começo menu dropdown das roupas -->
             <a href="#">Blazeres & Ternos</a>
             <a href="#">Blusas & Body</a>

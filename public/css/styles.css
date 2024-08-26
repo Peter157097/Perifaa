@@ -13,6 +13,7 @@ body {
     gap: 4%
 }
 
+<<<<<<< HEAD
 
 
 .frame-perfil {
@@ -599,6 +600,8 @@ body {
     }
 }
 
+=======
+>>>>>>> e4a840a4e04cc0b7fa6932fd19c404482717f88d
 header {
     display: flex;
     justify-content: center;
@@ -606,6 +609,7 @@ header {
     padding: 1.5rem;
 }
 
+<<<<<<< HEAD
 .container {
     margin: 0;
     padding: 0;
@@ -816,6 +820,8 @@ header {
 
 
 
+=======
+>>>>>>> e4a840a4e04cc0b7fa6932fd19c404482717f88d
 .header_direita {
     display: flex;
     align-items: center;
@@ -1037,7 +1043,6 @@ header {
     display: block;
 }
 
-
 .drop-hover-perfil{
     position: relative;
     list-style: none;
@@ -1097,6 +1102,10 @@ header {
     background-color: #f5f5f5; 
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e4a840a4e04cc0b7fa6932fd19c404482717f88d
 /* Oculta o campo de pesquisa e o botão em telas menores */
 @media (min-width: 907px) {
     .botao-abrir-menu {
@@ -1288,8 +1297,8 @@ dialog {
     border-radius: 24px;
     padding: 20px;
     max-width: 100vw;
-    max-height: 100vh;
-    overflow: auto;
+    max-height: 90vh;
+     overflow-y: auto;
     /* Adiciona rolagem interna se necessário */
 }
 
@@ -1397,6 +1406,7 @@ dialog #modal-2::backdrop {
     padding: 10px 35px;
     font-size: 14px;
     cursor: pointer;
+    
 }
 
 .cadastrar {
@@ -1420,28 +1430,24 @@ dialog #modal-2::backdrop {
 
 #modal-2 {
     border: none;
-    width: 110vw;
-    /* Ajusta a largura para telas menores */
+    width: 100vw;
     border-radius: 24px;
     padding: 20px;
     max-width: 600px;
-    /* Largura máxima para telas grandes */
     height: 100vh;
     max-height: 100vh;
     overflow: auto;
-    /* Adiciona rolagem interna se necessário */
 }
 
 #modal-3 {
     border: none;
     width: 100vw;
-    /* Ajusta a largura para telas menores */
     border-radius: 24px;
     padding: 20px;
     max-width: 600px;
-    /* Largura máxima para telas grandes */
-    height: 90vh;
+    height: 100vh;
     max-height: 100vh;
+    overflow: auto;
 }
 
 .input-group {
@@ -1452,7 +1458,6 @@ dialog #modal-2::backdrop {
     gap: 10px;
     width: 100%;
     flex-wrap: wrap;
-
 }
 
 
@@ -1523,6 +1528,7 @@ dialog #modal-2::backdrop {
     color: #6b7280;
 }
 
+
 @media (max-width: 768px) {
     /* Ajustes para telas menores */
 
@@ -1551,21 +1557,14 @@ dialog #modal-2::backdrop {
     }
 }
 
-/* Para telas maiores, você pode adicionar outros pontos de interrupção */
-@media (min-width: 1200px) {
-    /* Ajustes para telas grandes */
-
+/* Ajustes para telas muito grandes, se necessário */
+@media (min-width: 1400px) {
+    /* Se necessário, ajuste as propriedades para telas muito grandes */
     #modal-1 {
-        width: 450px;
-        /* Define uma largura fixa para modais em telas grandes */
+        max-width: 450px;
     }
-
-    #modal-2,
-    #modal-3 {
-        width: 600px;
-    }
+    
 }
-
 /* fim nav */
 
 /* Carousel */
@@ -3509,7 +3508,11 @@ dialog #modal-2::backdrop {
 .entrar-produto{
     background-color: #fff;
     width: 80%;
+<<<<<<< HEAD
     height: 500px;
+=======
+    height: 700px;
+>>>>>>> e4a840a4e04cc0b7fa6932fd19c404482717f88d
     display: flex;
 }
 
@@ -3549,8 +3552,11 @@ dialog #modal-2::backdrop {
     color: #363636;
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> e4a840a4e04cc0b7fa6932fd19c404482717f88d
 .esquerda-produto .parte2-esquerda{
     display: flex;
     flex-direction: row;
@@ -3596,9 +3602,68 @@ dialog #modal-2::backdrop {
     outline: 1px solid #5e3e24;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e4a840a4e04cc0b7fa6932fd19c404482717f88d
 #link-perfil{
     text-align: center;
     display: flex;
     align-items: center;
 }
 
+<<<<<<< HEAD
+=======
+/* Estilo geral da lista de paginação */
+.pagination {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 20px auto; /* Centraliza a lista horizontalmente com margem automática */
+    justify-content: center; /* Centraliza os itens na horizontal */
+    max-width: 600px; /* Opcional: limita a largura da paginação */
+}
+
+.pagination .page-item {
+    margin: 0 5px; /* Espaçamento entre os itens */
+}
+
+.pagination .page-link {
+    display: block;
+    padding: 10px 15px;
+    color: #fff; /* Cor do texto */
+    text-decoration: none;
+    border: 1px solid #5e3e24; /* Cor da borda */
+    border-radius: 5px;
+    background-color: #5e3e24; /* Cor de fundo */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination .page-link:hover {
+    background-color: #4a3a1e; /* Cor de fundo ao passar o mouse */
+    color: #fff; /* Cor do texto ao passar o mouse */
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #4a3a1e; /* Cor de fundo da página ativa */
+    border: 1px solid #4a3a1e; /* Cor da borda da página ativa */
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #d6cfc6; /* Cor do texto desativado */
+    background-color: #5e3e24; /* Cor de fundo desativado */
+    border: 1px solid #5e3e24; /* Cor da borda desativada */
+    cursor: not-allowed; /* Desabilita o cursor */
+}
+
+/* Adicional para garantir a centralização vertical se necessário */
+.pagination-container {
+    text-align: center;
+    margin: 20px 0; /* Margem superior e inferior */
+}
+.quebra-pagina{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+>>>>>>> e4a840a4e04cc0b7fa6932fd19c404482717f88d

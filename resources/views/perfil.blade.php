@@ -64,7 +64,11 @@
                     </div>
                 </div>
                 <div class="nome-usuario">
+<<<<<<< HEAD
                     <p style="margin:0">{{ $nome }}</p>
+=======
+                    <p style="margin:0">{{$nome}}</p>
+>>>>>>> e4a840a4e04cc0b7fa6932fd19c404482717f88d
                 </div>
                 <div class="opcoes-usuario">
                     <p style="margin:0; padding: 1vh">Meus favoritos &hearts;</p>

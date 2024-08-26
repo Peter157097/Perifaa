@@ -1578,6 +1578,11 @@ dialog #modal-2::backdrop {
     /* Ajuste automático da altura */
 }
 
+.carousel-item.active:after {
+    content: none; 
+    outline: none; 
+}
+
 /* Ajuste a altura para dispositivos móveis */
 @media (max-width: 768px) {
     .custom-carousel-img {
@@ -3556,31 +3561,115 @@ dialog #modal-2::backdrop {
 
 
 =======
->>>>>>> e4a840a4e04cc0b7fa6932fd19c404482717f88d
-.esquerda-produto .parte2-esquerda{
+
+.container-entrar-produto{
     display: flex;
-    flex-direction: row;
-    gap: 10px;
-    padding-left: 1rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 75vh;
+   background-color: #fff;
+   gap: 100px;
 }
 
-.parte3-esquerda{
-    padding-left: 1rem;
+.container-entrar-produto .esquerdo{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.itens{
+   align-self: flex-end;
    
 }
 
-.esquerda-produto .parte4-esquerda{
+.select-image{
+    max-width: 400px;
+}
+
+.select-image img{
+    width: 100%;
+}
+
+.thumbnails{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    max-width: 400px;
+    justify-content: space-evenly;
+    gap: 7px;
+}
+
+.thumbnail img{
+    width: 100%;
+    
+}
+
+.direito{
+    width: 100%;
+   display: flex;
+   flex-direction: column;
+}
+
+.direito h6, a{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    color: #5e3e24;
+}
+
+
+.direito .parte1{
+    display: flex;
     flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.direito .parte1 h2{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.direito p{
+    color: #3f3f39;
+    font-size: 16px;
+    max-width: 500px;
+}
+
+.conteudo-entrada-produto{
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.price{
+    font-size: 16px;
+    font-weight: 700;
+    
+}
+
+.off{
+    font-size: 16px;
+    font-weight: 500;
+    color: #5e3e24;
+}
+
+.botaos-entrar{
+    display: flex;
+    align-items: center;  
+    gap: 20px;
+}
+
+.parte2{
+    display: flex;
+    align-items: center;  
     gap: 10px;
-    padding-bottom: 50px;
+    padding-bottom: 10px;
 }
 
 .adicionar-carrinho-entrada-produto {
     background-color: #fff;
-    padding: 10px 10px;
+    padding: 7px 5px;
     border: solid  #5e3e24;
     color: #5e3e24;
     border-radius: 5px;  
@@ -3593,14 +3682,14 @@ dialog #modal-2::backdrop {
 
 .comprar-agora{
     background-color: #5e3e24;
-    padding: 13px 45px;
+    padding: 10px 15px;
     border: none;
     color: #fff;
     border-radius: 5px;
 }
 .comprar-agora:focus{
     outline: 1px solid #5e3e24;
-}
+} 
 
 <<<<<<< HEAD
 =======
@@ -3665,5 +3754,10 @@ dialog #modal-2::backdrop {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.pagination .page-item.active:after {
+    content: none;
+    outline: none; 
 }
 >>>>>>> e4a840a4e04cc0b7fa6932fd19c404482717f88d

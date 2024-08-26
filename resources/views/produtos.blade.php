@@ -105,41 +105,63 @@
             <div class="cards-body">
                 <div class="container-cards">
                     @foreach($produtos as $produto)
-                        <div class="card-produto">
-                            <div class="image-display">
-                                <img class="img-card-produto" src="{{ asset($produto->imagemProduto) }}"
-                                    alt="{{ $produto->nomeProduto }}">
+                    <div class="card-produto">
+                        <div class="image-display">
+                            <img class="img-card-produto" src="{{ asset($produto->imagemProduto) }}"
+                                alt="{{ $produto->nomeProduto }}">
+                        </div>
+                        <div class="txt-info-vendedor">
+                            <p></p>
+                            <p>Recente</p>
+                        </div>
+                        <div class="txt-nome-produto">
+                            {{ $produto->nomeProduto }}
+                        </div>
+                        <p class="valor-produto">{{ $produto->valorProduto }}</p>
+                        <div class="txt-info-produto">
+                            <div class="row-info">
+                                <p class="info-produto">{{ $produto->cor->nomeCor ?? 'Cor Desconhecida' }}</p>
+                                <p class="info-produto">
+                                    {{ $produto->condicao->nomeCondicao ?? 'Condição Desconhecida' }}
+                                </p>
                             </div>
-                            <div class="txt-info-vendedor">
-                                <p></p>
-                                <p>Recente</p>
+                            <div class="row-info">
+                                <p class="info-produto">
+                                    {{ $produto->categoria->nomeCategoriaProduto ?? 'Categoria Desconhecida' }}
+                                </p>
+                                <p class="info-produto">{{ $produto->tamanho->nomeTamanho ?? 'Tamanho Desconhecido' }}
+                                </p>
                             </div>
-                            <div class="txt-nome-produto">
-                                {{ $produto->nomeProduto }}
-                            </div>
-                            <p class="valor-produto">{{ $produto->valorProduto }}</p>
-                            <div class="txt-info-produto">
-                                <div class="row-info">
-                                    <p class="info-produto">{{ $produto->cor->nomeCor ?? 'Cor Desconhecida' }}</p>
-                                    <p class="info-produto">
-                                        {{ $produto->condicao->nomeCondicao ?? 'Condição Desconhecida' }}</p>
-                                </div>
-                                <div class="row-info">
-                                    <p class="info-produto">
-                                        {{ $produto->categoria->nomeCategoriaProduto ?? 'Categoria Desconhecida' }}</p>
-                                    <p class="info-produto">{{ $produto->tamanho->nomeTamanho ?? 'Tamanho Desconhecido' }}
-                                    </p>
-                                </div>
-                                <div class="row-info">
+                            <div class="row-info">
 
-                                    <p class="info-produto">{{ $produto->regiao->nomeRegiao ?? 'Região Desconhecida' }}</p>
-                                </div>
+                                <p class="info-produto">{{ $produto->regiao->nomeRegiao ?? 'Região Desconhecida' }}</p>
                             </div>
                         </div>
+                    </div>
                     @endforeach
                 </div>
             </div>
         </div>
+        <div class="quebra-pagina">
+            <ul class="pagination">
+                @if ($produtos->currentPage() == 1)
+                <li class="page-item disabled"><a href="#" class="page-link">&lt;</a></li>
+                @else
+                <li class="page-item"><a href="{{ $produtos->previousPageUrl() }}" class="page-link">&lt;</a></li>
+                @endif
+
+                @for ($i = 1; $i <= $produtos->lastPage(); $i++)
+                    <li class="page-item @if($i == $produtos->currentPage()) active @endif">
+                        <a href="{{ $produtos->url($i) }}" class="page-link">{{ $i }}</a>
+                    </li>
+                    @endfor
+
+                    <li class="page-item @if (!$produtos->hasMorePages()) disabled @endif">
+                        <a href="{{ $produtos->nextPageUrl() }}" class="page-link">&gt;</a>
+                    </li>
+            </ul>
+        </div>
+
 
         <!-- Script para animação do accordion do filtro -->
         <script>
@@ -147,7 +169,7 @@
             var i;
 
             for (i = 0; i < acc.length; i++) {
-                acc[i].addEventListener("click", function () {
+                acc[i].addEventListener("click", function() {
                     this.classList.toggle("active");
                     var panel = this.nextElementSibling;
                     if (panel.style.maxHeight) {

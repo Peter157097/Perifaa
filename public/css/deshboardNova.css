@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 
 * {
     padding: 0;
@@ -8,45 +8,29 @@
 
 html, body {
     height: 100%;
-    overflow: hidden;
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: normal;
+    overflow-x: hidden; /* Para evitar rolagem lateral desnecessária */
 }
 
-.container-fluid {
-    height: 100vh; 
-    padding: 0;
-    margin: 0;  
-}
-
-.row {
-    height: 100%; 
-}
-
-.col-3, .col-9 {
-    height: 100%; 
-}
-
-#parte1 {
-    background-color: #5e3e24;  
-}
-
-#parte2 {
-    background-color: #eee9e4;
-}
-.content-1{
+.containerVendedor{
     display: flex;
-    justify-content: center;
+}
+
+.parte1{
+    background-color: #5e3e24;
+    display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.header-dashboard{
+.parte2{
+    padding: 10px;
     display: flex;
+    background-color: #ffffff;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    align-items: flex-start;
 }
 
 .img-dashboard{
@@ -69,7 +53,6 @@ html, body {
    margin-bottom: 35px;
    display: flex;
    align-items: center;
-    
 }
 
 .links-dashboard a{
@@ -93,6 +76,7 @@ html, body {
     transition: 0.2s;
 }
 
+
 .content {
     display: flex;
     align-items: center; 
@@ -101,13 +85,24 @@ html, body {
     padding: 50px;
 }
 
-.header-conteudo2{
+
+
+
+.header-conteudo2 {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap; /* Permite que os itens quebrem para uma nova linha */
+    z-index: 1; /* Mantém o conteúdo sobre outros elementos */
     gap: 30rem;
 }
+
+.header-conteudo2 h2 {
+    margin: 0;
+}
+
+
 
 h2{
     white-space: nowrap;
@@ -121,21 +116,30 @@ h2{
     font-size: 30px;
     padding: 5px;
 }
+.parte1-mobile{
+    background-color: #ffffff;
+    backdrop-filter: blur(10px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
 
+  
 #cadastro{
     padding: 10px;
 }   
-
 .cadastrar-roupas {
     background-color: #ffffff;
     width: 900px;
-    height: 70vh;
     border-radius: 24px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center; 
+    min-height: 70vh; /* Removendo o height fixo para permitir crescimento */
 }
 
 .input-group {
@@ -158,7 +162,6 @@ input, select {
     border: 1px solid #ccc;
     background-color: #f9fafb;
 }
-
 
 .inputs input:focus{
     outline: 1px solid #5e3e24;
@@ -206,13 +209,10 @@ input[type="submit"] {
     left: 0;
     opacity: 0;
     cursor: pointer;
-    
 }
 
 .custom-file-upload label {
     display: block;
-   
-
     width: 400px;
     padding: 10px;
     border-radius: 12px;
@@ -225,5 +225,127 @@ input[type="submit"] {
 
 .custom-file-upload input[type="file"]:focus + label {
     outline: 1px solid #5e3e24;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 1200px) {
+    .header-conteudo2 {
+        gap: 15rem;
+    }
+
+    .cadastrar-roupas {
+        width: 700px;
+        height: auto;
+    }
+}
+
+@media (max-width: 992px) {
+    .header-conteudo2 {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .cadastrar-roupas {
+        width: 600px;
+    }
+
+    .input-group {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .cadastrar-roupas {
+        width: 90%;
+    }
+
+    .input-group {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .header-conteudo2 i {
+        font-size: 24px;
+    }
+
+    .input-group {
+        grid-gap: 15px;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+    }
+
+    .custom-file-upload label {
+        width: 100%;
+    }
+}
+
+.editarPerfil {
+    display: flex;
+    align-items: center;
+}
+
+.inputItens {
+    width: 100%;
+    text-align: center;
+}
+
+.inputsVendedor {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 4%;
+    margin: 2%;
+    gap: 80px;
+}
+
+.inputsVendedor label {
+    width: 100px;
+}
+
+.inputsVendedor input {
+    flex-grow: 1;
+    width: 500px;
+}
+
+input[type="submit"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+@media (max-width: 1230px) {
+    .parte2 {
+        justify-content: center;
+        align-self: center;
+    }
+    .header-conteudo2 {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .inputsVendedor {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .inputsVendedor label {
+        width: auto;
+    }
+
+    .inputsVendedor input {
+        width: 100%;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+    }
+
+    .parte1 {
+        display: none;
+    }
 }
 

@@ -263,7 +263,7 @@
 
             <div class="inputs">
                 <label for="numeroCasa">Número da casa</label>
-                <input type="text" id="numeroCasa" name="numeroCasaCliente">
+                <input type="text" id="numeroCasa" name="numCasaCliente" required>
             </div>
             <div class="inputs">
                 <label for="password">Senha</label>
@@ -306,7 +306,7 @@
             </div>
             <div class="inputs">
                 <label for="telefone">Telefone</label>
-                <input type="text" id="telefone" name="telefoneVendedor" placeholder="(DD)XXXXX-XXXX" required>
+                <input type="text" id="numeroVendedor" name="numeroVendedor" placeholder="(DD)XXXXX-XXXX" required>
             </div>
             <div class="inputs">
                 <label for="cep">CEP</label>
@@ -335,7 +335,7 @@
             </div>
             <div class="inputs">
                 <label for="numeroCasa">Número da casa</label>
-                <input type="text" id="numeroCasa" name="numeroCasaVendedor">
+                <input type="text" id="numeroCasa" name="numCasaVendedor" required>
             </div>
             <div class="inputs">
                 <label for="password">Senha</label>

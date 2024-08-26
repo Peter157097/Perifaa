@@ -18,19 +18,31 @@ html, body {
     display: flex;
 }
 
-.parte1{
+.parte1 {
     background-color: #5e3e24;
     display: flex;
     align-items: center;
     flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50vh;
+    height: 100vh;
+    color: white;
+    padding: 10px;
+    box-sizing: border-box; 
 }
 
-.parte2{
+.parte2 {
+    margin-left: 200px; 
     padding: 10px;
     display: flex;
     background-color: #ffffff;
     justify-content: center;
     align-items: flex-start;
+    width: calc(100% - 200px);
+    box-sizing: border-box; 
+    min-height: 100vh; 
 }
 
 .img-dashboard{

@@ -28,10 +28,11 @@ Route::get('/perfil', function () {
     $cep = Session::get('cep');
     $cidade = Session::get('cidade');
     $estado = Session::get('estado');
+    $numCasaCliente = Session::get('numCasaCliente');
     $imagemCliente = Session::get('imagemCliente');
 
-    if ($nome && $email && $id && $numero && $logradouro && $cep && $cidade && $estado && $imagemCliente) {
-        return view('perfil', compact('nome', 'email', 'id', 'numero', 'logradouro', 'cep', 'cidade', 'estado', 'imagemCliente'));
+    if ($nome && $email && $id && $numero && $logradouro && $cep && $cidade && $estado && $imagemCliente && $numCasaCliente) {
+        return view('perfil', compact('nome', 'email', 'id', 'numero', 'logradouro', 'cep', 'cidade', 'estado', 'imagemCliente', 'numCasaCliente'));
     } else {
         Session::flash('alert', 'Para acessar esta página, faça o login!');
         return redirect('/');
@@ -51,14 +52,19 @@ Route::get('/logout', [AuthController::class, 'logout']);
 
 Route::get('/produtos', [ProdutoController::class, 'index']);
 
+
+
 Route::get('/entrar-produto', function () {
     return view('entrar-produto');
 });
+
+
 
 // Rota para editarPerfilvendedor
 Route::get('/editarPerfillVendedor', function () {
     return view('editarPerfillVendedor');
 });
+
 
 // Rota para adminDenuncias
 Route::get('/adminDenuncias', function () {
@@ -70,4 +76,3 @@ Route::get('/adminDenuncias', function () {
 Route::get('/adminDenunciaProduto', function () {
     return view('adminDenunciaProduto');
 }); 
-

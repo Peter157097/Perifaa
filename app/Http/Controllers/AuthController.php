@@ -61,15 +61,16 @@ class AuthController extends Controller
 
 
             } elseif (isset($usuario->idVendedor)) { // Vendedor
-                Session::put('id', $usuario->idVendedor);
-                Session::put('nome', $usuario->nomeVendedor);
-                Session::put('email', $usuario->emailVendedor);
-                Session::put('numero', $usuario->numeroVendedor);
-                Session::put('logradouro', $usuario->ruaVendedor);
-                Session::put('cep', $usuario->cepVendedor);
-                Session::put('cidade', $usuario->cidadeVendedor);
-                Session::put('estado', $usuario->estadoVendedor);
-                Session::put('imagem', $usuario->imagemVendedor);
+                Session::put('idVendedor', $usuario->idVendedor);
+                Session::put('nomeVendedor', $usuario->nomeVendedor);
+                Session::put('emailVendedor', $usuario->emailVendedor);
+                Session::put('numeroVendedor', $usuario->numeroVendedor);
+                Session::put('ruaVendedor', $usuario->ruaVendedor);
+                Session::put('cepVendedor', $usuario->cepVendedor);
+                Session::put('cidadeVendedor', $usuario->cidadeVendedor);
+                Session::put('estadoVendedor', $usuario->estadoVendedor);
+                Session::put('numCasaVendedor', $usuario->numCasaVendedor);
+                Session::put('imagemVendedor', $usuario->imagemVendedor);
 
                 $isVendedor = isset($usuario->idVendedor);
                 Session::put('is_vendedor', $isVendedor);

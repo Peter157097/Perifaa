@@ -103,8 +103,10 @@
             </div>
 
             <div class="cards-body">
+             
                 <div class="container-cards">
                     @foreach($produtos as $produto)
+                    <a href="{{ url('/entrar-produto',$produto->idProduto)}}">
                     <div class="card-produto">
                         <div class="image-display">
                             <img class="img-card-produto" src="{{ asset($produto->imagemProduto) }}"
@@ -139,7 +141,9 @@
                         </div>
                     </div>
                     @endforeach
-                </div>
+                    
+                    </div>
+                </a>
             </div>
         </div>
         <div class="quebra-pagina">

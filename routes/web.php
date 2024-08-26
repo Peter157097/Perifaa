@@ -59,3 +59,15 @@ Route::get('/entrar-produto', function () {
 Route::get('/editarPerfillVendedor', function () {
     return view('editarPerfillVendedor');
 });
+
+// Rota para adminDenuncias
+Route::get('/adminDenuncias', function () {
+    return view('adminDenuncias');
+}); 
+
+
+// Rota para adminDenunciaProduto
+Route::get('/adminDenunciaProduto', function () {
+    return view('adminDenunciaProduto');
+}); 
+

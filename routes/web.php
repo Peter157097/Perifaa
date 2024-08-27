@@ -100,3 +100,8 @@ Route::get('/criaradmin', function () {
 }); 
 
 Route::post('/admin', [AdminController::class, 'store']);
+
+// Rota para carrinho
+Route::get('/carrinho', function () {
+    return view('carrinho');
+}); 

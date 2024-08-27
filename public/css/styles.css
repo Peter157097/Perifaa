@@ -752,14 +752,31 @@ dialog #modal-2::backdrop {
     }
 }
 
+@media (min-width: 1200px) {
+    /* Se necessário, ajuste as propriedades para telas muito grandes */
+    #modal-1 {
+        max-width: 450px;
+    }
+    #modal-2, #modal-3 {
+        max-width: 500px;
+        max-height: 800px;
+
+    }
+  
+}
 /* Ajustes para telas muito grandes, se necessário */
 @media (min-width: 1400px) {
     /* Se necessário, ajuste as propriedades para telas muito grandes */
     #modal-1 {
         max-width: 450px;
     }
-    
+    #modal-2, #modal-3 {
+        max-width: 600px;
+        max-height: 750px;
+
+    }  
 }
+
 /* fim nav */
 
 /* Carousel */
@@ -2822,6 +2839,46 @@ input {
 }
 .comprar-agora:focus{
     outline: 1px solid #5e3e24;
+}
+
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.2) !important; 
+}
+
+.modal.show .modal-dialog {
+    transform: none; /* Remove o efeito de escala */
+}
+
+.modal-dialog ul{
+    list-style: none;
+}
+
+.modal-dialog ul li a{
+    color: #252525;
+}
+
+.modal-dialog ul li a:hover{
+    color: #5e3e24;
+    text-decoration: none;
+}
+
+.modal-footer button{
+    background-color: #5e3e24;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-footer button:hover{
+    background-color: #5e3e24;
+    border: none;
+    cursor: pointer;
 }
 
 #link-perfil{

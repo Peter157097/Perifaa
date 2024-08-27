@@ -76,7 +76,7 @@
 
                             <div class="inputsVendedor">
                                 <label for="rua">Rua</label>
-                                <input type="text" name="ruaVendedor" value="{{ $ruaVendedor }}">
+                                <input type="text" name="logradouroVendedor" value="{{ $logradouroVendedor }}">
                                 <i class="fa-solid fa-pen"></i>
                             </div>
 

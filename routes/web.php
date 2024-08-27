@@ -6,6 +6,9 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\VendedorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\AdminController;
+
+use App\Models\Admin;
 use App\Models\Vendedor;
 use Illuminate\Support\Facades\Session;
 
@@ -51,7 +54,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout']);
 
 
-Route::get('/produtos', [ProdutoController::class, 'index']);
+Route::get('/produtos', [ProdutoController::class, 'index'])->name('produtos.index');
 
 
 
@@ -62,15 +65,15 @@ Route::get('/editarPerfillVendedor', function () {
     $emailVendedor = Session::get('emailVendedor');
     $idVendedor = Session::get('idVendedor');
     $numeroVendedor = Session::get('numeroVendedor');
-    $ruaVendedor = Session::get('ruaVendedor');
+    $logradouroVendedor = Session::get('logradouroVendedor');
     $cepVendedor = Session::get('cepVendedor');
     $cidadeVendedor = Session::get('cidadeVendedor');
     $estadoVendedor = Session::get('estadoVendedor');
     $numCasaVendedor = Session::get('numCasaVendedor');
     $imagemVendedor = Session::get('imagemVendedor');
 
-    if ($nomeVendedor && $emailVendedor && $idVendedor && $numeroVendedor && $ruaVendedor && $cepVendedor && $cidadeVendedor && $estadoVendedor && $imagemVendedor && $numCasaVendedor) {
-        return view('editarPerfillVendedor', compact('nomeVendedor', 'emailVendedor', 'idVendedor', 'numeroVendedor', 'ruaVendedor', 'cepVendedor', 'cidadeVendedor', 'estadoVendedor', 'imagemVendedor', 'numCasaVendedor'));
+    if ($nomeVendedor && $emailVendedor && $idVendedor && $numeroVendedor && $logradouroVendedor && $cepVendedor && $cidadeVendedor && $estadoVendedor && $imagemVendedor && $numCasaVendedor) {
+        return view('editarPerfillVendedor', compact('nomeVendedor', 'emailVendedor', 'idVendedor', 'numeroVendedor', 'logradouroVendedor', 'cepVendedor', 'cidadeVendedor', 'estadoVendedor', 'imagemVendedor', 'numCasaVendedor'));
     } else {
         Session::flash('alert', 'Para acessar esta página, faça o login!');
         return redirect('/');
@@ -90,3 +93,10 @@ Route::get('/adminDenuncias', function () {
 Route::get('/adminDenunciaProduto', function () {
     return view('adminDenunciaProduto');
 }); 
+
+
+Route::get('/criaradmin', function () {
+    return view('criaradmin');
+}); 
+
+Route::post('/admin', [AdminController::class, 'store']);

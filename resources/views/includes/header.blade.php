@@ -21,7 +21,7 @@
                
     <nav class="nav-mobile"><!--Começo da nav-->
         <ul>
-            <li class="drop-hover"><a class="nav-hover" >ROUPAS <i class="fa-solid fa-caret-right"></i></a>
+            <li class="drop-hover"><a class="nav-hover" href="{{route('produtos.index')}}">ROUPAS <i class="fa-solid fa-caret-right"></i></a>
                 <div class="drop"> <!--Começo menu dropdown das roupas-->
                     <a href="#">Blazeres & Ternos</a>
                     <a href="#">Blusas & Body</a>
@@ -314,7 +314,7 @@
             </div>
             <div class="inputs">
                 <label for="rua">Rua</label>
-                <input type="text"  name="ruaVendedor" id="rua" required>
+                <input type="text"  name="logradouroVendedor" id="rua" required>
             </div>
             <div class="inputs">
                 <label for="bairro">Bairro</label>

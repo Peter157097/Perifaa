@@ -19,7 +19,7 @@ class VendedorController extends Controller
         $vendedor->numeroVendedor = $request->numeroVendedor;
         $vendedor->cpfVendedor = $request->cpfVendedor;
         $vendedor->cepVendedor = $request->cepVendedor;
-        $vendedor->ruaVendedor = $request->ruaVendedor;
+        $vendedor->logradouroVendedor = $request->logradouroVendedor;
         $vendedor->bairroVendedor = $request->bairroVendedor;
         $vendedor->cidadeVendedor = $request->cidadeVendedor;
         $vendedor->estadoVendedor = $request->estadoVendedor;
@@ -48,7 +48,7 @@ class VendedorController extends Controller
             'nomeVendedor' => Session::get('nomeVendedor'),
             'emailVendedor' => Session::get('emailVendedor'),
             'numeroVendedor' => Session::get('numeroVendedor'),
-            'ruaVendedor' => Session::get('ruaVendedor'),
+            'logradouroVendedor' => Session::get('logradouroVendedor'),
             'cepVendedor' => Session::get('cepVendedor'),
             'cidadeVendedor' => Session::get('cidadeVendedor'),
             'estadoVendedor' => Session::get('estadoVendedor'),
@@ -64,7 +64,7 @@ class VendedorController extends Controller
             'nomeVendedor' => 'required|string|max:255',
             'emailVendedor' => 'required|email|max:255',
             'numeroVendedor' => 'required|string|max:15',
-            'ruaVendedor' => 'required|string|max:255',
+            'logradouroVendedor' => 'required|string|max:255',
             'cepVendedor' => 'required|string|max:10',
             'cidadeVendedor' => 'required|string|max:100',
             'estadoVendedor' => 'required|string|max:50',
@@ -81,7 +81,7 @@ class VendedorController extends Controller
         $vendedor->nomeVendedor = $request->nomeVendedor;
         $vendedor->emailVendedor = $request->emailVendedor;
         $vendedor->numeroVendedor = $request->numeroVendedor;
-        $vendedor->ruaVendedor = $request->ruaVendedor;
+        $vendedor->logradouroVendedor = $request->logradouroVendedor;
         $vendedor->cepVendedor = $request->cepVendedor;
         $vendedor->cidadeVendedor = $request->cidadeVendedor;
         $vendedor->estadoVendedor = $request->estadoVendedor;
@@ -102,7 +102,7 @@ class VendedorController extends Controller
         Session::put('emailVendedor', $request->emailVendedor);
         Session::put('numeroVendedor', $request->numeroVendedor);
         Session::put('cepVendedor', $request->cepVendedor);
-        Session::put('ruaVendedor', $request->ruaVendedor);
+        Session::put('logradouroVendedor', $request->logradouroVendedor);
         Session::put('cidadeVendedor', $request->cidadeVendedor);
         Session::put('estadoVendedor', $request->estadoVendedor);
         Session::put('numCasaVendedor', $request->numCasaVendedor);

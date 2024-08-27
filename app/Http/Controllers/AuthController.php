@@ -28,6 +28,11 @@ class AuthController extends Controller
         $usuario = DB::table('tbVendedor')->where('emailVendedor', $request->emailCliente)->first();
         Log::info('Usuário buscado na tabela Vendedor', ['usuario' => $usuario]);
     }
+        // Se ainda não encontrado, busca na tabela tbAdmin
+    if (!$usuario) {
+        $usuario = DB::table('tbAdministrador')->where('emailAdministrador', $request->emailCliente)->first();
+        Log::info('Usuário buscado na tabela Admin', ['usuario' => $usuario]);
+    }
 
     // Verifique se o usuário foi encontrado
     if ($usuario) {
@@ -37,6 +42,9 @@ class AuthController extends Controller
             $senhaCorreta = Hash::check($request->senhaCliente, $usuario->senhaCliente);
         } elseif (isset($usuario->senhaVendedor) && !isset($usuario->senhaCliente) ) { // Verifica se é vendedor
             $senhaCorreta = Hash::check($request->senhaCliente, $usuario->senhaVendedor);
+        }
+        elseif (isset($usuario->senhaAdministrador)) { // Verifica se é administrador
+            $senhaCorreta = Hash::check($request->senhaCliente, $usuario->senhaAdministrador);
         }
 
         if ($senhaCorreta) {
@@ -58,6 +66,7 @@ class AuthController extends Controller
 
                 $isCliente = isset($usuario->idCliente);
                 Session::put('is_Cliente', $isCliente);
+                return redirect('/');
 
 
             } elseif (isset($usuario->idVendedor)) { // Vendedor
@@ -65,7 +74,7 @@ class AuthController extends Controller
                 Session::put('nomeVendedor', $usuario->nomeVendedor);
                 Session::put('emailVendedor', $usuario->emailVendedor);
                 Session::put('numeroVendedor', $usuario->numeroVendedor);
-                Session::put('ruaVendedor', $usuario->ruaVendedor);
+                Session::put('logradouroVendedor', $usuario->logradouroVendedor);
                 Session::put('cepVendedor', $usuario->cepVendedor);
                 Session::put('cidadeVendedor', $usuario->cidadeVendedor);
                 Session::put('estadoVendedor', $usuario->estadoVendedor);
@@ -74,10 +83,18 @@ class AuthController extends Controller
 
                 $isVendedor = isset($usuario->idVendedor);
                 Session::put('is_vendedor', $isVendedor);
+                return redirect('/dashboard');
+            
+            }   elseif (isset($usuario->idAdministrador)) { // Admin
+                Session::put('idAdmin', $usuario->idAdministrador);
+                Session::put('emailAdmin', $usuario->emailAdministrador);
+                // Adicione outras informações do admin conforme necessário
+                Session::put('is_admin', true);
+                $isAdmin = isset($usuario->idAdmin);
+                return redirect('/adminDenuncias');
             }
-
-            // Redireciona para o perfil
-            return redirect('/');
+            
+            
         } else {
             Log::info('Senha incorreta', ['email' => $request->emailCliente]);
             return redirect()->back()->withErrors(['loginError' => 'Senha incorreta']);

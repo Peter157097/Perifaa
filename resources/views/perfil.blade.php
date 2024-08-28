@@ -67,7 +67,8 @@
                     <p style="margin:0">{{$nome}}</p>
                 </div>
                 <div class="opcoes-usuario">
-                    <p style="margin:0; padding: 1vh">Meus favoritos &hearts;</p>
+                <a href="{{ route('favorites.index') }}"><p style="margin:0; padding: 1vh">Meus favoritos &hearts;</p></a>
+
                     <p style="margin:0; padding: 1vh">Carrinho</p>
                 </div>
             </div>

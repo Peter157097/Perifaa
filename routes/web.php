@@ -7,7 +7,8 @@ use App\Http\Controllers\VendedorController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\AdminController;
-
+use App\Http\Controllers\FavoritoController;
+use App\Models\Produto;
 use App\Models\Admin;
 use App\Models\Vendedor;
 use Illuminate\Support\Facades\Session;
@@ -105,3 +106,12 @@ Route::post('/admin', [AdminController::class, 'store']);
 Route::get('/carrinho', function () {
     return view('carrinho');
 }); 
+
+//Favoritos
+Route::get('/favorites', [FavoritoController::class, 'index2'])->name('favorites.index');
+Route::post('/favorites', [FavoritoController::class, 'store'])->name('favorites.store');
+Route::delete('/favorites/{product}', [FavoritoController::class, 'destroy'])->name('favorites.destroy');
+Route::post('/favorites/add', [FavoritoController::class, 'addFavorite'])->name('favorites.add');
+Route::post('/favorites/toggle', [FavoritoController::class, 'toggleFavorite'])->name('favorites.toggle');
+
+

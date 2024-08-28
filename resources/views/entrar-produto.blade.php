@@ -1,9 +1,16 @@
+
+
 @include('includes.head')
 @include('includes.header')
 @include('includes.nav')
 
 <main>
     <section>
+    @if(session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
         <div class="container-entrar-produto">
             <div class="esquerdo">
                 <div class="itens">
@@ -39,7 +46,17 @@
                             <h2>{{$produtos->nomeProduto}}</h2>
                             <!-- link para acionar modal 1-->
                             <a href="#" data-toggle="modal" data-target="#modalExemplo">Denunciar</a>
-                        </div>
+                            <form action="{{ route('favorites.add') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{ $produtos->idProduto }}">
+                                <button id="favorite-button" 
+                                        class="btn btn-favorite {{ $favorited ? 'favorited' : '' }}" 
+                                        data-product-id="{{ $produtos->idProduto }}">
+                                    {{ $favorited ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos' }}
+                                </button>
+                            </form>
+                    </div>
+
                     <!-- Modal -->
                     <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -111,6 +128,8 @@
         </div>
     </section>
 </main>
+
+
 
     
 <!--Import do javascript-->

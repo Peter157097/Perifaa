@@ -64,4 +64,9 @@ class Produto extends Model
     {
         return $this->belongsTo(Vendedor::class, 'idVendedor', 'idVendedor');
     }
+
+    public function favorites()
+    {
+        return $this->hasMany(Favorito::class, 'produto_id', 'idProduto');
+    }
 }

@@ -27,4 +27,9 @@ use Illuminate\Database\Eloquent\Model;
         'numCasaCliente',
     ];
     public $timestamps = false; // Desative timestamps se não estiver usando
+
+    public function favorites()
+    {
+        return $this->hasMany(Favorito::class, 'cliente_id', 'idCliente');
+    }
 }

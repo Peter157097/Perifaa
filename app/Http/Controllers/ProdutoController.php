@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Produto;
+use App\Models\Favorito;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class ProdutoController extends Controller
 {
@@ -16,7 +18,12 @@ class ProdutoController extends Controller
     public function show($idProduto)
     {
         $produtos = Produto::find($idProduto);
-        return view('entrar-produto', compact('produtos'));
+        $clientId = Session::get('id');
+
+        $favorited = Favorito::where('idProduto', $idProduto)
+        ->where('idCliente', $clientId)
+        ->exists();
+        return view('entrar-produto', compact('produtos', 'favorited'));
     }
 
 }

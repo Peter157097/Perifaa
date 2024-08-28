@@ -103,3 +103,4 @@ venderNaPerifa.addEventListener('click', () => {
 
     body.classList.add('no-scroll');
 });
+

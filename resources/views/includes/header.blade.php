@@ -156,7 +156,7 @@
                  <!--cliente -->
                  <div class="drop-perfil"> <!--Começo menu dropdown das roupas-->
                         <a href="{{ url('/perfil') }}"><i class="fa-solid fa-user"></i>Meu perfil</a>
-                        <a href="#"><i class="fa-solid fa-heart"></i>Favoritos</a>
+                        <a href="favorites"><i class="fa-solid fa-heart"></i>Favoritos</a>
                         <a href="#"><i class="fa-solid fa-cart-shopping"></i>Minhas compras</a>
                         <a href="#"><i class="fa-solid fa-circle-question"></i>Ajuda</a>
                         <a href="{{ url('/logout') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a>

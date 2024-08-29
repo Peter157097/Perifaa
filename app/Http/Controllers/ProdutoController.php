@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Produto;
 use App\Models\Favorito;
+use App\Models\Carrinho;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -20,10 +21,16 @@ class ProdutoController extends Controller
         $produtos = Produto::find($idProduto);
         $clientId = Session::get('id');
 
+        $carrinho = Carrinho::where('idProduto', $idProduto)
+        ->where('idCliente', $clientId)
+        ->exists();
+
+        
         $favorited = Favorito::where('idProduto', $idProduto)
         ->where('idCliente', $clientId)
         ->exists();
-        return view('entrar-produto', compact('produtos', 'favorited'));
+
+        return view('entrar-produto', compact('produtos', 'favorited', 'carrinho'));
     }
 
 }

@@ -118,7 +118,18 @@
 
                         <div class="opcao-entrar-produto">
                             <div class="botaos-entrar">
-                                <button class="adicionar-carrinho-entrada-produto"><i class="fa-solid fa-cart-shopping"></i>Adicionar ao carrinho</button>
+
+                            <form action="{{ route('carrinho.add') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="product_id" value="{{ $produtos->idProduto }}">
+                                <button id="carrinho-button" 
+                                        class="adicionar-carrinho-entrada-produto {{ $carrinho ? 'carrinho' : '' }}" 
+                                        data-product-id="{{ $produtos->idProduto }}">
+                                    {{ $carrinho ? 'Remover do Carrinho' : 'Adicionar ao Carrinho' }}
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </button>
+                            </form>
+                             
                                 <button class="comprar-agora">Comprar agora</button>
                             </div>
                         </div>

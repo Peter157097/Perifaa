@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FavoritoController;
+use App\Http\Controllers\CarrinhoController;
 use App\Models\Produto;
 use App\Models\Admin;
 use App\Models\Vendedor;
@@ -114,4 +115,9 @@ Route::delete('/favorites/{product}', [FavoritoController::class, 'destroy'])->n
 Route::post('/favorites/add', [FavoritoController::class, 'addFavorite'])->name('favorites.add');
 Route::post('/favorites/toggle', [FavoritoController::class, 'toggleFavorite'])->name('favorites.toggle');
 
-
+// Rota para carrinho
+Route::get('/carrinho', [CarrinhoController::class, 'index2'])->name('carrinho.index');
+Route::post('/carrinho', [CarrinhoController::class, 'store'])->name('carrinho.store');
+Route::delete('/carrinho/{product}', [CarrinhoController::class, 'destroy'])->name('carrinho.destroy');
+Route::post('/carrinho/add', [CarrinhoController::class, 'addCarrinho'])->name('carrinho.add');
+Route::post('/carrinho/toggle', [CarrinhoController::class, 'toggleCarrinho'])->name('carrinho.toggle');

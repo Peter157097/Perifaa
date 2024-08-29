@@ -2309,7 +2309,7 @@ input {
     gap: 2vh;
     margin-top: 6vh;
     flex-wrap: wrap;
-    max-width: 130vh;
+    max-width: 100%;
 
 
 }
@@ -2947,3 +2947,31 @@ input {
     content: none;
     outline: none; 
 }
+/*style dos favoritos*/
+.container-title-fav{
+    text-align: center;
+    width: 100%;
+    padding: 1%;
+    padding-top: 3%;
+}
+.container-cards-favorite {
+    display: flex;
+    gap: 3vh;
+    flex-wrap: wrap;
+    max-width: 100%;
+    padding: 5%;
+    padding-top: 4%;
+
+}
+.remove-fav-btn{
+    color: rgb(172, 15, 15);
+    background-color: transparent;
+    border: none;
+
+}
+.container-fav-vazio{
+    width: 100%;
+    padding: 4%;
+    padding-left: 5%;
+}
+

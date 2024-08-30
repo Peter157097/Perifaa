@@ -24,7 +24,7 @@
 <body>
     <main>
         <div class="container-title-fav">
-            <h1>Meus Favoritos</h1> 
+            <h1>Seus Favoritos</h1> 
             <p>Peças que você se amarrou...</p>
         </div>
         <div class="produto-line"></div>

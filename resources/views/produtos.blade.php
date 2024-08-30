@@ -15,9 +15,6 @@
             <div class="produto-line"></div>
             <div class="filtro-produtos">
                 <p class="filtro-display">Filtrado por:</p>
-                <div class="filtro-itens">1</div>
-                <div class="filtro-itens">2</div>
-                <div class="filtro-itens">3</div>
             </div>
         </div>
         <div class="produtos-body">

@@ -2306,7 +2306,7 @@ input {
 
 .container-cards {
     display: flex;
-    gap: 2vh;
+    gap: 1vh;
     margin-top: 6vh;
     flex-wrap: wrap;
     max-width: 100%;
@@ -2324,6 +2324,7 @@ input {
     display: flex;
     gap: 20vh;
     margin-bottom: 20vh;
+   
 }
 
 .image-display {
@@ -2956,11 +2957,12 @@ input {
 }
 .container-cards-favorite {
     display: flex;
-    gap: 3vh;
+    gap: 1vh;
     flex-wrap: wrap;
     max-width: 100%;
     padding: 5%;
     padding-top: 4%;
+    justify-content: center;
 
 }
 .remove-fav-btn{

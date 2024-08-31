@@ -69,4 +69,8 @@ class Produto extends Model
     {
         return $this->hasMany(Favorito::class, 'produto_id', 'idProduto');
     }
+    public function denuncias()
+    {
+        return $this->hasMany(Denuncia::class, 'idProduto');
+    }
 }

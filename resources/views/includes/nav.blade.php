@@ -1,4 +1,26 @@
-<nav class="web"><!--Começo da nav-->
+<nav class="web {{ session('is_vendedor') ? 'navbar-vendedor' : (session('is_cliente') ? 'navbar-cliente' : '') }}">
+<!--Começo da nav-->
+<style>        .web {
+            height: 40px;
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+            z-index: 10;
+            box-shadow: 0 8px 8px rgba(148, 148, 148, 0.3);
+            position: relative;
+        }
+
+        .navbar-vendedor {
+            background-color: #5e3e2467; /* Cor da navbar para vendedores */
+        }
+
+        .web a {
+    color: #252525;
+    position: relative;
+}
+    </style>
+
+
     
         <ul>
         <li class="drop-hover">

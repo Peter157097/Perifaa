@@ -9,7 +9,10 @@ use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FavoritoController;
 use App\Http\Controllers\CarrinhoController;
+use App\Http\Controllers\DenunciaController;
 use App\Models\Produto;
+use App\Models\Cliente;
+use App\Models\Denuncia;
 use App\Models\Admin;
 use App\Models\Vendedor;
 use Illuminate\Support\Facades\Session;
@@ -91,10 +94,7 @@ Route::get('/adminDenuncias', function () {
 }); 
 
 
-// Rota para adminDenunciaProduto
-Route::get('/adminDenunciaProduto', function () {
-    return view('adminDenunciaProduto');
-}); 
+
 
 
 Route::get('/criaradmin', function () {
@@ -121,3 +121,16 @@ Route::post('/carrinho', [CarrinhoController::class, 'store'])->name('carrinho.s
 Route::delete('/carrinho/{product}', [CarrinhoController::class, 'destroy'])->name('carrinho.destroy');
 Route::post('/carrinho/add', [CarrinhoController::class, 'addCarrinho'])->name('carrinho.add');
 Route::post('/carrinho/toggle', [CarrinhoController::class, 'toggleCarrinho'])->name('carrinho.toggle');
+
+Route::post('/cadastrarDenuncia', [DenunciaController::class, 'store'])->name('Denuncia.store');
+// Rota para Denuncia
+Route::get('/adminDenunciaProduto', function () {
+    $denuncias = Denuncia::with(['cliente','produto'])->get();
+
+    return view('adminDenunciaProduto', [
+        'denuncias' => $denuncias,
+    ]);
+});
+
+Route::delete('/denuncia/{idDenuncia}', [DenunciaController::class, 'destroy'])->name('denuncia.destroy');
+

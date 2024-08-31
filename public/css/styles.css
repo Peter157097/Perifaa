@@ -373,10 +373,12 @@ header {
 
 }
 
+
 .web a {
     color: #252525;
     position: relative;
 }
+
 
 .web a:hover {
     text-decoration: none;

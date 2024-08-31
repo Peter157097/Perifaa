@@ -36,14 +36,15 @@
                         <i class="fa-solid fa-user"></i>
                     </div>
                 </div>
+                @foreach($denuncias as $denuncia)
                 <div class="denunciasCards">
                     <div class="denuncia">
                         <div class="conteudoCardAdmin">
                             <div class="tituloAdminDenunciaProduto">
-                                Nome do produto
+                                
                             </div>
                             <a href="#" class="linkParaOproduto">
-                                Calça preta ZARA
+                            
                             </a>
                             <br>
                             <br>
@@ -51,24 +52,24 @@
                                 Descrição produto
                             </div>
                             <div class="textoAdminDenunciaProduto">
-                                Calça preta da ZARA levemente desgastada na barra.
+                            {{ $denuncia->produto->descricaoProduto?? 'Descrição Indisponível' }}
                             </div>
                             <br>
                             <div class="tituloAdminDenunciaProduto">
                                 Nome e E-mail do Cliente
                             </div>
                             <div class="textoAdminDenunciaProduto">
-                                Jeferson Silva
+                            {{ $denuncia->cliente->nomeCliente ?? 'Nome Indisponível' }}
                             </div>
                             <div class="textoAdminDenunciaProduto">
-                                jefinhogameplays@gmail.com
+                            {{ $denuncia->cliente->emailCliente ?? 'Nome Indisponível' }}
                             </div>
                             <br>
                             <div class="tituloAdminDenunciaProduto">
                                 Descrição do Problema
                             </div>
                             <div class="textoAdminDenunciaProduto">
-                                Completamente diferente do que prometeu, produto de outra cor!
+                                   {{$denuncia->descDenuncia}}
                             </div>
                         </div>
                         <div class="iconAdminDenuncia">
@@ -78,22 +79,30 @@
                                     id Denúncia
                                 </h3>
                                 <h4>
-                                    8224
+                                {{ $denuncia->idDenuncia }}
                                 </h4>
                             </div>
                             <div class="parte2icon">
                                 <!-- clicando aq remove o produto -->
                                 <i class="fa-solid fa-trash trash-icon"></i>
 
-                                <a href="#">
+                                <a href="/denuncia/{id}">
                                     <h5>
                                         Remover produto
                                     </h5>
+                                    
                                 </a>
+                                <!-- Botão de exclusão -->
+                                <form action="{{ route('denuncia.destroy', $denuncia->idDenuncia) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir esta denúncia?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Remover</button>
+                            </form> 
                             </div>
                         </div>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>

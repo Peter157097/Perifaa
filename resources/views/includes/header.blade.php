@@ -19,7 +19,8 @@
                         
                 </div>   
                
-    <nav class="nav-mobile"><!--Começo da nav-->
+    <nav class="nav-mobile" ><!--Começo da nav-->
+    </style>
         <ul>
             <li class="drop-hover"><a class="nav-hover" href="{{route('produtos.index')}}">ROUPAS <i class="fa-solid fa-caret-right"></i></a>
                 <div class="drop"> <!--Começo menu dropdown das roupas-->
@@ -111,12 +112,17 @@
         </ul>
     </nav><!--Fim do menu mobile-->
             
-
+        @if(session('is_vendedor'))
             </div><a href="{{ url('/') }}">
+            <img class="logoBranca" src="{{url('images/logo-branca.png')}}" alt="Logo perifa">
+            </a>
+        </div>
+        @else
+        </div><a href="{{ url('/') }}">
             <img class="logo" src="{{url('images/logo.png')}}" alt="Logo perifa">
             </a>
         </div>
-       
+        @endif
         <div class="header_icones">
             <div class="header_pesquisa">
                 <div class="input-container">

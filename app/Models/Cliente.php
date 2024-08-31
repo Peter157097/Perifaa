@@ -32,4 +32,9 @@ use Illuminate\Database\Eloquent\Model;
     {
         return $this->hasMany(Favorito::class, 'cliente_id', 'idCliente');
     }
+    public function denuncias()
+    {
+        return $this->hasMany(Denuncia::class, 'idCliente');
+    }
+    
 }

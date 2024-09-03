@@ -21,6 +21,10 @@
                 <ul>
                     <li><a href="#"><i class="fa-solid fa-house-chimney"></i>Dashboard </a></li>
                     <li><a href="#"><i class="fa-solid fa-exclamation-circle"></i>Denúncias</a></li>
+                    <li><a href="#"><i class="fa-solid fa-comments"></i>Mensagens e Suporte</a></li>
+                    <li><a href="#"><i class="fa-solid fa-users"></i>Usuários</a></li>
+                    <li><a href="#"><i class="fa-solid fa-gear"></i>Configurações </a></li>
+                    <li><a href="/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i>Sair </li>
                 </ul>
             </div>
         </div>

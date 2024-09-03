@@ -41,8 +41,10 @@ class ClienteController extends Controller
         }
     
         $cliente->save();
-    
-        return redirect("/")->with('success', 'Cliente cadastrado com sucesso!');
+        
+        Session::flash('cadastrarCliente', 'Cliente cadastrado com sucesso!');
+
+        return redirect("/");
     }
     
     
@@ -102,6 +104,7 @@ class ClienteController extends Controller
         }
 
         $cliente->save();
+        Session::flash('editarCliente', 'Informações editadas com sucesso!');
 
         // Atualiza as informações na sessão
         Session::put('nome', $request->nomeCliente);

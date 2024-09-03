@@ -11,10 +11,16 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="{{url('css/deshboardNova.css')}}">
+    <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/x-icon">
     <title>Document</title>
 </head>
 
 <body>
+@if(Session::has('cadastrarProduto'))
+    <script>
+        alert("{{ Session::get('cadastrarProduto') }}");
+    </script>
+@endif
     <div class="containerVendedor">
         <div class="parte1">
           <a href="{{url('')}}" class="aPerifa"> <img  class="img-dashboard" src="{{url('images/logo-branca.png')}}" alt="Logo Perifa"> </a> 

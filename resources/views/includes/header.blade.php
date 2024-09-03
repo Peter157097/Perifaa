@@ -39,6 +39,21 @@
 @else
     <header>
 @endif
+@if(Session::has('loginAlert'))
+    <script>
+        alert("{{ Session::get('loginAlert') }}");
+    </script>
+@endif
+@if(Session::has('cadastrarVendedor'))
+    <script>
+        alert("{{ Session::get('cadastrarVendedor') }}");
+    </script>
+@endif
+@if(Session::has('cadastrarCliente'))
+    <script>
+        alert("{{ Session::get('cadastrarCliente') }}");
+    </script>
+@endif
         <div class="header_direita">
             <div class="header-logo">
 
@@ -210,7 +225,7 @@
                     <!--cliente -->
                     <div class="drop-perfil"> <!--Começo menu dropdown das roupas-->
                         <a href="{{ url('/perfil') }}"><i class="fa-solid fa-user"></i>Meu perfil</a>
-                        <a href="favorites"><i class="fa-solid fa-heart"></i>Favoritos</a>
+                        <a href="{{ url('/favorites') }}"><i class="fa-solid fa-heart"></i>Favoritos</a>
                         <a href="{{url('carrinho')}}"><i class="fa-solid fa-cart-shopping"></i>Carrinho</a>
                         <a href="#"><i class="fa-solid fa-circle-question"></i>Ajuda</a>
                         <a href="{{ url('/logout') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a>

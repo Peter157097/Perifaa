@@ -36,7 +36,7 @@ class AuthController extends Controller
 
         // Verifique se o usuário foi encontrado
         if ($usuario) {
-            // Verifica se é um cliente ou vendedor e valida a senha
+            // Verifica se é um cliente, vendedor ou administrador e valida a senha
             $senhaCorreta = false;
             if (isset($usuario->senhaCliente)) { // Verifica se é cliente
                 $senhaCorreta = Hash::check($request->senhaCliente, $usuario->senhaCliente);
@@ -47,9 +47,6 @@ class AuthController extends Controller
             }
 
             if ($senhaCorreta) {
-                // Armazena se o usuário é vendedor (true) ou cliente (false)
-
-
                 // Inicia a sessão para o usuário
                 if (isset($usuario->idCliente)) { // Cliente
                     Session::put('id', $usuario->idCliente);
@@ -65,8 +62,10 @@ class AuthController extends Controller
 
                     $isCliente = isset($usuario->idCliente);
                     Session::put('is_Cliente', $isCliente);
-                    return redirect('/');
 
+                    // Define a mensagem de alerta para o cliente
+                    Session::flash('loginAlert', 'Bem-vindo, Cliente!');
+                    return redirect('/');
 
                 } elseif (isset($usuario->idVendedor)) { // Vendedor
                     Session::put('idVendedor', $usuario->idVendedor);
@@ -82,6 +81,9 @@ class AuthController extends Controller
 
                     $isVendedor = isset($usuario->idVendedor);
                     Session::put('is_vendedor', $isVendedor);
+
+                    // Define a mensagem de alerta para o vendedor
+                    Session::flash('loginAlert', 'Bem-vindo, Vendedor!');
                     return redirect('/');
 
                 } elseif (isset($usuario->idAdministrador)) { // Admin
@@ -89,10 +91,13 @@ class AuthController extends Controller
                     Session::put('emailAdmin', $usuario->emailAdministrador);
                     // Adicione outras informações do admin conforme necessário
                     Session::put('is_admin', true);
+
                     $isAdmin = isset($usuario->idAdmin);
+
+                    // Define a mensagem de alerta para o administrador
+                    Session::flash('loginAlert', 'Bem-vindo, Admin!');
                     return redirect('/adminDenuncias');
                 }
-
 
             } else {
                 Log::info('Senha incorreta', ['email' => $request->emailCliente]);
@@ -113,4 +118,3 @@ class AuthController extends Controller
         return redirect('/');
     }
 }
-

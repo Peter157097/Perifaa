@@ -116,10 +116,10 @@
     }
 
     .imagemProduto {
-        width: 100px;
-        height: 100px;
-        object-fit: cover;
-        border-radius: 10px;
+        width: 100px; /* Ajuste conforme necessário */
+    height: 100px; /* Deve ser igual à largura para manter a proporção 1:1 */
+    object-fit: cover; /* Para manter a proporção e cortar a imagem se necessário */
+    border-radius: 10px; /* Adiciona cantos arredondados */
     }
 
     .nomeProduto {
@@ -243,8 +243,10 @@
     }
 
     .imagemProdutoCarrinho {
-        width: 80%; /* Reduz a largura da imagem em telas menores */
-        height: auto; /* Mantém a proporção da imagem */
+        width: 100px; /* Ajuste conforme necessário */
+        height: 100px; /* Deve ser igual à largura para manter a proporção 1:1 */
+        object-fit: cover; /* Para manter a proporção e cortar a imagem se necessário */
+        border-radius: 10px; /* Adiciona cantos arredondados */
     }
     .containerCardCarrinho{
         width: 200%;
@@ -332,7 +334,7 @@
                 <div class="cardCaPt2">
                     <div class="parteImagemItem">
                         <img src="{{ $item->product->imagemProduto }}" alt="Imagem do Produto"
-                            class="imagemProdutoCarrinho">
+                            class="imagemProduto">
 
                     </div>
                     <div class="detalhesProduto">

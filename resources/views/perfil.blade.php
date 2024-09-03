@@ -52,6 +52,12 @@
     @include('includes.header')
     @include('includes.nav')
 
+    @if(Session::has('editarCliente'))
+    <script>
+        alert("{{ Session::get('editarCliente') }}");
+    </script>
+    @endif
+
     <main>
         <div class="container-perfil">
             <div class="frame-perfil">

@@ -39,6 +39,10 @@ class VendedorController extends Controller
         }
 
         $vendedor->save();
+
+        
+        Session::flash('cadastrarVendedor', 'Vendedor cadastrado com sucesso!');
+
         return redirect("/");
     }
 
@@ -96,6 +100,8 @@ class VendedorController extends Controller
         }
 
         $vendedor->save();
+
+        Session::flash('editarVendedor', 'Informações editadas com sucesso!');
 
         // Atualiza as informações na sessão
         Session::put('nomeVendedor', $request->nomeVendedor);

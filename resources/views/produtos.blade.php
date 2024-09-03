@@ -92,10 +92,7 @@
                         <!-- Adicione mais locais conforme necessário -->
                     </div>
 
-                    <button class="accordion">Preferências</button>
-                    <div class="panel">
-                        <p>N sei</p>
-                    </div>
+
                 </div>
             </div>
 

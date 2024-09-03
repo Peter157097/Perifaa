@@ -16,7 +16,8 @@
 <body>
     <div class="containerAdminDenuncias">
         <div class="parte1">
-            <img class="img-dashboard" src="{{url('images/logo-branca.png')}}" alt="Logo Perifa">
+            <a href="{{url('')}}" class="aPerifa"> <img class="img-dashboard" src="{{url('images/logo-branca.png')}}"
+                    alt="Logo Perifa"> </a>
             <div class="links-dashboard">
                 <ul>
                     <li><a href="#"><i class="fa-solid fa-house-chimney"></i>Dashboard </a></li>
@@ -91,18 +92,12 @@
                                     <!-- clicando aq remove o produto -->
                                     <i class="fa-solid fa-trash trash-icon"></i>
 
-                                    <a href="/denuncia/{id}">
-                                        <h5>
-                                            Remover produto
-                                        </h5>
-
-                                    </a>
                                     <!-- Botão de exclusão -->
                                     <form action="{{ route('denuncia.destroy', $denuncia->idDenuncia) }}" method="POST"
                                         onsubmit="return confirm('Tem certeza que deseja excluir esta denúncia?');">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Remover</button>
+                                        <button type="submit" class="btaoremover">Remover</button>
                                     </form>
                                 </div>
                             </div>

@@ -13,7 +13,7 @@ class ProdutoController extends Controller
     public function index()
     {
         // Use paginate em vez de get para obter uma instância paginada de produtos
-        $produtos = Produto::paginate(9); // Paginar os produtos
+        $produtos = Produto::paginate(8); // Paginar os produtos
         return view('produtos', compact('produtos'));
     }
     public function show($idProduto)

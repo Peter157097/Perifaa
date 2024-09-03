@@ -1,3 +1,7 @@
+@php
+    $totalDenuncias = \App\Models\Denuncia::count();
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +20,8 @@
 <body>
     <div class="containerAdminDenuncias">
         <div class="parte1">
-            <img class="img-dashboard" src="{{url('images/logo-branca.png')}}" alt="Logo Perifa">
+            <a href="{{url('')}}" class="aPerifa"> <img class="img-dashboard" src="{{url('images/logo-branca.png')}}"
+                    alt="Logo Perifa"> </a>
             <div class="links-dashboard">
                 <ul>
                     <li><a href="#"><i class="fa-solid fa-house-chimney"></i>Dashboard </a></li>
@@ -46,7 +51,7 @@
                         <a href="adminDenunciaProduto" class="conteudoCardAdmin">
                             <h3>Tipo de Denúncia</h3>
                             <h3>PRODUTO</h3>
-                            <h1>15</h1>
+                            <h1>{{ $totalDenuncias }}</h1>
                         </a>
                         <div class="iconAdminDenuncia">
                             <i class="fa-solid fa-box-open caixa"></i>

@@ -40,7 +40,7 @@ class DashboardController extends Controller
         $validated = $request->validate([
             'nomeProduto' => 'required|string|max:100',
             'valorProduto' => 'required|numeric',
-            'descricaoProduto' => 'required|string|max:50',
+            'descricaoProduto' => 'required|string|max:250',
             'cor' => 'required|exists:tbCor,idCor',
             'tamanho' => 'required|exists:tbTamanho,idTamanho',
             'regiao' => 'required|exists:tbRegiao,idRegiao',
@@ -49,9 +49,9 @@ class DashboardController extends Controller
             'condicao' => 'required|exists:tbCondicao,idCondicao',
             'imagemProduto' => 'nullable|image|max:2048',
         ]);
-    
-     
-    
+
+
+
         // Criar um novo registro de produto
         $produto = new Produto();
         $produto->nomeProduto = $request->input('nomeProduto');
@@ -64,7 +64,7 @@ class DashboardController extends Controller
         $produto->idGenero = $request->input('roupa');
         $produto->idCondicao = $request->input('condicao');
         $produto->idVendedor = 1; // Definir idVendedor como 1
-    
+
         if ($request->hasFile('imagemProduto')) {
             $file = $request->file('imagemProduto');
             $filename = time() . '.' . $file->getClientOriginalExtension();
@@ -72,12 +72,12 @@ class DashboardController extends Controller
             $file->move(public_path('images/produtos'), $filename);
             $produto->imagemProduto = 'images/produtos/' . $filename; // Caminho relativo
         }
-        
-    
+
+
         // Salvar no banco de dados
         $produto->save();
-    
-   
+
+
 
 
         return redirect()->route('dashboard')->with('success', 'Produto cadastrado com sucesso!');

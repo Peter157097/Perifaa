@@ -14,6 +14,11 @@
 </head>
 
 <body>
+@if(Session::has('editarVendedor'))
+    <script>
+        alert("{{ Session::get('editarVendedor') }}");
+    </script>
+@endif
     <div class="containerVendedor">
         <div class="parte1">
         <img src="{{ url($imagemVendedor) }}" alt="Foto do Perfil" class="img-fluid rounded-circle"

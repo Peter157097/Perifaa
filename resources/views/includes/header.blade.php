@@ -1,3 +1,10 @@
+<style>
+    .linkHomeCarrinho {
+    position: relative;
+    z-index: 10; /* Garanta que o link esteja no topo */
+}
+</style>
+
 <header> 
     <div class="header_direita">
         <div class="header-logo">
@@ -21,8 +28,9 @@
                
     <nav class="nav-mobile" ><!--Começo da nav-->
     </style>
+    
         <ul>
-            <li class="drop-hover"><a class="nav-hover" href="{{route('produtos.index')}}">ROUPAS <i class="fa-solid fa-caret-right"></i></a>
+            <li class="drop-hover"><a class="linkHomeCarrinho" href="{{ url('/produtos') }}">ROUPAS <i class="fa-solid fa-caret-right"></i></a>
                 <div class="drop"> <!--Começo menu dropdown das roupas-->
                     <a href="#">Blazeres & Ternos</a>
                     <a href="#">Blusas & Body</a>
@@ -41,6 +49,7 @@
                     <a href="#">Vestidos</a>
                 </div> <!--Fim menu dropdown das roupas-->             
             </li>
+            </a>
             <li class="drop-hover"><a href="#" class="nav-hover">FEMININAS <i class="fa-solid fa-caret-right"></i></a>
                 <div class="drop"> <!--Começo menu dropdown da categoria feminina-->
                     <a href="#">Bermudas</a>
@@ -153,7 +162,6 @@
             @if(session('is_vendedor'))
                 <div class="drop-perfil"> <!--Começo menu dropdown das roupas-->
                         <a href="{{ url('/dashboard') }}" id="link-perfil"><i class="bi bi-kanban"></i>Dashboard</a>
-                        <a href="#" id="link-perfil"><i class="fa-solid fa-cart-shopping"></i>Minhas vendas</a>
                         <a href="#" id="link-perfil"><i class="fa-solid fa-circle-question"></i>Ajuda</a>
                         <a href="{{ url('/logout') }}" id="link-perfil"><i class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a>
                  </div> <!--Fim menu dropdown das roupas--> 
@@ -163,7 +171,7 @@
                  <div class="drop-perfil"> <!--Começo menu dropdown das roupas-->
                         <a href="{{ url('/perfil') }}"><i class="fa-solid fa-user"></i>Meu perfil</a>
                         <a href="favorites"><i class="fa-solid fa-heart"></i>Favoritos</a>
-                        <a href="#"><i class="fa-solid fa-cart-shopping"></i>Minhas compras</a>
+                        <a href="{{url('carrinho')}}"><i class="fa-solid fa-cart-shopping"></i>Minhas compras</a>
                         <a href="#"><i class="fa-solid fa-circle-question"></i>Ajuda</a>
                         <a href="{{ url('/logout') }}"><i class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a>
                  </div> <!--Fim menu dropdown das roupas-->

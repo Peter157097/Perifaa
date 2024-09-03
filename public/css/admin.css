@@ -16,6 +16,50 @@ html, body {
     display: flex;
 }
 
+.aPerifa{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.btaoremover {
+    background-color: #835833; /* Cor de fundo do botão */
+    color: white; /* Cor do texto */
+    border: none; /* Remover borda */
+    padding: 15px 30px; /* Espaçamento interno */
+    text-align: center; /* Alinhamento do texto */
+    text-decoration: none; /* Sem sublinhado */
+    display: inline-block;
+    font-size: 16px; /* Tamanho da fonte */
+    margin: 10px 2px;
+    cursor: pointer; /* Cursor de mãozinha ao passar o mouse */
+    border-radius: 25px; /* Bordas arredondadas */
+    transition: all 0.4s; /* Transição suave para todos os efeitos */
+    position: relative;
+    overflow: hidden; /* Esconder o efeito de overflow */
+}
+
+.btaoremover::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300%;
+    height: 300%;
+    background-color: rgba(255, 255, 255, 0.3); /* Cor do efeito de brilho */
+    top: 100%;
+    transition: all 0.5s;
+}
+
+.btaoremover:hover::before {
+    top: -100%;
+}
+
+.btaoremover:hover {
+    background-color: #bc3028; /* Mudar a cor de fundo ao passar o mouse */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Adicionar sombra ao passar o mouse */
+}
 .parte1 {
     background-color: #5e3e24;
     display: flex;

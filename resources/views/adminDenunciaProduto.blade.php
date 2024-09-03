@@ -20,7 +20,12 @@
             <div class="links-dashboard">
                 <ul>
                     <li><a href="#"><i class="fa-solid fa-house-chimney"></i>Dashboard </a></li>
-                    <li><a href="#"><i class="fa-solid fa-exclamation-circle"></i>Denúncias</a></li>
+                    <li><a href="{{url('adminDenuncias')}}"><i class="fa-solid fa-exclamation-circle"></i>Denúncias</a>
+                    </li>
+                    <li><a href="#"><i class="fa-solid fa-comments"></i>Mensagens e Suporte</a></li>
+                    <li><a href="#"><i class="fa-solid fa-users"></i>Usuários</a></li>
+                    <li><a href="#"><i class="fa-solid fa-gear"></i>Configurações </a></li>
+                    <li><a href="/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i>Sair</li>
                 </ul>
             </div>
         </div>
@@ -37,71 +42,72 @@
                     </div>
                 </div>
                 @foreach($denuncias as $denuncia)
-                <div class="denunciasCards">
-                    <div class="denuncia">
-                        <div class="conteudoCardAdmin">
-                            <div class="tituloAdminDenunciaProduto">
-                                
-                            </div>
-                            <a href="#" class="linkParaOproduto">
-                            
-                            </a>
-                            <br>
-                            <br>
-                            <div class="tituloAdminDenunciaProduto">
-                                Descrição produto
-                            </div>
-                            <div class="textoAdminDenunciaProduto">
-                            {{ $denuncia->produto->descricaoProduto?? 'Descrição Indisponível' }}
-                            </div>
-                            <br>
-                            <div class="tituloAdminDenunciaProduto">
-                                Nome e E-mail do Cliente
-                            </div>
-                            <div class="textoAdminDenunciaProduto">
-                            {{ $denuncia->cliente->nomeCliente ?? 'Nome Indisponível' }}
-                            </div>
-                            <div class="textoAdminDenunciaProduto">
-                            {{ $denuncia->cliente->emailCliente ?? 'Nome Indisponível' }}
-                            </div>
-                            <br>
-                            <div class="tituloAdminDenunciaProduto">
-                                Descrição do Problema
-                            </div>
-                            <div class="textoAdminDenunciaProduto">
-                                   {{$denuncia->descDenuncia}}
-                            </div>
-                        </div>
-                        <div class="iconAdminDenuncia">
-                            <div class="parte1Icon">
-                                <i class="fa-solid fa-box-open caixa"></i>
-                                <h3>
-                                    id Denúncia
-                                </h3>
-                                <h4>
-                                {{ $denuncia->idDenuncia }}
-                                </h4>
-                            </div>
-                            <div class="parte2icon">
-                                <!-- clicando aq remove o produto -->
-                                <i class="fa-solid fa-trash trash-icon"></i>
+                    <div class="denunciasCards">
+                        <div class="denuncia">
+                            <div class="conteudoCardAdmin">
+                                <div class="tituloAdminDenunciaProduto">
 
-                                <a href="/denuncia/{id}">
-                                    <h5>
-                                        Remover produto
-                                    </h5>
-                                    
+                                </div>
+                                <a href="#" class="linkParaOproduto">
+
                                 </a>
-                                <!-- Botão de exclusão -->
-                                <form action="{{ route('denuncia.destroy', $denuncia->idDenuncia) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir esta denúncia?');">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Remover</button>
-                            </form> 
+                                <br>
+                                <br>
+                                <div class="tituloAdminDenunciaProduto">
+                                    Descrição produto
+                                </div>
+                                <div class="textoAdminDenunciaProduto">
+                                    {{ $denuncia->produto->descricaoProduto ?? 'Descrição Indisponível' }}
+                                </div>
+                                <br>
+                                <div class="tituloAdminDenunciaProduto">
+                                    Nome e E-mail do Cliente
+                                </div>
+                                <div class="textoAdminDenunciaProduto">
+                                    {{ $denuncia->cliente->nomeCliente ?? 'Nome Indisponível' }}
+                                </div>
+                                <div class="textoAdminDenunciaProduto">
+                                    {{ $denuncia->cliente->emailCliente ?? 'Nome Indisponível' }}
+                                </div>
+                                <br>
+                                <div class="tituloAdminDenunciaProduto">
+                                    Descrição do Problema
+                                </div>
+                                <div class="textoAdminDenunciaProduto">
+                                    {{$denuncia->descDenuncia}}
+                                </div>
+                            </div>
+                            <div class="iconAdminDenuncia">
+                                <div class="parte1Icon">
+                                    <i class="fa-solid fa-box-open caixa"></i>
+                                    <h3>
+                                        id Denúncia
+                                    </h3>
+                                    <h4>
+                                        {{ $denuncia->idDenuncia }}
+                                    </h4>
+                                </div>
+                                <div class="parte2icon">
+                                    <!-- clicando aq remove o produto -->
+                                    <i class="fa-solid fa-trash trash-icon"></i>
+
+                                    <a href="/denuncia/{id}">
+                                        <h5>
+                                            Remover produto
+                                        </h5>
+
+                                    </a>
+                                    <!-- Botão de exclusão -->
+                                    <form action="{{ route('denuncia.destroy', $denuncia->idDenuncia) }}" method="POST"
+                                        onsubmit="return confirm('Tem certeza que deseja excluir esta denúncia?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Remover</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
             </div>
         </div>

@@ -55,12 +55,17 @@
                                 <br>
                                 <br>
                                 <div class="tituloAdminDenunciaProduto">
+                                    Nome do Produto
+                                </div>
+                                <div class="textoAdminDenunciaProduto">
+                                    {{$denuncia->Produto->nomeProduto}}
+                                </div>
+                                <div class="tituloAdminDenunciaProduto">
                                     Descrição produto
                                 </div>
                                 <div class="textoAdminDenunciaProduto">
                                     {{ $denuncia->produto->descricaoProduto ?? 'Descrição Indisponível' }}
                                 </div>
-                                <br>
                                 <div class="tituloAdminDenunciaProduto">
                                     Nome e E-mail do Cliente
                                 </div>

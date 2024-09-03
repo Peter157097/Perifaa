@@ -34,11 +34,8 @@ class FavoritoController extends Controller
         }
     }
     
-
-    // Adiciona um produto aos favoritos
     public function addFavorite(Request $request)
     {
-        // Obtém o ID do cliente logado da sessão
         $clientId = Session::get('id'); 
     
         $request->validate([
@@ -55,10 +52,8 @@ class FavoritoController extends Controller
         return back()->with('success', 'Produto adicionado aos favoritos!');
     }
 
-    // Remove um produto dos favoritos
     public function removeFavorite(Request $request)
     {
-        // Obtém o ID do cliente logado da sessão
         $clientId = Session::get('id'); 
 
         $request->validate([
@@ -77,63 +72,48 @@ class FavoritoController extends Controller
         return response()->json(['success' => false]);
     }
 
+    public function index2()
+    {
+        $clientId = Session::get('id'); 
 
-  // Lista todos os favoritos para o cliente fixo
-  public function index2()
-  {
-      // Obtém o ID do cliente logado da sessão
-      $clientId = Session::get('id'); 
-
-      $favorites = Favorito::where('idCliente', $clientId)
+        $favorites = Favorito::where('idCliente', $clientId)
                     ->with(['product'])
                     ->get();
 
-      return view('favorites', compact('favorites'));
-  }
+        return view('favorites', compact('favorites'));
+    }
 
+    public function store(Request $request)
+    {
+        $clientId = Session::get('id'); 
+
+        $request->validate([
+            'idProduto' => 'required|exists:prd,id',
+        ]);
+
+        Favorito::updateOrCreate(
+            [
+                'idProduto' => $request->idProduto,
+                'idCliente' => $clientId,
+            ]
+        );
+
+        return redirect()->route('favorites.index')->with('success', 'Produto adicionado aos favoritos!');
+    }
+
+    public function destroy($productId)
+    {
+        $clientId = Session::get('id'); 
   
-
-  // Adiciona um novo favorito
-  public function store(Request $request)
-  {
-      // Obtém o ID do cliente logado da sessão
-      $clientId = Session::get('id'); 
-
-      $request->validate([
-          'idProduto' => 'required|exists:prd,id',
-      ]);
-
-      // Adiciona o favorito
-      Favorito::updateOrCreate(
-          [
-              'idProduto' => $request->idProduto,
-              'idCliente' => $clientId,
-          ]
-      );
-
-      return redirect()->route('favorites.index')->with('success', 'Produto adicionado aos favoritos!');
-  }
-
-  // Remove um favorito
-  public function destroy($productId)
-  {
-      // Obtém o ID do cliente logado da sessão
-      $clientId = Session::get('id'); 
-  
-      // Encontra o favorito usando as colunas corretas
-      $favorite = Favorito::where('idProduto', $productId)
+        $favorite = Favorito::where('idProduto', $productId)
                           ->where('idCliente', $clientId)
                           ->first();
   
-      if ($favorite) {
-          // Deleta o favorito encontrado
-          $favorite->delete();
-          return redirect()->route('favorites.index')->with('success');
-      }
+        if ($favorite) {
+            $favorite->delete();
+            return redirect()->route('favorites.index')->with('success', 'Produto removido dos favoritos!');
+        }
   
-      return redirect()->route('favorites.index')->with('error');
-  }
-  
-  
-  
+        return redirect()->route('favorites.index')->with('error', 'Erro ao remover o produto dos favoritos.');
+    }
 }

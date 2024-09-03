@@ -10,6 +10,7 @@ use App\Models\Categoria;
 use App\Models\Roupa;
 use App\Models\Condicao;
 use App\Models\Produto;
+use Illuminate\Support\Facades\Session;
 
 
 class DashboardController extends Controller
@@ -77,7 +78,7 @@ class DashboardController extends Controller
         // Salvar no banco de dados
         $produto->save();
 
-
+        Session::flash('cadastrarProduto', 'Produto cadastrado com sucesso!');
 
 
         return redirect()->route('dashboard')->with('success', 'Produto cadastrado com sucesso!');

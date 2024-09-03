@@ -13,19 +13,15 @@ class Favorito extends Model
 
     protected $primaryKey = 'idFavorito';
 
-    // Desativa o gerenciamento automático de timestamps
     public $timestamps = false;
 
-    // Define os atributos que podem ser preenchidos em massa
     protected $fillable = ['idCliente', 'idProduto'];
     
-    // Define o relacionamento com o modelo Post
     public function product()
     {
         return $this->belongsTo(Produto::class, 'idProduto');
     }
 
-    // Define o relacionamento com o modelo Cliente
     public function client()
     {
         return $this->belongsTo(Cliente::class, 'idCliente');

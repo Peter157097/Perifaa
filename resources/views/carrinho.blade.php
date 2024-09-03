@@ -307,22 +307,31 @@
 
 
             <!-- card carrinho -->
+            @foreach ($carrinho as $item)
             <div class="containerCardCarrinho">
                 <div class="cardCaPt1">
                     <div class="partbrecho">
                         <i class="fa-solid fa-shop store-icon"></i>
-                        <h4>Brechó do Jhow</h4> <!-- nome do brecho -->
+                        <h4>{{ $item->product->vendedor->nomeVendedor }}</h4> <!-- nome do brecho -->
                     </div>
                     <div class="partlixeira">
-                        <i class="fa-solid fa-trash trash-icon"></i>
+                    <form action="{{ route('carrinho.destroy', $item->idProduto) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
+                            <i class="fa-solid fa-trash trash-icon"></i>
+                        </button>
+                    </form>
+
+                     
 
                     </div>
                 </div>
                 <hr class="linha">
-
+                
                 <div class="cardCaPt2">
                     <div class="parteImagemItem">
-                        <img src="{{url('images/card-image-five.png')}}" alt="Imagem do Produto"
+                        <img src="{{ $item->product->imagemProduto }}" alt="Imagem do Produto"
                             class="imagemProdutoCarrinho">
 
                     </div>
@@ -331,15 +340,7 @@
                             <h5>Peça</h5>
                         </div>
                         <div class="parteDetalhesBanco">
-                            <h6>Blusa Nike Dry-Fit</h6>
-                        </div>
-                    </div>
-                    <div class="detalhesProduto">
-                        <div class="titulosDetalhes">
-                            <h5>Peça</h5>
-                        </div>
-                        <div class="parteDetalhesBanco">
-                            <h6>Blusa Nike Dry-Fit</h6>
+                            <h6>{{ $item->product->nomeProduto }}</h6>
                         </div>
                     </div>
                     <div class="detalhesProduto">
@@ -352,10 +353,10 @@
                     </div>
                     <div class="detalhesProduto">
                         <div class="titulosDetalhes">
-                            <h5>Variação</h5>
+                            <h5>Cor</h5>
                         </div>
                         <div class="parteDetalhesBanco">
-                            <h6>Azul e branco</h6>
+                            <h6>{{ $item->product->cor->nomeCor }}</h6>
                         </div>
                     </div>
                     <div class="detalhesProduto">
@@ -363,43 +364,19 @@
                             <h5>Tamanho</h5>
                         </div>
                         <div class="parteDetalhesBanco">
-                            <h6>M</h6>
+                            <h6>{{ $item->product->tamanho->nomeTamanho }}</h6>
+                        </div>
+                    </div>
+                    <div class="detalhesProduto">
+                        <div class="titulosDetalhes">
+                            <h5>Valor</h5>
+                        </div>
+                        <div class="parteDetalhesBanco">
+                            <h6>{{ $item->product->valorProduto }}</h6>
                         </div>
                     </div>
                 </div>
-
-                <!-- Conteúdo do carrinho -->
-                <!-- @foreach ($carrinho as $item)
-                                            <div class="parteFinalizarContainer">
-                                                <div class="checkoutContainer">
-                                                    <h3>CHECKOUT</h3>
-                                                </div>
-                                                <hr class="linha">
-
-                                                <div class="parteSubtotal">
-                                                    <input type="checkbox" class="checkbox" data-preco="{{ $item->product->valorProduto }}">
-                                                    <img src="{{ $item->product->imagemProduto }}" alt="Imagem do Produto" class="imagemProduto">
-                                                    <div class="detalhesProduto">
-                                                        <div class="nomeProduto">{{ $item->product->nomeProduto }}</div>
-                                                        <div class="precoCarrinho">
-                                                            {{ $item->product->valorProduto }}
-                                                        </div>
-                                                    </div>
-                                                    <div class="botaoFinalizar">
-                                                        <input type="submit" value="Finalizar" class="button">
-                                                    </div>
-                                                    <form action="{{ route('carrinho.destroy', $item->idProduto) }}" method="POST" style="display:inline;">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit">Remover</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                            @endforeach
-
-                                            <div class="parteSubtotal">
-                                                <h3>Total Selecionado: R$ <span id="totalSelecionado">0</span></h3>
-                                            </div> -->
+                @endforeach
 
             </div>
         @endif

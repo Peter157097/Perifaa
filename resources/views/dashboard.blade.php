@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,6 +12,31 @@
     <link rel="stylesheet" href="{{url('css/deshboardNova.css')}}">
     <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/x-icon">
     <title>Document</title>
+    <style>
+        .custom-file-upload {
+            position: relative;
+            display: inline-block;
+        }
+
+        .custom-file-upload input[type="file"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+
+        .image-feedback {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: brown;
+        }
+    </style>
+    <script>
+        function handleFileInput(input, feedbackElementId) {
+            var fileName = input.files.length > 0 ? input.files[0].name : 'Nenhuma imagem selecionada';
+            document.getElementById(feedbackElementId).innerHTML = "Imagem selecionada: " + fileName;
+        }
+    </script>
 </head>
 
 <body>
@@ -131,11 +155,38 @@
                                     </div>
                                 </div>
                                 <div class="inputs">
-                                    <label for="imagemProduto"> <span class="text-primary">Anexar
-                                            imagem</span></label>
+                                    <label for="imagemProduto"> <span class="text-primary">Anexar imagem principal </span></label>
                                     <div class="custom-file-upload">
-                                        <input type="file" id="imagemProduto" name="imagemProduto" accept="image/*">
-                                        <label for="imagemProduto" id="fileLabel">Nenhuma imagem selecionada</label>
+                                        <input type="file" id="imagemProduto" name="imagemProduto" accept="image/*" onchange="handleFileInput(this, 'imagemFeedback1')">
+                                        <div id="imagemFeedback1" class="image-feedback">Nenhuma imagem selecionada</div>
+                                    </div>
+                                </div>
+                                <div class="inputs">
+                                    <label for="imagemProduto2"> <span class="text-primary">Anexar segunda imagem </span></label>
+                                    <div class="custom-file-upload">
+                                        <input type="file" id="imagemProduto2" name="imagemProduto2" accept="image/*" onchange="handleFileInput(this, 'imagemFeedback2')">
+                                        <div id="imagemFeedback2" class="image-feedback">Nenhuma imagem selecionada</div>
+                                    </div>
+                                </div>
+                                <div class="inputs">
+                                    <label for="imagemProduto3"> <span class="text-primary">Anexar terceira imagem</span></label>
+                                    <div class="custom-file-upload">
+                                        <input type="file" id="imagemProduto3" name="imagemProduto3" accept="image/*" onchange="handleFileInput(this, 'imagemFeedback3')">
+                                        <div id="imagemFeedback3" class="image-feedback">Nenhuma imagem selecionada</div>
+                                    </div>
+                                </div>
+                                <div class="inputs">
+                                    <label for="imagemProduto4"> <span class="text-primary">Anexar quarta imagem </span></label>
+                                    <div class="custom-file-upload">
+                                        <input type="file" id="imagemProduto4" name="imagemProduto4" accept="image/*" onchange="handleFileInput(this, 'imagemFeedback4')">
+                                        <div id="imagemFeedback4" class="image-feedback">Nenhuma imagem selecionada</div>
+                                    </div>
+                                </div>
+                                <div class="inputs">
+                                    <label for="imagemProduto5"> <span class="text-primary">Anexar quinta imagem </span></label>
+                                    <div class="custom-file-upload">
+                                        <input type="file" id="imagemProduto5" name="imagemProduto5" accept="image/*" onchange="handleFileInput(this, 'imagemFeedback5')">
+                                        <div id="imagemFeedback5" class="image-feedback">Nenhuma imagem selecionada</div>
                                     </div>
                                 </div>
                                 <input type="submit" value="Cadastrar">
@@ -146,7 +197,6 @@
             </div>
         </div>
     </div>
-
 </body>
 
 </html>

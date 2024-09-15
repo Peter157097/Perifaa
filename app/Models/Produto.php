@@ -23,6 +23,10 @@ class Produto extends Model
         'idGenero',
         'idRegiao',
         'imagemProduto',
+        'imagemProduto2',
+        'imagemProduto3',
+        'imagemProduto4',
+        'imagemProduto5',
         'idVendedor',
     ];
 

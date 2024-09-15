@@ -1,3 +1,10 @@
+
+@php
+    $totalCarrinho = \App\Models\Carrinho::count();
+
+    $totalCarrinho -= 1;
+@endphp
+
 <style>
     .linkHomeCarrinho {
         position: relative;
@@ -195,9 +202,7 @@
                     </button>
                 </div>
             </div>
-            <button class="botao-carrinho">
-                <i class="fa-solid fa-bag-shopping"></i>
-            </button>
+          
 
 
             <li class="drop-hover-perfil">
@@ -223,6 +228,9 @@
                     <!--vendedor -->
                 @elseif(session('is_Cliente'))
                     <!--cliente -->
+                 
+                <a href="#"><i class="fa-solid fa-bag-shopping">{{$totalCarrinho}}</i></a>
+            
                     <div class="drop-perfil"> <!--Começo menu dropdown das roupas-->
                         <a href="{{ url('/perfil') }}"><i class="fa-solid fa-user"></i>Meu perfil</a>
                         <a href="{{ url('/favorites') }}"><i class="fa-solid fa-heart"></i>Favoritos</a>

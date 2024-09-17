@@ -10,31 +10,17 @@
         {{ session('success') }}
     </div>
 @endif
+@if(Session::has('cadastrarDenuncia'))
+    <script>
+        alert("{{ Session::get('cadastrarDenuncia') }}");
+    </script>
+@endif
         <div class="container-entrar-produto">
             <div class="esquerdo">
                 <div class="itens">
                     <div class="select-image">
                     <img src="{{ asset($produtos->imagemProduto) }}" alt="imagem produto">
-
-                    </div>
-                    <div class="thumbnails">
-                        <div class="thumbnail">
-                            <img src="{{ url('images/card-image-one.png') }}" alt="image produto">
-                        </div>
-
-                        <div class="thumbnail">
-                            <img src="{{ url('images/card-image-two.png') }}" alt="image produto">
-                        </div>
-
-                        <div class="thumbnail">
-                            <img src="{{ url('images/card-image-three.png') }}" alt="image produto">
-                        </div>
-
-                        <div class="thumbnail">
-                            <img src="{{ url('images/card-image-four.png') }}" alt="image produto">
-                        </div>
-
-                    </div>
+                    </div>              
                 </div>
             </div>
             <div class="direito">

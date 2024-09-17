@@ -12,5 +12,5 @@ class Cor extends Model
     protected $table = 'tbcor';
     protected $primaryKey = 'idCor';
     public $timestamps = false;
-    protected $fillable = ['nomeCor'];
+    protected $fillable = ['nomeCor','rgbCor'];
 }

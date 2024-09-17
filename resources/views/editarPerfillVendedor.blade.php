@@ -14,6 +14,11 @@
 </head>
 
 <body>
+@if(Session::has('editarVendedor'))
+    <script>
+        alert("{{ Session::get('editarVendedor') }}");
+    </script>
+@endif
     <div class="containerVendedor">
         <div class="parte1">
         <img src="{{ url($imagemVendedor) }}" alt="Foto do Perfil" class="img-fluid rounded-circle"
@@ -24,8 +29,8 @@
                     <li><a href="{{url('dashboard')}}"><i class="fa-solid fa-shirt"></i>Cadastrar roupas </a></li>
                     <li><a href="#"><i class="fa-solid fa-money-check"></i>Transações </a></li>
                     <li><a href="#"><i class="fa-solid fa-sheet-plastic"></i>Saques </a></li>
-                    <li><a href="#"><i class="fa-solid fa-gear"></i>Configurações </a></li>
-                    <li><a href="#"><i class="fa-solid fa-arrow-right-from-bracket"></i>Sair </li>
+                    <li><a href="{{url('editarPerfillVendedor')}}"><i class="fa-solid fa-gear"></i>Configurações </a></li>
+                    <li><a href="/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i>Sair </li>
                     <li><a href="#"><i class="fa-solid fa-circle-question"></i>Ajuda </a></li>
                 </ul>
             </div>

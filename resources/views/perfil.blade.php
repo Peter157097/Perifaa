@@ -55,6 +55,12 @@
 <body>
 
 
+    @if(Session::has('editarCliente'))
+    <script>
+        alert("{{ Session::get('editarCliente') }}");
+    </script>
+    @endif
+
     <main>
         <div class="container-perfil">
             <div class="frame-perfil">
@@ -72,7 +78,7 @@
                 <div class="opcoes-usuario">
                 <a href="{{ route('favorites.index') }}"><p style="margin:0; padding: 1vh">Meus favoritos &hearts;</p></a>
 
-                    <p style="margin:0; padding: 1vh">Carrinho</p>
+                    <a href="{{url('carrinho')}}"><p style="margin:0; padding: 1vh">Carrinho</p></a>
                 </div>
             </div>
             <div class="align-info">
@@ -130,7 +136,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="container-submit">
+                        <div class="container-submit" >
                             <button type="submit" class="btn btn-primary" style="background-color: #5e3e24;">Salvar
                                 alterações</button>
                             <p class="excluir-txt">Excluir minha conta</p>

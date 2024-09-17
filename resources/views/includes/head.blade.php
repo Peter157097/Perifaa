@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="{{url('css/styles.css')}}"><!--Import css-->
+    <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/x-icon">
     <title>Perifa</title>
 </head>
 <!--Começo fim da head-->

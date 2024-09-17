@@ -1,33 +1,30 @@
-@include('includes.head')
-@include('includes.header')
-@include('includes.nav')
-
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Perifa</title>
     <style>
         .btn-favorite {
             background-color: gray;
-            /* Cor padrão */
             color: white;
         }
 
         .btn-favorite.favorited {
             background-color: brown;
-            /* Cor quando favoritado */
         }
     </style>
 </head>
-
 <body>
+    @include('includes.head')
+    @include('includes.header')
+    @include('includes.nav')
+
     <main>
         <div class="container-title-fav">
             <h1>Seus Favoritos</h1> 
             <p>Peças que você se amarrou...</p>
         </div>
         <div class="produto-line"></div>
+
         @if(session('success'))
             <p>{{ session('success') }}</p>
         @endif
@@ -39,7 +36,7 @@
         @if($favorites->isEmpty())
         <div class="container-fav-vazio">
             <h3>Pelo visto você ainda não curtiu nenhuma peça :(</h3>
-            <p>Por quê não continua procurando? Tem bastante! </p>
+            <p>Por quê não continua procurando? Tem bastante!</p>
 
             <a href="produtos" class="linkHomeCarrinho">
                 Voltar às compras
@@ -53,16 +50,20 @@
                             <li style="list-style:none">                    
                                 <div class="card-produto">
                                     <div class="image-display">
-                                        <img class="img-card-produto" src="{{ asset($favorite->product->imagemProduto) }}">
+                                        @if ($favorite->product)
+                                            <img class="img-card-produto" src="{{ $favorite->product->imagemProduto }}" alt="imagem produto">
+                                        @else
+                                            <p>Produto não encontrado.</p>
+                                        @endif
                                     </div>
                                     <div class="txt-info-vendedor">
                                         <p></p>
                                         <p>Recente</p>
                                     </div>
                                     <div class="txt-nome-produto">
-                                        {{ $favorite->product->nomeProduto }} <!-- Nome do produto -->
+                                        {{ $favorite->product->nomeProduto ?? 'Produto Desconhecido' }}
                                     </div>
-                                    <p class="valor-produto">{{ $favorite->product->valorProduto }}</p>
+                                    <p class="valor-produto">{{ $favorite->product->valorProduto ?? 'Valor Desconhecido' }}</p>
                                     <div class="txt-info-produto">
                                         <div class="row-info">
                                             <p class="info-produto">{{ $favorite->product->cor->nomeCor ?? 'Cor Desconhecida' }}</p>
@@ -70,8 +71,7 @@
                                         </div>
                                         <div class="row-info">
                                             <p class="info-produto">{{ $favorite->product->categoria->nomeCategoriaProduto ?? 'Categoria Desconhecida' }}</p>
-                                            <p class="info-produto">{{ 
-                                            $favorite->product->tamanho->nomeTamanho ?? 'Tamanho Desconhecido' }}</p>
+                                            <p class="info-produto">{{ $favorite->product->tamanho->nomeTamanho ?? 'Tamanho Desconhecido' }}</p>
                                         </div>
                                         <div class="row-info">
                                             <p class="info-produto">{{ $favorite->product->regiao->nomeRegiao ?? 'Região Desconhecida' }}</p>
@@ -90,7 +90,7 @@
             </ul>
         @endif
     </main>
+
     @include('includes.footer')
 </body>
-
 </html>

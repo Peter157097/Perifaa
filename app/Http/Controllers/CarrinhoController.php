@@ -29,7 +29,7 @@ class CarrinhoController extends Controller
                 'idProduto' => $productId,
                 'idCliente' => $clientId,
             ]);
-            return redirect()->back()->with('success', 'Produto adicionado aos carrinho!');
+            return redirect()->back()->with('success', 'Produto adicionado ao carrinho!');
         }
     }
     
@@ -51,7 +51,7 @@ class CarrinhoController extends Controller
             ]
         );
     
-        return back()->with('success', 'Produto adicionado aos favoritos!');
+        return back()->with('success', 'Produto adicionado ao carrinho!');
     }
 
     // Remove um produto dos favoritos

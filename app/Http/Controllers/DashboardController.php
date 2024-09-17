@@ -62,7 +62,7 @@ class DashboardController extends Controller
         $produto->idCategoriaProduto = $request->input('categoria', null); 
         $produto->idGenero = $request->input('roupa');
         $produto->idCondicao = $request->input('condicao');
-        $produto->idVendedor = 1;
+        $produto->idVendedor = Session::get('idVendedor');
     
         if ($request->hasFile('imagemProduto')) {
             $file = $request->file('imagemProduto');

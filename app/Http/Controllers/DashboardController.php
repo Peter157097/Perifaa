@@ -63,7 +63,7 @@ class DashboardController extends Controller
         $produto->idCategoriaProduto = $request->input('categoria', null); // Pode ser nulo
         $produto->idGenero = $request->input('roupa');
         $produto->idCondicao = $request->input('condicao');
-        $produto->idVendedor = 1; // Definir idVendedor como 1
+        $produto->idVendedor = 1; 
     
         if ($request->hasFile('imagemProduto')) {
             $file = $request->file('imagemProduto');

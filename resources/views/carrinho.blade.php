@@ -1,7 +1,11 @@
-@include('includes.head')
-@include('includes.header')
-@include('includes.nav')
+
+<html>
 <style>
+
+    .linkHomeCarrinho {
+        position: relative;
+        z-index: 10; /* Garanta que o link esteja no topo */
+    }
     /* Estilo para carrinho vazio */
     .containerCarrinhoVazio {
         display: flex;
@@ -271,7 +275,9 @@
 </head>
 
 <body>
-
+@include('includes.head')
+@include('includes.header')
+@include('includes.nav')
 
     <div class="containerCarrinhoVazio">
         <!-- CARRINHO VAZIO -->
@@ -414,17 +420,18 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
             crossorigin="anonymous"></script>
 
-        <script>
-            document.querySelectorAll('.checkbox').forEach(checkbox => {
-                checkbox.addEventListener('change', function () {
-                    let total = 0;
-                    document.querySelectorAll('.checkbox:checked').forEach(checked => {
-                        total += parseFloat(checked.getAttribute('data-preco'));
-                    });
-                    document.getElementById('totalSelecionado').textContent = total.toFixed(2);
+<script>
+        document.querySelectorAll('.checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                let total = 0;
+                document.querySelectorAll('.checkbox:checked').forEach(checked => {
+                    total += parseFloat(checked.getAttribute('data-preco'));
                 });
+                document.getElementById('totalSelecionado').textContent = total.toFixed(2);
             });
-        </script>
+        });
+    </script>
+
 </body>
 
 </html>

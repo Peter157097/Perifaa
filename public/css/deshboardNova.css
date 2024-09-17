@@ -6,15 +6,17 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: normal;
-    overflow-x: hidden; /* Para evitar rolagem lateral desnecessária */
+    overflow-x: hidden;
+    /* Para evitar rolagem lateral desnecessária */
 }
 
-.containerVendedor{
+.containerVendedor {
     display: flex;
 }
 
@@ -30,26 +32,32 @@ html, body {
     height: 100vh;
     color: white;
     padding: 10px;
-    box-sizing: border-box; 
+    box-sizing: border-box;
+
 }
 
+.aPerifa{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .parte2 {
-    margin-left: 200px; 
+    margin-left: 200px;
     padding: 10px;
     display: flex;
     background-color: #ffffff;
     justify-content: center;
     align-items: flex-start;
     width: calc(100% - 200px);
-    box-sizing: border-box; 
-    min-height: 100vh; 
+    box-sizing: border-box;
+    min-height: 100vh;
 }
 
-.img-dashboard{
-    max-width: 60%; 
+.img-dashboard {
+    max-width: 60%;
 }
 
-.links-dashboard{
+.links-dashboard {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,33 +65,33 @@ html, body {
     padding: 20px;
 }
 
-.links-dashboard ul{
-  list-style: none;
+.links-dashboard ul {
+    list-style: none;
 }
 
-.links-dashboard li{
-   margin-bottom: 35px;
-   display: flex;
-   align-items: center;
+.links-dashboard li {
+    margin-bottom: 35px;
+    display: flex;
+    align-items: center;
 }
 
-.links-dashboard a{
-   color: #fff;
-   font-size: 25px;
+.links-dashboard a {
+    color: #fff;
+    font-size: 25px;
 }
 
-.links-dashboard li a:hover{
+.links-dashboard li a:hover {
     color: #000000be;
     transition: 0.2s;
 }
 
-.links-dashboard i{
+.links-dashboard i {
     color: #fff;
     font-size: 40px;
     margin-right: 10px;
 }
 
-.links-dashboard i:hover{
+.links-dashboard i:hover {
     color: #000000be;
     transition: 0.2s;
 }
@@ -91,8 +99,8 @@ html, body {
 
 .content {
     display: flex;
-    align-items: center; 
-    justify-content: center; 
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
     padding: 50px;
 }
@@ -105,8 +113,10 @@ html, body {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: wrap; /* Permite que os itens quebrem para uma nova linha */
-    z-index: 1; /* Mantém o conteúdo sobre outros elementos */
+    flex-wrap: wrap;
+    /* Permite que os itens quebrem para uma nova linha */
+    z-index: 1;
+    /* Mantém o conteúdo sobre outros elementos */
     gap: 30rem;
 }
 
@@ -116,19 +126,20 @@ html, body {
 
 
 
-h2{
+h2 {
     white-space: nowrap;
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: normal;
 }
 
-.header-conteudo2 i{
+.header-conteudo2 i {
     color: #5e3e24;
     font-size: 30px;
     padding: 5px;
 }
-.parte1-mobile{
+
+.parte1-mobile {
     background-color: #ffffff;
     backdrop-filter: blur(10px);
     position: absolute;
@@ -138,10 +149,11 @@ h2{
     height: 100vh;
 }
 
-  
-#cadastro{
+
+#cadastro {
     padding: 10px;
-}   
+}
+
 .cadastrar-roupas {
     background-color: #ffffff;
     width: 900px;
@@ -150,8 +162,9 @@ h2{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center; 
-    min-height: 70vh; /* Removendo o height fixo para permitir crescimento */
+    justify-content: center;
+    min-height: 70vh;
+    /* Removendo o height fixo para permitir crescimento */
 }
 
 .input-group {
@@ -167,7 +180,8 @@ h2{
     width: 100%;
 }
 
-input, select {
+input,
+select {
     width: 100%;
     padding: 10px;
     border-radius: 12px;
@@ -175,11 +189,11 @@ input, select {
     background-color: #f9fafb;
 }
 
-.inputs input:focus{
+.inputs input:focus {
     outline: 1px solid #5e3e24;
 }
 
-.inputs select:focus{
+.inputs select:focus {
     outline: 1px solid #5e3e24;
 }
 
@@ -235,7 +249,7 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-.custom-file-upload input[type="file"]:focus + label {
+.custom-file-upload input[type="file"]:focus+label {
     outline: 1px solid #5e3e24;
 }
 
@@ -334,6 +348,7 @@ input[type="submit"] {
         justify-content: center;
         align-self: center;
     }
+
     .header-conteudo2 {
         flex-direction: row;
         gap: 2rem;
@@ -360,4 +375,3 @@ input[type="submit"] {
         display: none;
     }
 }
-

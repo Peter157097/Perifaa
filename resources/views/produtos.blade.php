@@ -8,6 +8,15 @@
 <body>
     @include('includes.header')
     @include('includes.nav')
+
+    <style>
+        .accordion2 {
+            display: block; /* Cada botão vai ocupar uma linha */
+            width: 100%; /* Ocupa toda a largura disponível */
+            margin-bottom: 10px; /* Espaçamento entre os botões */
+            text-align: left; /* Ajusta o alinhamento do texto, se necessário */
+        }
+    </style>
     <main>
         <!-- Começo do corpo do site -->
         <div class="container-produtos">
@@ -19,84 +28,64 @@
         </div>
         <div class="produtos-body">
             <div class="accordion-body">
+            <form id="filter-form" method="GET" action="{{ url('/produtos') }}">
                 <div class="accordion-filtro">
-                    <!-- Filtros (Você pode adaptar conforme necessário) -->
-                    <button class="accordion">Preço</button>
+                    <button type='button' class="accordion">Preço</button>
                     <div class="panel">
-                        <label for="text" class="label-preco">
-                            De
-                            <input type="preco" class="preco-filtro">
-                        </label>
-                        <label for="text" class="label-preco">
-                            Até
-                            <input type="preco" class="preco-filtro">
-                        </label>
+                    <label for="preco-ate" class="label-preco">
+            Até
+            <input type="number" id="preco-ate" name="preco_ate" class="preco-filtro" min="0" placeholder="Digite o valor">
+        </label>
+        <button type="submit" class="btn btn-primary" >Aplicar</button>
                     </div>
 
-                    <button class="accordion">Tamanhos</button>
+                    <button type='button' class="accordion">Tamanhos</button>
                     <div class="panel">
-                        <div class="tamanhos-check">
-                            <!-- Tamanhos -->
-                            <label for="tamanho" class="label-tamanho">XGG
-                                <input type="checkbox">
-                            </label>
-                            <label for="tamanho" class="label-tamanho">GG
-                                <input type="checkbox">
-                            </label>
-                            <!-- Adicione mais tamanhos conforme necessário -->
-                        </div>
+                    <div class="tamanhos-buttons">
+
+                        @foreach($tamanhos as $tamanho)
+                            <button type="submit" name="tamanho" value="{{ $tamanho->idTamanho }}" class="accordion2">
+                                {{ $tamanho->nomeTamanho }}
+                            </button>
+                        @endforeach
+                    </div>
                     </div>
 
-                    <button class="accordion">Condição</button>
+                    <button type='button' class="accordion">Condição</button>
                     <div class="panel">
-                        <!-- Condições -->
-                        <label for="condicao" class="label-condicao">
-                            Novo
-                            <input type="checkbox">
-                        </label>
-                        <label for="condicao" class="label-condicao">
-                            Seminovo
-                            <input type="checkbox">
-                        </label>
-                        <label for="condicao" class="label-condicao">
-                            Usado
-                            <input type="checkbox">
-                        </label>
+                    <div class="condicoes-buttons">
+                        @foreach($condicoes as $condicao)
+                            <button type="submit" name="condicoes[]" value="{{ $condicao->idCondicao }}" class="accordion2">
+                                {{ $condicao->nomeCondicao }}
+                            </button>
+                        @endforeach
+                    </div>
                     </div>
 
-                    <button class="accordion">Cores</button>
+                    <button type='button' class="accordion">Cores</button>
                     <div class="panel">
                         <!-- Cores -->
-                        <label for="cores" class="label-condicao">
-                            Preto
-                            <input type="checkbox">
-                        </label>
-                        <label for="cores" class="label-condicao">
-                            Branco
-                            <input type="checkbox">
-                        </label>
-                        <!-- Adicione mais cores conforme necessário -->
+                        @foreach($cores as $cor)
+                            <button type="submit" name="cores[]" value="{{ $cor->idCor }}"  class="accordion2" style="background-color: {{ $cor->rgbCor }}; color: {{ $cor->nomeCor == 'Branco' ? 'black' : 'white' }};">
+                                {{ $cor->nomeCor }}
+                            </button>
+                        @endforeach
+                        
+                        
                     </div>
 
-                    <button class="accordion">Local</button>
+                    <button type='button' class="accordion">Local</button>
                     <div class="panel">
-                        <!-- Locais -->
-                        <label for="local" class="label-condicao">
-                            Anúncios Próximos
-                            <input type="checkbox">
-                        </label>
-                        <label for="local" class="label-condicao">
-                            São Paulo
-                            <input type="checkbox">
-                        </label>
-                        <!-- Adicione mais locais conforme necessário -->
+                    @foreach($regioes as $regiao)
+                        <button type="submit" name="regioes[]" value="{{ $regiao->idRegiao }}" class="accordion2"  >
+                            {{ $regiao->nomeRegiao }}
+                        </button>
+                    @endforeach
                     </div>
 
-                    <button class="accordion">Preferências</button>
-                    <div class="panel">
-                        <p>N sei</p>
-                    </div>
+                    <a href="{{url('/produtos')}}" class="btn btn-primary">Restar Fieltros</a>
                 </div>
+            </form>
             </div>
 
             <div class="cards-body">

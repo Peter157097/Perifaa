@@ -6,6 +6,7 @@ use App\Models\Produto;
 use App\Models\Cliente;
 use App\Models\Denuncia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class DenunciaController extends Controller
 {
@@ -19,6 +20,9 @@ class DenunciaController extends Controller
         $Denuncia->idCliente = $request->idCliente;
 
         $Denuncia->save();
+        
+        Session::flash('cadastrarDenuncia', 'Denuncia enviada com sucesso!');
+
         return redirect()->back()->with('sucess', 'Denuncia cadastrada com sucesso!');
     }
     public function destroy($idDenuncia)

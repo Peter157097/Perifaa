@@ -1,8 +1,12 @@
+@include('includes.head')
+@include('includes.header')
+@include('includes.nav')
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    @include('includes.head')
+
     <style>
         /* Estilização do campo de upload de imagem */
         .form-group {
@@ -49,8 +53,7 @@
 </head>
 
 <body>
-    @include('includes.header')
-    @include('includes.nav')
+
 
     <main>
         <div class="container-perfil">

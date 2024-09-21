@@ -281,7 +281,7 @@
 
                 @if(session('is_vendedor'))
                     <div class="drop-perfil"> <!--Começo menu dropdown das roupas-->
-                        <a href="{{ url('/dashboard') }}" id="link-perfil"><i class="bi bi-kanban"></i>Dashboard</a>
+                        <a href="{{ url('/dashboardVendedor') }}" id="link-perfil"><i class="bi bi-kanban"></i>Dashboard</a>
                         <a href="#" id="link-perfil"><i class="fa-solid fa-circle-question"></i>Ajuda</a>
                         <a href="{{ url('/logout') }}" id="link-perfil"><i
                                 class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a>

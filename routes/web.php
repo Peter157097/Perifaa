@@ -134,3 +134,9 @@ Route::get('/adminDenunciaProduto', function () {
 
 Route::delete('/denuncia/{idDenuncia}', [DenunciaController::class, 'destroy'])->name('denuncia.destroy');
 
+
+Route::get('/dashboardVendedor', function () {
+    return view('dashboardVendedor');
+});
+
+

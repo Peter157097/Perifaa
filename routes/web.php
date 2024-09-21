@@ -138,5 +138,12 @@ Route::delete('/denuncia/{idDenuncia}', [DenunciaController::class, 'destroy'])-
 Route::get('/dashboardVendedor', function () {
     return view('dashboardVendedor');
 });
+Route::get('/dashAdmin', function () {
+    return view('dashAdmin');
+});
+Route::get('/dashAdminDenuncias', function () {
+    return view('dashAdminDenuncias');
+});
+
 
 

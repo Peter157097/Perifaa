@@ -100,8 +100,8 @@
                         <p class="itemInfoDenuncia">Vendedor me enganou, mandou uma coisa nada a ver com o combinado</p>
                     </div>
                     <div class="acoesDenuncia">
-                        <a>Analisar denuncia</a>
-                        <a>Excluir Anúncio</a>
+                        <p class="analisarDenuncia">Analisar denuncia</p>
+                        <p class="excluirDenuncia">Excluir Anúncio</p>
                     </div>
                 </div>
 
@@ -120,6 +120,10 @@
                         <p class="itemInfoDenuncia">Camisa TakeOff Collection</p>
                         <p class="itemInfoDenuncia">R$40,00</p>
                         <p class="itemInfoDenuncia">Vendedor me enganou, mandou uma coisa nada a ver com o combinado</p>
+                    </div>
+                    <div class="acoesDenuncia">
+                        <p class="analisarDenuncia">Analisar denuncia</p>
+                        <p class="excluirDenuncia">Excluir Anúncio</p>
                     </div>
                 </div>
             </div>

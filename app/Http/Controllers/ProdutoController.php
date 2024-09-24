@@ -53,7 +53,7 @@ class ProdutoController extends Controller
         $filtros = $request->all();
     
 
-        return view('produtos', compact('produtos', 'tamanhos','condicoes', 'cores','regioes','filtros'));
+        return view('produtos', compact('produtos', 'tamanhos','condicoes', 'cores','regioes','filtros','request'));
     }
 
 

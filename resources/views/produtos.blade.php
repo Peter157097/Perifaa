@@ -95,6 +95,46 @@
             <div class="filtro-produtos">
                 <p class="filtro-display">Filtrado por:</p>
             </div>
+            <div class="filtros-aplicados">
+            @if($request->filled('preco_ate'))
+                <button type="button" class="btn btn-filter">
+                    Preço até R$ {{ $request->input('preco_ate') }}
+                    <span class="remove-filter" data-filter="preco_ate">&times;</span>
+                </button>
+            @endif
+            @if($request->filled('tamanho'))
+                @foreach($tamanhos->whereIn('idTamanho', $request->input('tamanho')) as $tamanho)
+                    <button type="button" class="btn btn-filter">
+                        Tamanho: {{ $tamanho->nomeTamanho }}
+                        <span class="remove-filter" data-filter="tamanho[]">&times;</span>
+                    </button>
+                @endforeach
+            @endif
+            @if($request->filled('condicoes'))
+                @foreach($condicoes->whereIn('idCondicao', $request->input('condicoes')) as $condicao)
+                    <button type="button" class="btn btn-filter">
+                        Condição: {{ $condicao->nomeCondicao }}
+                        <span class="remove-filter" data-filter="condicoes[]">&times;</span>
+                    </button>
+                @endforeach
+            @endif
+            @if($request->filled('cores'))
+                @foreach($cores->whereIn('idCor', $request->input('cores')) as $cor)
+                    <button type="button" class="btn btn-filter">
+                        Cor: {{ $cor->nomeCor }}
+                        <span class="remove-filter" data-filter="cores[]">&times;</span>
+                    </button>
+                @endforeach
+            @endif
+            @if($request->filled('regioes'))
+                @foreach($regioes->whereIn('idRegiao', $request->input('regioes')) as $regiao)
+                    <button type="button" class="btn btn-filter">
+                        Região: {{ $regiao->nomeRegiao }}
+                        <span class="remove-filter" data-filter="regioes[]">&times;</span>
+                    </button>
+                @endforeach
+            @endif
+        </div>
         </div>
         <div class="produtos-body">
             <div class="accordion-body">
@@ -249,6 +289,27 @@
                     }
                 });
             }
+            document.querySelectorAll('.remove-filter').forEach(button => {
+                button.addEventListener('click', function() {
+                    const filterName = this.getAttribute('data-filter');
+                    // Redireciona para a URL com o filtro removido
+                    let url = new URL(window.location.href);
+                    const params = new URLSearchParams(url.search);
+
+                    // Remove o filtro correspondente
+                    if (filterName.includes('[]')) {
+                        const name = filterName.replace('[]', '');
+                        params.delete(name);
+                    } else {
+                        params.delete(filterName);
+                    }
+
+                    // Atualiza a URL
+                    url.search = params.toString();
+                    window.location.href = url.toString(); // Redireciona para a nova URL
+                });
+            });
+
         </script>
     </main>
     <!-- Fim do corpo do site -->

@@ -137,7 +137,7 @@
                     </div>
                     <div class="input-container-mobile">
                         <input type="text" placeholder="PESQUISAR PRODUTOS" class="input-pesquisa">
-                        <button class="botao-pesquisa">
+                       <button class="botao-pesquisa"  data-toggle="modal" data-target="#modalSair">
                             <i class="fa-solid fa-magnifying-glass" id="pesquisa"></i>
                         </button>
 
@@ -304,15 +304,15 @@
                 @endif
 
 
-                <!-- Modal -->
-<div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <!-- Modal Sair -->
+<div class="modal fade" id="modalSair" tabindex="-1" role="dialog" aria-labelledby="modalSairLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title" id="exampleModalLabel">Sair</h2>
+        <h2 class="modal-title" id="modalSairLabel">Sair</h2>
       </div>
       <div class="modal-body">
-      <h4>Deseja mesmo sair?</h4>
+        <h4>Deseja mesmo sair?</h4>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" id="botao-modal-cancelar">Cancelar</button>
@@ -321,7 +321,6 @@
     </div>
   </div>
 </div>
-
             </li>
             <!--modal 1-->
             <dialog id="modal-1">
@@ -432,7 +431,20 @@
                             <input type="password" id="password" name="senhaCliente" placeholder="••••••••" required>
                         </div>
                     </div>
-
+                  <div class="tudo_preferencia">
+                        <h6 class="texto_preferencia">Tenho interesse em roupas</h6>      
+                        <div class="preferencia">
+                            <div>
+                                <input type="radio" id="roupasFemininas" name="roupasPreferencia" value="feminina" />
+                                <label for="roupasFemininas">Femininas</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="roupasMasculinas" name="roupasPreferencia" value="masculina" />
+                                <label for="roupasMasculinas">Masculinas</label>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div class="login-botao">
                         <input type="submit" value="Cadastrar">
                     </div>

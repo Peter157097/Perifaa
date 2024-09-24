@@ -2306,6 +2306,17 @@ input {
     width: 80%
 }
 
+.tamanhos-buttons{
+    display: flex;
+    flex-direction: column;
+}
+
+.panel{
+    display: flex;
+    flex-direction: column;
+}
+
+
 .container-cards {
     display: flex;
     gap: 1vh;

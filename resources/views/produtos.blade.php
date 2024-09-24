@@ -11,10 +11,80 @@
 
     <style>
         .accordion2 {
-            display: block; /* Cada botão vai ocupar uma linha */
-            width: 100%; /* Ocupa toda a largura disponível */
-            margin-bottom: 10px; /* Espaçamento entre os botões */
-            text-align: left; /* Ajusta o alinhamento do texto, se necessário */
+            display: block;
+            /* Cada botão vai ocupar uma linha */
+            width: 100%;
+            /* Ocupa toda a largura disponível */
+            margin-bottom: 10px;
+            /* Espaçamento entre os botões */
+            text-align: left;
+            /* Ajusta o alinhamento do texto, se necessário */
+        }
+
+        /* Destacar a checkbox quando marcada */
+        input[type="checkbox"]:checked {
+            accent-color: blue;
+            /* Cor de destaque da checkbox */
+            outline: 8px solid blue;
+            /* Adiciona uma borda ao redor da checkbox */
+        }
+
+        /* Destacar a label quando a checkbox estiver marcada */
+        input[type="checkbox"]:checked+label {
+            background-color: blue;
+            /* Fundo da label ao marcar */
+            color: red;
+            /* Texto da label ao marcar */
+            font-weight: bold;
+            /* Texto em negrito para maior visibilidade */
+            padding: 8px;
+            /* Um pequeno espaçamento interno */
+            border-radius: 4px;
+            /* Bordas arredondadas para a label */
+        }
+
+        /* Para garantir que a label receba o estilo */
+        label {
+            cursor: pointer;
+            /* Muda o cursor para indicar que a label é clicável */
+            padding-left: 20px;
+            /* Espaço entre a checkbox e o texto */
+        }
+
+        .button-group {
+            display: flex;
+            /* Exibe os botões em linha */
+            justify-content: center;
+            /* Centraliza os botões horizontalmente */
+            gap: 20px;
+            /* Espaçamento entre os botões */
+            margin-top: 20px;
+            /* Espaçamento acima dos botões */
+        }
+
+        /* Estilo dos botões */
+        .btn-primary {
+            background-color: #663300;
+            /* Cor marrom para o fundo */
+            border: none;
+            /* Remove bordas */
+            color: white;
+            /* Cor do texto branco */
+            padding: 10px 20px;
+            /* Adiciona padding interno para os botões */
+            border-radius: 5px;
+            /* Bordas arredondadas */
+            font-size: 16px;
+            /* Tamanho da fonte */
+            cursor: pointer;
+            /* Cursor de mão para indicar que é clicável */
+            transition: background-color 0.3s ease;
+            /* Transição suave ao passar o mouse */
+        }
+
+        .btn-primary:hover {
+            background-color: #A0522D;
+            /* Muda a cor marrom ao passar o mouse */
         }
     </style>
     <main>
@@ -29,126 +99,136 @@
         <div class="produtos-body">
             <div class="accordion-body">
             <form id="filter-form" method="GET" action="{{ url('/produtos') }}">
-                <div class="accordion-filtro">
-                    <button type='button' class="accordion">Preço</button>
-                    <div class="panel">
-                    <label for="preco-ate" class="label-preco">
-            Até
-            <input type="number" id="preco-ate" name="preco_ate" class="preco-filtro" min="0" placeholder="Digite o valor">
-        </label>
-        <button type="submit" class="btn btn-primary" >Aplicar</button>
-                    </div>
+    <div class="accordion-filtro">
+        <button type='button' class="accordion">Preço</button>
+        <div class="panel">
+            <label for="preco-ate" class="label-preco">
+                Até
+                <input type="number" id="preco-ate" name="preco_ate" class="preco-filtro"
+                       value="{{ isset($filtros['preco_ate']) ? $filtros['preco_ate'] : '' }}" 
+                       min="0" placeholder="Digite o valor">
+            </label>
+            <button type="submit" class="btn btn-primary">Aplicar</button>
+        </div>
 
-                    <button type='button' class="accordion">Tamanhos</button>
-                    <div class="panel">
-                    <div class="tamanhos-buttons">
+        <button type='button' class="accordion">Tamanhos</button>
+        <div class="panel">
+            <div class="tamanhos-buttons">
+                @foreach($tamanhos as $tamanho)
+                <label>
+                    <input type="checkbox" name="tamanho[]" value="{{ $tamanho->idTamanho }}"
+                           {{ isset($filtros['tamanho']) && in_array($tamanho->idTamanho, $filtros['tamanho']) ? 'checked' : '' }}>
+                    {{ $tamanho->nomeTamanho }}
+                </label>
+                @endforeach
+            </div>
+        </div>
 
-                        @foreach($tamanhos as $tamanho)
-                            <button type="submit" name="tamanho" value="{{ $tamanho->idTamanho }}" class="accordion2">
-                                {{ $tamanho->nomeTamanho }}
-                            </button>
-                        @endforeach
-                    </div>
-                    </div>
+        <button type='button' class="accordion">Condição</button>
+        <div class="panel">
+            <div class="condicoes-buttons">
+                @foreach($condicoes as $condicao)
+                <label>
+                    <input type="checkbox" name="condicoes[]" value="{{ $condicao->idCondicao }}"
+                           {{ isset($filtros['condicoes']) && in_array($condicao->idCondicao, $filtros['condicoes']) ? 'checked' : '' }}>
+                    {{ $condicao->nomeCondicao }}
+                </label>
+                @endforeach
+            </div>
+        </div>
 
-                    <button type='button' class="accordion">Condição</button>
-                    <div class="panel">
-                    <div class="condicoes-buttons">
-                        @foreach($condicoes as $condicao)
-                            <button type="submit" name="condicoes[]" value="{{ $condicao->idCondicao }}" class="accordion2">
-                                {{ $condicao->nomeCondicao }}
-                            </button>
-                        @endforeach
-                    </div>
-                    </div>
+        <button type='button' class="accordion">Cores</button>
+        <div class="panel">
+            @foreach($cores as $cor)
+            <label>
+                <input type="checkbox" name="cores[]" value="{{ $cor->idCor }}"
+                       {{ isset($filtros['cores']) && in_array($cor->idCor, $filtros['cores']) ? 'checked' : '' }}>
+                {{ $cor->nomeCor }}
+            </label>
+            @endforeach
+        </div>
 
-                    <button type='button' class="accordion">Cores</button>
-                    <div class="panel">
-                        <!-- Cores -->
-                        @foreach($cores as $cor)
-                            <button type="submit" name="cores[]" value="{{ $cor->idCor }}"  class="accordion2" style="background-color: {{ $cor->rgbCor }}; color: {{ $cor->nomeCor == 'Branco' ? 'black' : 'white' }};">
-                                {{ $cor->nomeCor }}
-                            </button>
-                        @endforeach
-                        
-                        
+        <button type='button' class="accordion">Local</button>
+        <div class="panel">
+            @foreach($regioes as $regiao)
+            <label>
+                <input type="checkbox" name="regioes[]" value="{{ $regiao->idRegiao }}"
+                       {{ isset($filtros['regioes']) && in_array($regiao->idRegiao, $filtros['regioes']) ? 'checked' : '' }}>
+                {{ $regiao->nomeRegiao }}
+            </label>
+            @endforeach
+        </div>
+                        <div class="button-group">
+                            <button type="submit" class="btn btn-primary">Aplicar Filtros</button>
+                            <a href="{{ url('/produtos') }}" class="btn btn-primary">Resetar Filtros</a>
+                        </div>
                     </div>
-
-                    <button type='button' class="accordion">Local</button>
-                    <div class="panel">
-                    @foreach($regioes as $regiao)
-                        <button type="submit" name="regioes[]" value="{{ $regiao->idRegiao }}" class="accordion2"  >
-                            {{ $regiao->nomeRegiao }}
-                        </button>
-                    @endforeach
-                    </div>
-
-                    <a href="{{url('/produtos')}}" class="btn btn-primary">Restar Fieltros</a>
-                </div>
-            </form>
+                </form>
             </div>
 
             <div class="cards-body">
-             
+
                 <div class="container-cards">
                     @foreach($produtos as $produto)
-                    <a href="{{ url('/entrar-produto',$produto->idProduto)}}">
-                    <div class="card-produto">
-                        <div class="image-display">
-                            <img class="img-card-produto" src="{{ asset($produto->imagemProduto) }}"
-                                alt="{{ $produto->nomeProduto }}">
-                        </div>
-                        <div class="txt-info-vendedor">
-                            <p></p>
-                            <p>Recente</p>
-                        </div>
-                        <div class="txt-nome-produto">
-                            {{ $produto->nomeProduto }}
-                        </div>
-                        <p class="valor-produto">{{ $produto->valorProduto }}</p>
-                        <div class="txt-info-produto">
-                            <div class="row-info">
-                                <p class="info-produto">{{ $produto->cor->nomeCor ?? 'Cor Desconhecida' }}</p>
-                                <p class="info-produto">
-                                    {{ $produto->condicao->nomeCondicao ?? 'Condição Desconhecida' }}
-                                </p>
-                            </div>
-                            <div class="row-info">
-                                <p class="info-produto">
-                                    {{ $produto->categoria->nomeCategoriaProduto ?? 'Categoria Desconhecida' }}
-                                </p>
-                                <p class="info-produto">{{ $produto->tamanho->nomeTamanho ?? 'Tamanho Desconhecido' }}
-                                </p>
-                            </div>
-                            <div class="row-info">
+                        <a href="{{ url('/entrar-produto', $produto->idProduto)}}">
+                            <div class="card-produto">
+                                <div class="image-display">
+                                    <img class="img-card-produto" src="{{ asset($produto->imagemProduto) }}"
+                                        alt="{{ $produto->nomeProduto }}">
+                                </div>
+                                <div class="txt-info-vendedor">
+                                    <p></p>
+                                    <p>Recente</p>
+                                </div>
+                                <div class="txt-nome-produto">
+                                    {{ $produto->nomeProduto }}
+                                </div>
+                                <p class="valor-produto">{{ $produto->valorProduto }}</p>
+                                <div class="txt-info-produto">
+                                    <div class="row-info">
+                                        <p class="info-produto">{{ $produto->cor->nomeCor ?? 'Cor Desconhecida' }}</p>
+                                        <p class="info-produto">
+                                            {{ $produto->condicao->nomeCondicao ?? 'Condição Desconhecida' }}
+                                        </p>
+                                    </div>
+                                    <div class="row-info">
+                                        <p class="info-produto">
+                                            {{ $produto->categoria->nomeCategoriaProduto ?? 'Categoria Desconhecida' }}
+                                        </p>
+                                        <p class="info-produto">
+                                            {{ $produto->tamanho->nomeTamanho ?? 'Tamanho Desconhecido' }}
+                                        </p>
+                                    </div>
+                                    <div class="row-info">
 
-                                <p class="info-produto">{{ $produto->regiao->nomeRegiao ?? 'Região Desconhecida' }}</p>
+                                        <p class="info-produto">{{ $produto->regiao->nomeRegiao ?? 'Região Desconhecida' }}
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
                     @endforeach
-                    
-                    </div>
+
+                </div>
                 </a>
             </div>
         </div>
         <div class="quebra-pagina">
             <ul class="pagination">
                 @if ($produtos->currentPage() == 1)
-                <li class="page-item disabled"><a href="#" class="page-link">&lt;</a></li>
+                    <li class="page-item disabled"><a href="#" class="page-link">&lt;</a></li>
                 @else
-                <li class="page-item"><a href="{{ $produtos->previousPageUrl() }}" class="page-link">&lt;</a></li>
+                    <li class="page-item"><a href="{{ $produtos->previousPageUrl() }}" class="page-link">&lt;</a></li>
                 @endif
 
                 @for ($i = 1; $i <= $produtos->lastPage(); $i++)
                     <li class="page-item @if($i == $produtos->currentPage()) active @endif">
                         <a href="{{ $produtos->url($i) }}" class="page-link">{{ $i }}</a>
                     </li>
-                    @endfor
+                @endfor
 
-                    <li class="page-item @if (!$produtos->hasMorePages()) disabled @endif">
-                        <a href="{{ $produtos->nextPageUrl() }}" class="page-link">&gt;</a>
-                    </li>
+                <li class="page-item @if (!$produtos->hasMorePages()) disabled @endif">
+                    <a href="{{ $produtos->nextPageUrl() }}" class="page-link">&gt;</a>
+                </li>
             </ul>
         </div>
 
@@ -159,7 +239,7 @@
             var i;
 
             for (i = 0; i < acc.length; i++) {
-                acc[i].addEventListener("click", function() {
+                acc[i].addEventListener("click", function () {
                     this.classList.toggle("active");
                     var panel = this.nextElementSibling;
                     if (panel.style.maxHeight) {

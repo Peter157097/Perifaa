@@ -86,6 +86,28 @@
             background-color: #A0522D;
             /* Muda a cor marrom ao passar o mouse */
         }
+        .btn-filter {
+    background-color: #d2cfc8; /* cor de fundo do botão */
+    color: #444; /* cor do texto */
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 5px; /* espaçamento entre os botões */
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-filter .remove-filter {
+    margin-left: 5px;
+    cursor: pointer;
+    color: red; /* cor do 'x' para remover o filtro */
+}
+
+.btn-filter:hover {
+    background-color: #b8b8b3; /* cor de fundo ao passar o mouse */
+}
+
     </style>
     <main>
         <!-- Começo do corpo do site -->
@@ -97,40 +119,40 @@
             </div>
             <div class="filtros-aplicados">
             @if($request->filled('preco_ate'))
-                <button type="button" class="btn btn-filter">
+                <button type="button" class="btn btn-filter" onclick="removeFilter('preco_ate')">
                     Preço até R$ {{ $request->input('preco_ate') }}
-                    <span class="remove-filter" data-filter="preco_ate">&times;</span>
+                    <span class="remove-filter">&times;</span>
                 </button>
             @endif
             @if($request->filled('tamanho'))
-                @foreach($tamanhos->whereIn('idTamanho', $request->input('tamanho')) as $tamanho)
-                    <button type="button" class="btn btn-filter">
+                    @foreach($tamanhos->whereIn('idTamanho', $request->input('tamanho')) as $tamanho)
+                    <button type="button" class="btn btn-filter" onclick="removeFilter('tamanho[]', '{{ $tamanho->idTamanho }}')">
                         Tamanho: {{ $tamanho->nomeTamanho }}
-                        <span class="remove-filter" data-filter="tamanho[]">&times;</span>
+                        <span class="remove-filter">&times;</span>
                     </button>
                 @endforeach
             @endif
             @if($request->filled('condicoes'))
                 @foreach($condicoes->whereIn('idCondicao', $request->input('condicoes')) as $condicao)
-                    <button type="button" class="btn btn-filter">
+                    <button type="button" class="btn btn-filter" onclick="removeFilter('condicoes[]', '{{ $condicao->idCondicao }}')">
                         Condição: {{ $condicao->nomeCondicao }}
-                        <span class="remove-filter" data-filter="condicoes[]">&times;</span>
+                        <span class="remove-filter">&times;</span>
                     </button>
                 @endforeach
             @endif
             @if($request->filled('cores'))
                 @foreach($cores->whereIn('idCor', $request->input('cores')) as $cor)
-                    <button type="button" class="btn btn-filter">
+                    <button type="button" class="btn btn-filter" onclick="removeFilter('cores[]', '{{ $cor->idCor }}')">
                         Cor: {{ $cor->nomeCor }}
-                        <span class="remove-filter" data-filter="cores[]">&times;</span>
+                        <span class="remove-filter">&times;</span>
                     </button>
                 @endforeach
             @endif
             @if($request->filled('regioes'))
                 @foreach($regioes->whereIn('idRegiao', $request->input('regioes')) as $regiao)
-                    <button type="button" class="btn btn-filter">
+                    <button type="button" class="btn btn-filter" onclick="removeFilter('regioes[]', '{{ $regiao->idRegiao }}')">
                         Região: {{ $regiao->nomeRegiao }}
-                        <span class="remove-filter" data-filter="regioes[]">&times;</span>
+                        <span class="remove-filter">&times;</span>
                     </button>
                 @endforeach
             @endif
@@ -309,6 +331,27 @@
                     window.location.href = url.toString(); // Redireciona para a nova URL
                 });
             });
+
+            function removeFilter(filterName, value = null) {
+        const form = document.getElementById('filter-form');
+
+        // Remove o valor do filtro específico
+        if (value) {
+            const input = form.querySelector(`input[name="${filterName}"][value="${value}"]`);
+            if (input) {
+                input.checked = false;
+            }
+        } else {
+            // Se o filtro não tem valor, simplesmente removemos o input do filtro de preço
+            const input = form.querySelector(`input[name="${filterName}"]`);
+            if (input) {
+                input.value = '';
+            }
+        }
+
+        // Atualiza a página enviando o formulário
+        form.submit();
+    }
 
         </script>
     </main>

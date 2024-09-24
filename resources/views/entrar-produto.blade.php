@@ -27,79 +27,74 @@
                 <div class="conteudo-entrada-produto">
                     <h6><a href="#">Masculinas</a>/ <a href="#">Casaco</a>/ </h6>
                   
-                    <div class="parte1">
-                            <h2>{{$produtos->nomeProduto}}</h2>
-                            <!-- link para acionar modal 1-->
-                            <a href="#" data-toggle="modal" data-target="#modalExemplo">Denunciar</a>
-                            <form action="{{ route('favorites.add') }}" method="POST">
-                                @csrf
-                                <input type="hidden" name="product_id" value="{{ $produtos->idProduto }}">
-                                <button id="favorite-button" 
-                                        class="btn btn-favorite {{ $favorited ? 'favorited' : '' }}" 
-                                        data-product-id="{{ $produtos->idProduto }}">
-                                    {{ $favorited ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos' }}
-                                </button>
-                            </form>
-                    </div>
+                <div class="parte1">
+  <h2>{{$produtos->nomeProduto}}</h2>
+  <!-- link para acionar modal de denúncia -->
+  <a href="#" data-toggle="modal" data-target="#modalDenuncia">Denunciar</a>
+  <form action="{{ route('favorites.add') }}" method="POST">
+    @csrf
+    <input type="hidden" name="product_id" value="{{ $produtos->idProduto }}">
+    <button id="favorite-button" 
+            class="btn btn-favorite {{ $favorited ? 'favorited' : '' }}" 
+            data-product-id="{{ $produtos->idProduto }}">
+      {{ $favorited ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos' }}
+    </button>
+  </form>
+</div>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Selecionar motivo</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                            <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                           <ul>
-                            <li><a href="#"  data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Itens proibidos</a></li>
-                            <li><a href="#">Direitos autorias | Cópia de imagem </a></li>
-                            <li><a href="#">Links de sites, redes socias e/ou marketplaces</a></li>
-                            <li><a href="#">Itens ofencivos e/ou potencialmente ofensivos</a></li>
-                            <li><a href="#">Outros</a></li>
-                           </ul>
-                        </div>
-                        </div>
-                    </div>
-                    </div>
+<!-- Modal Denúncia -->
+<div class="modal fade" id="modalDenuncia" tabindex="-1" role="dialog" aria-labelledby="modalDenunciaLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalDenunciaLabel">Selecionar motivo</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul>
+          <li><a href="#" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Itens proibidos</a></li>
+          <li><a href="#">Direitos autorias | Cópia de imagem </a></li>
+          <li><a href="#">Links de sites, redes sociais e/ou marketplaces</a></li>
+          <li><a href="#">Itens ofensivos e/ou potencialmente ofensivos</a></li>
+          <li><a href="#">Outros</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
-            <!--  modal 2 quando clica nos links-->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Nova mensagem</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="{{ route('Denuncia.store') }}" method="post">
-                        @csrf
-                             <!-- Campo oculto do tipo Denuncia -->
-                             <input type="hidden" name="tipoDenuncia" value="Itens proibido">
-                             <!-- Campo oculto do ID do produto -->
-                            <input type="hidden" name="idProduto" value="{{ $produtos->idProduto }}">
-                             <!-- Campo oculto do ID do Cliente -->
-                            <input type="hidden" name="idCliente" value="{{ session('id') }}">
-                            <!-- Campo oculto do data automatica -->
-                            <input type="hidden" id="dataDenuncia" name="dataDenuncia" value="{{ date('Y-m-d') }}" required>
+<!-- Modal Detalhe da Denúncia -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nova mensagem</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="{{ route('Denuncia.store') }}" method="post">
+          @csrf
+          <input type="hidden" name="tipoDenuncia" value="Itens proibido">
+          <input type="hidden" name="idProduto" value="{{ $produtos->idProduto }}">
+          <input type="hidden" name="idCliente" value="{{ session('id') }}">
+          <input type="hidden" id="dataDenuncia" name="dataDenuncia" value="{{ date('Y-m-d') }}" required>
+          <div class="form-group large-form-group">
+            <label for="message-text" class="col-form-label">Mensagem:</label>
+            <textarea class="form-control" id="message-text" name="descDenuncia"></textarea>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Enviar denúncia</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 
-                        <div class="form-group large-form-group">
-                            <label for="message-text" class="col-form-label">Mensagem:</label>
-                            <textarea class="form-control" id="message-text" name="descDenuncia"></textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                      
-                        <button type="submit"  class="btn btn-primary">Enviar denúncia</button>
-                        </form>
-                    </div>
-                    </div>
-                </div>
-                </div>                      
                         
 
 

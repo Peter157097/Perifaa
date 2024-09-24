@@ -3347,3 +3347,121 @@ a {
     background-color: rgb(5, 86, 117);
     transition: background-color 0.6s ease;
 }
+
+.adminContainerConsulta{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.titleAdmConsulta{
+    padding: 2%;
+    display: flex;
+    font-weight: 800;
+    font-size: 5vh;
+    width: 100%;
+    justify-content:center;
+}
+
+.alvoConsultaContainer{
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: left;
+    display:flex;
+    gap: 4vh;
+}
+.containerInfoConsulta{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    padding-left: 20%;
+    width: fit-content;
+}
+.labelConsulta{
+    font-size: 3vh;
+    background-color: white;
+}
+.btnConsultaSubmit{
+    display: flex;
+    background-color: #5882d6;
+    color: white;
+    border: none;
+    padding: 2%;
+    
+}
+.camposConsulta{
+    display: flex;
+}
+.titleAlvo {
+    font-weight: 600;
+}
+.formParamtrs{
+    width: 100%;
+    display: block;
+}
+
+.resultConsultaContainer{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4%;
+    padding-top: 2%;
+}
+.ConsultaCardContainer{
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #a7a7a7;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.cardConsulta{
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 10vh;
+}
+.pfpConsultaContainer{
+    padding: 1%;
+    background-color: rgb(255, 255, 255);
+    width: 6%;
+    height: 100%;
+}
+.pfpConsulta{
+    background-color: rgb(66, 66, 66);
+    width: 90%;
+    height: 100%;
+    border-radius: 50%;
+}
+.infoAlvoConsulta{
+    padding: 1%;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    
+}
+.nomeUsuarioConsulta{
+    width: fit-content;
+    align-self: center;
+}
+.emailUsuarioConsulta{
+    width: fit-content;
+    align-self: center;
+}
+.roleUsuarioConsulta{
+    width: fit-content;
+    align-self: center;
+}
+.txtInfoUsuarioConsulta{
+    font-size: 2vh;
+    margin: 0;
+}
+.titleAdmResultConsulta{
+    display: flex;
+    font-weight: 800;
+    font-size: 5vh;
+    width: 100%;
+    justify-content:center;
+    padding: 2%;
+}
+
+
+

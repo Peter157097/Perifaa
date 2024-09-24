@@ -144,6 +144,12 @@ Route::get('/dashAdmin', function () {
 Route::get('/dashAdminDenuncias', function () {
     return view('dashAdminDenuncias');
 });
+Route::get('/dashAdminConsulta', function () {
+    return view('dashAdminConsulta');
+});
+Route::get('/dashAdminResultConsulta', function () {
+    return view('dashAdminResultConsulta');
+});
 
 
 

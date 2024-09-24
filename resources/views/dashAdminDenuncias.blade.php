@@ -41,8 +41,8 @@
         </div>
         <ul>
             <li><a href="/dashAdmin" class="menu-item"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
-            <li><a href="/dashAdminDenuncias" class="menu-item  selected"><i class="fas fa-box-open"></i>Denuncias</a>
-            </li>
+            <li><a href="/dashAdminDenuncias" class="menu-item  selected"><i class="fas fa-box-open"></i>Denuncias</a></li>
+            <li><a href="/dashAdminConsulta" class="menu-item"><i class="fas fa-box-open"></i>Consultar</a></li>
             <li><a href="#saques" class="menu-item"><i class="fas fa-wallet"></i>Saques</a></li>
             <li><a href="/perfil" class="menu-item"><i class="fas fa-user"></i>Perfil</a></li>
             <li><a href="#config" class="menu-item"><i class="fas fa-cog"></i>Configurações</a></li>

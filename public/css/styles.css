@@ -3287,20 +3287,20 @@ a {
 .itemDenuncia{
 
     display: flex;
-    padding: 1%;
+    padding: 0.5%;
     background-color: rgb(255, 255, 255);
     width: 100%;
-    height: 40vh;
+    height: 20vh;
 }
 .imgProduto{
     background-color: #555555;
-    width: 20%;
+    width: 10%;
     height: 100%;
 }
 .infoProdutoDenuncia{
     flex-wrap: wrap;
     width: 80%;
-    padding: 1%;
+    padding: 0.5%;
     display: block;
     gap: 0
 }
@@ -3314,13 +3314,17 @@ a {
     width: 100%;
     display: flex;
     gap: 10%;
-    height: fit-content;
+    height: 40%;
 }
 .itemCategoriaDenuncia{
     width: 40%;
     font-weight: 600;
 }
 .itemInfoDenuncia{
+    margin: 0%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     width: 40%;
 }
 .titleDenunciaDash{
@@ -3332,7 +3336,7 @@ a {
 }
 .acoesDenuncia {
     justify-content: center;
-    padding-top: 5%;
+    padding-top:0;
     display: flex;
     gap: 7vh;
 }
@@ -3364,8 +3368,8 @@ a {
     flex-wrap: wrap;
     justify-content: center;
 }
-.titleAdmConsulta{
-    padding: 2%;
+.titleAdm{
+    padding: 1%;
     display: flex;
     font-weight: 800;
     font-size: 5vh;
@@ -3378,7 +3382,7 @@ a {
     width: 100%;
     justify-content: left;
     display:flex;
-    gap: 4vh;
+    gap: 2vh;
 }
 .containerInfoConsulta{
     display: flex;
@@ -3388,19 +3392,24 @@ a {
     width: fit-content;
 }
 .labelConsulta{
+    padding: 1%;
+    width: 100%;
     font-size: 3vh;
-    background-color: white;
+    background-color: rgb(218, 218, 218);
 }
 .btnConsultaSubmit{
-    display: flex;
     background-color: #5882d6;
     color: white;
     border: none;
     padding: 2%;
+    margin-top: 2%;
     
 }
 .camposConsulta{
     display: flex;
+    background-color: white;
+    width: 100vh;
+    padding: 2%;
 }
 .titleAlvo {
     font-weight: 600;
@@ -3473,6 +3482,26 @@ a {
     justify-content:center;
     padding: 2%;
 }
+.optConsulta{
+   width: 20vh;
+   padding: 0.5%;
+  
+}
+.formConsulta{
+    
+    width: 100%;
+}
+.testeConsulta{
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+
+}
+.iconVisualizarConsulta:hover{
+    scale: 1.2;
+}
+
+
 
 
 

@@ -42,7 +42,8 @@
         <ul>
             <li><a href="/dashAdmin" class="menu-item"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
             <li><a href="/dashAdminDenuncias" class="menu-item"><i class="fas fa-box-open"></i>Denuncias</a></li>
-            <li><a href="/dashAdminConsulta" class="menu-item selected"><i class="fas fa-box-open"></i>Consultar</a></li>
+            <li><a href="/dashAdminConsulta" class="menu-item selected"><i class="fas fa-box-open"></i>Consultar</a>
+            </li>
             <li><a href="/perfil" class="menu-item"><i class="fas fa-user"></i>Perfil</a></li>
             <li><a href="#config" class="menu-item"><i class="fas fa-cog"></i>Configurações</a></li>
             <li><a href="#sair" class="menu-item"><i class="fas fa-sign-out-alt"></i>Sair</a></li>
@@ -85,13 +86,13 @@
 
         </div>
         <div class="adminContainerConsulta">
-            <div class="titleAdmConsulta">
-                <p>Consulta</p>
+            <div class="titleAdm">
+                <p>CONSULTA</p>
             </div>
             <div class="containerInfoConsulta">
                 <div class="alvoConsultaContainer">
-                    <label class="titleAlvo "for="alvo">O que deseja consultar?</label>
-                    <select name="alvo" id="alvo">
+                    <label class="titleAlvo " for="alvo">O que deseja consultar?</label>
+                    <select class="optConsulta" name="alvo" id="alvo">
                         <optgroup label="Escolha">
                             <option value="cliente">Cliente</option>
                             <option value="vendedor">Vendedor</option>
@@ -99,15 +100,36 @@
                     </select>
                 </div>
                 <div class="camposConsulta">
-                    <form>
-                        <label for="nome">Nome</label><br>
-                        <input class="labelConsulta" type="text" id="nome" name="nome"><br>
-                        <label for="sbNome">Sobrenome</label><br>
-                        <input class="labelConsulta" type="text" id="sbNome" name="sbNome">
-                        <button class="btnConsultaSubmit" type="submit" value="Submit">Buscar</button>
+                    <form class="formConsulta">
+                        <div class="testeConsulta">
+                            <label for="nome">Nome</label><br>
+                            <input class="labelConsulta" type="text" id="nome" name="nome"><br>
+                            <button class="btnConsultaSubmit" type="submit" value="Submit">Buscar</button>
+                        </div>
                     </form>
-                    
-                </div>           
+                </div>
+            </div>
+        </div>
+        <div class="resultConsultaContainer">
+            <div class="ConsultaCardContainer">
+                <div class="cardConsulta">
+                    <div class="pfpConsultaContainer">
+                        <div class="pfpConsulta">
+                        </div>
+                    </div>
+                    <div class="infoAlvoConsulta">
+                        <div class="nomeUsuarioConsulta">
+                            <h5 class="txtInfoUsuarioConsulta">Nome usuario</h5>
+                        </div>
+                        <div class="emailUsuarioConsulta">
+                            <h5 class="txtInfoUsuarioConsulta">Email Usuario</h5>
+                        </div>
+                        <div class="roleUsuarioConsulta">
+                            <h5 class="txtInfoUsuarioConsulta">Vendedor ou Usuario</h5>
+                        </div>
+                        <img class="iconVisualizarConsulta"src="images/visualizarUsuario.webp">
+                    </div>
+                </div>
             </div>
         </div>
     </div>

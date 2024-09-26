@@ -83,6 +83,9 @@
                 </div>
             </div>
         </div>
+        <div class="titleAdm">
+                <p>DENUNCIAS</p>
+            </div>
         <div class="admDenunciasContainer">
             <div class="itemDenuncia">
                 <div class="imgProduto">
@@ -97,29 +100,9 @@
                     <div class="infoProdutoCategoria">
                         <p class="itemInfoDenuncia">Camisa TakeOff Collection</p>
                         <p class="itemInfoDenuncia">R$40,00</p>
-                        <p class="itemInfoDenuncia">Vendedor me enganou, mandou uma coisa nada a ver com o combinado</p>
-                    </div>
-                    <div class="acoesDenuncia">
-                        <p class="analisarDenuncia">Analisar denuncia</p>
-                        <p class="excluirDenuncia">Excluir Anúncio</p>
-                    </div>
-                </div>
-
-            </div>
-            <div class="itemDenuncia">
-                <div class="imgProduto">
-
-                </div>
-                <div class="infoProdutoDenuncia">
-                    <div class="infoProdutoCategoria">
-                        <p class="itemCategoriaDenuncia">Brechó da Maria</p>
-                        <p class="itemCategoriaDenuncia">Valor</p>
-                        <p class="itemCategoriaDenuncia">Motivo da denuncia</p>
-                    </div>
-                    <div class="infoProdutoCategoria">
-                        <p class="itemInfoDenuncia">Camisa TakeOff Collection</p>
-                        <p class="itemInfoDenuncia">R$40,00</p>
-                        <p class="itemInfoDenuncia">Vendedor me enganou, mandou uma coisa nada a ver com o combinado</p>
+                        <p class="itemInfoDenuncia">Vendedor me enganou, mandou uma coisa nada a ver com o combinado
+                        Vendedor me enganou, mandou uma coisa nada a ver com o combinado
+                        </p>
                     </div>
                     <div class="acoesDenuncia">
                         <p class="analisarDenuncia">Analisar denuncia</p>

@@ -151,5 +151,9 @@ Route::get('/dashAdminResultConsulta', function () {
     return view('dashAdminResultConsulta');
 });
 
+Route::get('/contato', function () {
+    return view('contato');
+});
+
 
 

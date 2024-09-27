@@ -349,6 +349,6 @@
                 <a href="#">Mochilas & Pochetes</a>
             </div> <!--Fim menu dropdown da categoria infantil-->
         </li>
-        <li><a href="#" class="nav-hover">CONTATO</i></a></li>
+        <li><a href="{{url('contato')}}" class="nav-hover">CONTATO</i></a></li>
     </ul>
 </nav><!--Fim da nav-->

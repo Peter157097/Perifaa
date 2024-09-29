@@ -17,7 +17,7 @@ class ProdutoController extends Controller
     public function index(Request $request)
     {
         $query = Produto::query();
-    
+
         // Filtros
         if ($request->filled('preco_ate')) {
             $precoAte = (float) $request->input('preco_ate');
@@ -51,11 +51,10 @@ class ProdutoController extends Controller
         $regioes = Regiao::all();
         $produtos = $query->paginate(8);
         $filtros = $request->all();
-    
 
-        return view('produtos', compact('produtos', 'tamanhos','condicoes', 'cores','regioes','filtros','request'));
+        // Passar o request explicitamente para a view
+        return view('produtos', compact('produtos', 'tamanhos', 'condicoes', 'cores', 'regioes', 'filtros', 'request'));
     }
-
 
     public function show($idProduto)
     {
@@ -63,15 +62,35 @@ class ProdutoController extends Controller
         $clientId = Session::get('id');
 
         $carrinho = Carrinho::where('idProduto', $idProduto)
-        ->where('idCliente', $clientId)
-        ->exists();
+            ->where('idCliente', $clientId)
+            ->exists();
 
-        
         $favorited = Favorito::where('idProduto', $idProduto)
-        ->where('idCliente', $clientId)
-        ->exists();
+            ->where('idCliente', $clientId)
+            ->exists();
 
         return view('entrar-produto', compact('produtos', 'favorited', 'carrinho'));
     }
 
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        
+        // Perform a search on 'nomeProduto' and 'descricaoProduto'
+        $pesquisa = Produto::where('nomeProduto', 'LIKE', "%$query%")
+                            ->orWhere('descricaoProduto', 'LIKE', "%$query%");
+        
+        // Ensure that the result is paginated
+        $produtos = $pesquisa->paginate(8);  // Now we use paginate here instead of get()
+    
+        // Retrieve other necessary data
+        $tamanhos = Tamanho::all();
+        $condicoes = Condicao::all();
+        $cores = Cor::all();
+        $regioes = Regiao::all();
+        $filtros = $request->all();
+    
+        return view('produtos', compact('produtos', 'tamanhos', 'condicoes', 'cores', 'regioes', 'filtros', 'request'));
+    }
+    
 }

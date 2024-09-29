@@ -21,14 +21,12 @@
             /* Ajusta o alinhamento do texto, se necessário */
         }
 
-        /* Destacar a checkbox quando marcada */
-        input[type="checkbox"]:checked {
-            accent-color: blue;
-            /* Cor de destaque da checkbox */
-            outline: 8px solid blue;
-            /* Adiciona uma borda ao redor da checkbox */
+        .checkbox-buttons:checked {
+            background-color: #663300; /* Cor marrom */
+            border-color: #663300;
         }
 
+       
         /* Destacar a label quando a checkbox estiver marcada */
         input[type="checkbox"]:checked+label {
             background-color: blue;
@@ -164,61 +162,80 @@
     <div class="accordion-filtro">
         <button type='button' class="accordion">Preço</button>
         <div class="panel">
-            <label for="preco-ate" class="label-preco">
-                Até
-                <input type="number" id="preco-ate" name="preco_ate" class="preco-filtro"
-                       value="{{ isset($filtros['preco_ate']) ? $filtros['preco_ate'] : '' }}" 
-                       min="0" placeholder="Digite o valor">
-            </label>
-            <button type="submit" class="btn btn-primary">Aplicar</button>
+            <div class="panelContainer">
+                <div class="precoFiltroTudo">
+                    <label for="preco-ate" class="label-preco">
+                    <p>Até</p>
+                    <input type="number" id="preco-ate" name="preco_ate" class="preco-filtro"
+                        value="{{ isset($filtros['preco_ate']) ? $filtros['preco_ate'] : '' }}" 
+                        min="0" placeholder="R$">
+                    </label>
+                </div>
+           <div class="parte-botaoPreco">
+            <button type="submit" class="btn btn-primary" id="botaoPreco">Aplicar filtro</button>
+           </div>
+           
+            </div>
+           
         </div>
 
         <button type='button' class="accordion">Tamanhos</button>
         <div class="panel">
+            <div class="panelContainer">
             <div class="tamanhos-buttons">
                 @foreach($tamanhos as $tamanho)
                 <label>
-                    <input type="checkbox" name="tamanho[]" value="{{ $tamanho->idTamanho }}"
+                    <input type="checkbox" name="tamanho[]" value="{{ $tamanho->idTamanho }}" class="checkbox-buttons"
                            {{ isset($filtros['tamanho']) && in_array($tamanho->idTamanho, $filtros['tamanho']) ? 'checked' : '' }}>
                     {{ $tamanho->nomeTamanho }}
                 </label>
                 @endforeach
             </div>
+            </div>
         </div>
 
         <button type='button' class="accordion">Condição</button>
         <div class="panel">
+            <div class="panelContainer">
             <div class="condicoes-buttons">
                 @foreach($condicoes as $condicao)
                 <label>
-                    <input type="checkbox" name="condicoes[]" value="{{ $condicao->idCondicao }}"
+                    <input type="checkbox" name="condicoes[]" value="{{ $condicao->idCondicao }}" class="checkbox-buttons"
                            {{ isset($filtros['condicoes']) && in_array($condicao->idCondicao, $filtros['condicoes']) ? 'checked' : '' }}>
                     {{ $condicao->nomeCondicao }}
                 </label>
                 @endforeach
             </div>
+            </div>
         </div>
 
         <button type='button' class="accordion">Cores</button>
         <div class="panel">
+            <div class="panelContainer">
             @foreach($cores as $cor)
             <label>
-                <input type="checkbox" name="cores[]" value="{{ $cor->idCor }}"
+                <input type="checkbox" name="cores[]" value="{{ $cor->idCor }}" class="checkbox-buttons"
                        {{ isset($filtros['cores']) && in_array($cor->idCor, $filtros['cores']) ? 'checked' : '' }}>
                 {{ $cor->nomeCor }}
             </label>
             @endforeach
+            </div>
         </div>
 
         <button type='button' class="accordion">Local</button>
         <div class="panel">
+        <div class="panelContainer">
             @foreach($regioes as $regiao)
+            
             <label>
-                <input type="checkbox" name="regioes[]" value="{{ $regiao->idRegiao }}"
+                <input type="checkbox" name="regioes[]" value="{{ $regiao->idRegiao }}" class="checkbox-buttons"
                        {{ isset($filtros['regioes']) && in_array($regiao->idRegiao, $filtros['regioes']) ? 'checked' : '' }}>
                 {{ $regiao->nomeRegiao }}
             </label>
+           
             @endforeach
+            </div>
+     
         </div>
                         <div class="button-group">
                             <button type="submit" class="btn btn-primary">Aplicar Filtros</button>

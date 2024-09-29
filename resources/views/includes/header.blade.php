@@ -136,7 +136,7 @@
                         <i class="fa-solid fa-x"></i>
                     </div>
                     <div class="input-container-mobile">
-                        <input type="text" placeholder="PESQUISAR PRODUTOS" class="input-pesquisa">
+                        <input type="search" placeholder="PESQUISAR PRODUTOS" class="input-pesquisa">
                        <button class="botao-pesquisa"  data-toggle="modal" data-target="#modalSair">
                             <i class="fa-solid fa-magnifying-glass" id="pesquisa"></i>
                         </button>
@@ -258,10 +258,11 @@
         <div class="header_icones">
             <div class="header_pesquisa">
                 <div class="input-container">
-                    <input type="text" placeholder="PESQUISAR PRODUTOS" class="input-pesquisa">
-                    <button class="botao-pesquisa" >
-                        <i class="fa-solid fa-magnifying-glass" id="pesquisa"></i>
-                    </button>
+                <form action="{{ route('produtos.search') }}" method="GET">
+                            <input type="text" name="query" placeholder="Pesquisar produtos..." required>
+                            <button type="submit"> <i class="fa-solid fa-magnifying-glass" id="pesquisa"></i></button>
+                        </form>
+                
                 </div>
             </div>
           

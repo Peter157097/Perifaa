@@ -84,27 +84,43 @@
             </div>
 
         </div>
-        <div class="admCardContainer">
-            <div class="cardAdmin1">
-                <h1 class="card1-text">
-                    Ajude a manter uma boa comunidade!
-                </h1>
-                <h4 class="card1-subText">
-                    Vistorie produtos, vendedores e usuários denunciados.
-                </h4>
-            </div>
-            <div class="cardAdmin2">
-                <h1 class="card1-text">
-                    Anúncios fora das diretrizes da Perifa
-                </h1>
-                <h4 class="card1-subText">
-                    Fique atento, alguns anúncios podem ferir as nossas diretrizes.
-                </h4>
-                <h5 class="diretrizes-link">
-                    Diretrizes >
-                </h5>
-            </div>
+      
+
+
+        <!--Area do grafico-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+        </script>
+        <div class="areaGrafico">
+            <canvas id="myChart" style="width:100%;max-width:60%"></canvas>
         </div>
+
+
+        <script>
+            const xValues = ["Jan", "Fev", "Mar", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+            const yValues = [55, 49, 44, 24, 15];
+            const barColors = "rgb(22, 84, 121)";
+
+            new Chart("myChart", {
+                type: "bar",
+                data: {
+                    labels: xValues,
+                    datasets: [{
+                        backgroundColor: barColors,
+                        data: yValues
+                    }]
+                },
+                options: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: "Grafico de acessos"
+                    }
+                }
+            });
+        </script>
+        <!---->
+
+
         <div class="titleDenunciaDash">
             Produtos mais denunciados
         </div>
@@ -144,7 +160,7 @@
                 </div>
             </div>
         </div>
-        
+
     </div>
     <script>
         // Função para abrir/fechar o menu lateral
@@ -180,6 +196,7 @@
             });
         });
     </script>
+
 
 </body>
 

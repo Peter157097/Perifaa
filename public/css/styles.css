@@ -3500,6 +3500,13 @@ a {
 .iconVisualizarConsulta:hover{
     scale: 1.2;
 }
+.areaGrafico{
+    padding: 4%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
 
 
 

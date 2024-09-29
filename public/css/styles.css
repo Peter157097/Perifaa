@@ -2220,7 +2220,7 @@ input {
 }
 
 .titulo-produtos {
-    font-size: 7vh;
+    font-size: 6vh;
     margin: auto;
     text-align: center;
     margin-top: 3vh;
@@ -2229,7 +2229,7 @@ input {
 
 .produto-line {
     width: 100%;
-    height: 1vh;
+    height: 5px;
     background-color: #dfdad5
 }
 
@@ -2237,8 +2237,6 @@ input {
     word-spacing: 2vh;
     margin: auto;
     margin-left: 8vh;
-
-
 }
 
 .filtro-display {
@@ -2256,33 +2254,59 @@ input {
     font-size: 2vh;
 }
 
+.precoFiltro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
 
 .accordion {
-    background-color: #D2CFC8;
+    background-color: #ede9e2;
     color: #444;
     cursor: pointer;
     padding: 18px;
+
     width: 100%;
     text-align: left;
-    border: none;
     outline: none;
     transition: 0.4s;
+    font-family: Poppins;
+    font-weight: 600;
+    border: 1px solid #898181;
+    overflow-y: hidden;
+
 }
+.accordion-body{
+    display: flex;
+}
+.accordion-filtro{
+    display: block;
+    overflow: hidden;
+}
+
 
 .active,
 .accordion:hover {
-    background-color: #b8b8b3;
+    background-color: #d2cfc8;
     outline: none;
-    border: none;
+    border: 1px solid #898181;
+
 }
 
 .panel {
+
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    padding: 0 18px;
-    background-color: #f0f0f0;
+    padding: 0px 18px;
+    background-color: #ede9e2;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
+    border-left: 1px solid #898181;
+    border-right: 1px solid #898181;
+    
 }
 
 .accordion:after {
@@ -2292,18 +2316,26 @@ input {
     color: #777;
     float: right;
     margin-left: 5px;
+    
 }
 
 .active:after {
+
     outline: none;
     content: "⮝"
 }
 
 .accordion-filtro {
-    margin: auto;
+ 
     margin-top: 6vh;
     margin-left: 8vh;
-    width: 80%
+    width: 80%;
+
+}
+.panelContainer{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
 }
 
 .tamanhos-buttons{
@@ -2311,9 +2343,23 @@ input {
     flex-direction: column;
 }
 
-.panel{
+.checkbox-buttons{
+    width: 20px;
+    height: 20px;
+    border: 1px solid #898181;
+    outline: none; /* Remove o outline padrão */
+}
+
+.checkbox-buttons:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+
+.condicoes-buttons{
     display: flex;
     flex-direction: column;
+    
 }
 
 
@@ -2407,21 +2453,41 @@ input {
 }
 
 .label-condicao {
-
     justify-content: space-between;
     display: flex;
     flex-direction: row
+}
+
+.precoFiltroTudo{
+   padding-bottom: 10px;
 }
 
 .preco-filtro {
-    width: fit-content;
+    padding: 2px;
+    width: 100px;
+    height: 30px;
+    border: 2px solid #ebd7bd;
+    border-radius: 16px;
 }
 
 .label-preco {
-    justify-content: space-between;
     display: flex;
-    flex-direction: row
+    flex-direction: column;
 }
+
+.parte-botaoPreco{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ #botaoPreco{
+    padding: 2px;
+    width: 110px;
+    height: 50; 
+    border-radius: 16px;
+}
+
 
 
 @media (max-width:2560px) {

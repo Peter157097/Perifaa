@@ -145,7 +145,7 @@
         </div>
 <!--Botão de ver todos os produtos termina aqui-->   
 <!--Compra por Principais brechos começa aqui-->         
-        <div class="principais-brechos">
+       <div class="principais-brechos">
             <div class="texto-principais-brechos">
                 <h3>Principais brechós</h3>
             </div>

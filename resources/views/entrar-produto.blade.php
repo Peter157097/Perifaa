@@ -19,10 +19,24 @@
             <div class="esquerdo">
                 <div class="itens">
                     <div class="select-image">
-                    <img src="{{ asset($produtos->imagemProduto) }}" alt="imagem produto">
-                    </div>              
+                      <img src="{{ asset($produtos->imagemProduto) }}" alt="imagem produto">
+                    </div>  
+                    <div class="thumbnails">
+                        <div  class="thumbnail">
+                          <img src="{{ asset($produtos->imagemProduto) }}" alt="imagem produto">
+                        </div>
+                        <div  class="thumbnail">
+                          <img src="{{ asset($produtos->imagemProduto) }}" alt="imagem produto">
+                        </div>
+                        <div  class="thumbnail">
+                          <img src="{{ asset($produtos->imagemProduto) }}" alt="imagem produto">
+                        </div>
+                        <div  class="thumbnail">
+                          <img src="{{ asset($produtos->imagemProduto) }}" alt="imagem produto">
+                        </div>
+                    </div>            
                 </div>
-            </div>
+              </div>
             <div class="direito">
                 <div class="conteudo-entrada-produto">
                     <h6><a href="#">Masculinas</a>/ <a href="#">Casaco</a>/ </h6>

@@ -155,6 +155,8 @@ Route::get('/contato', function () {
     return view('contato');
 });
 
+Route::get('/produtos/search', [ProdutoController::class, 'search'])->name('produtos.search');
+
 
 
 

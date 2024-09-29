@@ -1222,19 +1222,22 @@ dialog #modal-2::backdrop {
 @media (max-width: 768px) {
     .principais-brechos {
         margin: 20px;
-        /* Reduz a margem em telas menores */
+    }
+
+    .cards-principais-brechos-tudo {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .cards-principais-brechos {
         width: 100%;
-        /* As imagens ocuparão a largura total da tela */
-        max-width: none;
-        /* Remove o limite máximo de largura */
+        max-width: 500px;
     }
 
     .cards-principais-brechos img {
+        width: 100%;
         height: auto;
-        /* As imagens permanecem proporcionais */
     }
 }
 

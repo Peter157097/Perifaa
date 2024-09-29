@@ -22,11 +22,12 @@
         }
 
         .checkbox-buttons:checked {
-            background-color: #663300; /* Cor marrom */
+            background-color: #663300;
+            /* Cor marrom */
             border-color: #663300;
         }
 
-       
+
         /* Destacar a label quando a checkbox estiver marcada */
         input[type="checkbox"]:checked+label {
             background-color: blue;
@@ -84,28 +85,33 @@
             background-color: #A0522D;
             /* Muda a cor marrom ao passar o mouse */
         }
+
         .btn-filter {
-    background-color: #d2cfc8; /* cor de fundo do botão */
-    color: #444; /* cor do texto */
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    margin: 5px; /* espaçamento entre os botões */
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-}
+            background-color: #d2cfc8;
+            /* cor de fundo do botão */
+            color: #444;
+            /* cor do texto */
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            margin: 5px;
+            /* espaçamento entre os botões */
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+        }
 
-.btn-filter .remove-filter {
-    margin-left: 5px;
-    cursor: pointer;
-    color: red; /* cor do 'x' para remover o filtro */
-}
+        .btn-filter .remove-filter {
+            margin-left: 5px;
+            cursor: pointer;
+            color: red;
+            /* cor do 'x' para remover o filtro */
+        }
 
-.btn-filter:hover {
-    background-color: #b8b8b3; /* cor de fundo ao passar o mouse */
-}
-
+        .btn-filter:hover {
+            background-color: #b8b8b3;
+            /* cor de fundo ao passar o mouse */
+        }
     </style>
     <main>
         <!-- Começo do corpo do site -->
@@ -116,127 +122,127 @@
                 <p class="filtro-display">Filtrado por:</p>
             </div>
             <div class="filtros-aplicados">
-            @if($request->filled('preco_ate'))
+                @if($request->filled('preco_ate'))
                 <button type="button" class="btn btn-filter" onclick="removeFilter('preco_ate')">
                     Preço até R$ {{ $request->input('preco_ate') }}
                     <span class="remove-filter">&times;</span>
                 </button>
-            @endif
-            @if($request->filled('tamanho'))
-                    @foreach($tamanhos->whereIn('idTamanho', $request->input('tamanho')) as $tamanho)
-                    <button type="button" class="btn btn-filter" onclick="removeFilter('tamanho[]', '{{ $tamanho->idTamanho }}')">
-                        Tamanho: {{ $tamanho->nomeTamanho }}
-                        <span class="remove-filter">&times;</span>
-                    </button>
+                @endif
+                @if($request->filled('tamanho'))
+                @foreach($tamanhos->whereIn('idTamanho', $request->input('tamanho')) as $tamanho)
+                <button type="button" class="btn btn-filter" onclick="removeFilter('tamanho[]', '{{ $tamanho->idTamanho }}')">
+                    Tamanho: {{ $tamanho->nomeTamanho }}
+                    <span class="remove-filter">&times;</span>
+                </button>
                 @endforeach
-            @endif
-            @if($request->filled('condicoes'))
+                @endif
+                @if($request->filled('condicoes'))
                 @foreach($condicoes->whereIn('idCondicao', $request->input('condicoes')) as $condicao)
-                    <button type="button" class="btn btn-filter" onclick="removeFilter('condicoes[]', '{{ $condicao->idCondicao }}')">
-                        Condição: {{ $condicao->nomeCondicao }}
-                        <span class="remove-filter">&times;</span>
-                    </button>
+                <button type="button" class="btn btn-filter" onclick="removeFilter('condicoes[]', '{{ $condicao->idCondicao }}')">
+                    Condição: {{ $condicao->nomeCondicao }}
+                    <span class="remove-filter">&times;</span>
+                </button>
                 @endforeach
-            @endif
-            @if($request->filled('cores'))
+                @endif
+                @if($request->filled('cores'))
                 @foreach($cores->whereIn('idCor', $request->input('cores')) as $cor)
-                    <button type="button" class="btn btn-filter" onclick="removeFilter('cores[]', '{{ $cor->idCor }}')">
-                        Cor: {{ $cor->nomeCor }}
-                        <span class="remove-filter">&times;</span>
-                    </button>
+                <button type="button" class="btn btn-filter" onclick="removeFilter('cores[]', '{{ $cor->idCor }}')">
+                    Cor: {{ $cor->nomeCor }}
+                    <span class="remove-filter">&times;</span>
+                </button>
                 @endforeach
-            @endif
-            @if($request->filled('regioes'))
+                @endif
+                @if($request->filled('regioes'))
                 @foreach($regioes->whereIn('idRegiao', $request->input('regioes')) as $regiao)
-                    <button type="button" class="btn btn-filter" onclick="removeFilter('regioes[]', '{{ $regiao->idRegiao }}')">
-                        Região: {{ $regiao->nomeRegiao }}
-                        <span class="remove-filter">&times;</span>
-                    </button>
+                <button type="button" class="btn btn-filter" onclick="removeFilter('regioes[]', '{{ $regiao->idRegiao }}')">
+                    Região: {{ $regiao->nomeRegiao }}
+                    <span class="remove-filter">&times;</span>
+                </button>
                 @endforeach
-            @endif
-        </div>
+                @endif
+            </div>
         </div>
         <div class="produtos-body">
             <div class="accordion-body">
-            <form id="filter-form" method="GET" action="{{ url('/produtos') }}">
-    <div class="accordion-filtro">
-        <button type='button' class="accordion">Preço</button>
-        <div class="panel">
-            <div class="panelContainer">
-                <div class="precoFiltroTudo">
-                    <label for="preco-ate" class="label-preco">
-                    <p>Até</p>
-                    <input type="number" id="preco-ate" name="preco_ate" class="preco-filtro"
-                        value="{{ isset($filtros['preco_ate']) ? $filtros['preco_ate'] : '' }}" 
-                        min="0" placeholder="R$">
-                    </label>
-                </div>
-           <div class="parte-botaoPreco">
-            <button type="submit" class="btn btn-primary" id="botaoPreco">Aplicar filtro</button>
-           </div>
-           
-            </div>
-           
-        </div>
+                <form id="filter-form" method="GET" action="{{ url('/produtos') }}">
+                    <div class="accordion-filtro">
+                        <button type='button' class="accordion">Preço</button>
+                        <div class="panel">
+                            <div class="panelContainer">
+                                <div class="precoFiltroTudo">
+                                    <label for="preco-ate" class="label-preco">
+                                        <p>Até</p>
+                                        <input type="number" id="preco-ate" name="preco_ate" class="preco-filtro"
+                                            value="{{ isset($filtros['preco_ate']) ? $filtros['preco_ate'] : '' }}"
+                                            min="0" placeholder="R$">
+                                    </label>
+                                </div>
+                                <div class="parte-botaoPreco">
+                                    <button type="submit" class="btn btn-primary" id="botaoPreco">Aplicar filtro</button>
+                                </div>
 
-        <button type='button' class="accordion">Tamanhos</button>
-        <div class="panel">
-            <div class="panelContainer">
-            <div class="tamanhos-buttons">
-                @foreach($tamanhos as $tamanho)
-                <label>
-                    <input type="checkbox" name="tamanho[]" value="{{ $tamanho->idTamanho }}" class="checkbox-buttons"
-                           {{ isset($filtros['tamanho']) && in_array($tamanho->idTamanho, $filtros['tamanho']) ? 'checked' : '' }}>
-                    {{ $tamanho->nomeTamanho }}
-                </label>
-                @endforeach
-            </div>
-            </div>
-        </div>
+                            </div>
 
-        <button type='button' class="accordion">Condição</button>
-        <div class="panel">
-            <div class="panelContainer">
-            <div class="condicoes-buttons">
-                @foreach($condicoes as $condicao)
-                <label>
-                    <input type="checkbox" name="condicoes[]" value="{{ $condicao->idCondicao }}" class="checkbox-buttons"
-                           {{ isset($filtros['condicoes']) && in_array($condicao->idCondicao, $filtros['condicoes']) ? 'checked' : '' }}>
-                    {{ $condicao->nomeCondicao }}
-                </label>
-                @endforeach
-            </div>
-            </div>
-        </div>
+                        </div>
 
-        <button type='button' class="accordion">Cores</button>
-        <div class="panel">
-            <div class="panelContainer">
-            @foreach($cores as $cor)
-            <label>
-                <input type="checkbox" name="cores[]" value="{{ $cor->idCor }}" class="checkbox-buttons"
-                       {{ isset($filtros['cores']) && in_array($cor->idCor, $filtros['cores']) ? 'checked' : '' }}>
-                {{ $cor->nomeCor }}
-            </label>
-            @endforeach
-            </div>
-        </div>
+                        <button type='button' class="accordion">Tamanhos</button>
+                        <div class="panel">
+                            <div class="panelContainer">
+                                <div class="tamanhos-buttons">
+                                    @foreach($tamanhos as $tamanho)
+                                    <label>
+                                        <input type="checkbox" name="tamanho[]" value="{{ $tamanho->idTamanho }}" class="checkbox-buttons"
+                                            {{ isset($filtros['tamanho']) && in_array($tamanho->idTamanho, $filtros['tamanho']) ? 'checked' : '' }}>
+                                        {{ $tamanho->nomeTamanho }}
+                                    </label>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
 
-        <button type='button' class="accordion">Local</button>
-        <div class="panel">
-        <div class="panelContainer">
-            @foreach($regioes as $regiao)
-            
-            <label>
-                <input type="checkbox" name="regioes[]" value="{{ $regiao->idRegiao }}" class="checkbox-buttons"
-                       {{ isset($filtros['regioes']) && in_array($regiao->idRegiao, $filtros['regioes']) ? 'checked' : '' }}>
-                {{ $regiao->nomeRegiao }}
-            </label>
-           
-            @endforeach
-            </div>
-     
-        </div>
+                        <button type='button' class="accordion">Condição</button>
+                        <div class="panel">
+                            <div class="panelContainer">
+                                <div class="condicoes-buttons">
+                                    @foreach($condicoes as $condicao)
+                                    <label>
+                                        <input type="checkbox" name="condicoes[]" value="{{ $condicao->idCondicao }}" class="checkbox-buttons"
+                                            {{ isset($filtros['condicoes']) && in_array($condicao->idCondicao, $filtros['condicoes']) ? 'checked' : '' }}>
+                                        {{ $condicao->nomeCondicao }}
+                                    </label>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type='button' class="accordion">Cores</button>
+                        <div class="panel">
+                            <div class="panelContainer">
+                                @foreach($cores as $cor)
+                                <label>
+                                    <input type="checkbox" name="cores[]" value="{{ $cor->idCor }}" class="checkbox-buttons"
+                                        {{ isset($filtros['cores']) && in_array($cor->idCor, $filtros['cores']) ? 'checked' : '' }}>
+                                    {{ $cor->nomeCor }}
+                                </label>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        <button type='button' class="accordion">Local</button>
+                        <div class="panel">
+                            <div class="panelContainer">
+                                @foreach($regioes as $regiao)
+
+                                <label>
+                                    <input type="checkbox" name="regioes[]" value="{{ $regiao->idRegiao }}" class="checkbox-buttons"
+                                        {{ isset($filtros['regioes']) && in_array($regiao->idRegiao, $filtros['regioes']) ? 'checked' : '' }}>
+                                    {{ $regiao->nomeRegiao }}
+                                </label>
+
+                                @endforeach
+                            </div>
+
+                        </div>
                         <div class="button-group">
                             <button type="submit" class="btn btn-primary">Aplicar Filtros</button>
                             <a href="{{ url('/produtos') }}" class="btn btn-primary">Resetar Filtros</a>
@@ -249,43 +255,50 @@
 
                 <div class="container-cards">
                     @foreach($produtos as $produto)
-                        <a href="{{ url('/entrar-produto', $produto->idProduto)}}">
-                            <div class="card-produto">
-                                <div class="image-display">
-                                    <img class="img-card-produto" src="{{ asset($produto->imagemProduto) }}"
-                                        alt="{{ $produto->nomeProduto }}">
+                    <a href="{{ url('/entrar-produto', $produto->idProduto)}}">
+                        <div class="card-produto">
+                            <div class="image-display">
+                                <img class="img-card-produto" src="{{ asset($produto->imagemProduto) }}"
+                                    alt="{{ $produto->nomeProduto }}">
+                            </div>
+                            <div class="txt-info-vendedor">
+                                <p></p>
+                                <p>Recente</p>
+                            </div>
+                            <div class="txt-nome-produto">
+                                {{ $produto->nomeProduto }}
+                            </div>
+                            <p class="valor-produto">{{ $produto->valorProduto }}</p>
+                            <div class="txt-info-produto">
+                                <div class="row-info">
+                                    <p class="info-produto">{{ $produto->cor->nomeCor ?? 'Cor Desconhecida' }}</p>
+                                    <p class="info-produto">
+                                        {{ $produto->condicao->nomeCondicao ?? 'Condição Desconhecida' }}
+                                    </p>
                                 </div>
-                                <div class="txt-info-vendedor">
-                                    <p></p>
-                                    <p>Recente</p>
+                                <div class="row-info">
+                                    <p class="info-produto">
+                                        {{ $produto->categoria->nomeCategoriaProduto ?? 'Categoria Desconhecida' }}
+                                    </p>
+                                    <p class="info-produto">
+                                        {{ $produto->tamanho->nomeTamanho ?? 'Tamanho Desconhecido' }}
+                                    </p>
                                 </div>
-                                <div class="txt-nome-produto">
-                                    {{ $produto->nomeProduto }}
-                                </div>
-                                <p class="valor-produto">{{ $produto->valorProduto }}</p>
-                                <div class="txt-info-produto">
-                                    <div class="row-info">
-                                        <p class="info-produto">{{ $produto->cor->nomeCor ?? 'Cor Desconhecida' }}</p>
-                                        <p class="info-produto">
-                                            {{ $produto->condicao->nomeCondicao ?? 'Condição Desconhecida' }}
-                                        </p>
-                                    </div>
-                                    <div class="row-info">
-                                        <p class="info-produto">
-                                            {{ $produto->categoria->nomeCategoriaProduto ?? 'Categoria Desconhecida' }}
-                                        </p>
-                                        <p class="info-produto">
-                                            {{ $produto->tamanho->nomeTamanho ?? 'Tamanho Desconhecido' }}
-                                        </p>
-                                    </div>
-                                    <div class="row-info">
+                                <div class="row-info">
 
-                                        <p class="info-produto">{{ $produto->regiao->nomeRegiao ?? 'Região Desconhecida' }}
-                                        </p>
-                                    </div>
+                                    <p class="info-produto">{{ $produto->regiao->nomeRegiao ?? 'Região Desconhecida' }}
+                                    </p>
                                 </div>
                             </div>
-                    @endforeach
+                        </div>
+                        @endforeach
+                        @if($produtos->isEmpty())
+                        <p>Nenhum produto encontrado.</p>
+                        @else
+                        @foreach($produtos as $produto)
+                      
+                        @endforeach
+                        @endif
 
                 </div>
                 </a>
@@ -294,20 +307,20 @@
         <div class="quebra-pagina">
             <ul class="pagination">
                 @if ($produtos->currentPage() == 1)
-                    <li class="page-item disabled"><a href="#" class="page-link">&lt;</a></li>
+                <li class="page-item disabled"><a href="#" class="page-link">&lt;</a></li>
                 @else
-                    <li class="page-item"><a href="{{ $produtos->previousPageUrl() }}" class="page-link">&lt;</a></li>
+                <li class="page-item"><a href="{{ $produtos->previousPageUrl() }}" class="page-link">&lt;</a></li>
                 @endif
 
                 @for ($i = 1; $i <= $produtos->lastPage(); $i++)
                     <li class="page-item @if($i == $produtos->currentPage()) active @endif">
                         <a href="{{ $produtos->url($i) }}" class="page-link">{{ $i }}</a>
                     </li>
-                @endfor
+                    @endfor
 
-                <li class="page-item @if (!$produtos->hasMorePages()) disabled @endif">
-                    <a href="{{ $produtos->nextPageUrl() }}" class="page-link">&gt;</a>
-                </li>
+                    <li class="page-item @if (!$produtos->hasMorePages()) disabled @endif">
+                        <a href="{{ $produtos->nextPageUrl() }}" class="page-link">&gt;</a>
+                    </li>
             </ul>
         </div>
 
@@ -318,7 +331,7 @@
             var i;
 
             for (i = 0; i < acc.length; i++) {
-                acc[i].addEventListener("click", function () {
+                acc[i].addEventListener("click", function() {
                     this.classList.toggle("active");
                     var panel = this.nextElementSibling;
                     if (panel.style.maxHeight) {
@@ -350,26 +363,25 @@
             });
 
             function removeFilter(filterName, value = null) {
-        const form = document.getElementById('filter-form');
+                const form = document.getElementById('filter-form');
 
-        // Remove o valor do filtro específico
-        if (value) {
-            const input = form.querySelector(`input[name="${filterName}"][value="${value}"]`);
-            if (input) {
-                input.checked = false;
+                // Remove o valor do filtro específico
+                if (value) {
+                    const input = form.querySelector(`input[name="${filterName}"][value="${value}"]`);
+                    if (input) {
+                        input.checked = false;
+                    }
+                } else {
+                    // Se o filtro não tem valor, simplesmente removemos o input do filtro de preço
+                    const input = form.querySelector(`input[name="${filterName}"]`);
+                    if (input) {
+                        input.value = '';
+                    }
+                }
+
+                // Atualiza a página enviando o formulário
+                form.submit();
             }
-        } else {
-            // Se o filtro não tem valor, simplesmente removemos o input do filtro de preço
-            const input = form.querySelector(`input[name="${filterName}"]`);
-            if (input) {
-                input.value = '';
-            }
-        }
-
-        // Atualiza a página enviando o formulário
-        form.submit();
-    }
-
         </script>
     </main>
     <!-- Fim do corpo do site -->

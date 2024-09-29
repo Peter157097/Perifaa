@@ -18,6 +18,9 @@
         <div class="carousel-item">
             <img class="d-block w-100 custom-carousel-img" src="{{url('images/carousel-image-one.png')}}" alt="Terceiro Slide">
         </div>
+        <div class="carousel-item">
+            <img class="d-block w-100 custom-carousel-img" src="{{url('images/carousel-image-three.png')}}" alt="Terceiro Slide">
+        </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

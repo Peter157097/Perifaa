@@ -1674,11 +1674,6 @@ dialog #modal-2::backdrop {
     font-size: smaller;
 }
 
-input {
-    all: unset;
-}
-
-
 @media (max-width:2560px) {
     .container-info {
         width: 100%;

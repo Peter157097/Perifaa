@@ -111,6 +111,7 @@ $totalCarrinho -= 2;
     </style>
     @else
     <header>
+<<<<<<< HEAD
         @endif
         @if(Session::has('loginAlert'))
         <script>
@@ -126,6 +127,23 @@ $totalCarrinho -= 2;
         <script>
             alert("{{ Session::get('cadastrarCliente') }}");
         </script>
+=======
+@endif
+        @if(Session::has('loginAlert'))
+            <script>
+                alert("{{ Session::get('loginAlert') }}");
+            </script>
+        @endif
+        @if(Session::has('cadastrarVendedor'))
+            <script>
+                alert("{{ Session::get('cadastrarVendedor') }}");
+            </script>
+        @endif
+        @if(Session::has('cadastrarCliente'))
+            <script>
+                alert("{{ Session::get('cadastrarCliente') }}");
+            </script>
+>>>>>>> 42e5a0c2edaed8c630dbdf50bbea2d08b7e410bf
         @endif
         <div class="header_direita">
             <div class="header-logo">
@@ -292,6 +310,7 @@ $totalCarrinho -= 2;
                             class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a>
 
 
+<<<<<<< HEAD
                 </div> <!--Fim menu dropdown das roupas-->
                 <!--vendedor -->
                 @elseif(session('is_Cliente'))
@@ -307,11 +326,33 @@ $totalCarrinho -= 2;
                     <a href="{{ url('/logout') }}" id="link-perfil"><i
                             class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a><!--o data-toggle e data-target fazem o modal abrir quando clica no link-->
                 </div> <!--Fim menu dropdown das roupas-->
+=======
+                    </div> <!--Fim menu dropdown das roupas-->
+                    <!--vendedor -->
+                @elseif(session('is_Cliente'))
+                    <!--cliente -->
+
+                    <a href="#"><i class="fa-solid fa-bag-shopping">{{$totalCarrinho}}</i></a>
+
+                    <div class="drop-perfil"> <!--Começo menu dropdown das roupas-->
+                        <a href="{{ url('/perfil') }}"><i class="fa-solid fa-user"></i>Meu perfil</a>
+                        <a href="{{ url('/favorites') }}"><i class="fa-solid fa-heart"></i>Favoritos</a>
+                        <a href="{{url('carrinho')}}"><i class="fa-solid fa-cart-shopping"></i>Carrinho</a>
+                        <a href="#"><i class="fa-solid fa-circle-question"></i>Ajuda</a>
+                        <a href="{{ url('/logout') }}" data-toggle="modal" data-target="#modalExemplo"><i
+                                class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a><!--o data-toggle e data-target fazem o modal abrir quando clica no link-->
+                    </div> <!--Fim menu dropdown das roupas-->
+>>>>>>> 42e5a0c2edaed8c630dbdf50bbea2d08b7e410bf
                 @endif
 
 
                 <!-- Modal Sair -->
+<<<<<<< HEAD
                 <div class="modal fade" id="modalSair" tabindex="-1" role="dialog" aria-labelledby="modalSairLabel" aria-hidden="true">
+=======
+                <div class="modal fade" id="modalSair" tabindex="-1" role="dialog" aria-labelledby="modalSairLabel"
+                    aria-hidden="true">
+>>>>>>> 42e5a0c2edaed8c630dbdf50bbea2d08b7e410bf
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -321,7 +362,12 @@ $totalCarrinho -= 2;
                                 <h4>Deseja mesmo sair?</h4>
                             </div>
                             <div class="modal-footer">
+<<<<<<< HEAD
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal" id="botao-modal-cancelar">Cancelar</button>
+=======
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                    id="botao-modal-cancelar">Cancelar</button>
+>>>>>>> 42e5a0c2edaed8c630dbdf50bbea2d08b7e410bf
                                 <button type="button" class="btn btn-primary" id="botao-modal-sair">Sair</button>
                             </div>
                         </div>

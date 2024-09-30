@@ -5,12 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu Lateral Estilo Perifa</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
@@ -26,7 +24,6 @@
 </head>
 
 <body>
-
     <!-- Ícone do menu hambúrguer -->
     <div class="hamburger" id="hamburger" onclick="toggleMenu()">
         &#9776;
@@ -53,9 +50,6 @@
     <div class="containerdashboard">
         <div class="navDash">
             <div class="parte1">
-                <div class="titulo1">
-                    Bem vindo de volta, Admin!
-                </div>
                 <div class="titulo2">
                     Dashboard
                 </div>
@@ -64,43 +58,75 @@
             <div class="parte2">
 
                 <div class="user-profile">
-                    <a href="{{url('')}}" class="aPerifaa">
-                        <img class="imgLogin" src="{{url('images/fotogodo.png')}}" alt="Logo Perifa">
+                    <a href="{{url('/dashAdmin')}}" class="aPerifaa">
+                        <img class="imgLogin" src="{{url('/images/visualizarUsuario.webp')}}">
                     </a>
                     <div class="user-info">
                         <span class="user-name">Administrador da Silva</span>
                         <span class="user-status">Admin</span>
                     </div>
                     <div class="icons">
-                        <div class="icon notification">
-                            <i class="fas fa-bell"></i>
-                            <span class="badge">1</span>
+
+                        <div class="input-container-mobile">
+                            <input type="search" placeholder="PESQUISAR" class="input-pesquisa">
+                            <button class="botao-pesquisa" data-toggle="modal" data-target="#modalSair">
+                                <i class="fa-solid fa-magnifying-glass" id="pesquisa"></i>
+                            </button>
+
                         </div>
-                        <div class="icon search">
-                            <i class="fas fa-search"></i>
-                        </div>
+                    </div>
+                    <div class="icon notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">9+</span>
                     </div>
                 </div>
             </div>
 
+
         </div>
-      
+        <div class="floatImageAdmContainer">
+            <div class="divFloat">
+                <div class="floatImageAdm">
+                    <img class="floatImage" src="{{url('/images/adminFloatImage1.png')}}">
+                </div>
+                <h4 class="txtFloatImage">
+                    Ajude a manter uma boa comunidade, vistorie anúncios, denuncias e
+                    perfis suspeitos!
+                </h4>
+            </div>
+            <div class="divFloat">
+                <h4 class="txtFloatImage">
+                    Antes de vigiar denuncias, perfis e anúncios, saiba o que pode ferir
+                    as diretrizes da Perifa.
+                </h4>
+                <div class="floatImageAdm">
+                    <img class="floatImage" src="{{url('/images/adminFloatImage2.png')}}">
+                </div>
+            </div>
+
+        </div>
 
 
         <!--Area do grafico-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
         </script>
+        <div class="titleDash">
+            Gráfico de cadastros
+        </div>
         <div class="areaGrafico">
-            <canvas id="myChart" style="width:100%;max-width:60%"></canvas>
+            <div class="displayGraficos">
+                <canvas id="myChart" style="width:100%;max-width:40%"></canvas>
+                <canvas id="myChartPie" style="width:100%;max-width:60%"></canvas>
+            </div>
         </div>
 
 
         <script>
-            const xValues = ["Jan", "Fev", "Mar", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
-            const yValues = [55, 49, 44, 24, 15];
+            const xValues = ["Jan.", "Fev.", "Mar.", "Abril", "Maio", "Jun.", "Jul.", "Ago.", "Set.", "Out.", "Nov.", "Dez."];
+            const yValues = [20, 25, 30, 25, 30, 35, 45, 40, 52, 30, 25, 33];
             const barColors = "rgb(22, 84, 121)";
 
-            new Chart("myChart", {
+            new Chart("myChartPie", {
                 type: "bar",
                 data: {
                     labels: xValues,
@@ -113,7 +139,33 @@
                     legend: { display: false },
                     title: {
                         display: true,
-                        text: "Grafico de acessos"
+                        text: "Número de usuários cadastrados"
+                    }
+                }
+            });
+            const xValuesPie = ["15-18", "19-25", "25-35", "36-46", "50+"];
+            const yValuesPie = [55, 49, 44, 24, 15];
+            const barColorsPie = [
+                "#2b9ee3",
+                "#227eb5",
+                "#1c6c9c",
+                "#165278",
+                "#113d59"
+            ];
+
+            new Chart("myChart", {
+                type: "pie",
+                data: {
+                    labels: xValuesPie,
+                    datasets: [{
+                        backgroundColor: barColorsPie,
+                        data: yValuesPie
+                    }]
+                },
+                options: {
+                    title: {
+                        display: true,
+                        text: "Faixa Etaria do Usuários"
                     }
                 }
             });
@@ -121,7 +173,7 @@
         <!---->
 
 
-        <div class="titleDenunciaDash">
+        <div class="titleDash">
             Produtos mais denunciados
         </div>
         <div class="admDenunciasContainer">

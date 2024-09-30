@@ -52,36 +52,41 @@
 
     <!-- Conteúdo principal da página -->
     <div class="containerdashboard">
-        <div class="navDash">
+    <div class="navDash">
             <div class="parte1">
-                <div class="titulo1">
-                    Bem vindo de volta, Alfredo!
-                </div>
                 <div class="titulo2">
-                    Denuncias
+                    Dashboard
                 </div>
             </div>
 
             <div class="parte2">
+
                 <div class="user-profile">
-                    <a href="{{url('')}}" class="aPerifaa">
-                        <img class="imgLogin" src="{{url('images/fotogodo.png')}}" alt="Logo Perifa">
+                    <a href="{{url('/dashAdmin')}}" class="aPerifaa">
+                        <img class="imgLogin" src="{{url('/images/visualizarUsuario.webp')}}">
                     </a>
                     <div class="user-info">
                         <span class="user-name">Administrador da Silva</span>
                         <span class="user-status">Admin</span>
                     </div>
                     <div class="icons">
-                        <div class="icon notification">
-                            <i class="fas fa-bell"></i>
-                            <span class="badge">1</span>
+
+                        <div class="input-container-mobile">
+                            <input type="search" placeholder="PESQUISAR" class="input-pesquisa">
+                            <button class="botao-pesquisa" data-toggle="modal" data-target="#modalSair">
+                                <i class="fa-solid fa-magnifying-glass" id="pesquisa"></i>
+                            </button>
+
                         </div>
-                        <div class="icon search">
-                            <i class="fas fa-search"></i>
-                        </div>
+                    </div>
+                    <div class="icon notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">9+</span>
                     </div>
                 </div>
             </div>
+
+
         </div>
         <div class="titleAdm">
                 <p>DENUNCIAS</p>

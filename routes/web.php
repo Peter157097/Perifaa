@@ -158,5 +158,10 @@ Route::get('/contato', function () {
 Route::get('/produtos/search', [ProdutoController::class, 'search'])->name('produtos.search');
 
 
+Route::get('/cadastrarProdutosVendedor', function () {
+    return view('cadastrarProdutosVendedor');
+});
 
-
+Route::get('/editarPerfilVendedor', function () {
+    return view('editarPerfilVendedor');
+});

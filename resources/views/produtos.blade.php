@@ -151,6 +151,12 @@
                     <span class="remove-filter">&times;</span>
                 </button>
                 @endforeach
+                @foreach($categorias->whereIn('idCategoriaProduto', $request->input('categorias')) as $categoria)
+                <button type="button" class="btn btn-filter" onclick="removeFilter('categorias[]', '{{ $categoria->idCategoriaProduto }}')">
+                    Categoria: {{ $categoria->nomeCategoriaProduto }}
+                    <span class="remove-filter">&times;</span>
+                </button>
+                @endforeach
                 @endif
                 @if($request->filled('regioes'))
                 @foreach($regioes->whereIn('idRegiao', $request->input('regioes')) as $regiao)
@@ -237,6 +243,21 @@
                                     <input type="checkbox" name="regioes[]" value="{{ $regiao->idRegiao }}" class="checkbox-buttons"
                                         {{ isset($filtros['regioes']) && in_array($regiao->idRegiao, $filtros['regioes']) ? 'checked' : '' }}>
                                     {{ $regiao->nomeRegiao }}
+                                </label>
+
+                                @endforeach
+                            </div>
+
+                        </div>
+                        <button type='button' class="accordion">Categoria</button>
+                        <div class="panel">
+                            <div class="panelContainer">
+                                @foreach($categorias as $categoria)
+
+                                <label>
+                                    <input type="checkbox" name="categorias[]" value="{{ $categoria->idCategoriaProduto }}" class="checkbox-buttons"
+                                        {{ isset($filtros['categorias']) && in_array($categoria->idCategoriaProduto, $filtros['categorias']) ? 'checked' : '' }}>
+                                    {{ $categoria->nomeCategoriaProduto }}
                                 </label>
 
                                 @endforeach

@@ -111,23 +111,6 @@ $totalCarrinho -= 2;
     </style>
     @else
     <header>
-<<<<<<< HEAD
-        @endif
-        @if(Session::has('loginAlert'))
-        <script>
-            alert("{{ Session::get('loginAlert') }}");
-        </script>
-        @endif
-        @if(Session::has('cadastrarVendedor'))
-        <script>
-            alert("{{ Session::get('cadastrarVendedor') }}");
-        </script>
-        @endif
-        @if(Session::has('cadastrarCliente'))
-        <script>
-            alert("{{ Session::get('cadastrarCliente') }}");
-        </script>
-=======
 @endif
         @if(Session::has('loginAlert'))
             <script>
@@ -143,7 +126,6 @@ $totalCarrinho -= 2;
             <script>
                 alert("{{ Session::get('cadastrarCliente') }}");
             </script>
->>>>>>> 42e5a0c2edaed8c630dbdf50bbea2d08b7e410bf
         @endif
         <div class="header_direita">
             <div class="header-logo">

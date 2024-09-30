@@ -162,3 +162,6 @@ Route::get('/cadastrarProdutosVendedor', function () {
     return view('cadastrarProdutosVendedor');
 });
 
+Route::get('/editarPerfilVendedor', function () {
+    return view('editarPerfilVendedor');
+});

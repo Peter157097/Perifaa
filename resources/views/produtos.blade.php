@@ -285,8 +285,11 @@
                                     </p>
                                 </div>
                                 <div class="row-info">
-
                                     <p class="info-produto">{{ $produto->regiao->nomeRegiao ?? 'Região Desconhecida' }}
+                                    </p>
+                                </div>
+                                <div class="row-info">
+                                    <p class="info-produto">{{ $produto->genero->nomeGenero ?? 'Genero desconhecido' }}
                                     </p>
                                 </div>
                             </div>

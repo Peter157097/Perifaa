@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -14,7 +15,7 @@ class ClienteController extends Controller
 {
     public function store(Request $request)
     {
-    
+
         $cliente = new Cliente;
         $cliente->nomeCliente = $request->nomeCliente;
         $cliente->emailCliente = $request->emailCliente;
@@ -28,26 +29,37 @@ class ClienteController extends Controller
         $cliente->complementoCliente = $request->complementoCliente;
         $cliente->numCasaCliente = $request->numCasaCliente;
         $cliente->senhaCliente = Hash::make($request->senhaCliente);
-    
 
-        if ($request->hasFile('imagemCliente')) {
-            $file = $request->file('imagemCliente');
-            $filename = time() . '.' . $file->getClientOriginalExtension();
-            // Move o arquivo para o diretório public/images/perfil
-            $file->move(public_path('images/perfil'), $filename);
-            $cliente->imagemCliente = 'images/perfil/' . $filename; // Caminho relativo
-        } else {
-            $cliente->imagemCliente = 'images/logo3.jpeg'; // Define como null se a imagem não for fornecida
-        }
-    
+        $cliente->preferencia = in_array($request->preferencia, ['feminina', 'masculina'])
+            ? $request->preferencia
+            : 'feminina';
+
+            if ($request->hasFile('imagemCliente')) {
+                $file = $request->file('imagemCliente');
+                $filename = time() . '.' . $file->getClientOriginalExtension();
+            
+                $file->move(public_path('images/perfil'), $filename);
+                $cliente->imagemCliente = 'images/perfil/' . $filename;
+            } else {
+                $letras = range('a', 'z'); // Cria um array com letras de 'a' a 'z'
+                $index = array_search(strtolower(substr($cliente->nomeCliente, 0, 1)), $letras); // Busca o índice da letra
+            
+                if ($index !== false) {
+                    $cliente->imagemCliente = 'images/' . ($index + 1) . '.png'; // Adiciona 1 ao índice para o número do arquivo
+                    Log::info('Imagem Cliente: ' . $cliente->imagemCliente);
+                }
+            }
+
+        Log::info('Imagem Cliente: ' . $cliente->imagemCliente);
         $cliente->save();
-        
+
         Session::flash('cadastrarCliente', 'Cliente cadastrado com sucesso!');
 
+        Log::info('Cliente cadastrado com sucesso!');
         return redirect("/");
     }
-    
-    
+
+
     public function showProfile()
     {
         return view('perfil', [

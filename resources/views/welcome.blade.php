@@ -56,9 +56,9 @@
 <!--Cartões de oferta termina aqui --> 
  <!--Imagens dos tenis, calça e blusa aqui -->   
       <div class="tenis-image">
-         <img class="imagem-tenis" src="{{('images/image-tenis.png')}}" alt="Imagem dos tenis">    
-         <img class="imagem-tenis" src="{{('images/image-calca.png')}}" alt="Imagem dos tenis"> 
-         <img class="imagem-tenis" src="{{('images/image-blusa.png')}}" alt="Imagem dos tenis"> 
+         <a href="{{url('/produtos?preco_ate=&categorias%5B%5D=8')}}"><img class="imagem-tenis" src="{{('images/image-tenis.png')}}" alt="Imagem dos tenis"></a>
+         <a href="{{url('/produtos?preco_ate=&categorias%5B%5D=2')}}"><img class="imagem-tenis" src="{{('images/image-calca.png')}}" alt="Imagem dos tenis"></a>
+         <a href="{{url('/produtos?preco_ate=&categorias%5B%5D=7')}}"><img class="imagem-tenis" src="{{('images/image-blusa.png')}}" alt="Imagem dos tenis"></a>
       </div>
  <!--Imagens dos tenis, calça e blusa termina aqui --> 
  <!--Recomendados começa aqui -->         
@@ -175,11 +175,11 @@
             <div class="parte1-compra-tamanho">
                     <div class="ver-compra-tamanho">
                         <h2>TAMANHO P & PP</h2>
-                        <button><p>Ver peças</p></button>
+                        <a href="{{url('/produtos?preco_ate=&tamanho%5B%5D=1&tamanho%5B%5D=2')}}"><button><p>Ver peças</p></button></a>
                     </div>
                     <div class="ver-compra-tamanho">
                         <h2>TAMANHO M</h2>
-                        <button><p>Ver peças</p></button>
+                        <a href="{{url('/produtos?preco_ate=&tamanho%5B%5D=3')}}"><button><p>Ver peças</p></button></a>
                     </div>
             </div>
         </div>  
@@ -187,11 +187,12 @@
             <div class="parte2-compra-tamanho">
                     <div class="ver-compra-tamanho">
                         <h2>TAMANHO G & GG</h2>
-                        <button><p>Ver peças</p></button>
+                        <a href="{{url('/produtos?preco_ate=&tamanho%5B%5D=4&tamanho%5B%5D=5')}}"><button><p>Ver peças</p></button></a>
                     </div>
                     <div class="ver-compra-tamanho">
                         <h2>INFANTIL</h2>
-                        <button><p>Ver peças</p></button>
+                        
+                        <a href="{{url('/produtos?preco_ate=&tamanho%5B%5D=38&tamanho%5B%5D=39&tamanho%5B%5D=40&tamanho%5B%5D=41&tamanho%5B%5D=42&tamanho%5B%5D=43&tamanho%5B%5D=44&tamanho%5B%5D=45&tamanho%5B%5D=46&tamanho%5B%5D=47')}}"><button><p>Ver peças</p></button></a>
                     </div>
             </div> 
         </div>

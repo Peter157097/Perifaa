@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Produto;
 use App\Models\Tamanho;
 use App\Models\Condicao;
+use App\Models\Categoria;
 use App\Models\Cor;
 use App\Models\Favorito;
 use App\Models\Carrinho;
@@ -46,6 +47,10 @@ class ProdutoController extends Controller
             $condicoes = $request->input('condicoes');
             $query->whereIn('idCondicao', $condicoes);
         }
+        if ($request->filled('categorias')) {
+            $categorias = $request->input('categorias');
+            $query->whereIn('idCategoriaProduto', $categorias);
+        }
     
         if ($request->filled('cores')) {
             $cores = $request->input('cores');
@@ -75,13 +80,14 @@ class ProdutoController extends Controller
         $cores = Cor::all();
         $regioes = Regiao::all();
         $genero = Genero::all();
+        $categorias = Categoria::all();
     
         // Paginar os resultados
         $produtos = $query->paginate(8);
         $filtros = $request->all();
     
         // Passar o request e os filtros explicitamente para a view
-        return view('produtos', compact('produtos', 'tamanhos', 'condicoes', 'cores', 'regioes', 'filtros', 'genero', 'request'));
+        return view('produtos', compact('produtos', 'tamanhos', 'condicoes', 'cores', 'regioes', 'filtros', 'genero','categorias' ,'request'));
     }
     
 

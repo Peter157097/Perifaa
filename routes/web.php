@@ -21,7 +21,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/cadastrarProdutosVendedor', [DashboardController::class, 'index'])->name('cadastrarProdutosVendedor');
 Route::post('/produto/store', [DashboardController::class, 'store'])->name('produto.store');
 
 Route::post('/Cliente', [ClienteController::class, 'store']);
@@ -65,7 +65,7 @@ Route::get('/produtos', [ProdutoController::class, 'index'])->name('produtos.ind
 
 Route::get('/entrar-produto/{idProduto}', [ProdutoController::class, 'show'])->name('show');
 
-Route::get('/editarPerfillVendedor', function () {
+Route::get('/editarPerfilVendedor', function () {
     $nomeVendedor = Session::get('nomeVendedor');
     $emailVendedor = Session::get('emailVendedor');
     $idVendedor = Session::get('idVendedor');
@@ -78,15 +78,15 @@ Route::get('/editarPerfillVendedor', function () {
     $imagemVendedor = Session::get('imagemVendedor');
 
     if ($nomeVendedor && $emailVendedor && $idVendedor && $numeroVendedor && $logradouroVendedor && $cepVendedor && $cidadeVendedor && $estadoVendedor && $imagemVendedor && $numCasaVendedor) {
-        return view('editarPerfillVendedor', compact('nomeVendedor', 'emailVendedor', 'idVendedor', 'numeroVendedor', 'logradouroVendedor', 'cepVendedor', 'cidadeVendedor', 'estadoVendedor', 'imagemVendedor', 'numCasaVendedor'));
+        return view('/editarPerfilVendedor', compact('nomeVendedor', 'emailVendedor', 'idVendedor', 'numeroVendedor', 'logradouroVendedor', 'cepVendedor', 'cidadeVendedor', 'estadoVendedor', 'imagemVendedor', 'numCasaVendedor'));
     } else {
         Session::flash('alert', 'Para acessar esta página, faça o login!');
-        return redirect('/');
+        return redirect('/editarPerfilVendedor');
     }
 }, [VendedorController::class, 'showProfile']);
 
 
-Route::post('/editarPerfillVendedor/update', [VendedorController::class, 'update']);
+Route::post('/editarPerfilVendedor/update', [VendedorController::class, 'update']);
 
 // Rota para adminDenuncias
 Route::get('/adminDenuncias', function () {
@@ -155,13 +155,6 @@ Route::get('/contato', function () {
     return view('contato');
 });
 
+Route::get('/cadastrarProdutosVendedor', [DashboardController::class, 'index'])->name('cadastrarProdutosVendedor');
 Route::get('/produtos/search', [ProdutoController::class, 'search'])->name('produtos.search');
 
-
-Route::get('/cadastrarProdutosVendedor', function () {
-    return view('cadastrarProdutosVendedor');
-});
-
-Route::get('/editarPerfilVendedor', function () {
-    return view('editarPerfilVendedor');
-});

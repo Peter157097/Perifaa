@@ -78,7 +78,7 @@ class VendedorController extends Controller
 
         $idVendedor = Session::get('idVendedor');
         if (!$idVendedor) {
-            return redirect('/editarPerfillVendedor')->withErrors(['error' => 'ID do vendedor não encontrado na sessão.']);
+            return redirect('/editarPerfilVendedor')->withErrors(['error' => 'ID do vendedor não encontrado na sessão.']);
         }
 
         $vendedor = Vendedor::where('idVendedor', $idVendedor)->firstOrFail();
@@ -116,7 +116,7 @@ class VendedorController extends Controller
             Session::put('imagemVendedor', 'images/perfil/' . $filename);
         }
 
-        return redirect('/editarPerfillVendedor')->with('success', 'Perfil atualizado com sucesso!');
+        return redirect('/editarPerfilVendedor')->with('success', 'Perfil atualizado com sucesso!');
     }
 
 

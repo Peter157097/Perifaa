@@ -23,7 +23,7 @@ class DashboardController extends Controller
         $roupas = Roupa::all();
         $condicoes = Condicao::all();
 
-        return view('dashboard', [
+        return view('cadastrarProdutosVendedor', [
             'cores' => Cor::all(),
             'tamanhos' => $tamanhos,
             'regioes' => $regioes,
@@ -101,8 +101,8 @@ class DashboardController extends Controller
     
         $produto->save();
     
-        Session::flash('cadastrarProduto', 'Produto cadastrado com sucesso!');
-        return redirect()->route('dashboard')->with('success', 'Produto cadastrado com sucesso!');
+        Session::flash('cadastrarProdutosVendedor', 'Produto cadastrado com sucesso!');
+        return redirect()->route('cadastrarProdutosVendedor');
     }
     
 }

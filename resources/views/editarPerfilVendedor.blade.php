@@ -1,4 +1,5 @@
-@include('includes.headVendedor')
+@include('includes.menuVendedor')
+
 <style>
     .card-container {
         display: flex;
@@ -312,12 +313,13 @@
     .finalizar-cadastro-botao {
         margin-top: 80px;
     }
+
     .caixa-botao {
-            position: relative;
-            margin-top: 35vh;
-            display: inline-block;
-            text-align: center;
-        }
+        position: relative;
+        margin-top: 35vh;
+        display: inline-block;
+        text-align: center;
+    }
 
     .part3rs {
         display: flex;
@@ -339,73 +341,88 @@
 </style>
 
 <body>
-    @include('includes.menuVendedor')
-
-    <div class="part3rs">
-        <div class="card-container">
-            <div class="form-section">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="nome">Nome</label>
-                        <div class="input-container">
-                            <input type="text" id="nome" placeholder="João Pedro">
-                            <i class="edit-icon">&#9998;</i>
+    <form action="{{ url('/editarPerfilVendedor/update') }}"  method="post" enctype="multipart/form-data">
+        @csrf
+        <div class="part3rs">
+            <div class="card-container">
+                <div class="form-section">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nome">Nome</label>
+                            <div class="input-container">
+                                <input type="text" name="nomeVendedor" value="{{ $nomeVendedor }}">
+                                <i class='edit-icon'>&#9998;</i>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="cep">CEP</label>
-                        <div class="input-container">
-                            <input type="text" id="cep" value="123546">
-                            <i class="edit-icon">&#9998;</i>
+                        <div class="form-group">
+                            <label for="cep">CEP</label>
+                            <div class="input-container">
+                                <input type="text" name="cepVendedor" value="{{ $cepVendedor }}">
+                                <i class="fa-solid fa-pen"></i>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="senha">Senha</label>
-                        <div class="input-container">
-                            <input type="password" id="senha" value="**********">
-                            <i class="edit-icon">&#9998;</i>
+                        <div class="form-group">
+                            <label for="name">Email</label>
+                            <div class="input-container">
+                                <input type="email" name="emailVendedor" value="{{ $emailVendedor }}">
+                                <i class="fa-solid fa-pen"></i>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="rua">Rua</label>
-                        <div class="input-container">
-                            <input type="text" id="rua" value="Rua Brasil Nativo">
-                            <i class="edit-icon">&#9998;</i>
+                        <div class="form-group">
+                            <label for="name">Cidade</label>
+                            <div class="input-container">
+                                <input type="text" name="cidadeVendedor" value="{{ $cidadeVendedor }}">
+                                <i class="fa-solid fa-pen"></i>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="telefone">Telefone</label>
-                        <div class="input-container">
-                            <input type="text" id="telefone" value="(11) *****-8048">
-                            <i class="edit-icon">&#9998;</i>
+                        <div class="form-group">
+                            <label for="name">Estado</label>
+                            <div class="input-container">
+                                <input type="text" name="estadoVendedor" value="{{ $estadoVendedor }}">
+                                <i class="fa-solid fa-pen"></i>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="cidade">Número da casa</label>
-                        <div class="input-container">
-                            <input type="text" id="cidade" value="123">
-                            <i class="edit-icon">&#9998;</i>
+                        <div class="form-group">
+                            <label for="rua">Rua</label>
+                            <div class="input-container">
+                                <input type="text" name="logradouroVendedor" value="{{ $logradouroVendedor }}">
+                                <i class="fa-solid fa-pen"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <div class="input-container">
+                                <input type="text" name="numeroVendedor" value="{{ $numeroVendedor }}">
+                                <i class="fa-solid fa-pen"></i>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cidade">Número da casa</label>
+                            <div class="input-container">
+                                <input type="text" name="numCasaVendedor" value="{{ $numCasaVendedor }}">
+                                <i class="fa-solid fa-pen"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="image-section">
-                <div class="image-upload">
-                    <img src="{{url('images/anexImg.png')}}" alt="Imagem do produto">
+                <div class="image-section">
+                    <div class="image-upload">
+                    <img src="{{ $imagemVendedor }}" alt="">
+                    </div>
+                    <input type="file" name="imagemVendedor" value="{{ $imagemVendedor }}">
                 </div>
-                <button class="upload-btn">Anexar sua foto</button>
-            </div>
-        </div>
-
-        <div class="caixa-botao">
-            <div class="imagem-personagem">
-                <img src="{{url('images/botaoCadPerfil.png')}}" alt="Personagem">
             </div>
 
-            <button class="finalizar-cadastro-botao">Tudo pronto? Finalize a edição!</button>
+            <div class="caixa-botao">
+                <div class="imagem-personagem">
+                    <img src="{{url('images/botaoCadPerfil.png')}}" alt="Personagem">
+                </div>
+
+                <button type="submit" class="finalizar-cadastro-botao">Tudo pronto? Finalize a edição!</button>
+            </div>
         </div>
-    </div>
+    </form>
 
 
 

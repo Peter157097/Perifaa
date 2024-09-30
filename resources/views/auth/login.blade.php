@@ -122,7 +122,9 @@
             </form>
 
             <div class="register-link">
+            <a href="{{ url('/register') }}">não aperte</a>
                 <a href="{{ url('/') }}">Voltar para a página principal</a>
+                <a href="{{ url('/register') }}">não aperte</a>
             </div>
         </div>
 

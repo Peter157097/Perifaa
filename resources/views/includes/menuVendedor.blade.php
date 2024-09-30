@@ -14,7 +14,7 @@
             <li><a href="{{url('dashboardVendedor')}}" class="menu-item selected"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
             <li><a href="{{url('cadastrarProdutosVendedor')}}" class="menu-item"><i class="fas fa-box-open"></i>Cadastrar Produtos</a></li>
             <li><a href="#saques" class="menu-item"><i class="fas fa-wallet"></i>Saques</a></li>
-            <li><a href="#perfil" class="menu-item"><i class="fas fa-user"></i>Perfil</a></li>
+            <li><a href="{{url('editarPerfilVendedor')}}" class="menu-item"><i class="fas fa-user"></i>Perfil</a></li>
             <li><a href="#config" class="menu-item"><i class="fas fa-cog"></i>Configurações</a></li>
             <li><a href="#sair" class="menu-item"><i class="fas fa-sign-out-alt"></i>Sair</a></li>
         </ul>
@@ -28,7 +28,7 @@
                     Bem vindo de volta, Alfredo!
                 </div>
                 <div class="titulo2">
-                    Cadastrar Produtos
+                    Dashboard Vendedor
                 </div>
             </div>
 
@@ -58,3 +58,38 @@
             </div>
 
         </div>
+        <script>
+             // Função para abrir/fechar o menu lateral
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const hamburger = document.getElementById('hamburger');
+
+            // Alterna a classe 'open' para abrir/fechar o menu
+            sidebar.classList.toggle('open');
+
+            // Alterna o ícone entre hambúrguer e "X"
+            if (sidebar.classList.contains('open')) {
+                hamburger.innerHTML = '&times;';  // Ícone de "X" (multiplicação)
+            } else {
+                hamburger.innerHTML = '&#9776;';  // Ícone de hambúrguer
+            }
+        }
+
+        // Função para selecionar item do menu
+        function selectMenu(element) {
+            // Remove a classe 'selected' de todos os itens
+            const items = document.querySelectorAll('.menu-item');
+            items.forEach(item => item.classList.remove('selected'));
+
+            // Adiciona a classe 'selected' ao item clicado
+            element.classList.add('selected');
+        }
+
+        // Atribuir a função de seleção aos links
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function () {
+                selectMenu(item);
+            });
+        });
+
+        </script>

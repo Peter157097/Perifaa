@@ -3062,44 +3062,6 @@ a {
   }
 /*style dash admin*/
 
-.cardAdmin1 {
-    padding: 2%;
-    width: 50%;
-    height: 40vh;
-    color: white;
-    background-image: linear-gradient(120deg,#3991c4, rgb(17, 108, 161));
-}
-
-.cardAdmin2 {
-    padding: 2%;
-    width: 50%;
-    height: 40vh;
-    color: white;
-    background-image: linear-gradient(120deg,#3991c4, rgb(22, 84, 121));
-}
-
-.card1-text {
-    font-size: 5vh;
-    font-weight: 900;
-}
-.card1-subText {
-    font-size: 3vh;
-    padding-top: 2vh;
-    font-weight: 400;
-
-}
-.admCardContainer {
-    gap: 20vh;
-    justify-content: center;
-    padding: 4%;
-    display: flex;
-
-}
-.diretrizes-link {
-    float: right;
-    font-size: 3vh;
-}
-
 .content {
     padding: 20px;
     flex-grow: 1;
@@ -3223,7 +3185,8 @@ a {
     display: flex;
     align-items: center;
     padding: 5px;
-    gap: 10px;
+    width: 100%;
+    gap: 2%;
 }
 
 .aPerifaa img {
@@ -3331,6 +3294,8 @@ a {
 }
 
 .parte2 {
+    display:flex;
+    width: 50%;
     padding-right: 6vh;
 
 }
@@ -3387,12 +3352,13 @@ a {
     white-space: nowrap;
     width: 40%;
 }
-.titleDenunciaDash{
+.titleDash{
     font-weight: 700;
-    font-size: 6vh;
+    font-size: 5vh;
     width: 100%;
     padding: 1%;
-    text-align: center;
+    padding-left: 4%;
+    text-align: left;
 }
 .acoesDenuncia {
     justify-content: center;
@@ -3471,9 +3437,7 @@ a {
     width: 100vh;
     padding: 2%;
 }
-.titleAlvo {
-    font-weight: 600;
-}
+
 .formParamtrs{
     width: 100%;
     display: block;
@@ -3534,14 +3498,7 @@ a {
     font-size: 2vh;
     margin: 0;
 }
-.titleAdmResultConsulta{
-    display: flex;
-    font-weight: 800;
-    font-size: 5vh;
-    width: 100%;
-    justify-content:center;
-    padding: 2%;
-}
+
 .optConsulta{
    width: 20vh;
    padding: 0.5%;
@@ -3565,10 +3522,49 @@ a {
     display: flex;
     width: 100%;
     justify-content: center;
+    gap:5vh
+}
+.floatImageAdmContainer{
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 5%;
+}
+.floatImageAdm{
+    flex-wrap: wrap;
+    justify-content: center;
+    display: flex;
+    width: 40%;
+
+
+}
+.floatImage{
+    width: 100%;
+}
+.txtFloatImage{
+    font-family:'Courier New', Courier, monospace;
+    font-weight: 900;
+    font-size: 4vh;
+    display: flex;
+    align-items: center;
+    width: 50%;
+    
+}
+.divFloat{
+    justify-content: center;
+    flex-wrap: wrap;
+    display: flex;
+    padding-left: 4%;
+    padding-right: 4%;
+}
+.displayGraficos{
+    display: flex;
+    width: 90%;
 }
 
 
-
+    
 
 
 

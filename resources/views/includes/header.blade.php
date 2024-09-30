@@ -1,4 +1,3 @@
-
 @php
     $totalCarrinho = \App\Models\Carrinho::count();
 
@@ -11,68 +10,73 @@
         z-index: 10;
         /* Garanta que o link esteja no topo */
     }
-    .modal-content{
+
+    .modal-content {
         border-radius: 15px;
-        padding: 20px ;
+        padding: 20px;
         background-color: #ede9e2;
         color: #5e3e24;
         border: none;
     }
-    .modal-content h2{
+
+    .modal-content h2 {
         font-weight: 600;
         color: #5e3e24;
     }
-    #botao-modal-cancelar{
+
+    #botao-modal-cancelar {
         background-color: #ede9e2;
         font-family: "Poppins", sans-serif;
         font-weight: 500;
         font-style: normal;
         font-size: 18px;
-        padding:  15px;
+        padding: 15px;
         border-radius: 10px;
         border: none;
         outline: none;
         box-shadow: none;
     }
-    #botao-modal-cancelar:hover{
+
+    #botao-modal-cancelar:hover {
         color: #5e3e24;
     }
 
-    #botao-modal-sair{
+    #botao-modal-sair {
         font-family: "Poppins", sans-serif;
         font-weight: 500;
         font-style: normal;
         font-size: 18px;
-        padding:  15px 30px;
+        padding: 15px 30px;
         border-radius: 10px;
         color: #fff;
         border: none;
         outline: none;
         box-shadow: none;
-        transition: background-color 0.2s ease; 
+        transition: background-color 0.2s ease;
     }
 
- 
-    button:focus, .btn:focus {
-    outline: none;
-    
-    box-shadow: none;
-    
-}
 
-    button:active, .btn:active {
+    button:focus,
+    .btn:focus {
+        outline: none;
+
+        box-shadow: none;
+
+    }
+
+    button:active,
+    .btn:active {
         outline: none;
         box-shadow: none;
-      
+
     }
 
-    #botao-modal-sair:focus, #botao-modal-sair:active {
-    outline: none;
-    background-color: #5e3e24; 
-    box-shadow: none; 
-}
-   
-   
+    #botao-modal-sair:focus,
+    #botao-modal-sair:active {
+        outline: none;
+        background-color: #5e3e24;
+        box-shadow: none;
+    }
 </style>
 
 @if(session('is_vendedor'))
@@ -108,21 +112,21 @@
 @else
     <header>
 @endif
-@if(Session::has('loginAlert'))
-    <script>
-        alert("{{ Session::get('loginAlert') }}");
-    </script>
-@endif
-@if(Session::has('cadastrarVendedor'))
-    <script>
-        alert("{{ Session::get('cadastrarVendedor') }}");
-    </script>
-@endif
-@if(Session::has('cadastrarCliente'))
-    <script>
-        alert("{{ Session::get('cadastrarCliente') }}");
-    </script>
-@endif
+        @if(Session::has('loginAlert'))
+            <script>
+                alert("{{ Session::get('loginAlert') }}");
+            </script>
+        @endif
+        @if(Session::has('cadastrarVendedor'))
+            <script>
+                alert("{{ Session::get('cadastrarVendedor') }}");
+            </script>
+        @endif
+        @if(Session::has('cadastrarCliente'))
+            <script>
+                alert("{{ Session::get('cadastrarCliente') }}");
+            </script>
+        @endif
         <div class="header_direita">
             <div class="header-logo">
 
@@ -137,7 +141,7 @@
                     </div>
                     <div class="input-container-mobile">
                         <input type="search" placeholder="PESQUISAR PRODUTOS" class="input-pesquisa">
-                       <button class="botao-pesquisa"  data-toggle="modal" data-target="#modalSair">
+                        <button class="botao-pesquisa" data-toggle="modal" data-target="#modalSair">
                             <i class="fa-solid fa-magnifying-glass" id="pesquisa"></i>
                         </button>
 
@@ -258,14 +262,14 @@
         <div class="header_icones">
             <div class="header_pesquisa">
                 <div class="input-container">
-                <form action="{{ route('produtos.search') }}" method="GET">
-                            <input type="text" name="query" placeholder="Pesquisar produtos..." required>
-                            <button type="submit"> <i class="fa-solid fa-magnifying-glass" id="pesquisa"></i></button>
-                        </form>
-                
+                    <form action="{{ route('produtos.search') }}" method="GET">
+                        <input type="text" name="query" placeholder="Pesquisar produtos..." required>
+                        <button type="submit"> <i class="fa-solid fa-magnifying-glass" id="pesquisa"></i></button>
+                    </form>
+
                 </div>
             </div>
-          
+
 
             <li class="drop-hover-perfil">
                 @if (session('is_vendedor') || session('is_Cliente'))
@@ -287,41 +291,44 @@
                         <a href="{{ url('/logout') }}" id="link-perfil"><i
                                 class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a>
 
-                                
+
                     </div> <!--Fim menu dropdown das roupas-->
                     <!--vendedor -->
                 @elseif(session('is_Cliente'))
                     <!--cliente -->
-                 
-                <a href="#"><i class="fa-solid fa-bag-shopping">{{$totalCarrinho}}</i></a>
-            
+
+                    <a href="#"><i class="fa-solid fa-bag-shopping">{{$totalCarrinho}}</i></a>
+
                     <div class="drop-perfil"> <!--Começo menu dropdown das roupas-->
                         <a href="{{ url('/perfil') }}"><i class="fa-solid fa-user"></i>Meu perfil</a>
                         <a href="{{ url('/favorites') }}"><i class="fa-solid fa-heart"></i>Favoritos</a>
                         <a href="{{url('carrinho')}}"><i class="fa-solid fa-cart-shopping"></i>Carrinho</a>
                         <a href="#"><i class="fa-solid fa-circle-question"></i>Ajuda</a>
-                        <a href="{{ url('/logout') }}" data-toggle="modal" data-target="#modalExemplo"><i class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a><!--o data-toggle e data-target fazem o modal abrir quando clica no link-->
+                        <a href="{{ url('/logout') }}" data-toggle="modal" data-target="#modalExemplo"><i
+                                class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a><!--o data-toggle e data-target fazem o modal abrir quando clica no link-->
                     </div> <!--Fim menu dropdown das roupas-->
                 @endif
 
 
-              <!-- Modal Sair -->
-<div class="modal fade" id="modalSair" tabindex="-1" role="dialog" aria-labelledby="modalSairLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h2 class="modal-title" id="modalSairLabel">Sair</h2>
-      </div>
-      <div class="modal-body">
-        <h4>Deseja mesmo sair?</h4>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="botao-modal-cancelar">Cancelar</button>
-        <button type="button" class="btn btn-primary" id="botao-modal-sair">Sair</button>
-      </div>
-    </div>
-  </div>
-</div>
+                <!-- Modal Sair -->
+                <div class="modal fade" id="modalSair" tabindex="-1" role="dialog" aria-labelledby="modalSairLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="modal-title" id="modalSairLabel">Sair</h2>
+                            </div>
+                            <div class="modal-body">
+                                <h4>Deseja mesmo sair?</h4>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                    id="botao-modal-cancelar">Cancelar</button>
+                                <button type="button" class="btn btn-primary" id="botao-modal-sair">Sair</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </li>
             <!--modal 1-->
             <dialog id="modal-1">
@@ -432,8 +439,8 @@
                             <input type="password" id="password" name="senhaCliente" placeholder="••••••••" required>
                         </div>
                     </div>
-                  <div class="tudo_preferencia">
-                        <h6 class="texto_preferencia">Tenho interesse em roupas</h6>      
+                    <div class="tudo_preferencia">
+                        <h6 class="texto_preferencia">Tenho interesse em roupas</h6>
                         <div class="preferencia">
                             <div>
                                 <input type="radio" id="roupasFemininas" name="roupasPreferencia" value="feminina" />
@@ -445,7 +452,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="login-botao">
                         <input type="submit" value="Cadastrar">
                     </div>

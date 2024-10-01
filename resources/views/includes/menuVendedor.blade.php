@@ -297,9 +297,7 @@
                         <div class="icon search">
                             <i class="fas fa-search"></i>
                         </div>
-                        <div class="icon menu">
-                            <i class="fas fa-bars"></i>
-                        </div>
+
                     </div>
                 </div>
             </div>

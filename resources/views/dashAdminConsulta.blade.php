@@ -102,17 +102,19 @@
                     <div class="alvoConsultaContainer">
                     </div>
                     <form class="formConsulta">
+
                         <label class="titleAlvo " for="alvo">O que deseja consultar?</label>
-                        <select class=" " name="alvo" id="alvo">
-                            <optgroup label="Escolha">
+                        <select class="selectAlvo" name="alvo" id="alvo">
+                            <optgroup>
+                                <option value="cliente">Todos</option>
                                 <option value="cliente">Cliente</option>
                                 <option value="vendedor">Vendedor</option>
                                 <option value="vendedor">Administrador</option>
                             </optgroup>
                         </select>
                         <div class="testeConsulta">
-                            <label for="nome">Nome</label><br>
-                            <input class="labelConsulta" type="text" id="nome" name="nome"><br>
+                            <label class="nomeConsulta" for="nome">Nome</label>
+                            <input class="labelConsulta" type="text" id="nome" name="nome">
                             <button class="btnConsultaSubmit" type="submit" value="Submit">Buscar</button>
                         </div>
                     </form>

@@ -78,7 +78,22 @@ Route::get('/editarPerfilVendedor', function () {
     $imagemVendedor = Session::get('imagemVendedor');
 
     if ($nomeVendedor && $emailVendedor && $idVendedor && $numeroVendedor && $logradouroVendedor && $cepVendedor && $cidadeVendedor && $estadoVendedor && $imagemVendedor && $numCasaVendedor) {
-        return view('/editarPerfilVendedor', compact('nomeVendedor', 'emailVendedor', 'idVendedor', 'numeroVendedor', 'logradouroVendedor', 'cepVendedor', 'cidadeVendedor', 'estadoVendedor', 'imagemVendedor', 'numCasaVendedor'));
+        $idVendedor = Session::get('idVendedor');
+    
+    
+        if (!$idVendedor) {
+            // Redireciona se não houver vendedor logado
+            return redirect()->route('login')->with('error', 'Você precisa estar logado.');
+        }
+    
+        $vendedor = Vendedor::find($idVendedor);
+    
+        if (!$vendedor) {
+            // Redireciona se o vendedor não for encontrado
+            return redirect()->route('login')->with('error', 'Vendedor não encontrado.');
+        }
+
+        return view('/editarPerfilVendedor', compact('nomeVendedor', 'emailVendedor', 'idVendedor', 'numeroVendedor', 'logradouroVendedor', 'cepVendedor', 'cidadeVendedor', 'estadoVendedor', 'imagemVendedor', 'numCasaVendedor', 'vendedor'));
     } else {
         Session::flash('alert', 'Para acessar esta página, faça o login!');
         return redirect('/editarPerfilVendedor');
@@ -135,9 +150,7 @@ Route::get('/adminDenunciaProduto', function () {
 Route::delete('/denuncia/{idDenuncia}', [DenunciaController::class, 'destroy'])->name('denuncia.destroy');
 
 
-Route::get('/dashboardVendedor', function () {
-    return view('dashboardVendedor');
-});
+
 Route::get('/dashAdmin', function () {
     return view('dashAdmin');
 });
@@ -158,3 +171,4 @@ Route::get('/contato', function () {
 Route::get('/cadastrarProdutosVendedor', [DashboardController::class, 'index'])->name('cadastrarProdutosVendedor');
 Route::get('/produtos/search', [ProdutoController::class, 'search'])->name('produtos.search');
 
+Route::get('/dashboardVendedor', [VendedorController::class, 'index'])->name('dashboardVendedor');

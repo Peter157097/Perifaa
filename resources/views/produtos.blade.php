@@ -249,21 +249,8 @@
                             </div>
 
                         </div>
-                        <button type='button' class="accordion">Categoria</button>
-                        <div class="panel">
-                            <div class="panelContainer">
-                                @foreach($categorias as $categoria)
-
-                                <label>
-                                    <input type="checkbox" name="categorias[]" value="{{ $categoria->idCategoriaProduto }}" class="checkbox-buttons"
-                                        {{ isset($filtros['categorias']) && in_array($categoria->idCategoriaProduto, $filtros['categorias']) ? 'checked' : '' }}>
-                                    {{ $categoria->nomeCategoriaProduto }}
-                                </label>
-
-                                @endforeach
-                            </div>
-
-                        </div>
+                        
+                       
                         <div class="button-group">
                             <button type="submit" class="btn btn-primary">Aplicar Filtros</button>
                             <a href="{{ url('/produtos') }}" class="btn btn-primary">Resetar Filtros</a>
@@ -309,10 +296,7 @@
                                     <p class="info-produto">{{ $produto->regiao->nomeRegiao ?? 'Região Desconhecida' }}
                                     </p>
                                 </div>
-                                <div class="row-info">
-                                    <p class="info-produto">{{ $produto->genero->nomeGenero ?? 'Genero desconhecido' }}
-                                    </p>
-                                </div>
+                           
                             </div>
                         </div>
                         @endforeach

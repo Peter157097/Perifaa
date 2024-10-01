@@ -59,20 +59,18 @@
 
                 <div class="user-profile">
                     <a href="{{url('/dashAdmin')}}" class="aPerifaa">
-                        <img class="imgLogin" src="{{url('/images/visualizarUsuario.webp')}}">
+                        <img class="imgLogin" src="{{url('/images/user-icon.png')}}">
                     </a>
                     <div class="user-info">
-                        <span class="user-name">Administrador da Silva</span>
+                        <span class="user-name">Peter Gomes</span>
                         <span class="user-status">Admin</span>
                     </div>
                     <div class="icons">
-
                         <div class="input-container-mobile">
-                            <input type="search" placeholder="PESQUISAR" class="input-pesquisa">
+                            <input type="search" placeholder="Pesquisar" class="input-pesquisa">
                             <button class="botao-pesquisa" data-toggle="modal" data-target="#modalSair">
-                                <i class="fa-solid fa-magnifying-glass" id="pesquisa"></i>
+                                <i class="fa-solid fa-magnifying-glass" id="pesquisaAdm"></i>
                             </button>
-
                         </div>
                     </div>
                     <div class="icon notification">
@@ -114,10 +112,9 @@
             Gráfico de cadastros
         </div>
         <div class="areaGrafico">
-            <div class="displayGraficos">
-                <canvas id="myChart" style="width:100%;max-width:40%"></canvas>
-                <canvas id="myChartPie" style="width:100%;max-width:60%"></canvas>
-            </div>
+
+            <canvas id="myChartPie" style="width:100%;max-width:60%"></canvas>
+
         </div>
 
 
@@ -143,32 +140,7 @@
                     }
                 }
             });
-            const xValuesPie = ["15-18", "19-25", "25-35", "36-46", "50+"];
-            const yValuesPie = [55, 49, 44, 24, 15];
-            const barColorsPie = [
-                "#2b9ee3",
-                "#227eb5",
-                "#1c6c9c",
-                "#165278",
-                "#113d59"
-            ];
 
-            new Chart("myChart", {
-                type: "pie",
-                data: {
-                    labels: xValuesPie,
-                    datasets: [{
-                        backgroundColor: barColorsPie,
-                        data: yValuesPie
-                    }]
-                },
-                options: {
-                    title: {
-                        display: true,
-                        text: "Faixa Etaria do Usuários"
-                    }
-                }
-            });
         </script>
         <!---->
 

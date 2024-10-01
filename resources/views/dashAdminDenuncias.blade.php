@@ -41,7 +41,8 @@
         </div>
         <ul>
             <li><a href="/dashAdmin" class="menu-item"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
-            <li><a href="/dashAdminDenuncias" class="menu-item  selected"><i class="fas fa-box-open"></i>Denuncias</a></li>
+            <li><a href="/dashAdminDenuncias" class="menu-item  selected"><i class="fas fa-box-open"></i>Denuncias</a>
+            </li>
             <li><a href="/dashAdminConsulta" class="menu-item"><i class="fas fa-box-open"></i>Consultar</a></li>
             <li><a href="#saques" class="menu-item"><i class="fas fa-wallet"></i>Saques</a></li>
             <li><a href="/perfil" class="menu-item"><i class="fas fa-user"></i>Perfil</a></li>
@@ -52,8 +53,8 @@
 
     <!-- Conteúdo principal da página -->
     <div class="containerdashboard">
-    <div class="navDash">
-            <div class="parte1">
+        <div class="navDash">
+        <div class="parte1">
                 <div class="titulo2">
                     Dashboard
                 </div>
@@ -63,20 +64,18 @@
 
                 <div class="user-profile">
                     <a href="{{url('/dashAdmin')}}" class="aPerifaa">
-                        <img class="imgLogin" src="{{url('/images/visualizarUsuario.webp')}}">
+                        <img class="imgLogin" src="{{url('/images/user-icon.png')}}">
                     </a>
                     <div class="user-info">
-                        <span class="user-name">Administrador da Silva</span>
+                        <span class="user-name">Peter Gomes</span>
                         <span class="user-status">Admin</span>
                     </div>
                     <div class="icons">
-
                         <div class="input-container-mobile">
-                            <input type="search" placeholder="PESQUISAR" class="input-pesquisa">
+                            <input type="search" placeholder="Pesquisar" class="input-pesquisa">
                             <button class="botao-pesquisa" data-toggle="modal" data-target="#modalSair">
-                                <i class="fa-solid fa-magnifying-glass" id="pesquisa"></i>
+                                <i class="fa-solid fa-magnifying-glass" id="pesquisaAdm"></i>
                             </button>
-
                         </div>
                     </div>
                     <div class="icon notification">
@@ -86,11 +85,15 @@
                 </div>
             </div>
 
-
+        </div>
+        <div class="containerFloatImg">
+            <div class="floatImageAdmin">
+                <img class="floatImage" src="{{url('/images/floatImageDenuncia.png')}}">
+            </div>
         </div>
         <div class="titleAdm">
-                <p>DENUNCIAS</p>
-            </div>
+            <p>Denuncias</p>
+        </div>
         <div class="admDenunciasContainer">
             <div class="itemDenuncia">
                 <div class="imgProduto">
@@ -106,7 +109,7 @@
                         <p class="itemInfoDenuncia">Camisa TakeOff Collection</p>
                         <p class="itemInfoDenuncia">R$40,00</p>
                         <p class="itemInfoDenuncia">Vendedor me enganou, mandou uma coisa nada a ver com o combinado
-                        Vendedor me enganou, mandou uma coisa nada a ver com o combinado
+                            Vendedor me enganou, mandou uma coisa nada a ver com o combinado
                         </p>
                     </div>
                     <div class="acoesDenuncia">

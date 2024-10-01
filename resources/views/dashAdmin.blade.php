@@ -66,13 +66,11 @@
                         <span class="user-status">Admin</span>
                     </div>
                     <div class="icons">
-
                         <div class="input-container-mobile">
                             <input type="search" placeholder="Pesquisar" class="input-pesquisa">
                             <button class="botao-pesquisa" data-toggle="modal" data-target="#modalSair">
-                                <i class="fa-solid fa-magnifying-glass" id="pesquisa"></i>
+                                <i class="fa-solid fa-magnifying-glass" id="pesquisaAdm"></i>
                             </button>
-
                         </div>
                     </div>
                     <div class="icon notification">
@@ -114,9 +112,9 @@
             Gráfico de cadastros
         </div>
         <div class="areaGrafico">
-         
-                <canvas id="myChartPie" style="width:100%;max-width:60%"></canvas>
-            
+
+            <canvas id="myChartPie" style="width:100%;max-width:60%"></canvas>
+
         </div>
 
 
@@ -142,7 +140,7 @@
                     }
                 }
             });
-            
+
         </script>
         <!---->
 

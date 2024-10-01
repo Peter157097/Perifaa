@@ -74,7 +74,7 @@
                         <div class="input-container-mobile">
                             <input type="search" placeholder="Pesquisar" class="input-pesquisa">
                             <button class="botao-pesquisa" data-toggle="modal" data-target="#modalSair">
-                                <i class="fa-solid fa-magnifying-glass" id="pesquisa"></i>
+                                <i class="fa-solid fa-magnifying-glass" id="pesquisaAdm"></i>
                             </button>
 
                         </div>
@@ -98,18 +98,18 @@
                 <p>Consulta</p>
             </div>
             <div class="containerInfoConsulta">
-                <div class="alvoConsultaContainer">
-                    <label class="titleAlvo " for="alvo">O que deseja consultar?</label>
-                    <select class="optConsulta" name="alvo" id="alvo">
-                        <optgroup label="Escolha">
-                            <option value="cliente">Cliente</option>
-                            <option value="vendedor">Vendedor</option>
-                            <option value="vendedor">Administrador</option>
-                        </optgroup>
-                    </select>
-                </div>
                 <div class="camposConsulta">
+                    <div class="alvoConsultaContainer">
+                    </div>
                     <form class="formConsulta">
+                        <label class="titleAlvo " for="alvo">O que deseja consultar?</label>
+                        <select class=" " name="alvo" id="alvo">
+                            <optgroup label="Escolha">
+                                <option value="cliente">Cliente</option>
+                                <option value="vendedor">Vendedor</option>
+                                <option value="vendedor">Administrador</option>
+                            </optgroup>
+                        </select>
                         <div class="testeConsulta">
                             <label for="nome">Nome</label><br>
                             <input class="labelConsulta" type="text" id="nome" name="nome"><br>

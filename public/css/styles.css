@@ -81,6 +81,7 @@ header {
     font-size: 20px;
 }
 
+
 .botao-pesquisa:focus {
     outline: none;
 }
@@ -3296,7 +3297,7 @@ a {
 
 .parte2 {
     display:flex;
-    width: 50%;
+    width: 70%;
     padding-bottom: 0;
     padding-right: 6vh;
     padding-top: 1vh;
@@ -3418,14 +3419,18 @@ a {
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
-    padding-left: 20%;
+   
     width: fit-content;
 }
 .labelConsulta{
+    border: none;
     padding: 1%;
     width: 100%;
     font-size: 3vh;
     background-color: rgb(218, 218, 218);
+}
+.labelConsulta:hover{
+    background-color: rgb(196, 196, 196);
 }
 .btnConsultaSubmit{
     background-color: #5882d6;
@@ -3437,6 +3442,7 @@ a {
 }
 .camposConsulta{
     display: flex;
+    flex-direction: column;
     background-color: white;
     width: 100vh;
     padding: 2%;
@@ -3506,10 +3512,19 @@ a {
 .optConsulta{
    width: 20vh;
    padding: 0.5%;
+   border: none;
+    
   
 }
+.optConsulta:focus{
+    border: none;
+    width: 20vh;
+
+   
+ }
+
 .formConsulta{
-    
+
     width: 100%;
 }
 .testeConsulta{
@@ -3518,6 +3533,10 @@ a {
     display: flex;
 
 }
+
+
+
+
 .iconVisualizarConsulta:hover{
     scale: 1.2;
 }
@@ -3574,6 +3593,11 @@ a {
     justify-content: center;
     width: 100%;
 }
+#pesquisaAdm {
+    font-size: 18px;
+    padding-left: 100px;
+}
+
 
 
 

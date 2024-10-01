@@ -42,8 +42,7 @@
         <ul>
             <li><a href="/dashAdmin" class="menu-item"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
             <li><a href="/dashAdminDenuncias" class="menu-item"><i class="fas fa-box-open"></i>Denuncias</a></li>
-            <li><a href="/dashAdminConsulta" class="menu-item selected"><i class="fas fa-box-open"></i>Consultar</a>
-            </li>
+            <li><a href="/filtro-usuarios" class="menu-item"><i class="fas fa-box-open"></i>Consultar</a></li>
             <li><a href="/perfil" class="menu-item"><i class="fas fa-user"></i>Perfil</a></li>
             <li><a href="#config" class="menu-item"><i class="fas fa-cog"></i>Configurações</a></li>
             <li><a href="#sair" class="menu-item"><i class="fas fa-sign-out-alt"></i>Sair</a></li>
@@ -102,54 +101,53 @@
                     <div class="alvoConsultaContainer">
                     </div>
                     <form action="{{ route('filtrar-usuarios') }}" method="POST">
-        @csrf
-        <div class="form-group">
-            <label for="tipo">Tipo de Usuário</label>
-            <select name="tipo" id="tipo" class="form-control">
-                <option value="todos" {{ isset($tipoSelecionado) && $tipoSelecionado == 'todos' ? 'selected' : '' }}>Todos</option>
-                <option value="cliente" {{ isset($tipoSelecionado) && $tipoSelecionado == 'cliente' ? 'selected' : '' }}>Cliente</option>
-                <option value="vendedor" {{ isset($tipoSelecionado) && $tipoSelecionado == 'vendedor' ? 'selected' : '' }}>Vendedor</option>
-                <option value="administrador" {{ isset($tipoSelecionado) && $tipoSelecionado == 'administrador' ? 'selected' : '' }}>Administrador</option>
-            </select>
-        </div>
+                        @csrf
+                        <div class="form-group">
+                            <label for="tipo">Tipo de Usuário</label>
+                            <select name="tipo" id="tipo" class="form-control">
+                                <option value="todos" {{ isset($tipoSelecionado) && $tipoSelecionado == 'todos' ? 'selected' : '' }}>Todos</option>
+                                <option value="cliente" {{ isset($tipoSelecionado) && $tipoSelecionado == 'cliente' ? 'selected' : '' }}>Cliente</option>
+                                <option value="vendedor" {{ isset($tipoSelecionado) && $tipoSelecionado == 'vendedor' ? 'selected' : '' }}>Vendedor</option>
+                                <option value="administrador" {{ isset($tipoSelecionado) && $tipoSelecionado == 'administrador' ? 'selected' : '' }}>Administrador</option>
+                            </select>
+                        </div>
 
-        <div class="form-group mt-3">
-            <label for="nome">Nome do Usuário</label>
-            <input type="text" name="nome" id="nome" class="form-control" value="{{ old('nome') }}" placeholder="Digite o nome do usuário">
-        </div>
+                        <div class="form-group mt-3">
+                            <label for="nome">Nome do Usuário</label>
+                            <input type="text" name="nome" id="nome" class="form-control" value="{{ old('nome') }}"
+                                placeholder="Digite o nome do usuário">
+                        </div>
 
-        <button type="submit" class="btn btn-primary mt-3">Filtrar</button>
-    </form>
+                        <button type="submit" class="btn btn-primary mt-3">Filtrar</button>
+                    </form>
                 </div>
             </div>
         </div>
         @if(isset($usuarios) && count($usuarios) > 0)
-        <div class="resultConsultaContainer">
-            @foreach($usuarios as $usuario)
-            <div class="ConsultaCardContainer">
-                <div class="cardConsulta">
-                    <div class="pfpConsultaContainer">
-                        <div class="pfpConsulta">
-                        <img src="{{ asset($usuario->imagem) }}" width="50px">
+            <div class="resultConsultaContainer">
+                @foreach($usuarios as $usuario)
+                    <div class="ConsultaCardContainer">
+                        <div class="cardConsulta">
+                            <div class="pfpConsultaContainer">
+                                <img src="{{ asset($usuario->imagem) }}" width="50px" class="pfpConsulta">
+                            </div>
+                            <div class="infoAlvoConsulta">
+                                <div class="nomeUsuarioConsulta">
+                                    <h5 class="txtInfoUsuarioConsulta">{{ $usuario->nome }}</h5>
+                                </div>
+                                <div class="emailUsuarioConsulta">
+                                    <h5 class="txtInfoUsuarioConsulta">{{ $usuario->email }}</h5>
+                                </div>
+                                <div class="roleUsuarioConsulta">
+                                    <h5 class="txtInfoUsuarioConsulta">{{ ucfirst($usuario->tipo) }}</h5>
+                                </div>
+                                <img class="iconVisualizarConsulta" src="images/visualizarUsuario.webp">
+                            </div>
                         </div>
                     </div>
-                    <div class="infoAlvoConsulta">
-                        <div class="nomeUsuarioConsulta">
-                            <h5 class="txtInfoUsuarioConsulta">{{ $usuario->nome }}</h5>
-                        </div>
-                        <div class="emailUsuarioConsulta">
-                            <h5 class="txtInfoUsuarioConsulta">{{ $usuario->email }}</h5>
-                        </div>
-                        <div class="roleUsuarioConsulta">
-                            <h5 class="txtInfoUsuarioConsulta">{{ ucfirst($usuario->tipo) }}</h5>
-                        </div>
-                        <img class="iconVisualizarConsulta" src="images/visualizarUsuario.webp">
-                    </div>
-                </div>
+                @endforeach
             </div>
-            @endforeach
-        </div>
-        
+
         @else
             <h5>Nenhum usuário encontrado para o tipo selecionado.</h5>
         @endif

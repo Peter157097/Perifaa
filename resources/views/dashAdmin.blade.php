@@ -39,7 +39,7 @@
         <ul>
             <li><a href="/dashAdmin" class="menu-item selected"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
             <li><a href="/dashAdminDenuncias" class="menu-item"><i class="fas fa-box-open"></i>Denuncias</a></li>
-            <li><a href="/dashAdminConsulta" class="menu-item"><i class="fas fa-box-open"></i>Consultar</a></li>
+            <li><a href="/filtro-usuarios" class="menu-item"><i class="fas fa-box-open"></i>Consultar</a></li>
             <li><a href="/perfil" class="menu-item"><i class="fas fa-user"></i>Perfil</a></li>
             <li><a href="#config" class="menu-item"><i class="fas fa-cog"></i>Configurações</a></li>
             <li><a href="#sair" class="menu-item"><i class="fas fa-sign-out-alt"></i>Sair</a></li>
@@ -149,40 +149,51 @@
             Produtos mais denunciados
         </div>
         <div class="admDenunciasContainer">
-            <div class="itemDenuncia">
-                <div class="imgProduto">
+            @foreach($denuncias as $denuncia)
+                <div class="itemDenuncia">
+                    <div class="imgProduto">
+                        <img src="{{$denuncia->produto->imagemProduto}}" class="imgProdutoDenuncia">
+                    </div>
+                    <div class="infoProdutoDenuncia">
+                        <div class="infoProdutoCategoria">
+                            <p class="itemCategoriaDenuncia">Brechó da Maria</p>
+                            <p class="itemCategoriaDenuncia">Valor</p>
+                            <p class="itemCategoriaDenuncia">Motivo da denuncia</p>
+                            <p class="itemCategoriaDenuncia">Id da denuncia</p>
+                            <p class="itemCategoriaDenuncia">E-mail cliente</p>
 
-                </div>
-                <div class="infoProdutoDenuncia">
-                    <div class="infoProdutoCategoria">
-                        <p class="itemCategoriaDenuncia">Brechó da Maria</p>
-                        <p class="itemCategoriaDenuncia">Valor</p>
-                        <p class="itemCategoriaDenuncia">Motivo da denuncia</p>
+                        </div>
+                        <div class="infoProdutoCategoria">
+                            <p class="itemInfoDenuncia">
+                                {{$denuncia->Produto->nomeProduto ?? 'Descrição Indisponível' }}
+                            </p>
+                            <p class="itemInfoDenuncia">{{$denuncia->Produto->valorProduto ?? 'Descrição Indisponível' }}
+                            </p>
+                            <p class="itemInfoDenuncia">
+                                {{ $denuncia->produto->descricaoProduto ?? 'Descrição Indisponível' }}
+                            </p>
+                            <p class="itemInfoDenuncia">
+                                {{ $denuncia->idDenuncia ?? 'Descrição Indisponível' }}
+                            </p>
+                            <p class="itemInfoDenuncia">
+                                {{ $denuncia->cliente->emailCliente ?? 'Nome Indisponível' }}
+                            </p>
+                        </div>
+                        <div class="acoesDenuncia">
+                            <a href="{{ url('/entrar-produto', $denuncia->Produto->idProduto)}}">
+                                <p class="analisarDenuncia">Ver anuncio</p>
+                            </a>
+                            <form action="{{ route('denuncia.destroy', $denuncia->idDenuncia) }}" method="POST"
+                                onsubmit="return confirm('Tem certeza que deseja excluir esta denúncia?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btaoremover">Excluir Denúncia</button>
+                            </form>
+                        </div>
                     </div>
-                    <div class="infoProdutoCategoria">
-                        <p class="itemInfoDenuncia">Camisa TakeOff Collection</p>
-                        <p class="itemInfoDenuncia">R$40,00</p>
-                        <p class="itemInfoDenuncia">Vendedor me enganou, mandou uma coisa nada a ver com o combinado</p>
-                    </div>
                 </div>
-            </div>
-            <div class="itemDenuncia">
-                <div class="imgProduto">
 
-                </div>
-                <div class="infoProdutoDenuncia">
-                    <div class="infoProdutoCategoria">
-                        <p class="itemCategoriaDenuncia">Brechó da Maria</p>
-                        <p class="itemCategoriaDenuncia">Valor</p>
-                        <p class="itemCategoriaDenuncia">Motivo da denuncia</p>
-                    </div>
-                    <div class="infoProdutoCategoria">
-                        <p class="itemInfoDenuncia">Camisa TakeOff Collection</p>
-                        <p class="itemInfoDenuncia">R$40,00</p>
-                        <p class="itemInfoDenuncia">Vendedor me enganou, mandou uma coisa nada a ver com o combinado</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
 
     </div>

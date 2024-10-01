@@ -96,7 +96,7 @@ class AuthController extends Controller
 
                     // Define a mensagem de alerta para o administrador
                     Session::flash('loginAlert', 'Bem-vindo, Admin!');
-                    return redirect('/adminDenuncias');
+                    return redirect('/dashAdmin');
                 }
 
             } else {

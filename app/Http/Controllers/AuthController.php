@@ -84,7 +84,7 @@ class AuthController extends Controller
 
                     // Define a mensagem de alerta para o vendedor
                     Session::flash('loginAlert', 'Bem-vindo, Vendedor!');
-                    return redirect('/');
+                    return redirect('/dashboardVendedor');
 
                 } elseif (isset($usuario->idAdministrador)) { // Admin
                     Session::put('idAdmin', $usuario->idAdministrador);

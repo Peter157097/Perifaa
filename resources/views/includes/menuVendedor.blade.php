@@ -253,8 +253,8 @@
     <!-- Menu lateral -->
     <nav id="sidebar" class="sidebar">
         <div class="logo">
-            <a href="{{url('')}}" class="aPerifa">
-                <img class="img-dashboard" src="{{url('images/logo3.png')}}" alt="Logo Perifa">
+            <a href="{{url('#')}}" class="aPerifa">
+                <img class="img-dashboard" src="{{asset('images/logo-branca.png') }}" alt="Logo Perifa">
             </a>
         </div>
         <ul>
@@ -272,7 +272,7 @@
         <div class="navDash">
             <div class="parte1">
                 <div class="titulo1">
-                    Bem vindo de volta, Alfredo!
+                    Bem vindo, {{ $vendedor->nomeVendedor }}!
                 </div>
                 <div class="titulo2">
                     Dashboard Vendedor
@@ -282,11 +282,11 @@
             <div class="parte2">
 
                 <div class="user-profile">
-                    <a href="{{url('')}}" class="aPerifaa">
-                        <img class="imgLogin" src="{{url('images/fotogodo.png')}}" alt="Logo Perifa">
+                    <a href="{{url('#')}}" class="aPerifaa">
+                        <img class="imgLogin" src="{{ $vendedor->imagemVendedor }}" alt="Logo Perifa">
                     </a>
                     <div class="user-info">
-                        <span class="user-name">Alfredo Torres</span>
+                        <span class="user-name">{{ $vendedor->nomeVendedor }}</span>
                         <span class="user-status">$2,000.05 | VIP Member</span>
                     </div>
                     <div class="icons">

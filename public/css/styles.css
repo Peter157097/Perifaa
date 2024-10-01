@@ -3618,6 +3618,25 @@ a {
    
 }
 
+.carrinhoEntrar {
+    position: relative; 
+}
+
+.qtdCarrinho {
+    position: absolute;
+    top: -5px; 
+    right: -10px; 
+    font-size: 10px;
+    color: red;
+    background-color: white;
+    border-radius: 50%;
+    padding: 2px 4px; 
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+}
+
 
 
 

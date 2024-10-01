@@ -297,7 +297,12 @@ $totalCarrinho -= 2;
                 @elseif(session('is_Cliente'))
                 <!--cliente -->
 
-                <a href="#"><i class="fa-solid fa-bag-shopping">{{$totalCarrinho}}</i></a>
+                
+                <a href="#" class="carrinhoEntrar">
+                    <i class="fa-solid fa-bag-shopping">
+                        <span class="qtdCarrinho">{{$totalCarrinho}}</span>
+                    </i>
+                </a>
 
                 <div class="drop-perfil"> <!--Começo menu dropdown das roupas-->
                     <a href="{{ url('/perfil') }}"><i class="fa-solid fa-user"></i>Meu perfil</a>

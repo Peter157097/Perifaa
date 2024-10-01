@@ -44,9 +44,7 @@ header {
 
 .header_pesquisa {
     display: flex;
-    align-items: center;
     margin-right: 20px;
-    /* Espaçamento entre campo de pesquisa e ícones */
 }
 
 
@@ -54,7 +52,6 @@ header {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     background-color: #ffffff;
     width: 600px;
     padding: 5px;
@@ -70,8 +67,9 @@ header {
     /* Ajuste a largura conforme necessário */
 }
 
-.botao-pesquisa {
-    all: unset;
+#pesquisa {
+    font-size: 18px;
+    padding-left: 300px;
 }
 
 #pesquisa {
@@ -82,6 +80,7 @@ header {
     color: #55504b;
     font-size: 20px;
 }
+
 
 .botao-pesquisa:focus {
     outline: none;
@@ -2792,7 +2791,6 @@ dialog #modal-2::backdrop {
     align-items: center;
     width: 100%;
     height: 75vh;
-   background-color: #fff;
    gap: 100px;
 }
 
@@ -3070,12 +3068,12 @@ a {
 .hamburger {
     font-size: 20px;
     cursor: pointer;
-    padding: 8px;
+    padding-left: 6px;
+    padding-right: 6px;
     background-color: #1f628e;
-    /* Cor de fundo verde */
-    color: white;
+    color: rgb(255, 255, 255);
     position: absolute;
-    top: 10px;
+    top: 4%;
     left: 10px;
     z-index: 1002;
     /* Maior que o z-index do menu */
@@ -3087,7 +3085,7 @@ a {
 }
 
 .hamburger:hover {
-    background-color: #1f628e;
+    background-color: #174d70;
     /* Cor verde mais escura ao passar o mouse */
 }
 
@@ -3184,12 +3182,14 @@ a {
 .user-profile {
     display: flex;
     align-items: center;
+    justify-content: right;
     padding: 5px;
     width: 100%;
-    gap: 2%;
+    gap: 1%;
 }
 
 .aPerifaa img {
+    top: 2%;
     width: 60px;
     /* Tamanho menor da imagem */
     height: 60px;
@@ -3200,7 +3200,8 @@ a {
 .user-info {
     display: flex;
     flex-direction: column;
-    margin-right: auto;
+    padding-right: 5%;
+   
 }
 
 .user-name {
@@ -3295,8 +3296,10 @@ a {
 
 .parte2 {
     display:flex;
-    width: 50%;
+    width: 70%;
+    padding-bottom: 0;
     padding-right: 6vh;
+    padding-top: 1vh;
 
 }
 
@@ -3393,12 +3396,14 @@ a {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
 }
 .titleAdm{
+    font-family:'Courier New', Courier, monospace;
     padding: 1%;
     display: flex;
     font-weight: 800;
-    font-size: 5vh;
+    font-size: 6vh;
     width: 100%;
     justify-content:center;
 }
@@ -3410,32 +3415,52 @@ a {
     display:flex;
     gap: 2vh;
 }
+.titleAlvo{
+    font-weight: 600;
+    padding: 20px;
+    padding-left: 0;
+    padding-right: 5px;
+}
+.nomeConsulta{
+    font-size: 200;
+    padding-top: 2%;
+}
 .containerInfoConsulta{
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
-    padding-left: 20%;
+   
     width: fit-content;
 }
 .labelConsulta{
+    margin-top: 2%;
+    border: none;
     padding: 1%;
     width: 100%;
     font-size: 3vh;
     background-color: rgb(218, 218, 218);
+}
+.labelConsulta:hover{
+    background-color: rgb(196, 196, 196);
 }
 .btnConsultaSubmit{
     background-color: #5882d6;
     color: white;
     border: none;
     padding: 2%;
-    margin-top: 2%;
+    margin-top: 4%;
     
 }
 .camposConsulta{
     display: flex;
+    flex-direction: column;
     background-color: white;
     width: 100vh;
-    padding: 2%;
+    padding: 4%;
+ 
+}
+.formP1{
+    padding: 2vh;
 }
 
 .formParamtrs{
@@ -3502,10 +3527,19 @@ a {
 .optConsulta{
    width: 20vh;
    padding: 0.5%;
+   border: none;
+    
   
 }
+.optConsulta:focus{
+    border: none;
+    width: 20vh;
+
+   
+ }
+
 .formConsulta{
-    
+
     width: 100%;
 }
 .testeConsulta{
@@ -3514,6 +3548,10 @@ a {
     display: flex;
 
 }
+
+
+
+
 .iconVisualizarConsulta:hover{
     scale: 1.2;
 }
@@ -3562,6 +3600,26 @@ a {
     display: flex;
     width: 90%;
 }
+.floatImageAdmin{
+    width: 20%;
+}
+.containerFloatImg{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+#pesquisaAdm {
+    font-size: 18px;
+    padding-left: 100px;
+}
+.selectAlvo{
+    padding: 1%;
+    width: 20%
+   
+}
+
+
+
 
 
     

@@ -6,11 +6,33 @@ use Illuminate\Http\Request;
 use App\Models\Vendedor;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
-
+use Illuminate\Support\Facades\Log;
 
 
 class VendedorController extends Controller
 {
+
+    public function index() {
+        $idVendedor = Session::get('idVendedor');
+    
+    
+        if (!$idVendedor) {
+            // Redireciona se não houver vendedor logado
+            return redirect()->route('login')->with('error', 'Você precisa estar logado.');
+        }
+    
+        $vendedor = Vendedor::find($idVendedor);
+    
+        if (!$vendedor) {
+            // Redireciona se o vendedor não for encontrado
+            return redirect()->route('login')->with('error', 'Vendedor não encontrado.');
+        }
+    
+        return view('dashboardVendedor', ['vendedor' => $vendedor]);
+    }
+
+  
+    
     public function store(Request $request)
     {
         $vendedor = new Vendedor;
@@ -27,16 +49,26 @@ class VendedorController extends Controller
         $vendedor->numCasaVendedor = $request->numCasaVendedor;
         $vendedor->senhaVendedor = Hash::make($request->senhaVendedor);
 
-        // Verifica se o arquivo foi enviado
+        
         if ($request->hasFile('imagemVendedor')) {
             $file = $request->file('imagemVendedor');
             $filename = time() . '.' . $file->getClientOriginalExtension();
-            // Move o arquivo para o diretório public/images/perfil
+        
             $file->move(public_path('images/perfil'), $filename);
-            $vendedor->imagemVendedor = 'images/perfil/' . $filename; // Caminho relativo
+            $vendedor->imagemVendedor = 'images/perfil/' . $filename;
         } else {
-            $vendedor->imagemVendedor = 'images/logo3.jpeg'; 
+            $letras = range('a', 'z'); // Cria um array com letras de 'a' a 'z'
+            $index = array_search(strtolower(substr($vendedor->nomeVendedor, 0, 1)), $letras); // Busca o índice da letra
+        
+            if ($index !== false) {
+                $vendedor->imagemVendedor = 'images/' . ($index + 1) . '.png'; // Adiciona 1 ao índice para o número do arquivo
+                Log::info('Imagem Cliente: ' . $vendedor->imagemVendedor);
+            }
         }
+
+    Log::info('Imagem Cliente: ' . $vendedor->imagemCliente);
+
+
 
         $vendedor->save();
 
@@ -48,6 +80,9 @@ class VendedorController extends Controller
 
     public function showProfile()
     {
+
+      
+        
         return view('perfil', [
             'nomeVendedor' => Session::get('nomeVendedor'),
             'emailVendedor' => Session::get('emailVendedor'),
@@ -57,7 +92,8 @@ class VendedorController extends Controller
             'cidadeVendedor' => Session::get('cidadeVendedor'),
             'estadoVendedor' => Session::get('estadoVendedor'),
             'imagemVendedor' => Session::get('imagemVendedor'),
-            'numCasaVendedor' => Session::get('numCasaVendedor')
+            'numCasaVendedor' => Session::get('numCasaVendedor'),
+            
         ]);
     }
 

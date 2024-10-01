@@ -10,6 +10,7 @@ use App\Models\Categoria;
 use App\Models\Roupa;
 use App\Models\Condicao;
 use App\Models\Produto;
+use App\Models\Vendedor;
 use Illuminate\Support\Facades\Session;
 
 
@@ -23,6 +24,22 @@ class DashboardController extends Controller
         $roupas = Roupa::all();
         $condicoes = Condicao::all();
 
+        $idVendedor = Session::get('idVendedor');
+    
+    
+        if (!$idVendedor) {
+           
+            return redirect()->route('login')->with('error', 'Você precisa estar logado.');
+        }
+    
+        $vendedor = Vendedor::find($idVendedor);
+    
+        if (!$vendedor) {
+    
+            return redirect()->route('login')->with('error', 'Vendedor não encontrado.');
+        }
+    
+
         return view('cadastrarProdutosVendedor', [
             'cores' => Cor::all(),
             'tamanhos' => $tamanhos,
@@ -30,6 +47,7 @@ class DashboardController extends Controller
             'categorias' => $categorias,
             'roupas' => $roupas,
             'condicoes' => $condicoes,
+            'vendedor' => $vendedor,
         ]);
     }
 

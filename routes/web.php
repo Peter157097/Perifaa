@@ -147,14 +147,19 @@ Route::get('/dashAdminDenuncias', function () {
         'denuncias' => $denuncias,
     ]);
 });
+Route::get('/dashAdmin', function () {
+    $denuncias = Denuncia::with(['cliente','produto','vendedor'])->get();
+
+    return view('/dashAdmin', [
+        'denuncias' => $denuncias,
+    ]);
+});
+
 
 Route::delete('/denuncia/{idDenuncia}', [DenunciaController::class, 'destroy'])->name('denuncia.destroy');
 
 
 
-Route::get('/dashAdmin', function () {
-    return view('dashAdmin');
-});
 Route::get('/dashAdminConsulta', function () {
     return view('dashAdminConsulta');
 });

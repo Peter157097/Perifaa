@@ -3070,12 +3070,12 @@ a {
 .hamburger {
     font-size: 20px;
     cursor: pointer;
-    padding: 8px;
+    padding-left: 6px;
+    padding-right: 6px;
     background-color: #1f628e;
-    /* Cor de fundo verde */
-    color: white;
+    color: rgb(255, 255, 255);
     position: absolute;
-    top: 10px;
+    top: 4%;
     left: 10px;
     z-index: 1002;
     /* Maior que o z-index do menu */
@@ -3087,7 +3087,7 @@ a {
 }
 
 .hamburger:hover {
-    background-color: #1f628e;
+    background-color: #174d70;
     /* Cor verde mais escura ao passar o mouse */
 }
 
@@ -3184,12 +3184,14 @@ a {
 .user-profile {
     display: flex;
     align-items: center;
+    justify-content: right;
     padding: 5px;
     width: 100%;
-    gap: 2%;
+    gap: 1%;
 }
 
 .aPerifaa img {
+    top: 2%;
     width: 60px;
     /* Tamanho menor da imagem */
     height: 60px;
@@ -3200,7 +3202,8 @@ a {
 .user-info {
     display: flex;
     flex-direction: column;
-    margin-right: auto;
+    padding-right: 5%;
+   
 }
 
 .user-name {
@@ -3296,7 +3299,9 @@ a {
 .parte2 {
     display:flex;
     width: 50%;
+    padding-bottom: 0;
     padding-right: 6vh;
+    padding-top: 1vh;
 
 }
 
@@ -3395,10 +3400,11 @@ a {
     justify-content: center;
 }
 .titleAdm{
+    font-family:'Courier New', Courier, monospace;
     padding: 1%;
     display: flex;
     font-weight: 800;
-    font-size: 5vh;
+    font-size: 6vh;
     width: 100%;
     justify-content:center;
 }
@@ -3562,6 +3568,15 @@ a {
     display: flex;
     width: 90%;
 }
+.floatImageAdmin{
+    width: 20%;
+}
+.containerFloatImg{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
 
 
     

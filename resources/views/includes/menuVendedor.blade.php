@@ -254,7 +254,7 @@
     <nav id="sidebar" class="sidebar">
         <div class="logo">
             <a href="{{url('')}}" class="aPerifa">
-                <img class="img-dashboard" src="{{url('images/logo3.png')}}" alt="Logo Perifa">
+                <img class="img-dashboard" src="{{url('images/logo-branca.png')}}" alt="Logo Perifa">
             </a>
         </div>
         <ul>

@@ -3396,6 +3396,7 @@ a {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    width: 100%;
 }
 .titleAdm{
     font-family:'Courier New', Courier, monospace;
@@ -3414,6 +3415,16 @@ a {
     display:flex;
     gap: 2vh;
 }
+.titleAlvo{
+    font-weight: 600;
+    padding: 20px;
+    padding-left: 0;
+    padding-right: 5px;
+}
+.nomeConsulta{
+    font-size: 200;
+    padding-top: 2%;
+}
 .containerInfoConsulta{
     display: flex;
     flex-wrap: wrap;
@@ -3422,6 +3433,7 @@ a {
     width: fit-content;
 }
 .labelConsulta{
+    margin-top: 2%;
     border: none;
     padding: 1%;
     width: 100%;
@@ -3436,7 +3448,7 @@ a {
     color: white;
     border: none;
     padding: 2%;
-    margin-top: 2%;
+    margin-top: 4%;
     
 }
 .camposConsulta{
@@ -3444,7 +3456,11 @@ a {
     flex-direction: column;
     background-color: white;
     width: 100vh;
-    padding: 2%;
+    padding: 4%;
+ 
+}
+.formP1{
+    padding: 2vh;
 }
 
 .formParamtrs{
@@ -3596,6 +3612,12 @@ a {
     font-size: 18px;
     padding-left: 100px;
 }
+.selectAlvo{
+    padding: 1%;
+    width: 20%
+   
+}
+
 
 
 

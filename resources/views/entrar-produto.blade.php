@@ -21,7 +21,7 @@
                     <div class="select-image">
                       <img src="{{ asset($produtos->imagemProduto) }}" alt="imagem produto">
                     </div>  
-                    <div class="thumbnails">
+                     <!-- <div class="thumbnails">
                         <div  class="thumbnail">
                           <img src="{{ asset($produtos->imagemProduto) }}" alt="imagem produto">
                         </div>
@@ -34,6 +34,7 @@
                         <div  class="thumbnail">
                           <img src="{{ asset($produtos->imagemProduto) }}" alt="imagem produto">
                         </div>
+                    </div>             -->
                     </div>            
                 </div>
               </div>

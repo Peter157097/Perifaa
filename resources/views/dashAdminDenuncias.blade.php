@@ -54,7 +54,7 @@
     <!-- Conteúdo principal da página -->
     <div class="containerdashboard">
         <div class="navDash">
-            <div class="parte1">
+        <div class="parte1">
                 <div class="titulo2">
                     Dashboard
                 </div>
@@ -71,13 +71,11 @@
                         <span class="user-status">Admin</span>
                     </div>
                     <div class="icons">
-
                         <div class="input-container-mobile">
                             <input type="search" placeholder="Pesquisar" class="input-pesquisa">
                             <button class="botao-pesquisa" data-toggle="modal" data-target="#modalSair">
-                                <i class="fa-solid fa-magnifying-glass" id="pesquisa"></i>
+                                <i class="fa-solid fa-magnifying-glass" id="pesquisaAdm"></i>
                             </button>
-
                         </div>
                     </div>
                     <div class="icon notification">
@@ -86,6 +84,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
         <div class="containerFloatImg">
             <div class="floatImageAdmin">

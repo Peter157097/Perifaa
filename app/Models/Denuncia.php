@@ -28,6 +28,13 @@ class Denuncia extends Model
     {
         return $this->belongsTo(Produto::class, 'idProduto');
     }
+
+    public function vendedor()
+    {
+        return $this->belongsTo(Vendedor::class, 'idVendedor', 'idVendedor');
+    }
+
+    
 }
 
 

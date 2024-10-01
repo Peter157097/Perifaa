@@ -16,8 +16,10 @@ class Admin2 extends Model
 
     protected $fillable = [
         'idAdministrador',
+        'nomeAdministrador',
         'emailAdministrador',
         'senhaAdminstrador',
+        'imagemAdminstrador',
     ];
 }
 

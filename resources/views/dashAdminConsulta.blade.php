@@ -42,7 +42,7 @@
         <ul>
             <li><a href="/dashAdmin" class="menu-item"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
             <li><a href="/dashAdminDenuncias" class="menu-item"><i class="fas fa-box-open"></i>Denuncias</a></li>
-            <li><a href="/dashAdminConsulta" class="menu-item selected"><i class="fas fa-box-open"></i>Consultar</a>
+            <li><a href="/filtro-usuarios" class="menu-item selected"><i class="fas fa-box-open"></i>Consultar</a>
             </li>
             <li><a href="/perfil" class="menu-item"><i class="fas fa-user"></i>Perfil</a></li>
             <li><a href="#config" class="menu-item"><i class="fas fa-cog"></i>Configurações</a></li>
@@ -101,26 +101,26 @@
                 <div class="camposConsulta">
                     <div class="alvoConsultaContainer">
                     </div>
-                    <form class="formConsulta">
-
+                    <form action="{{ route('filtrar-usuarios') }}" method="POST" class="formConsulta">
+                    @csrf
                         <label class="titleAlvo " for="alvo">O que deseja consultar?</label>
-                        <select class="selectAlvo" name="alvo" id="alvo">
-                            <optgroup>
-                                <option value="cliente">Todos</option>
-                                <option value="cliente">Cliente</option>
-                                <option value="vendedor">Vendedor</option>
-                                <option value="vendedor">Administrador</option>
-                            </optgroup>
+                             <select class="selectAlvo" name="alvo" id="alvo">
+                            <option value="todos" {{ isset($tipoSelecionado) && $tipoSelecionado == 'todos' ? 'selected' : '' }}>Todos</option>
+                            <option value="cliente" {{ isset($tipoSelecionado) && $tipoSelecionado == 'cliente' ? 'selected' : '' }}>Cliente</option>
+                            <option value="vendedor" {{ isset($tipoSelecionado) && $tipoSelecionado == 'vendedor' ? 'selected' : '' }}>Vendedor</option>
+                            <option value="administrador" {{ isset($tipoSelecionado) && $tipoSelecionado == 'administrador' ? 'selected' : '' }}>Administrador</option>
                         </select>
                         <div class="testeConsulta">
                             <label class="nomeConsulta" for="nome">Nome</label>
-                            <input class="labelConsulta" type="text" id="nome" name="nome">
+                            <input type="text" name="nome" id="nome" class="form-control" value="{{ old('nome') }}" placeholder="Digite o nome do usuário">
                             <button class="btnConsultaSubmit" type="submit" value="Submit">Buscar</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
+        @if(isset($usuarios) && count($usuarios) > 0)
+        @foreach($usuarios as $usuario)
         <div class="resultConsultaContainer">
             <div class="ConsultaCardContainer">
                 <div class="cardConsulta">
@@ -130,19 +130,23 @@
                     </div>
                     <div class="infoAlvoConsulta">
                         <div class="nomeUsuarioConsulta">
-                            <h5 class="txtInfoUsuarioConsulta">Nome usuario</h5>
+                            <h5 class="txtInfoUsuarioConsulta">{{ $usuario->nome }}</h5>
                         </div>
                         <div class="emailUsuarioConsulta">
-                            <h5 class="txtInfoUsuarioConsulta">Email Usuario</h5>
+                            <h5 class="txtInfoUsuarioConsulta">{{ $usuario->email }}</h5>
                         </div>
                         <div class="roleUsuarioConsulta">
-                            <h5 class="txtInfoUsuarioConsulta">Vendedor ou Usuario</h5>
+                            <h5 class="txtInfoUsuarioConsulta">{{ ucfirst($usuario->tipo) }}</h5>
                         </div>
                         <img class="iconVisualizarConsulta" src="images/visualizarUsuario.webp">
                     </div>
                 </div>
             </div>
         </div>
+        @endforeach
+        @else
+            <p class="mt-5">Nenhum usuário encontrado para o tipo selecionado.</p>
+        @endif
     </div>
     <script>
         // Função para abrir/fechar o menu lateral

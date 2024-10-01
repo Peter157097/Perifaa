@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FavoritoController;
 use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\DenunciaController;
+use App\Http\Controllers\UserController;
 use App\Models\Produto;
 use App\Models\Cliente;
 use App\Models\Denuncia;
@@ -139,10 +140,10 @@ Route::post('/carrinho/toggle', [CarrinhoController::class, 'toggleCarrinho'])->
 
 Route::post('/cadastrarDenuncia', [DenunciaController::class, 'store'])->name('Denuncia.store');
 // Rota para Denuncia
-Route::get('/adminDenunciaProduto', function () {
-    $denuncias = Denuncia::with(['cliente','produto'])->get();
+Route::get('/dashAdminDenuncias', function () {
+    $denuncias = Denuncia::with(['cliente','produto','vendedor'])->get();
 
-    return view('adminDenunciaProduto', [
+    return view('dashAdminDenuncias', [
         'denuncias' => $denuncias,
     ]);
 });
@@ -153,9 +154,6 @@ Route::delete('/denuncia/{idDenuncia}', [DenunciaController::class, 'destroy'])-
 
 Route::get('/dashAdmin', function () {
     return view('dashAdmin');
-});
-Route::get('/dashAdminDenuncias', function () {
-    return view('dashAdminDenuncias');
 });
 Route::get('/dashAdminConsulta', function () {
     return view('dashAdminConsulta');
@@ -172,3 +170,10 @@ Route::get('/cadastrarProdutosVendedor', [DashboardController::class, 'index'])-
 Route::get('/produtos/search', [ProdutoController::class, 'search'])->name('produtos.search');
 
 Route::get('/dashboardVendedor', [VendedorController::class, 'index'])->name('dashboardVendedor');
+
+Route::get('/filtro-usuarios', function () {
+    return view('filtro-usuarios');
+})->name('filtro-usuarios');
+
+Route::post('/filtro-usuarios', [UserController::class, 'filtrarUsuarios'])->name('filtrar-usuarios');
+

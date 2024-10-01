@@ -95,9 +95,10 @@
             <p>Denuncias</p>
         </div>
         <div class="admDenunciasContainer">
+        @foreach($denuncias as $denuncia)
             <div class="itemDenuncia">
                 <div class="imgProduto">
-
+                <img src="{{$denuncia->produto->imagemProduto}}" width="160px" height="180px">
                 </div>
                 <div class="infoProdutoDenuncia">
                     <div class="infoProdutoCategoria">
@@ -106,19 +107,23 @@
                         <p class="itemCategoriaDenuncia">Motivo da denuncia</p>
                     </div>
                     <div class="infoProdutoCategoria">
-                        <p class="itemInfoDenuncia">Camisa TakeOff Collection</p>
-                        <p class="itemInfoDenuncia">R$40,00</p>
-                        <p class="itemInfoDenuncia">Vendedor me enganou, mandou uma coisa nada a ver com o combinado
-                            Vendedor me enganou, mandou uma coisa nada a ver com o combinado
-                        </p>
+                        <p class="itemInfoDenuncia">Zé da Manga</p>
+                        <p class="itemInfoDenuncia">{{$denuncia->Produto->valorProduto ?? 'Descrição Indisponível' }}</p>
+                        <p class="itemInfoDenuncia">{{ $denuncia->produto->descricaoProduto ?? 'Descrição Indisponível' }}</p>
                     </div>
                     <div class="acoesDenuncia">
                         <p class="analisarDenuncia">Analisar denuncia</p>
-                        <p class="excluirDenuncia">Excluir Anúncio</p>
+                        <form action="{{ route('denuncia.destroy', $denuncia->idDenuncia) }}" method="POST"
+                                        onsubmit="return confirm('Tem certeza que deseja excluir esta denúncia?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btaoremover">Excluir Anúncio</button>
+                                    </form>
                     </div>
                 </div>
             </div>
         </div>
+        @endforeach
 
     </div>
     </div>
@@ -157,6 +162,73 @@
             });
         });
     </script>
+    @foreach($denuncias as $denuncia)
+                    <div class="denunciasCards">
+                        <div class="denuncia">
+                            <div class="conteudoCardAdmin">
+                                <div class="tituloAdminDenunciaProduto">
+
+                                </div>
+                                <a href="#" class="linkParaOproduto">
+
+                                </a>
+                                <br>
+                                <br>
+                                <div class="tituloAdminDenunciaProduto">
+                                    Nome do Produto
+                                </div>
+                                <div class="textoAdminDenunciaProduto">
+                                    {{$denuncia->Produto->nomeProduto ?? 'Descrição Indisponível' }}
+                                </div>
+                                <div class="tituloAdminDenunciaProduto">
+                                    Descrição produto
+                                </div>
+                                <div class="textoAdminDenunciaProduto">
+                                    {{ $denuncia->produto->descricaoProduto ?? 'Descrição Indisponível' }}
+                                </div>
+                                <div class="tituloAdminDenunciaProduto">
+                                    Nome e E-mail do Cliente
+                                </div>
+                                <div class="textoAdminDenunciaProduto">
+                                    {{ $denuncia->cliente->nomeCliente ?? 'Nome Indisponível' }}
+                                </div>
+                                <div class="textoAdminDenunciaProduto">
+                                    {{ $denuncia->cliente->emailCliente ?? 'Nome Indisponível' }}
+                                </div>
+                                <br>
+                                <div class="tituloAdminDenunciaProduto">
+                                    Descrição do Problema
+                                </div>
+                                <div class="textoAdminDenunciaProduto">
+                                    {{$denuncia->descDenuncia ?? 'Descrição Indisponível' }}
+                                </div>
+                            </div>
+                            <div class="iconAdminDenuncia">
+                                <div class="parte1Icon">
+                                    <i class="fa-solid fa-box-open caixa"></i>
+                                    <h3>
+                                        id Denúncia
+                                    </h3>
+                                    <h4>
+                                        {{ $denuncia->idDenuncia ?? 'Descrição Indisponível' }}
+                                    </h4>
+                                </div>
+                                <div class="parte2icon">
+                                    <!-- clicando aq remove o produto -->
+                                    <i class="fa-solid fa-trash trash-icon"></i>
+
+                                    <!-- Botão de exclusão -->
+                                    <form action="{{ route('denuncia.destroy', $denuncia->idDenuncia) }}" method="POST"
+                                        onsubmit="return confirm('Tem certeza que deseja excluir esta denúncia?');">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btaoremover">Remover</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
 
 </body>
 

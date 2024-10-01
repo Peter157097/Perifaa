@@ -44,9 +44,7 @@ header {
 
 .header_pesquisa {
     display: flex;
-    align-items: center;
     margin-right: 20px;
-    /* Espaçamento entre campo de pesquisa e ícones */
 }
 
 
@@ -54,7 +52,6 @@ header {
     position: relative;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     background-color: #ffffff;
     width: 600px;
     padding: 5px;
@@ -70,8 +67,9 @@ header {
     /* Ajuste a largura conforme necessário */
 }
 
-.botao-pesquisa {
-    all: unset;
+#pesquisa {
+    font-size: 18px;
+    padding-left: 300px;
 }
 
 #pesquisa {

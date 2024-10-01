@@ -79,8 +79,8 @@
                         <div class="card-bottom">
                             <h4>TÊNIS NIKE AIR VAPOR MAX PLUS TRIPLE BLACK</h4>
                             <h5>R$ 110,99</h5>
-                            <p>São Paulo - SP Seminovo</p>
-                            <p></p>
+                            <p>São Paulo - SP </p>
+                            <p>Seminovo</p>
                         </div>
                         
                     </div>
@@ -93,11 +93,11 @@
                         <div class="card-top">
                                 <div class="card-nome-brecho">
                                     <i class="fa-solid fa-shop"></i>
-                                    <p>Brechó da ZL</p>
+                                    <p>Loja Brubs</p>
                                 </div>
                                 <div class="situacao"><p>Recente</p></div>
                         </div>
-                        <h4>Blusa azul vermelha</h4>
+                        <h4>Blusa rosa de frio</h4>
                         <h5>R$ 35,99</h5>
                         <p>São Paulo - SP</p>
                         <p>Novo</p>
@@ -106,7 +106,7 @@
 <!--Card 2 termina aqui-->
 <!--Card 3 começa aqui-->
 <div class="card-1">
-                    <img class="image-card" src="{{url('images/card-image-two.png')}}" alt="imagem paapa">
+                    <img class="image-card" src="{{url('images/card-image-four.png')}}" alt="imagem paapa">
                     <div class="card-body">
                         <div class="card-top">
                                 <div class="card-nome-brecho">
@@ -115,10 +115,10 @@
                                 </div>
                                 <div class="situacao"><p>Recente</p></div>
                         </div>
-                        <h4>Blusa azul vermelha</h4>
-                        <h5>R$ 35,99</h5>
+                        <h4>Conjunto Nike cinza</h4>
+                        <h5>R$ 71,99</h5>
                         <p>São Paulo - SP</p>
-                        <p>Seminovo</p>
+                        <p>Usado</p>
                     </div>
                 </div>
 <!--Card 3 termina aqui-->
@@ -133,10 +133,10 @@
                             </div>
                             <div class="situacao"><p>Recente</p></div>
                         </div>
-                        <h4>Blusa azul vermelha</h4>
-                        <h5>R$ 35,99</h5>
+                        <h4>Blusa azul clara</h4>
+                        <h5>R$ 15,50</h5>
                         <p>São Paulo - SP</p>
-                        <p>Novo</p>
+                        <p>Usado</p>
                     </div>
                 </div>
 <!--Card 4 termina aqui-->

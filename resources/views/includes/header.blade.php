@@ -262,11 +262,10 @@ $totalCarrinho -= 2;
         <div class="header_icones">
             <div class="header_pesquisa">
                 <div class="input-container">
-                    <form action="{{ route('produtos.search') }}" method="GET">
-                        <input type="text" name="query" placeholder="Pesquisar produtos..." required>
-                        <button type="submit"> <i class="fa-solid fa-magnifying-glass" id="pesquisa"></i></button>
+                    <form action="{{ route('produtos.search') }}" method="GET" class="formPesquisa">
+                        <input type="text" name="query" class="input-pesquisa" placeholder="Pesquisar produtos..." required>
+                        <button type="submit" class="botao-pesquisa"> <i class="fa-solid fa-magnifying-glass" id="pesquisa"></i></button>
                     </form>
-
                 </div>
             </div>
 

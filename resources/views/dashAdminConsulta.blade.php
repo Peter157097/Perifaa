@@ -52,7 +52,7 @@
 
     <!-- Conteúdo principal da página -->
     <div class="containerdashboard">
-    <div class="navDash">
+        <div class="navDash">
             <div class="parte1">
                 <div class="titulo2">
                     Dashboard
@@ -63,18 +63,18 @@
 
                 <div class="user-profile">
                     <a href="{{url('/dashAdmin')}}" class="aPerifaa">
-                        <img class="imgLogin" src="{{url('/images/visualizarUsuario.webp')}}">
+                        <img class="imgLogin" src="{{url('/images/user-icon.png')}}">
                     </a>
                     <div class="user-info">
-                        <span class="user-name">Administrador da Silva</span>
+                        <span class="user-name">Peter Gomes</span>
                         <span class="user-status">Admin</span>
                     </div>
                     <div class="icons">
 
                         <div class="input-container-mobile">
-                            <input type="search" placeholder="PESQUISAR" class="input-pesquisa">
+                            <input type="search" placeholder="Pesquisar" class="input-pesquisa">
                             <button class="botao-pesquisa" data-toggle="modal" data-target="#modalSair">
-                                <i class="fa-solid fa-magnifying-glass" id="pesquisa"></i>
+                                <i class="fa-solid fa-magnifying-glass" id="pesquisaAdm"></i>
                             </button>
 
                         </div>
@@ -89,24 +89,32 @@
 
         </div>
         <div class="adminContainerConsulta">
+            <div class="containerFloatImg">
+                <div class="floatImageAdmin">
+                    <img class="floatImage" src="{{url('/images/floatImageConsulta.png')}}">
+                </div>
+            </div>
             <div class="titleAdm">
-                <p>CONSULTA</p>
+                <p>Consulta</p>
             </div>
             <div class="containerInfoConsulta">
-                <div class="alvoConsultaContainer">
-                    <label class="titleAlvo " for="alvo">O que deseja consultar?</label>
-                    <select class="optConsulta" name="alvo" id="alvo">
-                        <optgroup label="Escolha">
-                            <option value="cliente">Cliente</option>
-                            <option value="vendedor">Vendedor</option>
-                        </optgroup>
-                    </select>
-                </div>
                 <div class="camposConsulta">
+                    <div class="alvoConsultaContainer">
+                    </div>
                     <form class="formConsulta">
+
+                        <label class="titleAlvo " for="alvo">O que deseja consultar?</label>
+                        <select class="selectAlvo" name="alvo" id="alvo">
+                            <optgroup>
+                                <option value="cliente">Todos</option>
+                                <option value="cliente">Cliente</option>
+                                <option value="vendedor">Vendedor</option>
+                                <option value="vendedor">Administrador</option>
+                            </optgroup>
+                        </select>
                         <div class="testeConsulta">
-                            <label for="nome">Nome</label><br>
-                            <input class="labelConsulta" type="text" id="nome" name="nome"><br>
+                            <label class="nomeConsulta" for="nome">Nome</label>
+                            <input class="labelConsulta" type="text" id="nome" name="nome">
                             <button class="btnConsultaSubmit" type="submit" value="Submit">Buscar</button>
                         </div>
                     </form>
@@ -130,7 +138,7 @@
                         <div class="roleUsuarioConsulta">
                             <h5 class="txtInfoUsuarioConsulta">Vendedor ou Usuario</h5>
                         </div>
-                        <img class="iconVisualizarConsulta"src="images/visualizarUsuario.webp">
+                        <img class="iconVisualizarConsulta" src="images/visualizarUsuario.webp">
                     </div>
                 </div>
             </div>

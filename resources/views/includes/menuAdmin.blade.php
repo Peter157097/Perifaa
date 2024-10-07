@@ -23,7 +23,7 @@
     <div class="navDash">
         <div class="parte1">
             <div class="titulo2">
-                Dashboard
+                Perifa <span class="titleNavAdmin">admin</span>
             </div>
         </div>
         <div class="parte2">
@@ -33,7 +33,6 @@
                 </a>
                 <div class="user-info">
                     <span class="user-name">Peter Gomes</span>
-                    <span class="user-status">Admin</span>
                 </div>
                 <div class="icons">
                     <div class="input-container-mobile">
@@ -43,10 +42,12 @@
                         </button>
                     </div>
                 </div>
+                <!--
                 <div class="icon notification">
                     <i class="fas fa-bell"></i>
                     <span class="badge">9+</span>
                 </div>
+                -->
             </div>
         </div>
     </div>

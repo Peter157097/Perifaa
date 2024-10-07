@@ -1,11 +1,11 @@
-
 <html>
 <style>
-
     .linkHomeCarrinho {
         position: relative;
-        z-index: 10; /* Garanta que o link esteja no topo */
+        z-index: 10;
+        /* Garanta que o link esteja no topo */
     }
+
     /* Estilo para carrinho vazio */
     .containerCarrinhoVazio {
         display: flex;
@@ -120,10 +120,14 @@
     }
 
     .imagemProduto {
-        width: 100px; /* Ajuste conforme necessário */
-    height: 100px; /* Deve ser igual à largura para manter a proporção 1:1 */
-    object-fit: cover; /* Para manter a proporção e cortar a imagem se necessário */
-    border-radius: 10px; /* Adiciona cantos arredondados */
+        width: 100px;
+        /* Ajuste conforme necessário */
+        height: 100px;
+        /* Deve ser igual à largura para manter a proporção 1:1 */
+        object-fit: cover;
+        /* Para manter a proporção e cortar a imagem se necessário */
+        border-radius: 10px;
+        /* Adiciona cantos arredondados */
     }
 
     .nomeProduto {
@@ -140,146 +144,186 @@
         width: 100%;
         background-color: #f8f8f8;
         transition: background-color 0.3s ease;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         padding: 20px;
     }
 
-/* Estilos gerais - Mantém o design no desktop */
-.cardCaPt1 {
-    display: flex;
-    justify-content: space-between;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    align-items: center;
-    padding: 10px;
-    flex-wrap: wrap; /* Permite ajuste de layout para telas menores */
-    gap: 10px; /* Adiciona espaçamento entre os elementos */
-    overflow: hidden; /* Evita que elementos saiam do card */
-    max-width: 100%; /* Garante que o card não exceda a largura disponível */
-    box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura */
-}
+    /* Estilos gerais - Mantém o design no desktop */
+    .cardCaPt1 {
+        display: flex;
+        justify-content: space-between;
+        transition: background-color 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        align-items: center;
+        padding: 10px;
+        flex-wrap: wrap;
+        /* Permite ajuste de layout para telas menores */
+        gap: 10px;
+        /* Adiciona espaçamento entre os elementos */
+        overflow: hidden;
+        /* Evita que elementos saiam do card */
+        max-width: 100%;
+        /* Garante que o card não exceda a largura disponível */
+        box-sizing: border-box;
+        /* Inclui padding e bordas no cálculo da largura */
+    }
 
-.partbrecho {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 1vh;
-}
+    .partbrecho {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 1vh;
+    }
 
-.store-icon {
-    margin-right: 8px; /* Ajusta o espaçamento ao lado do ícone */
-    color: #737373;
-    font-size: 30px;
-}
+    .store-icon {
+        margin-right: 8px;
+        /* Ajusta o espaçamento ao lado do ícone */
+        color: #737373;
+        font-size: 30px;
+    }
 
-.cardCaPt2 {
-    display: flex;
-    flex-direction: row;
-    gap: 20px; /* Espaçamento entre os itens */
-    flex-wrap: wrap; /* Permite quebra de linha para telas menores */
-    align-items: flex-start;
-    padding: 10px;
-    overflow: hidden; /* Evita overflow do conteúdo */
-    max-width: 100%; /* Garante que o card não exceda a largura disponível */
-    box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura */
-}
-
-.detalhesProduto {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5vh; /* Ajuste de espaçamento entre elementos */
-    flex: 1; /* Permite que o elemento se expanda */
-    justify-content: center;
-    align-items: flex-start;
-    min-width: 0; /* Previne overflow horizontal dos filhos */
-    box-sizing: border-box;
-}
-
-.parteDetalhesBanco {
-    display: flex;
-    flex-direction: row;
-    gap: 5px; /* Ajusta o espaçamento entre textos */
-    padding: 1vh;
-    font-size: 1.8vh; /* Ajuste no tamanho da fonte */
-    flex-wrap: wrap; /* Permite quebras de linha se necessário */
-}
-
-.titulosDetalhes {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    padding: 1vh;
-    flex-wrap: wrap; /* Permite quebras de linha se necessário */
-}
-
-.titulosDetalhes h5 {
-    font-size: 2.5vh; /* Ajuste da fonte */
-    margin: 0; /* Remove espaçamento extra */
-}
-
-/* Media Queries para responsividade - Aplica apenas para telas menores */
-@media (max-width: 768px) {
-    .cardCaPt1, .cardCaPt2 {
-        flex-direction: column; /* Muda para coluna em telas menores */
-        align-items: center; /* Centraliza os itens */
-        text-align: center; /* Centraliza o texto */
-        gap: 15px; /* Ajusta o espaçamento entre os elementos */
+    .cardCaPt2 {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        /* Espaçamento entre os itens */
+        flex-wrap: wrap;
+        /* Permite quebra de linha para telas menores */
+        align-items: flex-start;
+        padding: 10px;
+        overflow: hidden;
+        /* Evita overflow do conteúdo */
+        max-width: 100%;
+        /* Garante que o card não exceda a largura disponível */
+        box-sizing: border-box;
+        /* Inclui padding e bordas no cálculo da largura */
     }
 
     .detalhesProduto {
-        align-items: center; /* Centraliza o conteúdo */
-        width: 100%; /* Largura total para melhor ajuste */
-        margin-bottom: 15px; /* Espaçamento entre as seções */
+        display: flex;
+        flex-direction: column;
+        gap: 0.5vh;
+        /* Ajuste de espaçamento entre elementos */
+        flex: 1;
+        /* Permite que o elemento se expanda */
+        justify-content: center;
+        align-items: flex-start;
+        min-width: 0;
+        /* Previne overflow horizontal dos filhos */
         box-sizing: border-box;
     }
 
-    .titulosDetalhes,
     .parteDetalhesBanco {
-        flex-direction: column; /* Alinha em coluna em telas menores */
-        align-items: center;
-        padding: 1vh; /* Ajusta o padding para evitar excesso de espaço */
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        /* Ajusta o espaçamento entre textos */
+        padding: 1vh;
+        font-size: 1.8vh;
+        /* Ajuste no tamanho da fonte */
+        flex-wrap: wrap;
+        /* Permite quebras de linha se necessário */
     }
 
-    .titulosDetalhes h5,
-    .parteDetalhesBanco h6 {
-        font-size: 2.2vh; /* Diminui o tamanho da fonte */
-        margin: 0; /* Remove margens extras */
-    }
-
-    .imagemProdutoCarrinho {
-        width: 100px; /* Ajuste conforme necessário */
-        height: 100px; /* Deve ser igual à largura para manter a proporção 1:1 */
-        object-fit: cover; /* Para manter a proporção e cortar a imagem se necessário */
-        border-radius: 10px; /* Adiciona cantos arredondados */
-    }
-    .containerCardCarrinho{
-        width: 200%;
-        align-self: center;
-    }
-}
-
-/* Mantém o estilo original para telas grandes */
-@media (min-width: 1200px) {
-    .cardCaPt2 {
-        gap: 30px; /* Aumenta o espaço entre os itens em telas grandes */
+    .titulosDetalhes {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        padding: 1vh;
+        flex-wrap: wrap;
+        /* Permite quebras de linha se necessário */
     }
 
     .titulosDetalhes h5 {
-        font-size: 3vh; /* Ajusta o tamanho da fonte */
+        font-size: 2.5vh;
+        /* Ajuste da fonte */
+        margin: 0;
+        /* Remove espaçamento extra */
     }
 
-    .parteDetalhesBanco h6 {
-        font-size: 2vh; /* Ajuste do tamanho da fonte */
-    }
-}
+    /* Media Queries para responsividade - Aplica apenas para telas menores */
+    @media (max-width: 768px) {
 
+        .cardCaPt1,
+        .cardCaPt2 {
+            flex-direction: column;
+            /* Muda para coluna em telas menores */
+            align-items: center;
+            /* Centraliza os itens */
+            text-align: center;
+            /* Centraliza o texto */
+            gap: 15px;
+            /* Ajusta o espaçamento entre os elementos */
+        }
+
+        .detalhesProduto {
+            align-items: center;
+            /* Centraliza o conteúdo */
+            width: 100%;
+            /* Largura total para melhor ajuste */
+            margin-bottom: 15px;
+            /* Espaçamento entre as seções */
+            box-sizing: border-box;
+        }
+
+        .titulosDetalhes,
+        .parteDetalhesBanco {
+            flex-direction: column;
+            /* Alinha em coluna em telas menores */
+            align-items: center;
+            padding: 1vh;
+            /* Ajusta o padding para evitar excesso de espaço */
+        }
+
+        .titulosDetalhes h5,
+        .parteDetalhesBanco h6 {
+            font-size: 2.2vh;
+            /* Diminui o tamanho da fonte */
+            margin: 0;
+            /* Remove margens extras */
+        }
+
+        .imagemProdutoCarrinho {
+            width: 100px;
+            /* Ajuste conforme necessário */
+            height: 100px;
+            /* Deve ser igual à largura para manter a proporção 1:1 */
+            object-fit: cover;
+            /* Para manter a proporção e cortar a imagem se necessário */
+            border-radius: 10px;
+            /* Adiciona cantos arredondados */
+        }
+
+        .containerCardCarrinho {
+            width: 200%;
+            align-self: center;
+        }
+    }
+
+    /* Mantém o estilo original para telas grandes */
+    @media (min-width: 1200px) {
+        .cardCaPt2 {
+            gap: 30px;
+            /* Aumenta o espaço entre os itens em telas grandes */
+        }
+
+        .titulosDetalhes h5 {
+            font-size: 3vh;
+            /* Ajusta o tamanho da fonte */
+        }
+
+        .parteDetalhesBanco h6 {
+            font-size: 2vh;
+            /* Ajuste do tamanho da fonte */
+        }
+    }
 </style>
 </head>
 
 <body>
-@include('includes.head')
-@include('includes.header')
-@include('includes.nav')
+    @include('includes.head')
+    @include('includes.header')
+    @include('includes.nav')
 
     <div class="containerCarrinhoVazio">
         <!-- CARRINHO VAZIO -->
@@ -316,75 +360,75 @@
 
             <!-- card carrinho -->
             @foreach ($carrinho as $item)
-            <div class="containerCardCarrinho">
-                <div class="cardCaPt1">
-                    <div class="partbrecho">
-                        <i class="fa-solid fa-shop store-icon"></i>
-                        <h4>{{ $item->product->vendedor->nomeVendedor }}</h4> <!-- nome do brecho -->
-                    </div>
-                    <div class="partlixeira">
-                    <form action="{{ route('carrinho.destroy', $item->idProduto) }}" method="POST" style="display:inline;">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
-                            <i class="fa-solid fa-trash trash-icon"></i>
-                        </button>
-                    </form>
+                <div class="containerCardCarrinho">
+                    <div class="cardCaPt1">
+                        <div class="partbrecho">
+                            <i class="fa-solid fa-shop store-icon"></i>
+                            <h4>{{ $item->product->vendedor->nomeVendedor }}</h4> <!-- nome do brecho -->
+                        </div>
+                        <div class="partlixeira">
+                            <form action="{{ route('carrinho.destroy', $item->idProduto) }}" method="POST"
+                                style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
+                                    <i class="fa-solid fa-trash trash-icon"></i>
+                                </button>
+                            </form>
 
-                     
 
-                    </div>
-                </div>
-                <hr class="linha">
-                
-                <div class="cardCaPt2">
-                    <div class="parteImagemItem">
-                        <img src="{{ $item->product->imagemProduto }}" alt="Imagem do Produto"
-                            class="imagemProduto">
 
-                    </div>
-                    <div class="detalhesProduto">
-                        <div class="titulosDetalhes">
-                            <h5>Peça</h5>
-                        </div>
-                        <div class="parteDetalhesBanco">
-                            <h6>{{ $item->product->nomeProduto }}</h6>
                         </div>
                     </div>
-                    <div class="detalhesProduto">
-                        <div class="titulosDetalhes">
-                            <h5>Estado</h5>
+                    <hr class="linha">
+
+                    <div class="cardCaPt2">
+                        <div class="parteImagemItem">
+                            <img src="{{ $item->product->imagemProduto }}" alt="Imagem do Produto" class="imagemProduto">
+
                         </div>
-                        <div class="parteDetalhesBanco">
-                            <h6>Blusa Nike Dry-Fit</h6>
+                        <div class="detalhesProduto">
+                            <div class="titulosDetalhes">
+                                <h5>Peça</h5>
+                            </div>
+                            <div class="parteDetalhesBanco">
+                                <h6>{{ $item->product->nomeProduto }}</h6>
+                            </div>
+                        </div>
+                        <div class="detalhesProduto">
+                            <div class="titulosDetalhes">
+                                <h5>Estado</h5>
+                            </div>
+                            <div class="parteDetalhesBanco">
+                                <h6>Blusa Nike Dry-Fit</h6>
+                            </div>
+                        </div>
+                        <div class="detalhesProduto">
+                            <div class="titulosDetalhes">
+                                <h5>Cor</h5>
+                            </div>
+                            <div class="parteDetalhesBanco">
+                                <h6>{{ $item->product->cor->nomeCor }}</h6>
+                            </div>
+                        </div>
+                        <div class="detalhesProduto">
+                            <div class="titulosDetalhes">
+                                <h5>Tamanho</h5>
+                            </div>
+                            <div class="parteDetalhesBanco">
+                                <h6>{{ $item->product->tamanho->nomeTamanho }}</h6>
+                            </div>
+                        </div>
+                        <div class="detalhesProduto">
+                            <div class="titulosDetalhes">
+                                <h5>Valor</h5>
+                            </div>
+                            <div class="parteDetalhesBanco">
+                                <h6>{{ $item->product->valorProduto }}</h6>
+                            </div>
                         </div>
                     </div>
-                    <div class="detalhesProduto">
-                        <div class="titulosDetalhes">
-                            <h5>Cor</h5>
-                        </div>
-                        <div class="parteDetalhesBanco">
-                            <h6>{{ $item->product->cor->nomeCor }}</h6>
-                        </div>
-                    </div>
-                    <div class="detalhesProduto">
-                        <div class="titulosDetalhes">
-                            <h5>Tamanho</h5>
-                        </div>
-                        <div class="parteDetalhesBanco">
-                            <h6>{{ $item->product->tamanho->nomeTamanho }}</h6>
-                        </div>
-                    </div>
-                    <div class="detalhesProduto">
-                        <div class="titulosDetalhes">
-                            <h5>Valor</h5>
-                        </div>
-                        <div class="parteDetalhesBanco">
-                            <h6>{{ $item->product->valorProduto }}</h6>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
+            @endforeach
 
             </div>
         @endif
@@ -399,17 +443,17 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
             crossorigin="anonymous"></script>
 
-<script>
-        document.querySelectorAll('.checkbox').forEach(checkbox => {
-            checkbox.addEventListener('change', function () {
-                let total = 0;
-                document.querySelectorAll('.checkbox:checked').forEach(checked => {
-                    total += parseFloat(checked.getAttribute('data-preco'));
+        <script>
+            document.querySelectorAll('.checkbox').forEach(checkbox => {
+                checkbox.addEventListener('change', function () {
+                    let total = 0;
+                    document.querySelectorAll('.checkbox:checked').forEach(checked => {
+                        total += parseFloat(checked.getAttribute('data-preco'));
+                    });
+                    document.getElementById('totalSelecionado').textContent = total.toFixed(2);
                 });
-                document.getElementById('totalSelecionado').textContent = total.toFixed(2);
             });
-        });
-    </script>
+        </script>
 
 </body>
 

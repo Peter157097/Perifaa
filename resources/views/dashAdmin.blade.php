@@ -14,7 +14,7 @@
             display: flex;
             width: 100%;
             height: 100%;
-            background-color: #eee9e4;
+            background-color: white;
         }
     </style>
     <!-- Fonte customizada para o logo -->
@@ -24,127 +24,107 @@
 </head>
 
 <body>
-    <!-- Ícone do menu hambúrguer -->
-    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
-        &#9776;
-    </div>
+@include('includes.menuAdmin')
 
-    <!-- Menu lateral -->
-    <nav id="sidebar" class="sidebar">
-        <div class="logo">
-            <a href="{{url('')}}" class="aPerifa">
-                <img class="img-dashboard" src="{{url('images/logo-branca.png')}}" alt="Logo Perifa">
-            </a>
-        </div>
-        <ul>
-            <li><a href="/dashAdmin" class="menu-item selected"><i class="fas fa-tachometer-alt"></i>Dashboard</a></li>
-            <li><a href="/dashAdminDenuncias" class="menu-item"><i class="fas fa-box-open"></i>Denuncias</a></li>
-            <li><a href="/filtro-usuarios" class="menu-item"><i class="fas fa-box-open"></i>Consultar</a></li>
-            <li><a href="/perfil" class="menu-item"><i class="fas fa-user"></i>Perfil</a></li>
-            <li><a href="#config" class="menu-item"><i class="fas fa-cog"></i>Configurações</a></li>
-            <li><a href="#sair" class="menu-item"><i class="fas fa-sign-out-alt"></i>Sair</a></li>
-        </ul>
-    </nav>
-
-    <!-- Conteúdo principal da página -->
-    <div class="containerdashboard">
-        <div class="navDash">
-            <div class="parte1">
-                <div class="titulo2">
-                    Dashboard
-                </div>
-            </div>
-
-            <div class="parte2">
-
-                <div class="user-profile">
-                    <a href="{{url('/dashAdmin')}}" class="aPerifaa">
-                        <img class="imgLogin" src="{{url('/images/user-icon.png')}}">
-                    </a>
-                    <div class="user-info">
-                        <span class="user-name">Peter Gomes</span>
-                        <span class="user-status">Admin</span>
+        <div class="adminPanelContainer">
+            <div class="adminPanel">
+                <div class="notifAdminPanel">
+                    <div class="titleNotifPanel">
+                        Notificações | Pendências
                     </div>
-                    <div class="icons">
-                        <div class="input-container-mobile">
-                            <input type="search" placeholder="Pesquisar" class="input-pesquisa">
-                            <button class="botao-pesquisa" data-toggle="modal" data-target="#modalSair">
-                                <i class="fa-solid fa-magnifying-glass" id="pesquisaAdm"></i>
-                            </button>
+                    <div class="cardNotifAdmin">
+                        <div class="titleNotif">
+                            Sistema
+                        </div>
+                        <div class="bodyNotif">
+                            Analisar denúncias em atraso
                         </div>
                     </div>
-                    <div class="icon notification">
-                        <i class="fas fa-bell"></i>
-                        <span class="badge">9+</span>
+                    <div class="cardNotifAdmin">
+                        <div class="titleNotif">
+                            Sistema
+                        </div>
+                        <div class="bodyNotif">
+                            Revisar sugestões dos usuários
+                        </div>
+                    </div>
+                    <div class="cardNotifAdmin">
+                        <div class="titleNotif">
+                            Marina
+                        </div>
+                        <div class="bodyNotif">
+                            Olá, preciso de ajuda com um caso
+                        </div>
+                    </div>
+                </div>
+                <div class="adminGraficoContainer">
+                    <div class="cardGrafico">
+                        <div class="titleGraficoAdmin">
+                            Acessos | últimas 24 horas
+                        </div>
+                        <div class="infosGraficoAdmin">
+                            <div class="numerosGrafico">
+                                &#11165; 64.387
+                            </div>
+                            <div class="titleGraficoAdminAlt">
+                                Dia anterior
+                            </div>
+                            <div class="numerosGraficoAlt">
+                                &#11167; 59.486
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardGrafico">
+                        <div class="titleGraficoAdmin">
+                            Vendas | últimas 24 horas
+                        </div>
+                        <div class="infosGraficoAdmin">
+                            <div class="numerosGrafico">
+                                &#11165; 9.623
+                            </div>
+                            <div class="titleGraficoAdminAlt">
+                                Dia anterior
+                            </div>
+                            <div class="numerosGraficoAlt">
+                                &#11167; 9.486
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardGrafico">
+                        <div class="titleGraficoAdmin">
+                            Renda gerada | Últimas 24 horas
+                        </div>
+                        <div class="infosGraficoAdmin">
+                            <div class="numerosGrafico">
+                                &#11165; R$51.623,00
+                            </div>
+                            <div class="titleGraficoAdminAlt">
+                                Dia anterior
+                            </div>
+                            <div class="numerosGraficoAlt">
+                                &#11167; R$49.486,00
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cardGrafico">
+                        <div class="titleGraficoAdmin">
+                            Transações pela plataforma | Últimas 24 horas
+                        </div>
+                        <div class="infosGraficoAdmin">
+                            <div class="numerosGrafico">
+                                &#11165; 8.736
+                            </div>
+                            <div class="titleGraficoAdminAlt">
+                                Dia anterior
+                            </div>
+                            <div class="numerosGraficoAlt">
+                                &#11167; 7.839
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
-        <div class="floatImageAdmContainer">
-            <div class="divFloat">
-                <div class="floatImageAdm">
-                    <img class="floatImage" src="{{url('/images/adminFloatImage1.png')}}">
-                </div>
-                <h4 class="txtFloatImage">
-                    Ajude a manter uma boa comunidade, vistorie anúncios, denuncias e
-                    perfis suspeitos!
-                </h4>
-            </div>
-            <div class="divFloat">
-                <h4 class="txtFloatImage">
-                    Antes de vigiar denuncias, perfis e anúncios, saiba o que pode ferir
-                    as diretrizes da Perifa.
-                </h4>
-                <div class="floatImageAdm">
-                    <img class="floatImage" src="{{url('/images/adminFloatImage2.png')}}">
-                </div>
-            </div>
-
-        </div>
-
-
-        <!--Area do grafico-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
-        </script>
-        <div class="titleDash">
-            Gráfico de cadastros
-        </div>
-        <div class="areaGrafico">
-
-            <canvas id="myChartPie" style="width:100%;max-width:60%"></canvas>
-
-        </div>
-
-
-        <script>
-            const xValues = ["Jan.", "Fev.", "Mar.", "Abril", "Maio", "Jun.", "Jul.", "Ago.", "Set.", "Out.", "Nov.", "Dez."];
-            const yValues = [20, 25, 30, 25, 30, 35, 45, 40, 52, 30, 25, 33];
-            const barColors = "rgb(22, 84, 121)";
-
-            new Chart("myChartPie", {
-                type: "bar",
-                data: {
-                    labels: xValues,
-                    datasets: [{
-                        backgroundColor: barColors,
-                        data: yValues
-                    }]
-                },
-                options: {
-                    legend: { display: false },
-                    title: {
-                        display: true,
-                        text: "Número de usuários cadastrados"
-                    }
-                }
-            });
-
-        </script>
-        <!---->
-
-
         <div class="titleDash">
             Produtos mais denunciados
         </div>
@@ -192,7 +172,6 @@
                         </div>
                     </div>
                 </div>
-
             @endforeach
         </div>
 
@@ -231,8 +210,6 @@
             });
         });
     </script>
-
-
 </body>
 
 </html>

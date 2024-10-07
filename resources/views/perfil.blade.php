@@ -56,9 +56,9 @@
 
 
     @if(Session::has('editarCliente'))
-    <script>
-        alert("{{ Session::get('editarCliente') }}");
-    </script>
+        <script>
+            alert("{{ Session::get('editarCliente') }}");
+        </script>
     @endif
 
     <main>
@@ -76,9 +76,13 @@
                     <p style="margin:0">{{$nome}}</p>
                 </div>
                 <div class="opcoes-usuario">
-                <a href="{{ route('favorites.index') }}"><p style="margin:0; padding: 1vh">Meus favoritos &hearts;</p></a>
+                    <a href="{{ route('favorites.index') }}">
+                        <p style="margin:0; padding: 1vh">Meus favoritos &hearts;</p>
+                    </a>
 
-                    <a href="{{url('carrinho')}}"><p style="margin:0; padding: 1vh">Carrinho</p></a>
+                    <a href="{{url('carrinho')}}">
+                        <p style="margin:0; padding: 1vh">Carrinho</p>
+                    </a>
                 </div>
             </div>
             <div class="align-info">
@@ -88,7 +92,8 @@
                 </div>
 
                 <div class="info-perfil">
-                    <form action="{{ url('/perfil/update') }}" method="POST" enctype="multipart/form-data" class="form-info">
+                    <form action="{{ url('/perfil/update') }}" method="POST" enctype="multipart/form-data"
+                        class="form-info">
                         @csrf
 
                         <div class="titulo-info-font">
@@ -127,8 +132,10 @@
                                 <li class="lista-item">Estado</li>
                             </ul>
                             <ul class="lista-info">
-                                <li class="lista-item"><input type="text" name="logradouroCliente" value="{{ $logradouro }}"></li>
-                                <li class="lista-item"><input type="text" name="numCasaCliente" value="{{ $numCasaCliente }}"></li>
+                                <li class="lista-item"><input type="text" name="logradouroCliente"
+                                        value="{{ $logradouro }}"></li>
+                                <li class="lista-item"><input type="text" name="numCasaCliente"
+                                        value="{{ $numCasaCliente }}"></li>
                                 <li class="lista-item"><input type="text" name="cepCliente" value="{{ $cep }}"></li>
                                 <li class="lista-item"><input type="text" name="cidadeCliente" value="{{ $cidade }}">
                                 </li>
@@ -136,7 +143,7 @@
                                 </li>
                             </ul>
                         </div>
-                        <div class="container-submit" >
+                        <div class="container-submit">
                             <button type="submit" class="btn btn-primary" style="background-color: #5e3e24;">Salvar
                                 alterações</button>
                             <p class="excluir-txt">Excluir minha conta</p>

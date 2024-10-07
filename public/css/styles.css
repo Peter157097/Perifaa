@@ -3079,7 +3079,7 @@ a {
     background-color: #1f628e;
     color: rgb(255, 255, 255);
     position: absolute;
-    top: 4%;
+    top: 2.5%;
     left: 10px;
     z-index: 1002;
     /* Maior que o z-index do menu */
@@ -3196,9 +3196,9 @@ a {
 
 .aPerifaa img {
     top: 2%;
-    width: 60px;
+    width: 40px;
     /* Tamanho menor da imagem */
-    height: 60px;
+    height: 40px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -3714,12 +3714,12 @@ a {
     align-items: center;
 }
 .cardGrafico{
-    border-radius: 30px;
-    background-color: #062d47;
+    border-radius: 30px;    
+    background: linear-gradient(#16547e, #05273d);
     width: 45%;
     height: 45%;
     flex-wrap: wrap;
-    display: block;
+    display: flex;
     padding: 2%;
 
     
@@ -3869,6 +3869,33 @@ svg{
     display: flex;
     width: 75%;
     height: 100%;
+}
+.tempoGraficoAdmin{
+    opacity: 0.5;
+}
+.btnDetalhesGrafico{
+    align-self: center;
+    color: white;
+    background-color: black;
+    border: 1px solid white;
+    width: 70%;
+    border-radius: 30px;
+    transition: background-color 0.1s ease-in-out;
+}
+.btnDetalhesGrafico:hover{
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+   
+}
+.titleNavAdmin{
+    opacity: 0.5;
+    font-size:smaller;
+}
+.btnGraficoContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 

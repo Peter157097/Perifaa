@@ -466,14 +466,14 @@
     @include('includes.menuVendedor')
 
     @if(Session::has('cadastrarProdutosVendedor'))
-            <script>
-                alert("{{ Session::get('cadastrarProdutosVendedor') }}");
-            </script>
-        @endif
+        <script>
+            alert("{{ Session::get('cadastrarProdutosVendedor') }}");
+        </script>
+    @endif
 
 
     <form action="{{ route('produto.store') }}" method="POST" enctype="multipart/form-data">
-    @csrf
+        @csrf
         <div class="part3rs">
             <div class="card-container">
                 <div class="form-section">
@@ -487,7 +487,8 @@
                     </div>
                     <div class="form-group">
                         <label for="descricao">Descrição</label>
-                        <textarea id="descricao" name="descricaoProduto" placeholder="Peça em bom estado, nunca usada"></textarea>
+                        <textarea id="descricao" name="descricaoProduto"
+                            placeholder="Peça em bom estado, nunca usada"></textarea>
                     </div>
                 </div>
 
@@ -497,7 +498,7 @@
                         <select name="cor" id="cor">
                             <option value="" disabled selected>Selecione</option>
                             @foreach($cores as $cor)
-                            <option value="{{ $cor->idCor }}">{{ $cor->nomeCor }}</option>
+                                <option value="{{ $cor->idCor }}">{{ $cor->nomeCor }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -506,8 +507,8 @@
                         <select name="tamanho" id="tamanho">
                             <option value="" disabled selected>Selecione</option>
                             @foreach($tamanhos as $tamanho)
-                            <option value="{{ $tamanho->idTamanho }}">{{ $tamanho->nomeTamanho }}
-                            </option>
+                                <option value="{{ $tamanho->idTamanho }}">{{ $tamanho->nomeTamanho }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
@@ -516,9 +517,9 @@
                         <select name="categoria" id="categoria">
                             <option value="" disabled selected>Selecione</option>
                             @foreach($categorias as $categoria)
-                            <option value="{{ $categoria->idCategoriaProduto }}">
-                                {{ $categoria->nomeCategoriaProduto }}
-                            </option>
+                                <option value="{{ $categoria->idCategoriaProduto }}">
+                                    {{ $categoria->nomeCategoriaProduto }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
@@ -526,12 +527,12 @@
 
                 <div class="form-section">
                     <div class="form-group">
-                        <label  for="regiao">Região</label>
+                        <label for="regiao">Região</label>
                         <select name="regiao" id="regiao">
                             <option value="" disabled selected>Selecione</option>
                             @foreach($regioes as $regiao)
-                            <option value="{{ $regiao->idRegiao }}">{{ $regiao->nomeRegiao }}
-                            </option>
+                                <option value="{{ $regiao->idRegiao }}">{{ $regiao->nomeRegiao }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
@@ -540,7 +541,7 @@
                         <select name="roupa" id="roupa">
                             <option value="" disabled selected>Selecione</option>
                             @foreach($roupas as $roupa)
-                            <option value="{{ $roupa->idGenero }}">{{ $roupa->nomeGenero }}</option>
+                                <option value="{{ $roupa->idGenero }}">{{ $roupa->nomeGenero }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -549,9 +550,9 @@
                         <select name="condicao" id="condicao">
                             <option value="" disabled selected>Selecione</option>
                             @foreach($condicoes as $condicao)
-                            <option value="{{ $condicao->idCondicao }}">
-                                {{ $condicao->nomeCondicao }}
-                            </option>
+                                <option value="{{ $condicao->idCondicao }}">
+                                    {{ $condicao->nomeCondicao }}
+                                </option>
                             @endforeach
                         </select>
                     </div>
@@ -559,9 +560,10 @@
 
                 <div class="image-section">
                     <div class="image-upload">
-                    <input type="file" id="imagemProduto" name="imagemProduto" accept="image/*" onchange="handleFileInput(this, 'imagemFeedback1')">
+                        <input type="file" id="imagemProduto" name="imagemProduto" accept="image/*"
+                            onchange="handleFileInput(this, 'imagemFeedback1')">
                     </div>
-                    
+
                     <div id="imagemFeedback1" class="image-feedback">Nenhuma imagem selecionada</div>
                 </div>
             </div>
@@ -610,7 +612,7 @@
 
         // Atribuir a função de seleção aos links
         document.querySelectorAll('.menu-item').forEach(item => {
-            item.addEventListener('click', function() {
+            item.addEventListener('click', function () {
                 selectMenu(item);
             });
         });

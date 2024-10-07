@@ -240,63 +240,65 @@ header {
     display: block;
 }
 
-.drop-hover-perfil{
+.drop-hover-perfil {
     position: relative;
     list-style: none;
 }
 
-.drop-hover-perfil .drop-perfil{
+.drop-hover-perfil .drop-perfil {
     position: absolute;
     background-color: #fff;
-    width: 210px; 
+    width: 210px;
     padding: 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    border-radius: 4px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
     overflow: hidden;
-    z-index: 20; 
+    z-index: 20;
     display: none;
-    right: 0; 
+    right: 0;
     flex-direction: column;
-    transition: padding 0.3s ease; 
-    align-items:flex-start;
-   
+    transition: padding 0.3s ease;
+    align-items: flex-start;
+
 }
 
 .drop-hover-perfil .drop-perfil a i {
-    margin-right: 10px; 
-  
+    margin-right: 10px;
+
 }
-.drop-perfil i{
-    
+
+.drop-perfil i {
+
     color: #5b3a2e;
 }
 
-.drop-hover-perfil .drop-perfil a{
+.drop-hover-perfil .drop-perfil a {
     font-family: "Poppins", sans-serif;
     font-weight: 500;
     font-style: normal;
     font-size: 20px;
-    padding: 10px 20px; 
-    font-size: 14px; 
-    color: #252525; 
-    text-decoration: none; 
-    transition: background 0.3s ease; 
-    transition: opacity 0.3s ease; 
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #252525;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    transition: opacity 0.3s ease;
     display: flex;
     width: 100%;
-    box-sizing: border-box; 
+    box-sizing: border-box;
 }
 
-.drop-hover-perfil:hover .drop-perfil{
+.drop-hover-perfil:hover .drop-perfil {
     display: flex;
-    padding: 10px 0; 
+    padding: 10px 0;
 }
+
 .drop-hover-perfil:hover .drop-perfil a {
-    opacity: 1; 
+    opacity: 1;
 }
 
 .drop-hover-perfil .drop-perfil a:hover {
-    background-color: #f5f5f5; 
+    background-color: #f5f5f5;
 }
 
 
@@ -494,7 +496,7 @@ dialog {
     padding: 20px;
     max-width: 100vw;
     max-height: 90vh;
-     overflow-y: auto;
+    overflow-y: auto;
     /* Adiciona rolagem interna se necessário */
 }
 
@@ -602,7 +604,7 @@ dialog #modal-2::backdrop {
     padding: 10px 35px;
     font-size: 14px;
     cursor: pointer;
-    
+
 }
 
 .cadastrar {
@@ -754,28 +756,35 @@ dialog #modal-2::backdrop {
 }
 
 @media (min-width: 1200px) {
+
     /* Se necessário, ajuste as propriedades para telas muito grandes */
     #modal-1 {
         max-width: 450px;
     }
-    #modal-2, #modal-3 {
+
+    #modal-2,
+    #modal-3 {
         max-width: 500px;
         max-height: 800px;
 
     }
-  
+
 }
+
 /* Ajustes para telas muito grandes, se necessário */
 @media (min-width: 1400px) {
+
     /* Se necessário, ajuste as propriedades para telas muito grandes */
     #modal-1 {
         max-width: 450px;
     }
-    #modal-2, #modal-3 {
+
+    #modal-2,
+    #modal-3 {
         max-width: 600px;
         max-height: 750px;
 
-    }  
+    }
 }
 
 /* fim nav */
@@ -787,8 +796,8 @@ dialog #modal-2::backdrop {
 }
 
 .carousel-item.active:after {
-    content: none; 
-    outline: none; 
+    content: none;
+    outline: none;
 }
 
 .custom-carousel-img {
@@ -1856,6 +1865,7 @@ dialog #modal-2::backdrop {
         gap: 2vh;
         width: 100%;
     }
+
     .form-group mt-3 {
         margin-top: 0;
         gap: 2vh;
@@ -2253,7 +2263,7 @@ dialog #modal-2::backdrop {
     font-size: 2vh;
 }
 
-.precoFiltro{
+.precoFiltro {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2276,10 +2286,12 @@ dialog #modal-2::backdrop {
     overflow-y: hidden;
 
 }
-.accordion-body{
+
+.accordion-body {
     display: flex;
 }
-.accordion-filtro{
+
+.accordion-filtro {
     display: block;
     overflow: hidden;
 }
@@ -2305,7 +2317,7 @@ dialog #modal-2::backdrop {
     transition: max-height 0.2s ease-out;
     border-left: 1px solid #898181;
     border-right: 1px solid #898181;
-    
+
 }
 
 .accordion:after {
@@ -2315,7 +2327,7 @@ dialog #modal-2::backdrop {
     color: #777;
     float: right;
     margin-left: 5px;
-    
+
 }
 
 .active:after {
@@ -2325,40 +2337,42 @@ dialog #modal-2::backdrop {
 }
 
 .accordion-filtro {
- 
+
     margin-top: 6vh;
     margin-left: 8vh;
     width: 80%;
 
 }
-.panelContainer{
+
+.panelContainer {
     display: flex;
     flex-direction: column;
     padding: 10px;
 }
 
-.tamanhos-buttons{
+.tamanhos-buttons {
     display: flex;
     flex-direction: column;
 }
 
-.checkbox-buttons{
+.checkbox-buttons {
     width: 20px;
     height: 20px;
     border: 1px solid #898181;
-    outline: none; /* Remove o outline padrão */
+    outline: none;
+    /* Remove o outline padrão */
 }
 
-.checkbox-buttons:focus{
+.checkbox-buttons:focus {
     outline: none;
     box-shadow: none;
 }
 
 
-.condicoes-buttons{
+.condicoes-buttons {
     display: flex;
     flex-direction: column;
-    
+
 }
 
 
@@ -2382,7 +2396,7 @@ dialog #modal-2::backdrop {
     display: flex;
     gap: 20vh;
     margin-bottom: 20vh;
-   
+
 }
 
 .image-display {
@@ -2457,8 +2471,8 @@ dialog #modal-2::backdrop {
     flex-direction: row
 }
 
-.precoFiltroTudo{
-   padding-bottom: 10px;
+.precoFiltroTudo {
+    padding-bottom: 10px;
 }
 
 .preco-filtro {
@@ -2474,16 +2488,16 @@ dialog #modal-2::backdrop {
     flex-direction: column;
 }
 
-.parte-botaoPreco{
+.parte-botaoPreco {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
- #botaoPreco{
+#botaoPreco {
     padding: 2px;
     width: 110px;
-    height: 50; 
+    height: 50;
     border-radius: 16px;
 }
 
@@ -2610,6 +2624,7 @@ dialog #modal-2::backdrop {
 
     }
 }
+
 @media (max-width:450px) {
     .container-cards {
         display: flex;
@@ -2696,21 +2711,22 @@ dialog #modal-2::backdrop {
     }
 
 }
+
 @media (max-width:375px) {
-    .card-produto{
-     
-    }
-    .card-body{
+    .card-produto {}
+
+    .card-body {
         width: 100%;
-        gap:0
+        gap: 0
     }
+
     .container-cards {
         display: flex;
         gap: 1vh;
         margin-top: 0;
         flex-wrap: wrap;
-        justify-content:center;
-        
+        justify-content: center;
+
     }
 
     .produtos-body {
@@ -2791,53 +2807,54 @@ dialog #modal-2::backdrop {
 
 }
 
-.container-entrar-produto{
+.container-entrar-produto {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 75vh;
-   gap: 100px;
+    gap: 100px;
 }
 
-.container-entrar-produto .esquerdo{
+.container-entrar-produto .esquerdo {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.itens{
-   align-self: flex-end;
+.itens {
+    align-self: flex-end;
 
 }
 
-.select-image{
+.select-image {
     max-width: 400px;
 }
 
-.select-image img{
+.select-image img {
     width: 100%;
 }
 
-.thumbnails{
+.thumbnails {
     display: flex;
     max-width: 400px;
     justify-content: space-evenly;
     gap: 7px;
 }
 
-.thumbnail img{
+.thumbnail img {
     width: 100%;
 
 }
 
-.direito{
+.direito {
     width: 100%;
-   display: flex;
-   flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
-.direito h6, a{
+.direito h6,
+a {
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-style: normal;
@@ -2845,50 +2862,50 @@ dialog #modal-2::backdrop {
 }
 
 
-.direito .parte1{
+.direito .parte1 {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 15px;
 }
 
-.direito .parte1 h2{
+.direito .parte1 h2 {
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-style: normal;
 }
 
-.direito p{
+.direito p {
     color: #3f3f39;
     font-size: 16px;
     max-width: 500px;
 }
 
-.conteudo-entrada-produto{
+.conteudo-entrada-produto {
     max-width: 400px;
     display: flex;
     flex-direction: column;
 }
 
-.price{
+.price {
     font-size: 16px;
     font-weight: 700;
 
 }
 
-.off{
+.off {
     font-size: 16px;
     font-weight: 500;
     color: #5e3e24;
 }
 
-.botaos-entrar{
+.botaos-entrar {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-.parte2{
+.parte2 {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -2898,24 +2915,25 @@ dialog #modal-2::backdrop {
 .adicionar-carrinho-entrada-produto {
     background-color: #fff;
     padding: 7px 5px;
-    border: solid  #5e3e24;
+    border: solid #5e3e24;
     color: #5e3e24;
     border-radius: 5px;
 }
 
-.adicionar-carrinho-entrada-produto:focus{
+.adicionar-carrinho-entrada-produto:focus {
     outline: 1px solid #5e3e24;
 }
 
 
-.comprar-agora{
+.comprar-agora {
     background-color: #5e3e24;
     padding: 10px 15px;
     border: none;
     color: #fff;
     border-radius: 5px;
 }
-.comprar-agora:focus{
+
+.comprar-agora:focus {
     outline: 1px solid #5e3e24;
 }
 
@@ -2927,39 +2945,40 @@ dialog #modal-2::backdrop {
 }
 
 .modal-backdrop {
-    background-color: rgba(0, 0, 0, 0.2) !important; 
+    background-color: rgba(0, 0, 0, 0.2) !important;
 }
 
 .modal.show .modal-dialog {
-    transform: none; /* Remove o efeito de escala */
+    transform: none;
+    /* Remove o efeito de escala */
 }
 
-.modal-dialog ul{
+.modal-dialog ul {
     list-style: none;
 }
 
-.modal-dialog ul li a{
+.modal-dialog ul li a {
     color: #252525;
 }
 
-.modal-dialog ul li a:hover{
+.modal-dialog ul li a:hover {
     color: #5e3e24;
     text-decoration: none;
 }
 
-.modal-footer button{
+.modal-footer button {
     background-color: #5e3e24;
     border: none;
     cursor: pointer;
 }
 
-.modal-footer button:hover{
+.modal-footer button:hover {
     background-color: #5e3e24;
     border: none;
     cursor: pointer;
 }
 
-#link-perfil{
+#link-perfil {
     text-align: center;
     display: flex;
     align-items: center;
@@ -2970,52 +2989,71 @@ dialog #modal-2::backdrop {
     display: flex;
     list-style-type: none;
     padding: 0;
-    margin: 20px auto; /* Centraliza a lista horizontalmente com margem automática */
-    justify-content: center; /* Centraliza os itens na horizontal */
-    max-width: 600px; /* Opcional: limita a largura da paginação */
+    margin: 20px auto;
+    /* Centraliza a lista horizontalmente com margem automática */
+    justify-content: center;
+    /* Centraliza os itens na horizontal */
+    max-width: 600px;
+    /* Opcional: limita a largura da paginação */
 }
 
 .pagination .page-item {
-    margin: 0 5px; /* Espaçamento entre os itens */
+    margin: 0 5px;
+    /* Espaçamento entre os itens */
 }
 
 .pagination .page-link {
     display: block;
     padding: 10px 15px;
-    width: 50px; /* Define uma largura fixa para todos os botões */
-    text-align: center; /* Centraliza o texto dentro do botão */
-    color: #fff; /* Cor do texto */
+    width: 50px;
+    /* Define uma largura fixa para todos os botões */
+    text-align: center;
+    /* Centraliza o texto dentro do botão */
+    color: #fff;
+    /* Cor do texto */
     text-decoration: none;
-    border: 1px solid #5e3e24; /* Cor da borda */
+    border: 1px solid #5e3e24;
+    /* Cor da borda */
     border-radius: 5px;
-    background-color: #5e3e24; /* Cor de fundo */
+    background-color: #5e3e24;
+    /* Cor de fundo */
     transition: background-color 0.3s, color 0.3s;
 }
 
 
 .pagination .page-link:hover {
-    background-color: #4a3a1e; /* Cor de fundo ao passar o mouse */
-    color: #fff; /* Cor do texto ao passar o mouse */
+    background-color: #4a3a1e;
+    /* Cor de fundo ao passar o mouse */
+    color: #fff;
+    /* Cor do texto ao passar o mouse */
 }
 
 .pagination .page-item.active .page-link {
-    background-color: #4a3a1e; /* Cor de fundo da página ativa */
-    border: 1px solid #4a3a1e; /* Cor da borda da página ativa */
+    background-color: #4a3a1e;
+    /* Cor de fundo da página ativa */
+    border: 1px solid #4a3a1e;
+    /* Cor da borda da página ativa */
 }
 
 .pagination .page-item.disabled .page-link {
-    color: #d6cfc6; /* Cor do texto desativado */
-    background-color: #5e3e24; /* Cor de fundo desativado */
-    border: 1px solid #5e3e24; /* Cor da borda desativada */
-    cursor: not-allowed; /* Desabilita o cursor */
+    color: #d6cfc6;
+    /* Cor do texto desativado */
+    background-color: #5e3e24;
+    /* Cor de fundo desativado */
+    border: 1px solid #5e3e24;
+    /* Cor da borda desativada */
+    cursor: not-allowed;
+    /* Desabilita o cursor */
 }
 
 /* Adicional para garantir a centralização vertical se necessário */
 .pagination-container {
     text-align: center;
-    margin: 20px 0; /* Margem superior e inferior */
+    margin: 20px 0;
+    /* Margem superior e inferior */
 }
-.quebra-pagina{
+
+.quebra-pagina {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3023,15 +3061,17 @@ dialog #modal-2::backdrop {
 
 .pagination .page-item.active:after {
     content: none;
-    outline: none; 
+    outline: none;
 }
+
 /*style dos favoritos*/
-.container-title-fav{
+.container-title-fav {
     text-align: center;
     width: 100%;
     padding: 1%;
     padding-top: 3%;
 }
+
 .container-cards-favorite {
     display: flex;
     gap: 1vh;
@@ -3042,13 +3082,15 @@ dialog #modal-2::backdrop {
     justify-content: center;
 
 }
-.remove-fav-btn{
+
+.remove-fav-btn {
     color: rgb(172, 15, 15);
     background-color: transparent;
     border: none;
 
 }
-.container-fav-vazio{
+
+.container-fav-vazio {
     width: 100%;
     padding: 4%;
     padding-left: 5%;
@@ -3057,13 +3099,14 @@ dialog #modal-2::backdrop {
 
 a {
     text-decoration: none;
-    color: #242424; 
-  }
-  
-  a:hover {
+    color: #242424;
+}
+
+a:hover {
     text-decoration: none;
-    color: #000000; 
-  }
+    color: #000000;
+}
+
 /*style dash admin*/
 
 .content {
@@ -3207,7 +3250,7 @@ a {
     display: flex;
     flex-direction: column;
     padding-right: 5%;
-   
+
 }
 
 .user-name {
@@ -3301,7 +3344,7 @@ a {
 }
 
 .parte2 {
-    display:flex;
+    display: flex;
     width: 70%;
     padding-bottom: 0;
     padding-right: 6vh;
@@ -3311,14 +3354,15 @@ a {
 
 
 /*Style denuncias*/
-.admDenunciasContainer{
+.admDenunciasContainer {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     padding: 4%;
     gap: 3vh;
 }
-.itemDenuncia{
+
+.itemDenuncia {
     border-radius: 30px;
     display: flex;
     padding: 0.5%;
@@ -3326,13 +3370,15 @@ a {
     width: 100%;
     height: 25vh;
 }
-.imgProduto{
+
+.imgProduto {
     border-radius: 30px;
     background-color: #555555;
     width: 12%;
     height: 100%;
 }
-.infoProdutoDenuncia{
+
+.infoProdutoDenuncia {
     flex-wrap: wrap;
     width: 80%;
     padding: 0.5%;
@@ -3340,25 +3386,29 @@ a {
     border-radius: 30px;
 
 }
-.infoProdutoCategoria{
+
+.infoProdutoCategoria {
     width: 50%;
     display: flex;
     gap: 10%;
     height: fit-content;
 }
-.infoProdutoCategoria{
+
+.infoProdutoCategoria {
     width: 100%;
     display: flex;
     gap: 5%;
     height: 40%;
 }
-.itemCategoriaDenuncia{
+
+.itemCategoriaDenuncia {
     margin: 0;
     width: 100%;
     font-weight: 700;
     font-size: 90%;
 }
-.itemInfoDenuncia{
+
+.itemInfoDenuncia {
     font-size: 80%;
     margin: 0%;
     overflow: hidden;
@@ -3366,7 +3416,8 @@ a {
     white-space: nowrap;
     width: 30%;
 }
-.titleDash{
+
+.titleDash {
     font-weight: 700;
     font-size: 5vh;
     width: 100%;
@@ -3374,79 +3425,91 @@ a {
     padding-left: 4%;
     text-align: left;
 }
+
 .acoesDenuncia {
     justify-content: center;
-    
+
     display: flex;
     gap: 7vh;
 }
-.excluirDenuncia{
+
+.excluirDenuncia {
     margin: 0;
     color: rgb(187, 0, 0);
     transition: background-color 0.3s ease;
 
 }
-.excluirDenuncia:hover{
+
+.excluirDenuncia:hover {
     color: rgb(255, 255, 255);
     background-color: rgb(100, 0, 0);
     transition: background-color 0.6s ease;
 }
-.analisarDenuncia{
+
+.analisarDenuncia {
     margin: 0;
     color: rgb(0, 0, 0);
     transition: background-color 0.3s ease;
 
 }
-.analisarDenuncia:hover{
+
+.analisarDenuncia:hover {
     color: rgb(255, 255, 255);
     background-color: rgb(5, 86, 117);
     transition: background-color 0.6s ease;
 }
 
-.adminContainerConsulta{
+.adminContainerConsulta {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
 }
-.titleAdm{
-    
+
+.titleAdm {
+
     padding: 1%;
     display: flex;
     font-weight: 500;
     font-size: 4vh;
     width: 100%;
-    justify-content:center;
+    justify-content: center;
 }
-.alvoConsultaContainer{
+
+.alvoConsultaContainer {
     width: 100%;
     display: flex;
     justify-content: center;
 }
-.alvoConsulta{
+
+.alvoConsulta {
     flex-wrap: wrap;
     width: 100%;
     justify-content: center;
-    display:block;
+    display: block;
 }
-.titleAlvo{
+
+.titleAlvo {
     font-weight: 600;
     padding: 20px;
     padding-left: 0;
     padding-right: 5px;
 }
-.nomeConsulta{
+
+.nomeConsulta {
     font-size: 200;
     padding-top: 2%;
 }
-.containerInfoConsulta{
+
+.containerInfoConsulta {
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
-   
+
     width: fit-content;
 }
-.labelConsulta{
+
+.labelConsulta {
     margin-top: 2%;
     border: none;
     padding: 1%;
@@ -3454,41 +3517,46 @@ a {
     font-size: 3vh;
     background-color: rgb(218, 218, 218);
 }
-.labelConsulta:hover{
+
+.labelConsulta:hover {
     background-color: rgb(196, 196, 196);
 }
-.btnConsultaSubmit{
+
+.btnConsultaSubmit {
     background-color: #5882d6;
     color: white;
     border: none;
     padding: 2%;
     margin-top: 4%;
-    
+
 }
-.camposConsulta{
+
+.camposConsulta {
     display: flex;
     flex-direction: column;
     background-color: rgb(230, 230, 230);
     width: 100%;
     padding: 4%;
- 
+
 }
-.formP1{
+
+.formP1 {
     padding: 2vh;
 }
 
-.formParamtrs{
+.formParamtrs {
     width: 100%;
     display: block;
 }
 
-.resultConsultaContainer{
+.resultConsultaContainer {
     display: flex;
     flex-wrap: wrap;
     padding: 4%;
     padding-top: 2%;
 }
-.ConsultaCardContainer{
+
+.ConsultaCardContainer {
     border-top: solid;
     border-width: 1px;
     border-color: #a5a5a5;
@@ -3496,19 +3564,22 @@ a {
     display: block;
     flex-wrap: wrap;
 }
-.cardConsulta{
+
+.cardConsulta {
     display: flex;
     background-color: rgb(224, 224, 224);
     width: 100%;
     height: 10vh;
 }
-.pfpConsultaContainer{
+
+.pfpConsultaContainer {
     width: 22.4%;
     padding: 1%;
     background-color: rgb(255, 255, 255);
     height: 100%;
 }
-.pfpConsulta{
+
+.pfpConsulta {
     background-color: rgb(66, 66, 66);
     width: 100%;
     height: 100%;
@@ -3517,55 +3588,63 @@ a {
     border-width: 0.1px;
     border-style: solid;
 }
-.infoAlvoConsulta{
+
+.infoAlvoConsulta {
     padding: 1%;
     display: flex;
     width: 70%;
     justify-content: space-between;
-    
+
 }
-.nomeUsuarioConsulta{
+
+.nomeUsuarioConsulta {
     width: 30%;
     align-self: center;
 }
-.emailUsuarioConsulta{
+
+.emailUsuarioConsulta {
     width: 30%;
     align-self: center;
 }
-.roleUsuarioConsulta{
+
+.roleUsuarioConsulta {
     width: 30%;
     align-self: center;
 }
-.txtInfoUsuarioConsulta{
-    
+
+.txtInfoUsuarioConsulta {
+
     font-size: 2vh;
     margin: 0;
 }
-.txtInfoAlvoConsulta{
+
+.txtInfoAlvoConsulta {
     width: 200px;
     font-size: 2vh;
     margin: 0;
 }
 
-.optConsulta{
-   width: 20vh;
-   padding: 0.5%;
-   border: none;
-    
-  
+.optConsulta {
+    width: 20vh;
+    padding: 0.5%;
+    border: none;
+
+
 }
-.optConsulta:focus{
+
+.optConsulta:focus {
     border: none;
     width: 20vh;
 
-   
- }
 
-.formConsulta{
+}
+
+.formConsulta {
 
     width: 100%;
 }
-.testeConsulta{
+
+.testeConsulta {
     width: 100%;
     flex-wrap: wrap;
     display: flex;
@@ -3575,18 +3654,19 @@ a {
 
 
 
-.iconVisualizarConsulta:hover{
+.iconVisualizarConsulta:hover {
     scale: 1.2;
 }
 
-.floatImageAdmContainer{
+.floatImageAdmContainer {
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     padding: 5%;
 }
-.floatImageAdm{
+
+.floatImageAdm {
     flex-wrap: wrap;
     justify-content: center;
     display: flex;
@@ -3595,91 +3675,103 @@ a {
 
 
 }
-.floatImage{
+
+.floatImage {
     padding: 10%;
     width: 100%;
 }
-.txtFloatImage{
-    font-family:'Courier New', Courier, monospace;
+
+.txtFloatImage {
+    font-family: 'Courier New', Courier, monospace;
     font-weight: 900;
     font-size: 4vh;
     display: flex;
     align-items: center;
     width: 50%;
-    
+
 }
-.divFloat{
+
+.divFloat {
     justify-content: center;
     flex-wrap: wrap;
     display: flex;
     padding-left: 4%;
     padding-right: 4%;
 }
-.displayGraficos{
+
+.displayGraficos {
     display: flex;
     width: 90%;
 }
-.floatImageAdmin{
+
+.floatImageAdmin {
     width: 60%;
 }
-.containerFloatImg{
+
+.containerFloatImg {
     display: flex;
     justify-content: center;
     width: 100%;
 }
+
 #pesquisaAdm {
     font-size: 18px;
     padding-left: 100px;
 }
-.selectAlvo{
+
+.selectAlvo {
     padding: 1%;
     width: 20%
-   
 }
 
 .carrinhoEntrar {
-    position: relative; 
+    position: relative;
 }
 
 .qtdCarrinho {
     position: absolute;
-    top: -5px; 
-    right: -10px; 
+    top: -5px;
+    right: -10px;
     font-size: 10px;
     color: red;
     background-color: white;
     border-radius: 50%;
-    padding: 2px 4px; 
-    display: flex; 
+    padding: 2px 4px;
+    display: flex;
     align-items: center;
-    justify-content: center; 
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); 
+    justify-content: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
-.pfpConsulta{
+
+.pfpConsulta {
     display: flex;
     height: inherit;
     width: inherit;
 }
-.imgProdutoDenuncia{
+
+.imgProdutoDenuncia {
     width: 100%;
     height: inherit;
     border-radius: 30px;
 }
-.adminPanelContainer{
+
+.adminPanelContainer {
     display: flex;
     padding: 4%;
     width: 100%;
     height: inherit;
-  
+
 }
-.adminPanel{
+
+.adminPanel {
     display: flex;
     border-radius: 30px;
     width: 100%;
     height: 100%;
     background-color: rgb(206, 205, 205);
 }
-.notifAdminPanel{
+
+.notifAdminPanel {
     display: block;
     flex-wrap: wrap;
     border-top-left-radius: 30px;
@@ -3690,7 +3782,8 @@ a {
     background-color: rgb(221, 221, 221);
     overflow: hidden;
 }
-.titleNotifPanel{
+
+.titleNotifPanel {
     padding: 2%;
     display: flex;
     width: 100%;
@@ -3700,7 +3793,7 @@ a {
     font-weight: 600;
 }
 
-.adminGraficoContainer{
+.adminGraficoContainer {
     padding: 2%;
     display: flex;
     flex-wrap: wrap;
@@ -3713,8 +3806,9 @@ a {
     justify-content: center;
     align-items: center;
 }
-.cardGrafico{
-    border-radius: 30px;    
+
+.cardGrafico {
+    border-radius: 30px;
     background: linear-gradient(#16547e, #05273d);
     width: 45%;
     height: 45%;
@@ -3722,37 +3816,43 @@ a {
     display: flex;
     padding: 2%;
 
-    
+
 }
-.cardNotifAdmin{
+
+.cardNotifAdmin {
     padding: 4%;
     border-top: 1px solid rgb(190, 190, 190);
     width: 100%;
     height: 15%;
     background-color: rgb(240, 240, 240);
 }
-#piechart{
+
+#piechart {
     background-color: none;
     display: flex;
     width: 100%;
     height: 100%;
 
-    
+
 }
-svg{
+
+svg {
     display: flex;
     width: 100%;
     height: 100%;
 }
-.bodyNotif{
-    
+
+.bodyNotif {
+
     font-size: 80%;
 }
-.titleNotif{
+
+.titleNotif {
     font-weight: 600;
     font-size: 100%;
 }
-.titleGraficoAdmin{
+
+.titleGraficoAdmin {
     color: white;
     display: flex;
     width: 100%;
@@ -3760,9 +3860,10 @@ svg{
     font-weight: 500;
     justify-content: left;
     align-items: center;
- 
+
 }
-.numerosGrafico{
+
+.numerosGrafico {
     color: rgb(66, 212, 66);
     font-size: 5vh;
     justify-content: left;
@@ -3770,7 +3871,8 @@ svg{
     width: 100%;
     height: 25%;
 }
-.infosGraficoAdmin{
+
+.infosGraficoAdmin {
     align-items: center;
     width: 100%;
     height: 80%;
@@ -3778,12 +3880,14 @@ svg{
     display: flex;
 
 }
-.titleGraficoAdminAlt{
+
+.titleGraficoAdminAlt {
     color: white;
     font-weight: 400;
     font-size: 2vh;
 }
-.numerosGraficoAlt{
+
+.numerosGraficoAlt {
     font-size: 3vh;
     color: rgb(255, 44, 44);
     justify-content: left;
@@ -3791,7 +3895,8 @@ svg{
     width: 100%;
     height: 25%;
 }
-.filtroAdminPanel{
+
+.filtroAdminPanel {
     display: block;
     flex-wrap: wrap;
     border-top-left-radius: 30px;
@@ -3799,81 +3904,93 @@ svg{
     border-right: 1px solid rgb(192, 192, 192);
     width: 25%;
     height: 100%;
-    background-color: rgb(221, 221, 221);   
+    background-color: rgb(221, 221, 221);
     padding: 2%;
     align-items: center;
 }
-.resultBuscaContainer{
+
+.resultBuscaContainer {
     border-top-right-radius: 30px;
     border-bottom-right-radius: 30px;
     width: 75%;
     height: 100%;
     background-color: rgb(221, 221, 221);
     overflow-y: auto;
-    scrollbar-width: thin; /* Define a largura da barra (auto, thin, none) */
-    scrollbar-color: #696969 #ffffff; /* Cor do polegar e da trilha */
+    scrollbar-width: thin;
+    /* Define a largura da barra (auto, thin, none) */
+    scrollbar-color: #696969 #ffffff;
+    /* Cor do polegar e da trilha */
     scroll-behavior: smooth;
-    
+
 }
 
-.cardConsulta{
+.cardConsulta {
     border-top: 1px solid rgb(219, 219, 219);
     display: flex;
     background-color: rgb(241, 241, 241);
     width: 100%;
     height: 11%;
 }
-.infoLabelConsulta{
+
+.infoLabelConsulta {
 
     background-color: rgb(221, 221, 221);
-    width:93%;
+    width: 93%;
     float: right;
     display: flex;
     height: 5%;
     justify-content: space-around;
 }
-.infoConsulta{
+
+.infoConsulta {
     align-items: center;
     float: right;
-    width:100%;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     font-size: 2vh;
 }
-.pfpBuscaContainer{
+
+.pfpBuscaContainer {
     width: 7%;
     padding: 1%;
     height: 100%;
 }
-.pfpBusca{  
+
+.pfpBusca {
     width: 100%;
     height: 100%;
     background-color: green;
     border-radius: 100%;
- 
+
 }
-.itemInfoConsulta{
+
+.itemInfoConsulta {
     margin: 0;
     align-items: center;
     display: flex;
     justify-content: left;
     width: 30%;
 }
-.labelInfoConsulta{
+
+.labelInfoConsulta {
     justify-content: space-around;
     width: 30%;
 }
-.consultaAviso{
+
+.consultaAviso {
     justify-content: center;
     align-items: center;
     display: flex;
     width: 75%;
     height: 100%;
 }
-.tempoGraficoAdmin{
+
+.tempoGraficoAdmin {
     opacity: 0.5;
 }
-.btnDetalhesGrafico{
+
+.btnDetalhesGrafico {
     align-self: center;
     color: white;
     background-color: black;
@@ -3882,27 +3999,21 @@ svg{
     border-radius: 30px;
     transition: background-color 0.1s ease-in-out;
 }
-.btnDetalhesGrafico:hover{
+
+.btnDetalhesGrafico:hover {
     color: black;
     background-color: white;
     border: 1px solid black;
-   
+
 }
-.titleNavAdmin{
+
+.titleNavAdmin {
     opacity: 0.5;
-    font-size:smaller;
+    font-size: smaller;
 }
-.btnGraficoContainer{
+
+.btnGraficoContainer {
     width: 100%;
     display: flex;
     justify-content: center;
 }
-
-
-
-
-
-    
-
-
-

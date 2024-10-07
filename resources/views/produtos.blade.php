@@ -123,48 +123,52 @@
             </div>
             <div class="filtros-aplicados">
                 @if($request->filled('preco_ate'))
-                <button type="button" class="btn btn-filter" onclick="removeFilter('preco_ate')">
-                    Preço até R$ {{ $request->input('preco_ate') }}
-                    <span class="remove-filter">&times;</span>
-                </button>
+                    <button type="button" class="btn btn-filter" onclick="removeFilter('preco_ate')">
+                        Preço até R$ {{ $request->input('preco_ate') }}
+                        <span class="remove-filter">&times;</span>
+                    </button>
                 @endif
                 @if($request->filled('tamanho'))
-                @foreach($tamanhos->whereIn('idTamanho', $request->input('tamanho')) as $tamanho)
-                <button type="button" class="btn btn-filter" onclick="removeFilter('tamanho[]', '{{ $tamanho->idTamanho }}')">
-                    Tamanho: {{ $tamanho->nomeTamanho }}
-                    <span class="remove-filter">&times;</span>
-                </button>
-                @endforeach
+                    @foreach($tamanhos->whereIn('idTamanho', $request->input('tamanho')) as $tamanho)
+                        <button type="button" class="btn btn-filter"
+                            onclick="removeFilter('tamanho[]', '{{ $tamanho->idTamanho }}')">
+                            Tamanho: {{ $tamanho->nomeTamanho }}
+                            <span class="remove-filter">&times;</span>
+                        </button>
+                    @endforeach
                 @endif
                 @if($request->filled('condicoes'))
-                @foreach($condicoes->whereIn('idCondicao', $request->input('condicoes')) as $condicao)
-                <button type="button" class="btn btn-filter" onclick="removeFilter('condicoes[]', '{{ $condicao->idCondicao }}')">
-                    Condição: {{ $condicao->nomeCondicao }}
-                    <span class="remove-filter">&times;</span>
-                </button>
-                @endforeach
+                    @foreach($condicoes->whereIn('idCondicao', $request->input('condicoes')) as $condicao)
+                        <button type="button" class="btn btn-filter"
+                            onclick="removeFilter('condicoes[]', '{{ $condicao->idCondicao }}')">
+                            Condição: {{ $condicao->nomeCondicao }}
+                            <span class="remove-filter">&times;</span>
+                        </button>
+                    @endforeach
                 @endif
                 @if($request->filled('cores'))
-                @foreach($cores->whereIn('idCor', $request->input('cores')) as $cor)
-                <button type="button" class="btn btn-filter" onclick="removeFilter('cores[]', '{{ $cor->idCor }}')">
-                    Cor: {{ $cor->nomeCor }}
-                    <span class="remove-filter">&times;</span>
-                </button>
-                @endforeach
-                @foreach($categorias->whereIn('idCategoriaProduto', $request->input('categorias')) as $categoria)
-                <button type="button" class="btn btn-filter" onclick="removeFilter('categorias[]', '{{ $categoria->idCategoriaProduto }}')">
-                    Categoria: {{ $categoria->nomeCategoriaProduto }}
-                    <span class="remove-filter">&times;</span>
-                </button>
-                @endforeach
+                    @foreach($cores->whereIn('idCor', $request->input('cores')) as $cor)
+                        <button type="button" class="btn btn-filter" onclick="removeFilter('cores[]', '{{ $cor->idCor }}')">
+                            Cor: {{ $cor->nomeCor }}
+                            <span class="remove-filter">&times;</span>
+                        </button>
+                    @endforeach
+                    @foreach($categorias->whereIn('idCategoriaProduto', $request->input('categorias')) as $categoria)
+                        <button type="button" class="btn btn-filter"
+                            onclick="removeFilter('categorias[]', '{{ $categoria->idCategoriaProduto }}')">
+                            Categoria: {{ $categoria->nomeCategoriaProduto }}
+                            <span class="remove-filter">&times;</span>
+                        </button>
+                    @endforeach
                 @endif
                 @if($request->filled('regioes'))
-                @foreach($regioes->whereIn('idRegiao', $request->input('regioes')) as $regiao)
-                <button type="button" class="btn btn-filter" onclick="removeFilter('regioes[]', '{{ $regiao->idRegiao }}')">
-                    Região: {{ $regiao->nomeRegiao }}
-                    <span class="remove-filter">&times;</span>
-                </button>
-                @endforeach
+                    @foreach($regioes->whereIn('idRegiao', $request->input('regioes')) as $regiao)
+                        <button type="button" class="btn btn-filter"
+                            onclick="removeFilter('regioes[]', '{{ $regiao->idRegiao }}')">
+                            Região: {{ $regiao->nomeRegiao }}
+                            <span class="remove-filter">&times;</span>
+                        </button>
+                    @endforeach
                 @endif
             </div>
         </div>
@@ -184,7 +188,8 @@
                                     </label>
                                 </div>
                                 <div class="parte-botaoPreco">
-                                    <button type="submit" class="btn btn-primary" id="botaoPreco">Aplicar filtro</button>
+                                    <button type="submit" class="btn btn-primary" id="botaoPreco">Aplicar
+                                        filtro</button>
                                 </div>
 
                             </div>
@@ -196,11 +201,11 @@
                             <div class="panelContainer">
                                 <div class="tamanhos-buttons">
                                     @foreach($tamanhos as $tamanho)
-                                    <label>
-                                        <input type="checkbox" name="tamanho[]" value="{{ $tamanho->idTamanho }}" class="checkbox-buttons"
-                                            {{ isset($filtros['tamanho']) && in_array($tamanho->idTamanho, $filtros['tamanho']) ? 'checked' : '' }}>
-                                        {{ $tamanho->nomeTamanho }}
-                                    </label>
+                                        <label>
+                                            <input type="checkbox" name="tamanho[]" value="{{ $tamanho->idTamanho }}"
+                                                class="checkbox-buttons" {{ isset($filtros['tamanho']) && in_array($tamanho->idTamanho, $filtros['tamanho']) ? 'checked' : '' }}>
+                                            {{ $tamanho->nomeTamanho }}
+                                        </label>
                                     @endforeach
                                 </div>
                             </div>
@@ -211,11 +216,11 @@
                             <div class="panelContainer">
                                 <div class="condicoes-buttons">
                                     @foreach($condicoes as $condicao)
-                                    <label>
-                                        <input type="checkbox" name="condicoes[]" value="{{ $condicao->idCondicao }}" class="checkbox-buttons"
-                                            {{ isset($filtros['condicoes']) && in_array($condicao->idCondicao, $filtros['condicoes']) ? 'checked' : '' }}>
-                                        {{ $condicao->nomeCondicao }}
-                                    </label>
+                                        <label>
+                                            <input type="checkbox" name="condicoes[]" value="{{ $condicao->idCondicao }}"
+                                                class="checkbox-buttons" {{ isset($filtros['condicoes']) && in_array($condicao->idCondicao, $filtros['condicoes']) ? 'checked' : '' }}>
+                                            {{ $condicao->nomeCondicao }}
+                                        </label>
                                     @endforeach
                                 </div>
                             </div>
@@ -225,11 +230,11 @@
                         <div class="panel">
                             <div class="panelContainer">
                                 @foreach($cores as $cor)
-                                <label>
-                                    <input type="checkbox" name="cores[]" value="{{ $cor->idCor }}" class="checkbox-buttons"
-                                        {{ isset($filtros['cores']) && in_array($cor->idCor, $filtros['cores']) ? 'checked' : '' }}>
-                                    {{ $cor->nomeCor }}
-                                </label>
+                                    <label>
+                                        <input type="checkbox" name="cores[]" value="{{ $cor->idCor }}"
+                                            class="checkbox-buttons" {{ isset($filtros['cores']) && in_array($cor->idCor, $filtros['cores']) ? 'checked' : '' }}>
+                                        {{ $cor->nomeCor }}
+                                    </label>
                                 @endforeach
                             </div>
                         </div>
@@ -239,18 +244,18 @@
                             <div class="panelContainer">
                                 @foreach($regioes as $regiao)
 
-                                <label>
-                                    <input type="checkbox" name="regioes[]" value="{{ $regiao->idRegiao }}" class="checkbox-buttons"
-                                        {{ isset($filtros['regioes']) && in_array($regiao->idRegiao, $filtros['regioes']) ? 'checked' : '' }}>
-                                    {{ $regiao->nomeRegiao }}
-                                </label>
+                                    <label>
+                                        <input type="checkbox" name="regioes[]" value="{{ $regiao->idRegiao }}"
+                                            class="checkbox-buttons" {{ isset($filtros['regioes']) && in_array($regiao->idRegiao, $filtros['regioes']) ? 'checked' : '' }}>
+                                        {{ $regiao->nomeRegiao }}
+                                    </label>
 
                                 @endforeach
                             </div>
 
                         </div>
-                        
-                       
+
+
                         <div class="button-group">
                             <button type="submit" class="btn btn-primary">Aplicar Filtros</button>
                             <a href="{{ url('/produtos') }}" class="btn btn-primary">Resetar Filtros</a>
@@ -263,49 +268,49 @@
 
                 <div class="container-cards">
                     @foreach($produtos as $produto)
-                    <a href="{{ url('/entrar-produto', $produto->idProduto)}}">
-                        <div class="card-produto">
-                            <div class="image-display">
-                                <img class="img-card-produto" src="{{ asset($produto->imagemProduto) }}"
-                                    alt="{{ $produto->nomeProduto }}">
-                            </div>
-                            <div class="txt-info-vendedor">
-                                <p></p>
-                                <p>Recente</p>
-                            </div>
-                            <div class="txt-nome-produto">
-                                {{ $produto->nomeProduto }}
-                            </div>
-                            <p class="valor-produto">{{ $produto->valorProduto }}</p>
-                            <div class="txt-info-produto">
-                                <div class="row-info">
-                                    <p class="info-produto">{{ $produto->cor->nomeCor ?? 'Cor Desconhecida' }}</p>
-                                    <p class="info-produto">
-                                        {{ $produto->condicao->nomeCondicao ?? 'Condição Desconhecida' }}
-                                    </p>
+                        <a href="{{ url('/entrar-produto', $produto->idProduto)}}">
+                            <div class="card-produto">
+                                <div class="image-display">
+                                    <img class="img-card-produto" src="{{ asset($produto->imagemProduto) }}"
+                                        alt="{{ $produto->nomeProduto }}">
                                 </div>
-                                <div class="row-info">
-                                    <p class="info-produto">
-                                        {{ $produto->categoria->nomeCategoriaProduto ?? 'Categoria Desconhecida' }}
-                                    </p>
-                                    <p class="info-produto">
-                                        {{ $produto->tamanho->nomeTamanho ?? 'Tamanho Desconhecido' }}
-                                    </p>
+                                <div class="txt-info-vendedor">
+                                    <p></p>
+                                    <p>Recente</p>
                                 </div>
-                                <div class="row-info">
-                                    <p class="info-produto">{{ $produto->regiao->nomeRegiao ?? 'Região Desconhecida' }}
-                                    </p>
+                                <div class="txt-nome-produto">
+                                    {{ $produto->nomeProduto }}
                                 </div>
-                           
+                                <p class="valor-produto">{{ $produto->valorProduto }}</p>
+                                <div class="txt-info-produto">
+                                    <div class="row-info">
+                                        <p class="info-produto">{{ $produto->cor->nomeCor ?? 'Cor Desconhecida' }}</p>
+                                        <p class="info-produto">
+                                            {{ $produto->condicao->nomeCondicao ?? 'Condição Desconhecida' }}
+                                        </p>
+                                    </div>
+                                    <div class="row-info">
+                                        <p class="info-produto">
+                                            {{ $produto->categoria->nomeCategoriaProduto ?? 'Categoria Desconhecida' }}
+                                        </p>
+                                        <p class="info-produto">
+                                            {{ $produto->tamanho->nomeTamanho ?? 'Tamanho Desconhecido' }}
+                                        </p>
+                                    </div>
+                                    <div class="row-info">
+                                        <p class="info-produto">{{ $produto->regiao->nomeRegiao ?? 'Região Desconhecida' }}
+                                        </p>
+                                    </div>
+
+                                </div>
                             </div>
-                        </div>
-                        @endforeach
+                    @endforeach
                         @if($produtos->isEmpty())
-                        <p>Nenhum produto encontrado.</p>
+                            <p>Nenhum produto encontrado.</p>
                         @else
-                        @foreach($produtos as $produto)
-                      
-                        @endforeach
+                            @foreach($produtos as $produto)
+
+                            @endforeach
                         @endif
 
                 </div>
@@ -315,20 +320,20 @@
         <div class="quebra-pagina">
             <ul class="pagination">
                 @if ($produtos->currentPage() == 1)
-                <li class="page-item disabled"><a href="#" class="page-link">&lt;</a></li>
+                    <li class="page-item disabled"><a href="#" class="page-link">&lt;</a></li>
                 @else
-                <li class="page-item"><a href="{{ $produtos->previousPageUrl() }}" class="page-link">&lt;</a></li>
+                    <li class="page-item"><a href="{{ $produtos->previousPageUrl() }}" class="page-link">&lt;</a></li>
                 @endif
 
                 @for ($i = 1; $i <= $produtos->lastPage(); $i++)
                     <li class="page-item @if($i == $produtos->currentPage()) active @endif">
                         <a href="{{ $produtos->url($i) }}" class="page-link">{{ $i }}</a>
                     </li>
-                    @endfor
+                @endfor
 
-                    <li class="page-item @if (!$produtos->hasMorePages()) disabled @endif">
-                        <a href="{{ $produtos->nextPageUrl() }}" class="page-link">&gt;</a>
-                    </li>
+                <li class="page-item @if (!$produtos->hasMorePages()) disabled @endif">
+                    <a href="{{ $produtos->nextPageUrl() }}" class="page-link">&gt;</a>
+                </li>
             </ul>
         </div>
 
@@ -339,7 +344,7 @@
             var i;
 
             for (i = 0; i < acc.length; i++) {
-                acc[i].addEventListener("click", function() {
+                acc[i].addEventListener("click", function () {
                     this.classList.toggle("active");
                     var panel = this.nextElementSibling;
                     if (panel.style.maxHeight) {
@@ -350,7 +355,7 @@
                 });
             }
             document.querySelectorAll('.remove-filter').forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function () {
                     const filterName = this.getAttribute('data-filter');
                     // Redireciona para a URL com o filtro removido
                     let url = new URL(window.location.href);

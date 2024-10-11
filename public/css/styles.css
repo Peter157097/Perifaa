@@ -3416,12 +3416,53 @@ a:hover {
     white-space: nowrap;
     width: 30%;
 }
+.infoDenuncia{
+    display: block;
+    padding: 1%;
+    width: 100%;
+    height: 60%;
+    flex-wrap: wrap;
+}
+.nomeVendDenuncia{
+    margin: 0;
+}
+.topDenuncia{
+    font-weight: 600;
+    width: 100%;
+    padding-left: 1%;
+    padding-right: 1%;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+.bottomDenuncia{
+    width: 100%;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 0;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+.itemBottomDenuncia{
+    width: 50%;
+
+    overflow: hidden;
+    margin: 0;
+}
+.itemTopDenuncia{
+    overflow: hidden;
+    
+    width: 50%;
+    margin: 0;
+}
+
 
 .titleDash {
     font-weight: 700;
     font-size: 5vh;
     width: 100%;
-    padding: 1%;
+    padding-top: 1%;
     padding-left: 4%;
     text-align: left;
 }
@@ -3584,8 +3625,8 @@ a:hover {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border: #000;
-    border-width: 0.1px;
+    border: #000000;
+    border-width: 1px;
     border-style: solid;
 }
 
@@ -3749,11 +3790,7 @@ a:hover {
     width: inherit;
 }
 
-.imgProdutoDenuncia {
-    width: 100%;
-    height: inherit;
-    border-radius: 30px;
-}
+
 
 .adminPanelContainer {
     display: flex;
@@ -3769,18 +3806,23 @@ a:hover {
     width: 100%;
     height: 100%;
     background-color: rgb(206, 205, 205);
+    position: relative;
+    border: 1px solid rgb(219, 219, 219)
 }
 
 .notifAdminPanel {
-    display: block;
+    display: flex;
     flex-wrap: wrap;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
     border-right: 1px solid rgb(192, 192, 192);
     width: 25%;
+    overflow-y: hidden;
+    scrollbar-width: thin;
     height: 100%;
     background-color: rgb(221, 221, 221);
-    overflow: hidden;
+    position: relative;
+
 }
 
 .titleNotifPanel {
@@ -3793,8 +3835,19 @@ a:hover {
     font-weight: 600;
 }
 
-.adminGraficoContainer {
+.shadowNotifPanel {
     padding: 2%;
+    display: flex;
+    width: 100%;
+    height: 10%;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    position: absolute;
+}
+
+.adminGraficoContainer {
+    padding: 1%;
     display: flex;
     flex-wrap: wrap;
     border-top-right-radius: 30px;
@@ -3802,26 +3855,30 @@ a:hover {
     width: 75%;
     height: 100%;
     background-color: rgb(221, 221, 221);
-    gap: 5%;
+    gap: 1%;
     justify-content: center;
     align-items: center;
+
 }
 
 .cardGrafico {
     border-radius: 30px;
-    background: linear-gradient(#16547e, #05273d);
-    width: 45%;
+    background-color: white;
+    border: 2px solid rgb(204, 204, 204);
+    width: 49%;
     height: 45%;
     flex-wrap: wrap;
     display: flex;
     padding: 2%;
+    align-items: center;
+
 
 
 }
 
 .cardNotifAdmin {
     padding: 4%;
-    border-top: 1px solid rgb(190, 190, 190);
+    border-top: 1px solid rgb(209, 209, 209);
     width: 100%;
     height: 15%;
     background-color: rgb(240, 240, 240);
@@ -3852,19 +3909,41 @@ svg {
     font-size: 100%;
 }
 
-.titleGraficoAdmin {
-    color: white;
-    display: flex;
+.graficoAdmin {
+    padding-top: 1%;
     width: 100%;
-    height: 20%;
-    font-weight: 500;
-    justify-content: left;
-    align-items: center;
-
+    height: 97%;
 }
 
+.titleGraficoAdmin {
+    color: rgb(0, 0, 0);
+    display: flex;
+    width: 100%;
+    height: 10%;
+    font-weight: 500;
+    justify-content: space-between;
+    align-items: center;
+    transition: letter-spacing 0.2s ease-in-out;
+}
+
+.titleBigGraficoAdmin {
+    color: rgb(0, 0, 0);
+    display: flex;
+    width: 100%;
+    height: 10%;
+    font-weight: 500;
+    align-items: center;
+}
+
+.graficoIconContainer {
+    width: 20%;
+    display: flex;
+    justify-content: end;
+}
+
+
 .numerosGrafico {
-    color: rgb(66, 212, 66);
+    color: rgb(50, 163, 50);
     font-size: 5vh;
     justify-content: left;
     display: flex;
@@ -3882,14 +3961,14 @@ svg {
 }
 
 .titleGraficoAdminAlt {
-    color: white;
+    color: rgb(73, 73, 73);
     font-weight: 400;
     font-size: 2vh;
 }
 
 .numerosGraficoAlt {
     font-size: 3vh;
-    color: rgb(255, 44, 44);
+    color: rgb(218, 49, 49);
     justify-content: left;
     display: flex;
     width: 100%;
@@ -3918,7 +3997,7 @@ svg {
     overflow-y: auto;
     scrollbar-width: thin;
     /* Define a largura da barra (auto, thin, none) */
-    scrollbar-color: #696969 #ffffff;
+    scrollbar-color: #858585 #ffffff;
     /* Cor do polegar e da trilha */
     scroll-behavior: smooth;
 
@@ -3933,13 +4012,14 @@ svg {
 }
 
 .infoLabelConsulta {
-
     background-color: rgb(221, 221, 221);
-    width: 93%;
+    align-items: center;
     float: right;
+    width: 93%;
     display: flex;
-    height: 5%;
-    justify-content: space-around;
+    height: 6%;
+    font-size: 2vh;
+
 }
 
 .infoConsulta {
@@ -3947,7 +4027,7 @@ svg {
     float: right;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+
     font-size: 2vh;
 }
 
@@ -3970,12 +4050,15 @@ svg {
     align-items: center;
     display: flex;
     justify-content: left;
-    width: 30%;
+    width: 100%;
 }
 
 .labelInfoConsulta {
     justify-content: space-around;
-    width: 30%;
+    width: 100%;
+    margin: 0;
+    font-weight: 550;
+    font-style: italic;
 }
 
 .consultaAviso {
@@ -3997,13 +4080,17 @@ svg {
     border: 1px solid white;
     width: 70%;
     border-radius: 30px;
-    transition: background-color 0.1s ease-in-out;
+    transition: background-color 0.4s ease-in-out;
+    transition: width, 0.2s ease-in-out;
 }
 
 .btnDetalhesGrafico:hover {
+    width: 65%;
+    ;
     color: black;
     background-color: white;
     border: 1px solid black;
+    cursor: pointer;
 
 }
 
@@ -4016,4 +4103,90 @@ svg {
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.scroll-notif {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #b1b1b1 #ffffff;
+    scroll-behavior: smooth;
+    height: 90%;
+    width: 100%;
+
+}
+
+.bigCardGrafico {
+
+    border-radius: 30px;
+    background: linear-gradient(#ffffff, #ffffff);
+    border: 2px solid rgb(209, 209, 209);
+    width: 100%;
+    height: 50%;
+    flex-wrap: wrap;
+    display: flex;
+    padding: 2%;
+}
+
+.graficoIcon {
+    padding: 8%;
+    display: flex;
+    height: 50px;
+    width: 50px;
+    background-color: rgb(233, 233, 233);
+    border-radius: 30px;
+    transition: background-color 0.1s ease-in-out;
+    padding-bottom: 10%;
+}
+
+.admContainerDenuncia {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 4%;
+}
+
+.admDenuncia {
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #dadada #ffffff;
+    scroll-behavior: smooth;
+    flex-wrap: wrap;
+    padding: 2%;
+    display: block;
+    background-color: rgb(219, 219, 219);
+    border: 1px solid rgb(204, 204, 204);
+
+    border-radius: 30px;
+    width: 100%;
+    height: 100%;
+    gap: 2vh;
+}
+.admCardDenuncia{
+    padding: 0.5%;
+    margin-bottom: 1%;
+    display: flex;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    border-bottom-right-radius:  30px;
+    border-bottom-left-radius:  30px;
+    border: 1px solid rgb(212, 212, 212);
+    height: 25vh;
+}
+.imgProdutoDenuncia {
+    width: 13%;
+    height: auto;
+    border-radius: 25px;
+    border-top-left-radius: 0;
+    border: 1px solid rgb(189, 189, 189);
+    background-color: rgb(202, 202, 202);
+    
+}
+.cardDenuncia-top{
+    border-top-right-radius:  30px;
+    border-top-left-radius:  30px;
+    border-top: 1px solid rgb(231, 231, 231);
+    border-left: 1px solid rgb(231, 231, 231);
+    border-right: 1px solid rgb(231, 231, 231);
+    height: 10%;
+    background-color: #ffffff;
 }

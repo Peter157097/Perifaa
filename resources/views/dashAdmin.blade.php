@@ -32,106 +32,147 @@
                 <div class="titleNotifPanel">
                     Notificações | Pendências
                 </div>
-                <div class="cardNotifAdmin">
-                    <div class="titleNotif">
-                        Sistema
-                    </div>
-                    <div class="bodyNotif">
-                        Analisar denúncias em atraso
-                    </div>
-                </div>
-                <div class="cardNotifAdmin">
-                    <div class="titleNotif">
-                        Sistema
-                    </div>
-                    <div class="bodyNotif">
-                        Revisar sugestões dos usuários
-                    </div>
-                </div>
-                <div class="cardNotifAdmin">
-                    <div class="titleNotif">
-                        Marina
-                    </div>
-                    <div class="bodyNotif">
-                        Olá, preciso de ajuda com um caso
-                    </div>
-                </div>
-            </div>
-            <div class="adminGraficoContainer">
-                <div class="cardGrafico">
-                    <div class="titleGraficoAdmin">
-                        Acessos <span class="tempoGraficoAdmin"> | últimas 24 horas</span>
-                    </div>
-                    <div class="infosGraficoAdmin">
-                        <div class="numerosGrafico">
-                            &#11165; 64.387
+                <div class="scroll-notif">
+                    <div class="cardNotifAdmin">
+                        <div class="titleNotif">
+                            Sistema
                         </div>
-                        <div class="titleGraficoAdminAlt">
-                            Dia anterior
-                        </div>
-                        <div class="numerosGraficoAlt">
-                            &#11167; 59.486
-                        </div>
-                        <div class="btnGraficoContainer">
-                            <button class="btnDetalhesGrafico">Detalhes</button>
+                        <div class="bodyNotif">
+                            Analisar denúncias em atraso
                         </div>
                     </div>
-                </div>
-                <div class="cardGrafico">
-                    <div class="titleGraficoAdmin">
-                        Vendas <span class="tempoGraficoAdmin"> | últimas 24 horas</span>
+                    <div class="cardNotifAdmin">
+                        <div class="titleNotif">
+                            Sistema
+                        </div>
+                        <div class="bodyNotif">
+                            Analisar denúncias em atraso
+                        </div>
                     </div>
-                    <div class="infosGraficoAdmin">
-                        <div class="numerosGrafico">
-                            &#11165; 9.623
+                    <div class="cardNotifAdmin">
+                        <div class="titleNotif">
+                            Sistema
                         </div>
-                        <div class="titleGraficoAdminAlt">
-                            Dia anterior
+                        <div class="bodyNotif">
+                            Analisar denúncias em atraso
                         </div>
-                        <div class="numerosGraficoAlt">
-                            &#11167; 9.486
+                    </div>
+                    <div class="cardNotifAdmin">
+                        <div class="titleNotif">
+                            Sistema
                         </div>
-                        <div class="btnGraficoContainer">
-                            <button class="btnDetalhesGrafico">Detalhes</button>
+                        <div class="bodyNotif">
+                            Analisar denúncias em atraso
+                        </div>
+                    </div>
+                    <div class="cardNotifAdmin">
+                        <div class="titleNotif">
+                            Sistema
+                        </div>
+                        <div class="bodyNotif">
+                            Analisar denúncias em atraso
+                        </div>
+                    </div>
+                    <div class="cardNotifAdmin">
+                        <div class="titleNotif">
+                            Sistema
+                        </div>
+                        <div class="bodyNotif">
+                            Analisar denúncias em atraso
+                        </div>
+                    </div>
+                    <div class="cardNotifAdmin">
+                        <div class="titleNotif">
+                            Sistema
+                        </div>
+                        <div class="bodyNotif">
+                            Analisar denúncias em atraso
+                        </div>
+                    </div>
+                    <div class="cardNotifAdmin">
+                        <div class="titleNotif">
+                            Sistema
+                        </div>
+                        <div class="bodyNotif">
+                            Revisar sugestões dos usuários
+                        </div>
+                    </div>
+                    <div class="cardNotifAdmin">
+                        <div class="titleNotif">
+                            Marina
+                        </div>
+                        <div class="bodyNotif">
+                            Olá, preciso de ajuda com um caso
                         </div>
                     </div>
 
                 </div>
+
+            </div>
+            <div class="adminGraficoContainer">
+                <div class="bigCardGrafico">
+                    <div class="titleBigGraficoAdmin">
+                        Acessos <span class="tempoGraficoAdmin"> | Mensais</span>
+
+                    </div>
+                    <div class="graficoAdmin">
+                        <div id="top_x_div" style="width: 100%; height: 90%;"></div>
+                    </div>
+                </div>
+
                 <div class="cardGrafico">
                     <div class="titleGraficoAdmin">
-                        Renda gerada <span class="tempoGraficoAdmin">| últimas 24 horas</span>
+                        <div class="labelGraficoContainer">
+                            Acessos <span class="tempoGraficoAdmin"> | últimas 24 horas</span>
+                        </div>
+                        <div class="graficoIconContainer">
+                            <div class="graficoIcon">
+                                <img src="./images/graficoIcon.png">
+                            </div>
+                        </div>
                     </div>
                     <div class="infosGraficoAdmin">
                         <div class="numerosGrafico">
-                            &#11165; R$51.623,00
+                            &#11165; 24.387
                         </div>
                         <div class="titleGraficoAdminAlt">
                             Dia anterior
                         </div>
                         <div class="numerosGraficoAlt">
-                            &#11167; R$49.486,00
+                            &#11167; 15.486
                         </div>
                         <div class="btnGraficoContainer">
-                            <button class="btnDetalhesGrafico">Detalhes</button>
+                            <button class="btnDetalhesGrafico">
+                                <a>Detalhes</a>
+                            </button>
                         </div>
                     </div>
                 </div>
                 <div class="cardGrafico">
                     <div class="titleGraficoAdmin">
-                        Transações <span class="tempoGraficoAdmin">| últimas 24 horas</span>
+                        <div class="labelGraficoContainer">
+                            Vendas <span class="tempoGraficoAdmin"> | últimas 24 horas</span>
+                        </div>
+                        <div class="graficoIconContainer">
+                            <div class="graficoIcon">
+                                <img src="./images/graficoIcon.png">
+                            </div>
+                        </div>
                     </div>
                     <div class="infosGraficoAdmin">
                         <div class="numerosGrafico">
-                            &#11165; 8.736
+                            &#11165; 4.387
                         </div>
                         <div class="titleGraficoAdminAlt">
                             Dia anterior
                         </div>
                         <div class="numerosGraficoAlt">
-                            &#11167; 7.839
+                            &#11167; 2.486
                         </div>
                         <div class="btnGraficoContainer">
-                            <button class="btnDetalhesGrafico">Detalhes</button>
+                            <button class="btnDetalhesGrafico">
+                                <a>Detalhes</a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -141,52 +182,39 @@
     <div class="titleDash">
         Produtos mais denunciados
     </div>
-    <div class="admDenunciasContainer">
-        @foreach($denuncias as $denuncia)
-            <div class="itemDenuncia">
-                <div class="imgProduto">
+    <div class="admContainerDenuncia">
+        <div class="admDenuncia">
+            @foreach($denuncias as $denuncia)
+                <div class="cardDenuncia-top">
+                    <div class="infoDenuncia">
+                        <p class="nomeVendDenuncia">
+                            Nome Vendedor
+                        </p>
+                    </div>
+                </div>
+                <div class="admCardDenuncia">
                     <img src="{{$denuncia->produto->imagemProduto}}" class="imgProdutoDenuncia">
-                </div>
-                <div class="infoProdutoDenuncia">
-                    <div class="infoProdutoCategoria">
-                        <p class="itemCategoriaDenuncia">Brechó da Maria</p>
-                        <p class="itemCategoriaDenuncia">Valor</p>
-                        <p class="itemCategoriaDenuncia">Motivo da denuncia</p>
-                        <p class="itemCategoriaDenuncia">Id da denuncia</p>
-                        <p class="itemCategoriaDenuncia">E-mail cliente</p>
+                    <div class="infoDenuncia">
+                        <div class="topDenuncia">
+                            <p class="itemTopDenuncia">Produto</p>
+                            <p class="itemTopDenuncia">Descrição</p>
+                            <P class="itemTopDenuncia">Valor</P>
+                            <P class="itemTopDenuncia">Id Denuncia</P>
+                            <P class="itemTopDenuncia">Email</P>
 
+                        </div>
+                        <div class="bottomDenuncia">
+                            <p class="itemBottomDenuncia">{{$denuncia->produto->nomeProduto ?? 'Descrição Indisponível' }}  </p>
+                            <p class="itemBottomDenuncia">{{ $denuncia->produto->descricaoProduto ?? 'Descrição Indisponível' }}</p>
+                            <p class="itemBottomDenuncia">{{$denuncia->Produto->valorProduto ?? 'Descrição Indisponível' }}</p>
+                            <p class="itemBottomDenuncia">{{ $denuncia->idDenuncia ?? 'Descrição Indisponível' }}</p>
+                            <p class="itemBottomDenuncia">{{ $denuncia->cliente->emailCliente ?? 'Nome Indisponível' }}</p>
+                        </div>
                     </div>
-                    <div class="infoProdutoCategoria">
-                        <p class="itemInfoDenuncia">
-                            {{$denuncia->Produto->nomeProduto ?? 'Descrição Indisponível' }}
-                        </p>
-                        <p class="itemInfoDenuncia">{{$denuncia->Produto->valorProduto ?? 'Descrição Indisponível' }}
-                        </p>
-                        <p class="itemInfoDenuncia">
-                            {{ $denuncia->produto->descricaoProduto ?? 'Descrição Indisponível' }}
-                        </p>
-                        <p class="itemInfoDenuncia">
-                            {{ $denuncia->idDenuncia ?? 'Descrição Indisponível' }}
-                        </p>
-                        <p class="itemInfoDenuncia">
-                            {{ $denuncia->cliente->emailCliente ?? 'Nome Indisponível' }}
-                        </p>
-                    </div>
-                    <div class="acoesDenuncia">
-                        <a href="{{ url('/entrar-produto', $denuncia->Produto->idProduto)}}">
-                            <p class="analisarDenuncia">Ver anuncio</p>
-                        </a>
-                        <form action="{{ route('denuncia.destroy', $denuncia->idDenuncia) }}" method="POST"
-                            onsubmit="return confirm('Tem certeza que deseja excluir esta denúncia?');">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btaoremover">Excluir Denúncia</button>
-                        </form>
-                    </div>
+
                 </div>
-            </div>
-        @endforeach
-    </div>
+            @endforeach
+        </div>
 
     </div>
     <script>
@@ -222,6 +250,51 @@
                 selectMenu(item);
             });
         });
+    </script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['bar'] });
+        google.charts.setOnLoadCallback(drawStuff);
+
+        function drawStuff() {
+            var data = new google.visualization.arrayToDataTable([
+                ['Mês', 'Acessos'],
+                ["Jan.", 44000],
+                ["Fev.", 31000],
+                ["Março", 12000],
+                ['Abril', 20000],
+                ["Maio", 44000],
+                ["Jun.", 31000],
+                ["Jul.", 18000],
+                ["Ago.", 40000],
+                ["Set.", 10000],
+                ["Out.", 13000],
+                ["Nov.", 16000],
+                ['Dez.', 60000]
+
+            ]);
+
+            var options = {
+                legend: {
+                    position: 'none',
+
+                },
+                chart: {
+
+                },
+                hAxis: {
+                    title: ''
+                },
+                bar: {
+                    groupWidth: "99%",
+                    borderRadius: "99%",
+                },
+                colors: ['#2a89c7']
+            };
+
+            var chart = new google.charts.Bar(document.getElementById('top_x_div'));
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+        };
     </script>
 </body>
 

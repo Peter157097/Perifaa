@@ -1,7 +1,7 @@
 @php
-$totalCarrinho = \App\Models\Carrinho::count();
+    $totalCarrinho = \App\Models\Carrinho::count();
 
-$totalCarrinho -= 2;
+    $totalCarrinho -= 2;
 @endphp
 
 <style>
@@ -80,36 +80,36 @@ $totalCarrinho -= 2;
 </style>
 
 @if(session('is_vendedor'))
-<header class="header2">
-    <style>
-        .header2 {
-            display: flex;
-            justify-content: center;
-            /* Centraliza o conteúdo do cabeçalho */
-            padding: 1.5rem;
-            background-color: #5e3e24;
-        }
+    <header class="header2">
+        <style>
+            .header2 {
+                display: flex;
+                justify-content: center;
+                /* Centraliza o conteúdo do cabeçalho */
+                padding: 1.5rem;
+                background-color: #5e3e24;
+            }
 
 
-        .header2 .header_icones i {
-            color: #fff;
-            font-size: 30px;
-        }
+            .header2 .header_icones i {
+                color: #fff;
+                font-size: 30px;
+            }
 
-        .header2 .botao-pesquisa i {
-            color: #55504b;
-            font-size: 30px;
-        }
+            .header2 .botao-pesquisa i {
+                color: #55504b;
+                font-size: 30px;
+            }
 
-        .header2 .drop-perfil i {
-            color: #5e3e24;
-        }
+            .header2 .drop-perfil i {
+                color: #5e3e24;
+            }
 
-        .header2 .botao-abrir-menu i {
-            color: #fff;
-        }
-    </style>
-    @else
+            .header2 .botao-abrir-menu i {
+                color: #fff;
+            }
+        </style>
+@else
     <header>
 @endif
         @if(Session::has('loginAlert'))
@@ -249,22 +249,24 @@ $totalCarrinho -= 2;
                     </nav><!--Fim do menu mobile-->
 
                     @if(session('is_vendedor'))
-                </div><a href="{{ url('/') }}">
-                    <img class="logoBranca" src="{{url('images/logoPerifa-branca.png')}}" alt="Logo perifa">
-                </a>
-            </div>
-            @else
-        </div><a href="{{ url('/') }}">
-            <img class="logo" src="{{url('images/logo.png')}}" alt="Logo perifa">
-        </a>
-        </div>
-        @endif
+                            </div><a href="{{ url('/') }}">
+                                <img class="logoBranca" src="{{url('images/logoPerifa-branca.png')}}" alt="Logo perifa">
+                            </a>
+                        </div>
+                    @else
+                        </div><a href="{{ url('/') }}">
+                            <img class="logo" src="{{url('images/logo.png')}}" alt="Logo perifa">
+                        </a>
+                        </div>
+                    @endif
         <div class="header_icones">
             <div class="header_pesquisa">
                 <div class="input-container">
                     <form action="{{ route('produtos.search') }}" method="GET" class="formPesquisa">
-                        <input type="text" name="query" class="input-pesquisa" placeholder="Pesquisar produtos..." required>
-                        <button type="submit" class="botao-pesquisa"> <i class="fa-solid fa-magnifying-glass" id="pesquisa"></i></button>
+                        <input type="text" name="query" class="input-pesquisa" placeholder="Pesquisar produtos..."
+                            required>
+                        <button type="submit" class="botao-pesquisa"> <i class="fa-solid fa-magnifying-glass"
+                                id="pesquisa"></i></button>
                     </form>
                 </div>
             </div>
@@ -272,47 +274,47 @@ $totalCarrinho -= 2;
 
             <li class="drop-hover-perfil">
                 @if (session('is_vendedor') || session('is_Cliente'))
-                <button class="abrir-modal" data-modal="modal-1" disabled>
-                    <i class="bi bi-person-circle"></i>
-                </button>
-                @else
-                <a href="#">
-                    <button class="abrir-modal" data-modal="modal-1">
+                    <button class="abrir-modal" data-modal="modal-1" disabled>
                         <i class="bi bi-person-circle"></i>
                     </button>
-                </a>
+                @else
+                    <a href="#">
+                        <button class="abrir-modal" data-modal="modal-1">
+                            <i class="bi bi-person-circle"></i>
+                        </button>
+                    </a>
                 @endif
 
                 @if(session('is_vendedor'))
-                <div class="drop-perfil"> <!--Começo menu dropdown das roupas-->
-                    <a href="{{ url('/dashboardVendedor') }}" id="link-perfil"><i class="bi bi-kanban"></i>Dashboard</a>
-                    <a href="#" id="link-perfil"><i class="fa-solid fa-circle-question"></i>Ajuda</a>
-                    <a href="{{ url('/logout') }}" id="link-perfil"><i
-                            class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a>
+                    <div class="drop-perfil"> <!--Começo menu dropdown das roupas-->
+                        <a href="{{ url('/dashboardVendedor') }}" id="link-perfil"><i class="bi bi-kanban"></i>Dashboard</a>
+                        <a href="#" id="link-perfil"><i class="fa-solid fa-circle-question"></i>Ajuda</a>
+                        <a href="{{ url('/logout') }}" id="link-perfil"><i
+                                class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a>
 
 
-<<<<<<< HEAD
-                </div> <!--Fim menu dropdown das roupas-->
-                <!--vendedor -->
+
+                    </div> <!--Fim menu dropdown das roupas-->
+                    <!--vendedor -->
                 @elseif(session('is_Cliente'))
-                <!--cliente -->
+                            <!--cliente -->
 
-                
-                <a href="#" class="carrinhoEntrar">
-                    <i class="fa-solid fa-bag-shopping">
-                        <span class="qtdCarrinho">{{$totalCarrinho}}</span>
-                    </i>
-                </a>
 
-                <div class="drop-perfil"> <!--Começo menu dropdown das roupas-->
-                    <a href="{{ url('/perfil') }}"><i class="fa-solid fa-user"></i>Meu perfil</a>
-                    <a href="{{ url('/favorites') }}"><i class="fa-solid fa-heart"></i>Favoritos</a>
-                    <a href="{{url('carrinho')}}"><i class="fa-solid fa-cart-shopping"></i>Carrinho</a>
-                    <a href="#"><i class="fa-solid fa-circle-question"></i>Ajuda</a>
-                    <a href="{{ url('/logout') }}" id="link-perfil"><i
-                            class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a><!--o data-toggle e data-target fazem o modal abrir quando clica no link-->
-                </div> <!--Fim menu dropdown das roupas-->
-=======
+                            <a href="#" class="carrinhoEntrar">
+                                <i class="fa-solid fa-bag-shopping">
+                                    <span class="qtdCarrinho">{{$totalCarrinho}}</span>
+                                </i>
+                            </a>
+
+                            <div class="drop-perfil"> <!--Começo menu dropdown das roupas-->
+                                <a href="{{ url('/perfil') }}"><i class="fa-solid fa-user"></i>Meu perfil</a>
+                                <a href="{{ url('/favorites') }}"><i class="fa-solid fa-heart"></i>Favoritos</a>
+                                <a href="{{url('carrinho')}}"><i class="fa-solid fa-cart-shopping"></i>Carrinho</a>
+                                <a href="#"><i class="fa-solid fa-circle-question"></i>Ajuda</a>
+                                <a href="{{ url('/logout') }}" id="link-perfil"><i
+                                        class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a><!--o data-toggle e data-target fazem o modal abrir quando clica no link-->
+                            </div> <!--Fim menu dropdown das roupas-->
+
                     </div> <!--Fim menu dropdown das roupas-->
                     <!--vendedor -->
                 @elseif(session('is_Cliente'))
@@ -328,37 +330,38 @@ $totalCarrinho -= 2;
                         <a href="{{ url('/logout') }}" data-toggle="modal" data-target="#modalExemplo"><i
                                 class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a><!--o data-toggle e data-target fazem o modal abrir quando clica no link-->
                     </div> <!--Fim menu dropdown das roupas-->
->>>>>>> 42e5a0c2edaed8c630dbdf50bbea2d08b7e410bf
+
                 @endif
 
 
-                <!-- Modal Sair -->
-<<<<<<< HEAD
-                <div class="modal fade" id="modalSair" tabindex="-1" role="dialog" aria-labelledby="modalSairLabel" aria-hidden="true">
-=======
-                <div class="modal fade" id="modalSair" tabindex="-1" role="dialog" aria-labelledby="modalSairLabel"
-                    aria-hidden="true">
->>>>>>> 42e5a0c2edaed8c630dbdf50bbea2d08b7e410bf
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h2 class="modal-title" id="modalSairLabel">Sair</h2>
-                            </div>
-                            <div class="modal-body">
-                                <h4>Deseja mesmo sair?</h4>
-                            </div>
-                            <div class="modal-footer">
-<<<<<<< HEAD
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="botao-modal-cancelar">Cancelar</button>
-=======
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                                    id="botao-modal-cancelar">Cancelar</button>
->>>>>>> 42e5a0c2edaed8c630dbdf50bbea2d08b7e410bf
-                                <button type="button" class="btn btn-primary" id="botao-modal-sair">Sair</button>
-                            </div>
+        <!-- Modal Sair -->
+
+        <div class="modal fade" id="modalSair" tabindex="-1" role="dialog" aria-labelledby="modalSairLabel"
+            aria-hidden="true">
+
+            <div class="modal fade" id="modalSair" tabindex="-1" role="dialog" aria-labelledby="modalSairLabel"
+                aria-hidden="true">
+
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title" id="modalSairLabel">Sair</h2>
+                        </div>
+                        <div class="modal-body">
+                            <h4>Deseja mesmo sair?</h4>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                id="botao-modal-cancelar">Cancelar</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                id="botao-modal-cancelar">Cancelar</button>
+
+                            <button type="button" class="btn btn-primary" id="botao-modal-sair">Sair</button>
                         </div>
                     </div>
                 </div>
+            </div>
             </li>
             <!--modal 1-->
             <dialog id="modal-1">
@@ -392,11 +395,11 @@ $totalCarrinho -= 2;
                         </div>
                     </form>
                     @if ($errors->any())
-                    <div>
-                        @foreach ($errors->all() as $error)
-                        <p>{{ $error }}</p>
-                        @endforeach
-                    </div>
+                        <div>
+                            @foreach ($errors->all() as $error)
+                                <p>{{ $error }}</p>
+                            @endforeach
+                        </div>
                     @endif
 
                 </div>
@@ -609,7 +612,7 @@ $totalCarrinho -= 2;
                     script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=callbackCep';
                     document.body.appendChild(script);
 
-                    window.callbackCep = function(conteudo) {
+                    window.callbackCep = function (conteudo) {
                         meu_callback(conteudo, modal);
                     };
 
@@ -623,13 +626,13 @@ $totalCarrinho -= 2;
         }
 
 
-        document.querySelector('#modal-3').addEventListener('blur', function(e) {
+        document.querySelector('#modal-3').addEventListener('blur', function (e) {
             if (e.target.id === 'cep') {
                 pesquisacep(e.target.value, document.querySelector('#modal-3'));
             }
         }, true);
 
-        document.querySelector('#modal-2').addEventListener('blur', function(e) {
+        document.querySelector('#modal-2').addEventListener('blur', function (e) {
             if (e.target.id === 'cep') {
                 pesquisacep(e.target.value, document.querySelector('#modal-2'));
             }

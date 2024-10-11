@@ -63,7 +63,7 @@
             @if(isset($usuarios) && count($usuarios) > 0)
                 <div class="resultBuscaContainer">
                     <div class="infoLabelConsulta">
-                        <p class="labelInfoConsulta">Nome</p>
+                        <p class="labelInfoConsulta">Usuario</p>
                         <p class="labelInfoConsulta">E-mail</p>
                         <p class="labelInfoConsulta">Status</p>
                     </div>

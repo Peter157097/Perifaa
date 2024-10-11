@@ -27,61 +27,46 @@
 @include('includes.menuAdmin')
 
 <div class="containerFloatImg">
-            <div class="floatImageAdmin">
-                <img class="floatImage" src="{{url('/images/floatImageDenuncia.png')}}">
-            </div>
+          
         </div>
-        <div class="titleAdm">
+        <div class="titleDash">
             <p>Denuncias</p>
         </div>
-        <div class="admDenunciasContainer">
+        <div class="admContainerDenuncia">
+        <div class="admDenuncia">
             @foreach($denuncias as $denuncia)
-                <div class="itemDenuncia">
-                    <div class="imgProduto">
-                        <img src="{{$denuncia->produto->imagemProduto}}" class="imgProdutoDenuncia">
-                    </div>
-                    <div class="infoProdutoDenuncia">
-                        <div class="infoProdutoCategoria">
-                            <p class="itemCategoriaDenuncia">Brechó da Maria</p>
-                            <p class="itemCategoriaDenuncia">Valor</p>
-                            <p class="itemCategoriaDenuncia">Motivo da denuncia</p>
-                            <p class="itemCategoriaDenuncia">Id da denuncia</p>
-                            <p class="itemCategoriaDenuncia">E-mail cliente</p>
-
-                        </div>
-                        <div class="infoProdutoCategoria">
-                            <p class="itemInfoDenuncia">
-                                {{$denuncia->Produto->nomeProduto ?? 'Descrição Indisponível' }}
-                            </p>
-                            <p class="itemInfoDenuncia">{{$denuncia->Produto->valorProduto ?? 'Descrição Indisponível' }}
-                            </p>
-                            <p class="itemInfoDenuncia">
-                                {{ $denauncia->produto->descricaoProduto ?? 'Descrição Indisponível' }}
-                            </p>
-                            <p class="itemInfoDenuncia">
-                                {{ $denuncia->idDenuncia ?? 'Descrição Indisponível' }}
-                            </p>
-                            <p class="itemInfoDenuncia">
-                                {{ $denuncia->cliente->emailCliente ?? 'Nome Indisponível' }}
-                            </p>
-                        </div>
-                        <div class="acoesDenuncia">
-                            <a href="{{ url('/entrar-produto', $denuncia->Produto->idProduto)}}">
-                                <p class="analisarDenuncia">Ver anuncio</p>
-                            </a>
-                            <form action="{{ route('denuncia.destroy', $denuncia->idDenuncia) }}" method="POST"
-                                onsubmit="return confirm('Tem certeza que deseja excluir esta denúncia?');">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btaoremover">Excluir Denuncia</button>
-                            </form>
-                        </div>
+                <div class="cardDenuncia-top">
+                    <div class="infoDenuncia">
+                        <p class="nomeVendDenuncia">
+                            Nome Vendedor
+                        </p>
                     </div>
                 </div>
+                <div class="admCardDenuncia">
+                    <img src="{{$denuncia->produto->imagemProduto}}" class="imgProdutoDenuncia">
+                    <div class="infoDenuncia">
+                        <div class="topDenuncia">
+                            <p class="itemTopDenuncia">Produto</p>
+                            <p class="itemTopDenuncia">Descrição</p>
+                            <P class="itemTopDenuncia">Valor</P>
+                            <P class="itemTopDenuncia">Id Denuncia</P>
+                            <P class="itemTopDenuncia">Email</P>
 
+                        </div>
+                        <div class="bottomDenuncia">
+                            <p class="itemBottomDenuncia">{{$denuncia->produto->nomeProduto ?? 'Descrição Indisponível' }}  </p>
+                            <p class="itemBottomDenuncia">{{ $denuncia->produto->descricaoProduto ?? 'Descrição Indisponível' }}</p>
+                            <p class="itemBottomDenuncia">{{$denuncia->Produto->valorProduto ?? 'Descrição Indisponível' }}</p>
+                            <p class="itemBottomDenuncia">{{ $denuncia->idDenuncia ?? 'Descrição Indisponível' }}</p>
+                            <p class="itemBottomDenuncia">{{ $denuncia->cliente->emailCliente ?? 'Nome Indisponível' }}</p>
+                        </div>
+                    </div>
+
+                </div>
             @endforeach
-
         </div>
+
+    </div>
     </div>
     <script>
         // Função para abrir/fechar o menu lateral

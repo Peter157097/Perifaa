@@ -57,27 +57,27 @@ const modais = document.querySelectorAll('dialog');
 const body = document.body;
 
 
-abrirBotaos.forEach(button =>{
-    button.addEventListener('click', () =>{
+abrirBotaos.forEach(button => {
+    button.addEventListener('click', () => {
         const modalId = button.getAttribute('data-modal');
         const modal = document.getElementById(modalId);
 
         modais.forEach(m => m.close());
         modal.showModal();
-        body.classList.add('no-scroll'); //  classe no-scroll
+        body.classList.add('no-scroll'); //  Evitar scroll
     });
-})
+});
 
-fecharBotaos.forEach(button =>{
-    button.addEventListener('click', () =>{
+fecharBotaos.forEach(button => {
+    button.addEventListener('click', () => {
         const modalId = button.getAttribute('data-modal');
         const modal = document.getElementById(modalId);
 
-       modal.close();
+        modal.close();
 
-       const anyModalOpen = Array.from(modais).some(m => m.open);
+        const anyModalOpen = Array.from(modais).some(m => m.open);
         if (!anyModalOpen) {
-            body.classList.remove('no-scroll'); // Remove a classe no-scroll se nenhum modal estiver aberto
+            body.classList.remove('no-scroll'); // Remove no-scroll se nenhum modal estiver aberto
         }
     });
 });
@@ -103,3 +103,4 @@ venderNaPerifa.addEventListener('click', () => {
 
     body.classList.add('no-scroll');
 });
+

@@ -388,7 +388,7 @@
                         </div>
 
                         <div class="senha-opcoes">
-                            <a href="#" class="esqueci-senha">Esqueci minha senha</a>
+                            <a href="#" class="esqueci-senha abrir-modal" data-modal="modal-4">Esqueci minha senha</a>
                         </div>
                         <div class="login-botao">
                             <button type='submit'>Entrar</button>
@@ -409,6 +409,8 @@
                 </div>
                 </form>
             </dialog>
+
+            
 
             <!-- Modal 2 -->
             <dialog id="modal-2">
@@ -567,7 +569,91 @@
                 </form>
             </dialog>
 
+        <dialog id="modal-4">
+                <div class="modal-header">
+                    <h2 class="modal-title">
+                        Esqueci minha senha
+                    </h2>
+                    <button class="fechar-modal" data-modal="modal-4" type="button">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ url('/login') }}" method="POST">
+                        <h3>Seu endereço de E-mail aqui</h3>
+                        <h5>Insira o endereço de E-mail associado à sua conta</h5>
+                        <div class="inputs">
+                            <label for="email">Email</label>
+                            <input type="email" id="emailCliente" name="emailCliente" placeholder="nome@gmail.com"
+                                required>
+                        </div>                      
 
+    
+                        <div class="login-botao">
+                            <button type='submit'>Recuperar senha</button>
+                        </div>
+                    </form>
+                </div>
+               
+            </dialog> 
+            <dialog id="modal-5">
+                <div class="modal-header">
+                    <h2 class="modal-title">
+                        Verificação de E-mail
+                    </h2>
+                    <button class="fechar-modal" data-modal="modal-4" type="button">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ url('/login') }}" method="POST">
+                        <h3>Pegue seu código</h3>
+                        <h5>Insira o código de 4 dígitos que será enviado para o seu endereço de e-mail.
+                        </h5>
+                        <div class="codigo-inputs">
+                            <input type="text" maxlength="1" class="codigo" id="codigo1">
+                            <input type="text" maxlength="1" class="codigo" id="codigo2">
+                            <input type="text" maxlength="1" class="codigo" id="codigo3">
+                            <input type="text" maxlength="1" class="codigo" id="codigo4">
+                        </div>                    
+                        <p class="reenviar">Você não recebeu o código? <a href="#">reenviar</a></p>
+                        <div class="login-botao">
+                            <button type='submit'>Verificar</button>
+                        </div>
+                    </form>
+                </div>
+            </dialog>
+
+            <dialog id="modal-6">
+                <div class="modal-header">
+                    <h2 class="modal-title">
+                        Redefinir senha
+                    </h2>
+                    <button class="fechar-modal" data-modal="modal-4" type="button">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ url('/login') }}" method="POST">
+                        <h3>Insira a nova senha</h3>
+                        <h5>Sua nova senha deve ser diferente da senha usada anteriormente</h5>
+                        <div class="inputs">
+                            <label for="senha">Digite a senha</label>
+                            <input type="senha" id="senhaCliente" name="senhaCliente" placeholder="*********"
+                                required>
+                            <label for="senha">Digite a senha novamente</label>
+                            <input type="senha" id="senhaCliente" name="senhaCliente" placeholder="*********"
+                                required>
+                        </div>                      
+
+    
+                        <div class="login-botao">
+                            <button type='submit'>Continuar</button>
+                        </div>
+                    </form>
+                </div>
+               
+            </dialog>
         </div>
         </div>
 

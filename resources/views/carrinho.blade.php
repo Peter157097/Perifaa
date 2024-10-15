@@ -36,11 +36,11 @@
     }
 
     .containerCarrinho {
+        padding-top: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        padding: 20px;
     }
 
     .checkoutContainer h3 {
@@ -94,7 +94,7 @@
         border: 1px solid transparent;
         color: white;
         padding: 10px 24px;
-        font-size: 14px;
+        font-size: 12px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
@@ -141,11 +141,22 @@
     }
 
     .containerCardCarrinho {
-        width: 100%;
+        width: 80%;
+        gap: 10px;
         background-color: #f8f8f8;
         transition: background-color 0.3s ease;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        padding: 20px;
+        margin: 20px;
+        transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .containerCardCarrinho:hover {
+        transform: scale(1.05);
+        /* Aumenta levemente o tamanho do container */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        /* Adiciona uma sombra mais forte */
+        background-color: #fafafa;
+        /* Alteração leve na cor do fundo */
     }
 
     /* Estilos gerais - Mantém o design no desktop */
@@ -157,15 +168,12 @@
         align-items: center;
         padding: 10px;
         flex-wrap: wrap;
-        /* Permite ajuste de layout para telas menores */
         gap: 10px;
-        /* Adiciona espaçamento entre os elementos */
         overflow: hidden;
-        /* Evita que elementos saiam do card */
         max-width: 100%;
-        /* Garante que o card não exceda a largura disponível */
         box-sizing: border-box;
-        /* Inclui padding e bordas no cálculo da largura */
+        border-radius: 10px 0px 30px 40px;
+
     }
 
     .partbrecho {
@@ -179,7 +187,7 @@
         margin-right: 8px;
         /* Ajusta o espaçamento ao lado do ícone */
         color: #737373;
-        font-size: 30px;
+        font-size: 20px;
     }
 
     .cardCaPt2 {
@@ -317,143 +325,237 @@
             /* Ajuste do tamanho da fonte */
         }
     }
+
+    .checkout-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 90%;
+        margin: 5vh;
+    }
+
+    .checkout-card {
+        background-color: #fff;
+        border-radius: 15px;
+        padding: 25px;
+        width: 90%;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .checkout-header h2 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #444;
+        margin-bottom: 20px;
+    }
+
+    .checkout-body {
+        text-align: left;
+    }
+
+    .checkout-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 18px;
+        margin-bottom: 20px;
+    }
+
+    .subtotal-value {
+        font-weight: bold;
+        color: #222;
+    }
+
+    hr {
+        border: 1px solid #e0e0e0;
+        margin-bottom: 20px;
+    }
+
+    .checkout-footer {
+        text-align: center;
+    }
+
+    .finalize-btn {
+        background-color: #c1a57a;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        width: 100%;
+    }
+
+    .finalize-btn:hover {
+        background-color: #523b1d;
+        box-shadow: 0 5px 15px rgba(84, 92, 246, 0.3);
+    }
 </style>
 </head>
 
-<body>
-    @include('includes.head')
-    @include('includes.header')
-    @include('includes.nav')
+@include('includes.head')
+@include('includes.header')
+@include('includes.nav')
 
+<!-- CARRINHO VAZIO -->
+
+
+@if(session('success'))
+    <p>{{ session('success') }}</p>
+@endif
+
+@if(session('error'))
+    <p>{{ session('error') }}</p>
+@endif
+
+@if($carrinho->isEmpty())
     <div class="containerCarrinhoVazio">
-        <!-- CARRINHO VAZIO -->
+
+        <div class="tituloCarrinhoVazio">
+            CARRINHO
+        </div>
+        <br>
+        <div class="tituloCarrinhoVazio">
+            <h3>Tá meio deserto aqui...</h3>
+        </div>
+        <div class="textoCarrinhoVazio">
+            Parece que você não adicionou nada no carrinho até o momento.
+            <br>
+            Continue procurando algo do seu interesse!
+        </div>
+        <br>
+        <a href="produtos" class="linkHomeCarrinho">
+            Voltar às compras
+        </a>
+    </div>
+@else
+    <div class="containerCarrinho">
         <div class="tituloCarrinhoVazio">
             CARRINHO
         </div>
         <br>
 
-        @if(session('success'))
-            <p>{{ session('success') }}</p>
-        @endif
+        <!-- card carrinho -->
+        @foreach ($carrinho as $item)
+            <div class="containerCardCarrinho">
+                <div class="cardCaPt1">
+                    <div class="partbrecho">
+                        <i class="fa-solid fa-shop store-icon"></i>
+                        <h4>{{ $item->product->vendedor->nomeVendedor }}</h4> <!-- nome do brecho -->
+                    </div>
+                    <div class="partlixeira">
+                        <form action="{{ route('carrinho.destroy', $item->idProduto) }}" method="POST" style="display:inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
+                                <i class="fa-solid fa-trash trash-icon"></i>
+                            </button>
+                        </form>
 
-        @if(session('error'))
-            <p>{{ session('error') }}</p>
-        @endif
 
-        @if($carrinho->isEmpty())
-                <div class="tituloCarrinhoVazio">
-                    <h3>Tá meio deserto aqui...</h3>
+
+                    </div>
                 </div>
-                <div class="textoCarrinhoVazio">
-                    Parece que você não adicionou nada no carrinho até o momento.
-                    <br>
-                    Continue procurando algo do seu interesse!
-                </div>
-                <br>
-                <a href="produtos" class="linkHomeCarrinho">
-                    Voltar às compras
-                </a>
-            </div>
-            <div class="containerCarrinho">
-        @else
+                <hr class="linha">
 
+                <div class="cardCaPt2">
+                    <div class="parteImagemItem">
+                        <img src="{{ $item->product->imagemProduto }}" alt="Imagem do Produto" class="imagemProduto">
 
-            <!-- card carrinho -->
-            @foreach ($carrinho as $item)
-                <div class="containerCardCarrinho">
-                    <div class="cardCaPt1">
-                        <div class="partbrecho">
-                            <i class="fa-solid fa-shop store-icon"></i>
-                            <h4>{{ $item->product->vendedor->nomeVendedor }}</h4> <!-- nome do brecho -->
+                    </div>
+                    <div class="detalhesProduto">
+                        <div class="titulosDetalhes">
+                            <h5>Peça</h5>
                         </div>
-                        <div class="partlixeira">
-                            <form action="{{ route('carrinho.destroy', $item->idProduto) }}" method="POST"
-                                style="display:inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
-                                    <i class="fa-solid fa-trash trash-icon"></i>
-                                </button>
-                            </form>
-
-
-
+                        <div class="parteDetalhesBanco">
+                            <h6>{{ $item->product->nomeProduto }}</h6>
                         </div>
                     </div>
-                    <hr class="linha">
-
-                    <div class="cardCaPt2">
-                        <div class="parteImagemItem">
-                            <img src="{{ $item->product->imagemProduto }}" alt="Imagem do Produto" class="imagemProduto">
-
+                    <div class="detalhesProduto">
+                        <div class="titulosDetalhes">
+                            <h5>Estado</h5>
                         </div>
-                        <div class="detalhesProduto">
-                            <div class="titulosDetalhes">
-                                <h5>Peça</h5>
-                            </div>
-                            <div class="parteDetalhesBanco">
-                                <h6>{{ $item->product->nomeProduto }}</h6>
-                            </div>
-                        </div>
-                        <div class="detalhesProduto">
-                            <div class="titulosDetalhes">
-                                <h5>Estado</h5>
-                            </div>
-                            <div class="parteDetalhesBanco">
-                                <h6>Blusa Nike Dry-Fit</h6>
-                            </div>
-                        </div>
-                        <div class="detalhesProduto">
-                            <div class="titulosDetalhes">
-                                <h5>Cor</h5>
-                            </div>
-                            <div class="parteDetalhesBanco">
-                                <h6>{{ $item->product->cor->nomeCor }}</h6>
-                            </div>
-                        </div>
-                        <div class="detalhesProduto">
-                            <div class="titulosDetalhes">
-                                <h5>Tamanho</h5>
-                            </div>
-                            <div class="parteDetalhesBanco">
-                                <h6>{{ $item->product->tamanho->nomeTamanho }}</h6>
-                            </div>
-                        </div>
-                        <div class="detalhesProduto">
-                            <div class="titulosDetalhes">
-                                <h5>Valor</h5>
-                            </div>
-                            <div class="parteDetalhesBanco">
-                                <h6>{{ $item->product->valorProduto }}</h6>
-                            </div>
+                        <div class="parteDetalhesBanco">
+                            <h6>Blusa Nike Dry-Fit</h6>
                         </div>
                     </div>
-            @endforeach
+                    <div class="detalhesProduto">
+                        <div class="titulosDetalhes">
+                            <h5>Cor</h5>
+                        </div>
+                        <div class="parteDetalhesBanco">
+                            <h6>{{ $item->product->cor->nomeCor }}</h6>
+                        </div>
+                    </div>
+                    <div class="detalhesProduto">
+                        <div class="titulosDetalhes">
+                            <h5>Tamanho</h5>
+                        </div>
+                        <div class="parteDetalhesBanco">
+                            <h6>{{ $item->product->tamanho->nomeTamanho }}</h6>
+                        </div>
+                    </div>
+                    <div class="detalhesProduto">
+                        <div class="titulosDetalhes">
+                            <h5>Valor</h5>
+                        </div>
+                        <div class="parteDetalhesBanco">
+                            <h6>{{ $item->product->valorProduto }}</h6>
+                        </div>
+                    </div>
+                    <input type="checkbox">
+                    <span class="checkmark"></span>
+                </div>
 
             </div>
-        @endif
 
 
-        <!-- Import do javascript -->
-        <script src="{{('js/script.js')}}"></script>
-        <!-- Imports do bootstrap do body -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-            crossorigin="anonymous"></script>
 
-        <script>
-            document.querySelectorAll('.checkbox').forEach(checkbox => {
-                checkbox.addEventListener('change', function () {
-                    let total = 0;
-                    document.querySelectorAll('.checkbox:checked').forEach(checked => {
-                        total += parseFloat(checked.getAttribute('data-preco'));
-                    });
-                    document.getElementById('totalSelecionado').textContent = total.toFixed(2);
-                });
+        @endforeach
+        <div class="checkout-wrapper">
+            <div class="checkout-card">
+                <div class="checkout-header">
+                    <h2>Resumo do Pedido</h2>
+                </div>
+                <div class="checkout-body">
+                    <div class="checkout-info">
+                        <p>Subtotal</p>
+                        <p class="subtotal-value">R$138,00</p>
+                    </div>
+                    <hr>
+                    <div class="checkout-footer">
+                        <button class="finalize-btn">Finalizar Compra</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+@endif
+</div>
+
+<!-- Import do javascript -->
+<script src="{{('js/script.js')}}"></script>
+<!-- Imports do bootstrap do body -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+<script>
+    document.querySelectorAll('.checkbox').forEach(checkbox => {
+        checkbox.addEventListener('change', function () {
+            let total = 0;
+            document.querySelectorAll('.checkbox:checked').forEach(checked => {
+                total += parseFloat(checked.getAttribute('data-preco'));
             });
-        </script>
+            document.getElementById('totalSelecionado').textContent = total.toFixed(2);
+        });
+    });
+</script>
 
 </body>
 

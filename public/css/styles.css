@@ -787,7 +787,7 @@ dialog #modal-2::backdrop {
     }
 }
 
-#modal-4{
+#modal-4 {
     border: none;
     width: 100vw;
     border-radius: 24px;
@@ -797,17 +797,17 @@ dialog #modal-2::backdrop {
 }
 
 
-#modal-4 .modal-body h3{
+#modal-4 .modal-body h3 {
     text-align: center;
     color: #5e3e24;
 }
 
-#modal-4 .modal-body h5{
+#modal-4 .modal-body h5 {
     color: #898181;
     text-align: center;
 }
 
-#modal-5{
+#modal-5 {
     border: none;
     width: 100vw;
     border-radius: 24px;
@@ -816,12 +816,12 @@ dialog #modal-2::backdrop {
     max-height: 500px;
 }
 
-#modal-5 .modal-body h3{
+#modal-5 .modal-body h3 {
     text-align: center;
     color: #5e3e24;
 }
 
-#modal-5 .modal-body h5{
+#modal-5 .modal-body h5 {
     color: #898181;
     text-align: center;
 }
@@ -847,15 +847,15 @@ dialog #modal-2::backdrop {
     outline: none;
 }
 
-.reenviar{
+.reenviar {
     text-align: center;
 }
 
-.reenviar a{
+.reenviar a {
     color: #1c64f2;
 }
 
-#modal-6{
+#modal-6 {
     border: none;
     width: 100vw;
     border-radius: 24px;
@@ -864,21 +864,21 @@ dialog #modal-2::backdrop {
     max-height: 500px;
 }
 
-#modal-6 .modal-body h3{
+#modal-6 .modal-body h3 {
     text-align: center;
     color: #5e3e24;
 }
 
-#modal-6 .modal-body h5{
+#modal-6 .modal-body h5 {
     color: #898181;
     text-align: center;
 }
 
-#modal-6 .inputs{
+#modal-6 .inputs {
     padding-top: 10px;
 }
 
-.login-botao{
+.login-botao {
     padding-top: 10px;
 }
 
@@ -3415,7 +3415,8 @@ a:hover {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 2px solid #000;
+    border-bottom: 1px solid #c2c2c2;
+    background-color: white;
 }
 
 .parte1 {
@@ -3442,8 +3443,8 @@ a:hover {
     display: flex;
     width: 70%;
     padding-bottom: 0;
+    padding: 1vh;
     padding-right: 6vh;
-    padding-top: 1vh;
 
 }
 
@@ -3511,55 +3512,75 @@ a:hover {
     white-space: nowrap;
     width: 30%;
 }
-.infoDenuncia{
+
+.infoDenuncia {
     display: block;
-    padding: 1%;
+    width: 90%;
+    flex-wrap: wrap;
+    height: auto;
+}
+
+.infoDenuncia-top {
+
+    display: flex;
+    padding: 0.5%;
     width: 100%;
-    height: 60%;
+    align-items: center;
     flex-wrap: wrap;
 }
-.nomeVendDenuncia{
+
+.nomeVendDenuncia {
+    font-weight: 500;
+    font-size: 2vh;
     margin: 0;
+    width: 50%;
+    padding-left: 1%;
 }
-.topDenuncia{
+
+.topDenuncia {
     font-weight: 600;
     width: 100%;
     padding-left: 1%;
     padding-right: 1%;
-    height: 50%;
     display: flex;
     justify-content: space-between;
 }
-.bottomDenuncia{
+
+.bottomDenuncia {
     width: 100%;
     padding-left: 1%;
     padding-right: 1%;
     padding-top: 0;
-    height: 50%;
     display: flex;
     justify-content: space-between;
 }
-.itemBottomDenuncia{
-    width: 50%;
 
+.itemBottomDenuncia {
+    width: 50%;
     overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     margin: 0;
+    height: fit-content;
+    font-size: 2vh;
 }
-.itemTopDenuncia{
+
+.itemTopDenuncia {
     overflow: hidden;
-    
+    height: fit-content;
     width: 50%;
     margin: 0;
+    font-size: 2vh;
 }
 
 
 .titleDash {
-    font-weight: 700;
-    font-size: 5vh;
+    font-weight: 600;
+    padding-bottom: 1%;
+    font-size: 4vh;
     width: 100%;
-    padding-top: 1%;
-    padding-left: 4%;
-    text-align: left;
+   text-align: left;
+    margin-top: 5%;
 }
 
 .acoesDenuncia {
@@ -3685,17 +3706,17 @@ a:hover {
     display: block;
 }
 
-.resultConsultaContainer {
+
+.containerFiltro{
     display: flex;
     flex-wrap: wrap;
-    padding: 4%;
-    padding-top: 2%;
+    width: 80%;
 }
 
 .ConsultaCardContainer {
     border-top: solid;
     border-width: 1px;
-    border-color: #a5a5a5;
+    border-color: #dd0000;
     width: 100%;
     display: block;
     flex-wrap: wrap;
@@ -3889,33 +3910,37 @@ a:hover {
 
 .adminPanelContainer {
     display: flex;
-    padding: 4%;
     width: 100%;
-    height: inherit;
 
 }
 
 .adminPanel {
     display: flex;
-    border-radius: 30px;
+    border-radius: 20px;
     width: 100%;
-    height: 100%;
     background-color: rgb(206, 205, 205);
-    position: relative;
-    border: 1px solid rgb(219, 219, 219)
+    border: 1px solid rgb(223, 223, 223)
+}
+.adminPanelConsulta{
+    display: flex;
+    border-radius: 20px;
+    width: 100%;
+    background-color: rgb(206, 205, 205);
+    border: 1px solid rgb(202, 202, 202);
+    height: 80vh;
 }
 
 .notifAdminPanel {
     display: flex;
     flex-wrap: wrap;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-    border-right: 1px solid rgb(192, 192, 192);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-right: 1px solid rgb(224, 224, 224);
     width: 25%;
     overflow-y: hidden;
     scrollbar-width: thin;
     height: 100%;
-    background-color: rgb(221, 221, 221);
+    background-color: rgb(250, 250, 250);
     position: relative;
 
 }
@@ -3928,40 +3953,29 @@ a:hover {
     justify-content: center;
     align-items: center;
     font-weight: 600;
+    border-bottom: 1px solid rgb(221, 221, 221);
+
 }
 
-.shadowNotifPanel {
-    padding: 2%;
-    display: flex;
-    width: 100%;
-    height: 10%;
-    justify-content: center;
-    align-items: center;
-    font-weight: 600;
-    position: absolute;
-}
 
 .adminGraficoContainer {
     padding: 1%;
     display: flex;
     flex-wrap: wrap;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
     width: 75%;
-    height: 100%;
-    background-color: rgb(221, 221, 221);
+    background-color: rgb(250, 250, 250);
     gap: 1%;
     justify-content: center;
-    align-items: center;
 
 }
 
 .cardGrafico {
-    border-radius: 30px;
+    border-radius: 20px;
     background-color: white;
-    border: 2px solid rgb(204, 204, 204);
-    width: 49%;
-    height: 45%;
+    border: 1px solid rgb(230, 230, 230);
+    width: 32.66%;
     flex-wrap: wrap;
     display: flex;
     padding: 2%;
@@ -3973,10 +3987,9 @@ a:hover {
 
 .cardNotifAdmin {
     padding: 4%;
-    border-top: 1px solid rgb(209, 209, 209);
+    border-bottom: 1px solid rgb(209, 209, 209);
     width: 100%;
-    height: 15%;
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(255, 255, 255);
 }
 
 #piechart {
@@ -3996,18 +4009,20 @@ svg {
 
 .bodyNotif {
 
-    font-size: 80%;
+    font-size: 70%;
 }
 
 .titleNotif {
-    font-weight: 600;
-    font-size: 100%;
+    font-weight: 550;
+    font-size: 85%;
 }
 
 .graficoAdmin {
+    height: 90%;
+    display: flex;
     padding-top: 1%;
     width: 100%;
-    height: 97%;
+    align-items: center; /* Estica o gráfico verticalmente */
 }
 
 .titleGraficoAdmin {
@@ -4016,6 +4031,7 @@ svg {
     width: 100%;
     height: 10%;
     font-weight: 500;
+    font-size: 2vh;
     justify-content: space-between;
     align-items: center;
     transition: letter-spacing 0.2s ease-in-out;
@@ -4049,9 +4065,9 @@ svg {
 .infosGraficoAdmin {
     align-items: center;
     width: 100%;
-    height: 80%;
+
     flex-wrap: wrap;
-    display: flex;
+    display: block;
 
 }
 
@@ -4073,9 +4089,9 @@ svg {
 .filtroAdminPanel {
     display: block;
     flex-wrap: wrap;
-    border-top-left-radius: 30px;
-    border-bottom-left-radius: 30px;
-    border-right: 1px solid rgb(192, 192, 192);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-right: 1px solid rgb(214, 214, 214);
     width: 25%;
     height: 100%;
     background-color: rgb(221, 221, 221);
@@ -4084,15 +4100,15 @@ svg {
 }
 
 .resultBuscaContainer {
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
-    width: 75%;
-    height: 100%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 100%;
+    height: 94%;
     background-color: rgb(221, 221, 221);
     overflow-y: auto;
     scrollbar-width: thin;
     /* Define a largura da barra (auto, thin, none) */
-    scrollbar-color: #858585 #ffffff;
+    scrollbar-color: #bbbbbb #ffffff;
     /* Cor do polegar e da trilha */
     scroll-behavior: smooth;
 
@@ -4103,7 +4119,7 @@ svg {
     display: flex;
     background-color: rgb(241, 241, 241);
     width: 100%;
-    height: 11%;
+
 }
 
 .infoLabelConsulta {
@@ -4112,8 +4128,10 @@ svg {
     float: right;
     width: 93%;
     display: flex;
-    height: 6%;
+    border-top-right-radius: 20px;
+    height: 100%;
     font-size: 2vh;
+
 
 }
 
@@ -4169,14 +4187,51 @@ svg {
 }
 
 .btnDetalhesGrafico {
-    align-self: center;
     color: white;
-    background-color: black;
+    background-color: rgb(83, 129, 180);
     border: 1px solid white;
     width: 70%;
     border-radius: 30px;
     transition: background-color 0.4s ease-in-out;
     transition: width, 0.2s ease-in-out;
+}
+
+.btnAcaoDetalhes {
+    font-size: 2vh;
+    align-self: center;
+    color: white;
+    background-color: rgb(83, 129, 180);
+    border: 1px solid white;
+    width: 15%;
+    border-radius: 30px;
+    transition: background-color 0.4s ease-in-out;
+    transition: width, 0.2s ease-in-out;
+}
+
+.btnAcaoDetalhes:hover {
+    color: black;
+    background-color: white;
+    border: 1px solid rgb(180, 180, 180);
+    cursor: pointer;
+}
+
+.btnAcaoExcluir {
+    font-size: 2vh; 
+    align-self: center;
+    color: white;
+    background-color: rgb(180, 83, 83);
+    border: 1px solid white;
+    width: 15%;
+    border-radius: 30px;
+    transition: background-color 0.4s ease-in-out;
+    transition: width, 0.2s ease-in-out;
+}
+
+.btnAcaoExcluir:hover {
+    color: rgb(179, 17, 17);
+    background-color: white;
+    border: 1px solid rgb(180, 180, 180);
+    cursor: pointer;
 }
 
 .btnDetalhesGrafico:hover {
@@ -4202,7 +4257,7 @@ svg {
 
 .scroll-notif {
     overflow-y: auto;
-    scrollbar-width: thin;
+    scrollbar-width:thin;
     scrollbar-color: #b1b1b1 #ffffff;
     scroll-behavior: smooth;
     height: 90%;
@@ -4210,13 +4265,13 @@ svg {
 
 }
 
-.bigCardGrafico {
 
-    border-radius: 30px;
+.bigCardGrafico {
+    flex-direction: column;
+    border-radius: 20px;
     background: linear-gradient(#ffffff, #ffffff);
-    border: 2px solid rgb(209, 209, 209);
+    border: 1px solid rgb(226, 226, 226);
     width: 100%;
-    height: 50%;
     flex-wrap: wrap;
     display: flex;
     padding: 2%;
@@ -4234,54 +4289,90 @@ svg {
 }
 
 .admContainerDenuncia {
+
     display: flex;
     width: 100%;
+    flex-wrap: wrap;
     height: 100%;
-    padding: 4%;
 }
 
 .admDenuncia {
-    overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: #dadada #ffffff;
     scroll-behavior: smooth;
     flex-wrap: wrap;
-    padding: 2%;
     display: block;
-    background-color: rgb(219, 219, 219);
-    border: 1px solid rgb(204, 204, 204);
-
     border-radius: 30px;
     width: 100%;
-    height: 100%;
+    height: auto;
+    padding-top: 3%;
     gap: 2vh;
 }
-.admCardDenuncia{
+
+.admCardDenuncia {
     padding: 0.5%;
     margin-bottom: 1%;
     display: flex;
     width: 100%;
     background-color: rgb(255, 255, 255);
-    border-bottom-right-radius:  30px;
-    border-bottom-left-radius:  30px;
-    border: 1px solid rgb(212, 212, 212);
-    height: 25vh;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border: 1px solid rgb(226, 226, 226);
+
 }
+
 .imgProdutoDenuncia {
-    width: 13%;
-    height: auto;
-    border-radius: 25px;
+    width: 8%;
+    border-radius: 15px;
     border-top-left-radius: 0;
     border: 1px solid rgb(189, 189, 189);
     background-color: rgb(202, 202, 202);
-    
+    height: 100px;
+
 }
-.cardDenuncia-top{
-    border-top-right-radius:  30px;
-    border-top-left-radius:  30px;
-    border-top: 1px solid rgb(231, 231, 231);
-    border-left: 1px solid rgb(231, 231, 231);
-    border-right: 1px solid rgb(231, 231, 231);
-    height: 10%;
+
+.cardDenuncia-top {
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    border-top: 1px solid rgb(226, 226, 226);
+    border-left: 1px solid rgb(226, 226, 226);
+    border-right: 1px solid rgb(226, 226, 226);
+    height: 3%;
     background-color: #ffffff;
+}
+
+.bodyAdmin {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(240, 240, 240);
+}
+
+.containerAdmin {
+    padding: 4%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.btnDenunciaContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 4%;
+    padding-top: 3%;
+
+}
+
+.graficoAcessos {
+    width: 100%;
+}
+.alignLabelConsulta{
+    display: flex;
+    width: 100%;
+    height: 6%;
+    background-color: rgb(221, 221, 221);
+    border-top-right-radius: 20px;
+    justify-content: right;
 }

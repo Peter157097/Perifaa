@@ -7,15 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            width: 100%;
-            height: 100%;
-            background-color: white;
-        }
     </style>
     <!-- Fonte customizada para o logo -->
     <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
@@ -23,123 +14,121 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
-<body>
+<body class="bodyAdmin">
     @include('includes.menuAdmin')
-
-    <div class="adminPanelContainer">
-        <div class="adminPanel">
-            <div class="notifAdminPanel">
-                <div class="titleNotifPanel">
-                    Notificações | Pendências
-                </div>
-                <div class="scroll-notif">
-                    <div class="cardNotifAdmin">
-                        <div class="titleNotif">
-                            Sistema
-                        </div>
-                        <div class="bodyNotif">
-                            Analisar denúncias em atraso
-                        </div>
+    <div class="containerAdmin">
+        <div class="adminPanelContainer">
+            <div class="adminPanel">
+                <div class="notifAdminPanel">
+                    <div class="titleNotifPanel">
+                        Notificações | Pendências
                     </div>
-                    <div class="cardNotifAdmin">
-                        <div class="titleNotif">
-                            Sistema
+                    <div class="scroll-notif">
+                        <div class="cardNotifAdmin">
+                            <div class="titleNotif">
+                                Sistema
+                            </div>
+                            <div class="bodyNotif">
+                                Analisar denúncias em atraso
+                            </div>
                         </div>
-                        <div class="bodyNotif">
-                            Analisar denúncias em atraso
+                        <div class="cardNotifAdmin">
+                            <div class="titleNotif">
+                                Sistema
+                            </div>
+                            <div class="bodyNotif">
+                                Analisar denúncias em atraso
+                            </div>
                         </div>
-                    </div>
-                    <div class="cardNotifAdmin">
-                        <div class="titleNotif">
-                            Sistema
+                        <div class="cardNotifAdmin">
+                            <div class="titleNotif">
+                                Sistema
+                            </div>
+                            <div class="bodyNotif">
+                                Analisar denúncias em atraso
+                            </div>
                         </div>
-                        <div class="bodyNotif">
-                            Analisar denúncias em atraso
+                        <div class="cardNotifAdmin">
+                            <div class="titleNotif">
+                                Sistema
+                            </div>
+                            <div class="bodyNotif">
+                                Analisar denúncias em atraso
+                            </div>
                         </div>
-                    </div>
-                    <div class="cardNotifAdmin">
-                        <div class="titleNotif">
-                            Sistema
+                        <div class="cardNotifAdmin">
+                            <div class="titleNotif">
+                                Sistema
+                            </div>
+                            <div class="bodyNotif">
+                                Analisar denúncias em atraso
+                            </div>
                         </div>
-                        <div class="bodyNotif">
-                            Analisar denúncias em atraso
+                        <div class="cardNotifAdmin">
+                            <div class="titleNotif">
+                                Sistema
+                            </div>
+                            <div class="bodyNotif">
+                                Analisar denúncias em atraso
+                            </div>
                         </div>
-                    </div>
-                    <div class="cardNotifAdmin">
-                        <div class="titleNotif">
-                            Sistema
+                        <div class="cardNotifAdmin">
+                            <div class="titleNotif">
+                                Sistema
+                            </div>
+                            <div class="bodyNotif">
+                                Analisar denúncias em atraso
+                            </div>
                         </div>
-                        <div class="bodyNotif">
-                            Analisar denúncias em atraso
+                        <div class="cardNotifAdmin">
+                            <div class="titleNotif">
+                                Sistema
+                            </div>
+                            <div class="bodyNotif">
+                                Revisar sugestões dos usuários
+                            </div>
                         </div>
-                    </div>
-                    <div class="cardNotifAdmin">
-                        <div class="titleNotif">
-                            Sistema
-                        </div>
-                        <div class="bodyNotif">
-                            Analisar denúncias em atraso
-                        </div>
-                    </div>
-                    <div class="cardNotifAdmin">
-                        <div class="titleNotif">
-                            Sistema
-                        </div>
-                        <div class="bodyNotif">
-                            Analisar denúncias em atraso
-                        </div>
-                    </div>
-                    <div class="cardNotifAdmin">
-                        <div class="titleNotif">
-                            Sistema
-                        </div>
-                        <div class="bodyNotif">
-                            Revisar sugestões dos usuários
-                        </div>
-                    </div>
-                    <div class="cardNotifAdmin">
-                        <div class="titleNotif">
-                            Marina
-                        </div>
-                        <div class="bodyNotif">
-                            Olá, preciso de ajuda com um caso
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-            <div class="adminGraficoContainer">
-                <div class="bigCardGrafico">
-                    <div class="titleBigGraficoAdmin">
-                        Acessos <span class="tempoGraficoAdmin"> | Mensais</span>
-
-                    </div>
-                    <div class="graficoAdmin">
-                        <div id="top_x_div" style="width: 100%; height: 90%;"></div>
-                    </div>
-                </div>
-
-                <div class="cardGrafico">
-                    <div class="titleGraficoAdmin">
-                        <div class="labelGraficoContainer">
-                            Acessos <span class="tempoGraficoAdmin"> | últimas 24 horas</span>
-                        </div>
-                        <div class="graficoIconContainer">
-                            <div class="graficoIcon">
-                                <img src="./images/graficoIcon.png">
+                        <div class="cardNotifAdmin">
+                            <div class="titleNotif">
+                                Marina
+                            </div>
+                            <div class="bodyNotif">
+                                Olá, preciso de ajuda com um caso
                             </div>
                         </div>
                     </div>
-                    <div class="infosGraficoAdmin">
-                        <div class="numerosGrafico">
-                            &#11165; 24.387
+                </div>
+                <div class="adminGraficoContainer">
+                    <div class="bigCardGrafico">
+                        <div class="titleBigGraficoAdmin">
+                            Acessos <span class="tempoGraficoAdmin">| Mensais</span>
                         </div>
-                        <div class="titleGraficoAdminAlt">
-                            Dia anterior
+                        <div class="graficoAdmin">
+                            <div id="top_x_div" class="graficoAcessos"></div>
                         </div>
-                        <div class="numerosGraficoAlt">
-                            &#11167; 15.486
+                    </div>
+
+                    <div class="cardGrafico">
+                        <div class="titleGraficoAdmin">
+                            <div class="graficoIconContainer">
+                                <div class="graficoIcon">
+                                    <img src="./images/graficoIcon.png">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="infosGraficoAdmin">
+                            <div class="labelGraficoContainer">
+                                Acessos <span class="tempoGraficoAdmin"> | últimas 24 horas</span>
+                            </div>
+                            <div class="numerosGrafico">
+                                &#11165; 24.387
+                            </div>
+                            <div class="titleGraficoAdminAlt">
+                                Dia anterior
+                            </div>
+                            <div class="numerosGraficoAlt">
+                                &#11167; 15.486
+                            </div>
                         </div>
                         <div class="btnGraficoContainer">
                             <button class="btnDetalhesGrafico">
@@ -147,27 +136,55 @@
                             </button>
                         </div>
                     </div>
-                </div>
-                <div class="cardGrafico">
-                    <div class="titleGraficoAdmin">
-                        <div class="labelGraficoContainer">
-                            Vendas <span class="tempoGraficoAdmin"> | últimas 24 horas</span>
-                        </div>
-                        <div class="graficoIconContainer">
-                            <div class="graficoIcon">
-                                <img src="./images/graficoIcon.png">
+                    <div class="cardGrafico">
+                        <div class="titleGraficoAdmin">
+                            <div class="graficoIconContainer">
+                                <div class="graficoIcon">
+                                    <img src="./images/graficoIcon.png">
+                                </div>
                             </div>
                         </div>
+                        <div class="infosGraficoAdmin">
+                            <div class="labelGraficoContainer">
+                                Vendas <span class="tempoGraficoAdmin"> | últimas 24 horas</span>
+                            </div>
+                            <div class="numerosGrafico">
+                                &#11165; 4.387
+                            </div>
+                            <div class="titleGraficoAdminAlt">
+                                Dia anterior
+                            </div>
+                            <div class="numerosGraficoAlt">
+                                &#11167; 2.486
+                            </div>
+                        </div>
+                        <div class="btnGraficoContainer">
+                            <button class="btnDetalhesGrafico">
+                                <a>Detalhes</a>
+                            </button>
+                        </div>
                     </div>
-                    <div class="infosGraficoAdmin">
-                        <div class="numerosGrafico">
-                            &#11165; 4.387
+                    <div class="cardGrafico">
+                        <div class="titleGraficoAdmin">
+                            <div class="graficoIconContainer">
+                                <div class="graficoIcon">
+                                    <img src="./images/graficoIcon.png">
+                                </div>
+                            </div>
                         </div>
-                        <div class="titleGraficoAdminAlt">
-                            Dia anterior
-                        </div>
-                        <div class="numerosGraficoAlt">
-                            &#11167; 2.486
+                        <div class="infosGraficoAdmin">
+                            <div class="labelGraficoContainer">
+                                Denuncias <span class="tempoGraficoAdmin"> | últimas 24 horas</span>
+                            </div>
+                            <div class="numerosGrafico">
+                                &#11165; 387
+                            </div>
+                            <div class="titleGraficoAdminAlt">
+                                Dia anterior
+                            </div>
+                            <div class="numerosGraficoAlt">
+                                &#11167; 257
+                            </div>
                         </div>
                         <div class="btnGraficoContainer">
                             <button class="btnDetalhesGrafico">
@@ -178,44 +195,57 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="titleDash">
-        Produtos mais denunciados
-    </div>
-    <div class="admContainerDenuncia">
-        <div class="admDenuncia">
-            @foreach($denuncias as $denuncia)
-                <div class="cardDenuncia-top">
-                    <div class="infoDenuncia">
-                        <p class="nomeVendDenuncia">
-                            Nome Vendedor
-                        </p>
-                    </div>
-                </div>
-                <div class="admCardDenuncia">
-                    <img src="{{$denuncia->produto->imagemProduto}}" class="imgProdutoDenuncia">
-                    <div class="infoDenuncia">
-                        <div class="topDenuncia">
-                            <p class="itemTopDenuncia">Produto</p>
-                            <p class="itemTopDenuncia">Descrição</p>
-                            <P class="itemTopDenuncia">Valor</P>
-                            <P class="itemTopDenuncia">Id Denuncia</P>
-                            <P class="itemTopDenuncia">Email</P>
 
-                        </div>
-                        <div class="bottomDenuncia">
-                            <p class="itemBottomDenuncia">{{$denuncia->produto->nomeProduto ?? 'Descrição Indisponível' }}  </p>
-                            <p class="itemBottomDenuncia">{{ $denuncia->produto->descricaoProduto ?? 'Descrição Indisponível' }}</p>
-                            <p class="itemBottomDenuncia">{{$denuncia->Produto->valorProduto ?? 'Descrição Indisponível' }}</p>
-                            <p class="itemBottomDenuncia">{{ $denuncia->idDenuncia ?? 'Descrição Indisponível' }}</p>
-                            <p class="itemBottomDenuncia">{{ $denuncia->cliente->emailCliente ?? 'Nome Indisponível' }}</p>
+        <div class="admContainerDenuncia">
+            <div class="admDenuncia">
+                <div class="titleDash">
+                    Produtos mais denunciados
+                </div>
+                @foreach($denuncias as $denuncia)
+                    <div class="cardDenuncia-top">
+                        <div class="infoDenuncia-top">
+                            <p class="nomeVendDenuncia">
+                                Nome Vendedor
+                            </p>
                         </div>
                     </div>
-
-                </div>
-            @endforeach
+                    <div class="admCardDenuncia">
+                        <img src="{{$denuncia->produto->imagemProduto}}" class="imgProdutoDenuncia">
+                        <div class="infoDenuncia">
+                            <div class="topDenuncia">
+                                <p class="itemTopDenuncia">Produto</p>
+                                <p class="itemTopDenuncia">Descrição</p>
+                                <P class="itemTopDenuncia">Valor</P>
+                                <P class="itemTopDenuncia">Id Denuncia</P>
+                                <P class="itemTopDenuncia">Email</P>
+                            </div>
+                            <div class="bottomDenuncia">
+                                <p class="itemBottomDenuncia">
+                                    {{$denuncia->produto->nomeProduto ?? 'Descrição Indisponível' }}
+                                </p>
+                                <p class="itemBottomDenuncia">
+                                    {{ $denuncia->produto->descricaoProduto ?? 'Descrição Indisponível' }}
+                                </p>
+                                <p class="itemBottomDenuncia">
+                                    {{$denuncia->Produto->valorProduto ?? 'Descrição Indisponível' }}
+                                </p>
+                                <p class="itemBottomDenuncia">{{ $denuncia->idDenuncia ?? 'Descrição Indisponível' }}</p>
+                                <p class="itemBottomDenuncia">{{ $denuncia->cliente->emailCliente ?? 'Nome Indisponível' }}
+                                </p>
+                            </div>
+                            <div class="btnDenunciaContainer">
+                                <button class="btnAcaoDetalhes">
+                                    <a>Ver anuncio</a>
+                                </button>
+                                <button class="btnAcaoExcluir">
+                                    <a>Excluir anuncio</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
         </div>
-
     </div>
     <script>
         // Função para abrir/fechar o menu lateral
@@ -275,6 +305,7 @@
             ]);
 
             var options = {
+                height: '100%', // Ajusta o gráfico para ocupar toda a altura
                 legend: {
                     position: 'none',
 
@@ -287,7 +318,6 @@
                 },
                 bar: {
                     groupWidth: "99%",
-                    borderRadius: "99%",
                 },
                 colors: ['#2a89c7']
             };

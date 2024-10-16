@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-@include('includes.head')
+
+@include('includes.head') <!-- Certifique-se de que o head seja incluído corretamente aqui -->
 
 <head>
     <meta charset="UTF-8">
@@ -11,10 +12,10 @@
         body {
             margin: 0;
             padding: 0;
-            display: flex;
             width: 100%;
             height: 100%;
             background-color: white;
+            font-family: 'Poppins', sans-serif;
         }
     </style>
     <!-- Fonte customizada para o logo -->
@@ -24,69 +25,78 @@
 </head>
 
 <body>
-    @include('includes.menuAdmin')
+    @include('includes.menuAdmin') <!-- Certifique-se de que o menuAdmin esteja funcionando corretamente -->
 
-    <div class="adminPanelContainer">
-        <div class="adminPanel">
-            <div class="filtroAdminPanel">
-                <div class="titleNotifPanel">Consulta</div>
-                <div class="containerFloatImg">
-                    <div class="floatImageAdmin">
-                        <img class="floatImage" src="{{url('/images/floatImageConsulta.png')}}">
+    <div class="containerAdmin">
+        <div class="adminPanelContainer">
+            <div class="adminPanelConsulta">
+                <div class="filtroAdminPanel">
+                    <div class="titleNotifPanel">Consulta</div>
+                    <div class="containerFloatImg">
+                        <div class="floatImageAdmin">
+                            <img class="floatImage" src="{{url('/images/floatImageConsulta.png')}}">
+                        </div>
                     </div>
-                </div>
-                <div class="alvoConsultaContainer">
-                    <div class="alvoConsulta">
-                        <form action="{{ route('filtrar-usuarios') }}" method="POST">
-                            @csrf
-                            <div class="form-group">
-                                <label for="tipo">Tipo de Usuário</label>
-                                <select name="tipo" id="tipo" class="form-control">
-                                    <option value="todos" {{ isset($tipoSelecionado) && $tipoSelecionado == 'todos' ? 'selected' : '' }}>Todos</option>
-                                    <option value="cliente" {{ isset($tipoSelecionado) && $tipoSelecionado == 'cliente' ? 'selected' : '' }}>Cliente</option>
-                                    <option value="vendedor" {{ isset($tipoSelecionado) && $tipoSelecionado == 'vendedor' ? 'selected' : '' }}>Vendedor</option>
-                                    <option value="administrador" {{ isset($tipoSelecionado) && $tipoSelecionado == 'administrador' ? 'selected' : '' }}>Administrador</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group mt-3">
-                                <label for="nome">Nome do Usuário</label>
-                                <input type="text" name="nome" id="nome" class="form-control" value="{{ old('nome') }}"
-                                    placeholder="Digite o nome do usuário">
-                            </div>
-
-                            <button type="submit" class="btn btn-primary mt-3">Buscar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            @if(isset($usuarios) && count($usuarios) > 0)
-                <div class="resultBuscaContainer">
-                    <div class="infoLabelConsulta">
-                        <p class="labelInfoConsulta">Usuario</p>
-                        <p class="labelInfoConsulta">E-mail</p>
-                        <p class="labelInfoConsulta">Status</p>
-                    </div>
-                    @foreach($usuarios as $usuario)
-                        <div class="cardConsulta">
-                            <div class="pfpBuscaContainer">
-                                <div class="pfpBusca">
-                                    <img src="{{ asset($usuario->imagem) }}" class="pfpConsulta">
+                    <div class="alvoConsultaContainer">
+                        <div class="alvoConsulta">
+                            <form action="{{ route('filtrar-usuarios') }}" method="POST">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="tipo">Tipo de Usuário</label>
+                                    <select name="tipo" id="tipo" class="form-control">
+                                        <option value="todos" {{ isset($tipoSelecionado) && $tipoSelecionado == 'todos' ? 'selected' : '' }}>Todos</option>
+                                        <option value="cliente" {{ isset($tipoSelecionado) && $tipoSelecionado == 'cliente' ? 'selected' : '' }}>Cliente</option>
+                                        <option value="vendedor" {{ isset($tipoSelecionado) && $tipoSelecionado == 'vendedor' ? 'selected' : '' }}>Vendedor</option>
+                                        <option value="administrador" {{ isset($tipoSelecionado) && $tipoSelecionado == 'administrador' ? 'selected' : '' }}>Administrador
+                                        </option>
+                                    </select>
                                 </div>
-                            </div>
-                            <div class="infoConsulta">
-                                <p class="itemInfoConsulta">{{ $usuario->nome }}</p>
-                                <p class="itemInfoConsulta">{{ $usuario->email }}</p>
-                                <p class="itemInfoConsulta">{{ ucfirst($usuario->tipo) }}</p>
+
+                                <div class="form-group mt-3">
+                                    <label for="nome">Nome do Usuário</label>
+                                    <input type="text" name="nome" id="nome" class="form-control"
+                                        value="{{ old('nome') }}" placeholder="Digite o nome do usuário">
+                                </div>
+
+                                <button type="submit" class="btn btn-primary mt-3">Buscar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                @if(isset($usuarios) && count($usuarios) > 0)
+                    <div class="containerFiltro">
+                        <div class="alignLabelConsulta">
+                            <div class="infoLabelConsulta">
+                                <p class="labelInfoConsulta">Usuário</p>
+                                <p class="labelInfoConsulta">E-mail</p>
+                                <p class="labelInfoConsulta">Status</p>
                             </div>
                         </div>
-                    @endforeach
-                </div>
-            @else
-                <div class="consultaAviso">
-                    <h5>Nenhum usuário encontrado para sua busca.</h5>
-                </div>
-            @endif
+                        <div class="resultBuscaContainer">
+                            @foreach($usuarios as $usuario)
+                                <div class="cardConsulta">
+                                    <div class="pfpBuscaContainer">
+                                        <div class="pfpBusca">
+                                            <img src="{{ asset($usuario->imagem) }}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="infoConsulta">
+                                        <p class="itemInfoConsulta">{{ $usuario->nome }}</p>
+                                        <p class="itemInfoConsulta">{{ $usuario->email }}</p>
+                                        <p class="itemInfoConsulta">{{ ucfirst($usuario->tipo) }}</p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @else
+                    <div class="consultaAviso">
+                        <h5>Nenhum usuário encontrado para sua busca.</h5>
+                    </div>
+                @endif
+
+            </div>
         </div>
     </div>
 

@@ -23,7 +23,7 @@ Route::get('/', function () {
 });
 
 Route::get('/cadastrarProdutosVendedor', [DashboardController::class, 'index'])->name('cadastrarProdutosVendedor');
-Route::post('/produto/store', [DashboardController::class, 'store'])->name('produto.store');
+
 
 Route::post('/Cliente', [ClienteController::class, 'store']);
 
@@ -109,6 +109,9 @@ Route::get('/adminDenuncias', function () {
     return view('adminDenuncias');
 }); 
 
+Route::get('/mensagens', function () {
+    return view('mensagens');
+}); 
 
 
 

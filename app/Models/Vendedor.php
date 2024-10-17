@@ -24,4 +24,9 @@ class Vendedor extends Model
     protected $fillable = [
         'nomeVendedor', 'emailVendedor', 'senhaVendedor', 'telefoneVendedor', 'cepVendedor', 'logradouroVendedor', 'bairroVendedor', 'cidadeVendedor', 'estadoVendedor', 'complementoVendedor','imagemVendedor'
     ];
+
+    public function produtos()
+    {
+        return $this->hasMany(Produto::class, 'idVendedor', 'idVendedor');
+    }
 }

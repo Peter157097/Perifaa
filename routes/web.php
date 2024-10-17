@@ -61,6 +61,7 @@ Route::get('/logout', [AuthController::class, 'logout']);
 
 
 Route::get('/produtos', [ProdutoController::class, 'index'])->name('produtos.index');
+Route::put('/produtos/{idProduto}', [ProdutoController::class, 'update'])->name('produtos.update');
 
 
 
@@ -174,7 +175,7 @@ Route::get('/contato', function () {
     return view('contato');
 });
 
-Route::get('/cadastrarProdutosVendedor', [DashboardController::class, 'index'])->name('cadastrarProdutosVendedor');
+Route::post('/cadastrarProdutosVendedor', [DashboardController::class, 'index'])->name('produto.store');
 Route::get('/produtos/search', [ProdutoController::class, 'search'])->name('produtos.search');
 
 Route::get('/dashboardVendedor', [VendedorController::class, 'index'])->name('dashboardVendedor');
@@ -186,7 +187,5 @@ Route::get('/filtro-usuarios', function () {
 Route::post('/filtro-usuarios', [UserController::class, 'filtrarUsuarios'])->name('filtrar-usuarios');
 
 // Rota para o produtosVendedor
-Route::get('/produtosVendedor', function () {
-    return view('produtosVendedor');
-}); 
+Route::get('/produtosVendedor', [ProdutoController::class, 'edit'])->name('produtosVendedor');
 

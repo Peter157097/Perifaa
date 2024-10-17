@@ -472,7 +472,7 @@
     @endif
 
 
-    <form action="{{ route('produto.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('produtos.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="part3rs">
             <div class="card-container">
@@ -561,6 +561,22 @@
                 <div class="image-section">
                     <div class="image-upload">
                         <input type="file" id="imagemProduto" name="imagemProduto" accept="image/*"
+                            onchange="handleFileInput(this, 'imagemFeedback1')">
+                    </div>
+                    <div class="image-upload">
+                        <input type="file" id="imagemProduto" name="imagemProduto2" accept="image/*"
+                            onchange="handleFileInput(this, 'imagemFeedback1')">
+                    </div>
+                    <div class="image-upload">
+                        <input type="file" id="imagemProduto" name="imagemProduto3" accept="image/*"
+                            onchange="handleFileInput(this, 'imagemFeedback1')">
+                    </div>
+                    <div class="image-upload">
+                        <input type="file" id="imagemProduto" name="imagemProduto4" accept="image/*"
+                            onchange="handleFileInput(this, 'imagemFeedback1')">
+                    </div>
+                    <div class="image-upload">
+                        <input type="file" id="imagemProduto" name="imagemProduto5" accept="image/*"
                             onchange="handleFileInput(this, 'imagemFeedback1')">
                     </div>
 

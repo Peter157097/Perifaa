@@ -173,7 +173,7 @@
 
         .inside {
             z-index: 9;
-            background: #617d00;
+            background: #1DA361;
             width: 140px;
             height: 140px;
             position: absolute;
@@ -187,7 +187,7 @@
                 position: absolute;
                 right: 85px;
                 top: 85px;
-                color: #617d00;
+                color: #1DA361;
                 opacity: 1;
             }
 
@@ -274,6 +274,7 @@
         align-items: center;
         justify-content: center;
         width: 100%;
+        
     }
 
     .part2 {
@@ -301,140 +302,155 @@
                 <button class="carousel-arrow left" id="prev">&lt;</button>
                 <div class="carousel-wrapper" id="carousel">
                     @foreach($produtos as $produto)
-                    <div class="carousel-item">
-                        <div class="wrapper">
-                            <div class="container">
-                                <div class="top">
-                                    <!-- Aqui você pode adicionar a imagem do produto -->
-                                    <img src="{{ url($produto->imagemProduto) }}" alt="{{ $produto->nomeProduto }}">
-                                </div>
-                                <div class="bottom">
-                                    <div class="left">
-                                        <div class="details">
-                                            <h1>{{ $produto->nomeProduto }}</h1>
-                                            <p>R$ {{ number_format($produto->valorProduto, 2, ',', '.') }}</p> <!-- Formatação do preço -->
+                        <div class="carousel-item">
+                            <div class="wrapper">
+                                <div class="container">
+                                    <div class="top">
+                                        <!-- Aqui você pode adicionar a imagem do produto -->
+                                        <img src="{{ url($produto->imagemProduto) }}" alt="{{ $produto->nomeProduto }}">
+                                    </div>
+                                    <div class="bottom">
+                                        <div class="left">
+                                            <div class="details">
+                                                <h1>{{ $produto->nomeProduto }}</h1>
+                                                <p>R$ {{ number_format($produto->valorProduto, 2, ',', '.') }}</p>
+                                                <!-- Formatação do preço -->
+                                            </div>
+                                            <div class="edit" data-modal-target="#modal-editar-{{ $produto->idProduto }}">
+                                                <i class="material-icons">edit</i>
+                                            </div>
                                         </div>
-                                        <div class="edit" data-modal-target="#modal-editar-{{ $produto->idProduto }}">
-                                            <i class="material-icons">edit</i>
+                                        <div class="right">
+                                            <div class="done"><i class="material-icons">done</i></div>
+                                            <div class="details">
+                                                <h1>Camisa</h1>
+                                                <p>Adicionado ao carrinho</p>
+                                            </div>
+                                            <div class="remove"><i class="material-icons">clear</i></div>
                                         </div>
                                     </div>
-                                    <div class="right">
-                                        <div class="done"><i class="material-icons">done</i></div>
-                                        <div class="details">
-                                            <h1>Camisa</h1>
-                                            <p>Adicionado ao carrinho</p>
-                                        </div>
-                                        <div class="remove"><i class="material-icons">clear</i></div>
+                                </div>
+                                <div class="inside">
+                                    <div class="icon"><i class="material-icons">info_outline</i></div>
+                                    <div class="contents">
+                                        <ul class="product-info">
+                                            <li><strong>Tamanho:</strong> {{$produto->tamanho->nomeTamanho}}</li>
+                                            <li><strong>Cor:</strong> {{$produto->cor->nomeCor}}</li>
+                                            <li><strong>Condição:</strong> {{$produto->condicao->nomeCondicao}}</li>
+                                            <li><strong>Categoria:</strong>{{$produto->categoria->nomeCategoriaProduto}}
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                            <div class="inside">
-                                <div class="icon"><i class="material-icons">info_outline</i></div>
-                                <div class="contents">
-                                    <ul class="product-info">
-                                        <li><strong>Tamanho:</strong> {{$produto->tamanho->nomeTamanho}}</li>
-                                        <li><strong>Cor:</strong> {{$produto->cor->nomeCor}}</li>
-                                        <li><strong>Condição:</strong> {{$produto->condicao->nomeCondicao}}</li>
-                                        <li><strong>Categoria:</strong>{{$produto->categoria->nomeCategoriaProduto}}</li>
-                                    </ul>
-                                </div>
+                        </div>
+
+                        <!-- Modal específico para cada produto -->
+                        <div class="modal" id="modal-editar-{{ $produto->idProduto }}">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <form action="{{ route('produtos.update', $produto->idProduto) }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    @method('POST')
+                                    <label for="nome">Nome</label>
+                                    <input type="text" name="nomeProduto" id="nome-{{ $produto->idProduto }}"
+                                        value="{{$produto->nomeProduto}}">
+
+                                    <label for="valor">Valor</label>
+                                    <input type="text" name="valorProduto" id="valor-{{ $produto->idProduto }}"
+                                        value="{{$produto->valorProduto}}">
+
+                                    <label for="descricao">Descrição</label>
+                                    <textarea id="descricao-{{ $produto->idProduto }}"
+                                       name="descricaoProduto" value="Peça em bom estado, nunca usada">{{$produto->descricaoProduto}}</textarea>
+
+                                    <label for="cor">Cor</label>
+                                    <select id="cor" name="cor">
+                                        <option value="">Selecione</option>
+                                        @foreach($cores as $cor)
+                                            <option value="{{ $cor->idCor }}" {{ $cor->idCor == $produto->idCor ? 'selected' : '' }}>
+                                                {{ $cor->nomeCor }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+
+                                    <label for="regiao">Região</label>
+                                    <select id="regiao" name="regiao">
+                                        <option value="">Selecione</option>
+                                        @foreach($regioes as $regiao)
+                                            <option value="{{ $regiao->idRegiao }}" {{ $regiao->idRegiao == $produto->idRegiao ? 'selected' : '' }}>
+                                                {{ $regiao->nomeRegiao }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+
+                                    <label for="tamanho">Tamanho</label>
+                                    <select id="tamanho" name="tamanho">
+                                        <option value="">Selecione</option>
+                                        @foreach($tamanhos as $tamanho)
+                                            <option value="{{ $tamanho->idTamanho }}" {{ $tamanho->idTamanho == $produto->idTamanho ? 'selected' : '' }}>
+                                                {{ $tamanho->nomeTamanho }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+
+                                    <label for="genero">Gênero</label>
+                                    <select id="genero" name="roupa">
+                                        <option value="">Selecione</option>
+                                        @foreach($generos as $genero)
+                                            <option value="{{ $genero->idGenero }}" {{ $genero->idGenero == $produto->idGenero ? 'selected' : '' }}>
+                                                {{ $genero->nomeGenero }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+
+                                    <label for="categoria">Categoria</label>
+                                    <select id="categoria" name="categoria">
+                                        <option value="">Selecione</option>
+                                        @foreach($categorias as $categoria)
+                                            <option value="{{ $categoria->idCategoriaProduto }}" {{ $categoria->idCategoriaProduto == $produto->idCategoriaProduto ? 'selected' : '' }}>
+                                                {{ $categoria->nomeCategoriaProduto }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+
+                                    <label for="condicao">Condição</label>
+                                    <select id="condicao" name="condicao">
+                                        <option value="">Selecione</option>
+                                        @foreach($condicoes as $condicao)
+                                            <option value="{{ $condicao->idCondicao }}" {{ $condicao->idCondicao == $produto->idCondicao ? 'selected' : '' }}>
+                                                {{ $condicao->nomeCondicao }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+
+                                    <div class="image-upload-section">
+                                        <label for="image-upload-{{ $produto->idProduto }}" class="image-label">Editar
+                                            Imagem</label>
+                                        <input type="file" name="imagemProduto" id="image-upload-{{ $produto->idProduto }}"
+                                            value="{{$produto->imagemProduto}}" class="image-input" accept="image/*">
+                                        <div class="image-preview">
+                                            <img id="image-preview-{{ $produto->idProduto }}"
+                                                src="{{ url($produto->imagemProduto) }}" alt="Nenhuma imagem selecionada">
+                                        </div>
+                                        <p class="image-placeholder">Tudo pronto? Salve as alterações!</p>
+                                        <input type="submit" value="Salvar" class="salvar-btn"></input>
+                                    </div>
+                                </form>
+                                    <div class="image-upload-section">
+                                        <p class="image-placeholder">Deseja deletar este produto?</p>
+                                        <form action="{{ route('produtos.destroy', $produto->idProduto) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="deletar-btn"
+                                                title="Clique para deletar o produto">Deletar</button>
+                                        </form>
+                                    </div>
+
+                                
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Modal específico para cada produto -->
-                    <div class="modal" id="modal-editar-{{ $produto->idProduto }}">
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <form action="{{ route('produtos.update', $produto->idProduto) }}" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                @method('PUT')
-                                <label for="nome">Nome</label>
-                                <input type="text" id="nome-{{ $produto->idProduto }}" value="{{$produto->nomeProduto}}">
-
-                                <label for="valor">Valor</label>
-                                <input type="text" id="valor-{{ $produto->idProduto }}" value="{{$produto->valorProduto}}">
-
-                                <label for="descricao">Descrição</label>
-                                <textarea id="descricao-{{ $produto->idProduto }}" placeholder="Peça em bom estado, nunca usada">{{$produto->descricaoProduto}}</textarea>
-
-                                <label for="cor">Cor</label>
-                                <select id="cor" name="cor">
-                                    <option value="">Selecione</option>
-                                    @foreach($cores as $cor)
-                                    <option value="{{ $cor->idCor }}" {{ $cor->idCor == $produto->idCor ? 'selected' : '' }}>
-                                        {{ $cor->nomeCor }}
-                                    </option>
-                                    @endforeach
-                                </select>
-
-                                <label for="regiao">Região</label>
-                                <select id="regiao" name="regiao">
-                                    <option value="">Selecione</option>
-                                    @foreach($regioes as $regiao)
-                                    <option value="{{ $regiao->idRegiao }}" {{ $regiao->idRegiao == $produto->idRegiao ? 'selected' : '' }}>
-                                        {{ $regiao->nomeRegiao }}
-                                    </option>
-                                    @endforeach
-                                </select>
-
-                                <label for="tamanho">Tamanho</label>
-                                <select id="tamanho" name="tamanho">
-                                    <option value="">Selecione</option>
-                                    @foreach($tamanhos as $tamanho)
-                                    <option value="{{ $tamanho->idTamanho }}" {{ $tamanho->idTamanho == $produto->idTamanho ? 'selected' : '' }}>
-                                        {{ $tamanho->nomeTamanho }}
-                                    </option>
-                                    @endforeach
-                                </select>
-
-                                <label for="genero">Gênero</label>
-                                <select id="genero" name="genero">
-                                    <option value="">Selecione</option>
-                                    @foreach($generos as $genero)
-                                    <option value="{{ $genero->idGenero }}" {{ $genero->idGenero == $produto->idGenero ? 'selected' : '' }}>
-                                        {{ $genero->nomeGenero }}
-                                    </option>
-                                    @endforeach
-                                </select>
-
-                                <label for="categoria">Categoria</label>
-                                <select id="categoria" name="categoria">
-                                    <option value="">Selecione</option>
-                                    @foreach($categorias as $categoria)
-                                    <option value="{{ $categoria->idCategoriaProduto }}" {{ $categoria->idCategoriaProduto == $produto->idCategoriaProduto ? 'selected' : '' }}>
-                                        {{ $categoria->nomeCategoriaProduto }}
-                                    </option>
-                                    @endforeach
-                                </select>
-
-                                <label for="condicao">Condição</label>
-                                <select id="condicao" name="condicao">
-                                    <option value="">Selecione</option>
-                                    @foreach($condicoes as $condicao)
-                                    <option value="{{ $condicao->idCondicao }}" {{ $condicao->idCondicao == $produto->idCondicao ? 'selected' : '' }}>
-                                        {{ $condicao->nomeCondicao }}
-                                    </option>
-                                    @endforeach
-                                </select>
-
-                                <div class="image-upload-section">
-                                    <label for="image-upload-{{ $produto->idProduto }}" class="image-label">Editar Imagem</label>
-                                    <input type="file" id="image-upload-{{ $produto->idProduto }}" value="{{$produto->imagemProduto}}" class="image-input" accept="image/*">
-                                    <div class="image-preview">
-                                        <img id="image-preview-{{ $produto->idProduto }}" src="{{ url($produto->imagemProduto) }}" alt="Nenhuma imagem selecionada">
-                                    </div>
-                                    <p class="image-placeholder">Tudo pronto? Salve as alterações!</p>
-                                    <input type="submit" class="salvar-btn">Salvar</input>
-                                </div>
-
-                                <div class="image-upload-section">
-                                    <p class="image-placeholder">Deseja deletar este produto?</p>
-                                    <button type="submit" class="deletar-btn" title="Clique para deletar o produto">Deletar</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
                     @endforeach
                 </div>
                 <button class="carousel-arrow right" id="next">&gt;</button>
@@ -451,7 +467,7 @@
             document.addEventListener('DOMContentLoaded', () => {
                 // Abrir modal ao clicar no botão de editar
                 document.querySelectorAll('.edit').forEach(button => {
-                    button.addEventListener('click', function() {
+                    button.addEventListener('click', function () {
                         const modalId = this.getAttribute('data-modal-target');
                         const modal = document.querySelector(modalId);
                         if (modal) {
@@ -462,7 +478,7 @@
 
                 // Fechar o modal ao clicar no "x"
                 document.querySelectorAll('.close').forEach(closeBtn => {
-                    closeBtn.addEventListener('click', function() {
+                    closeBtn.addEventListener('click', function () {
                         this.closest('.modal').style.display = 'none'; // Fecha o modal
                     });
                 });
@@ -505,7 +521,7 @@
             .carousel-container {
                 width: 80%;
                 overflow: hidden;
-                background-color: #617d00;
+                background-color: #1DA361;
                 margin: 40px;
                 border-radius: 10px;
                 position: relative;
@@ -517,7 +533,7 @@
             .carousel-container {
                 width: 80%;
                 overflow: hidden;
-                background-color: #8AC007;
+                background-color: #1DA361;
                 /* Verde similar ao da imagem */
                 padding: 20px;
                 border-radius: 10px;
@@ -710,7 +726,7 @@
             }
 
             .modal-content {
-                background-color: #617d00;
+                background-color: #1DA361;
                 margin: 5% auto;
                 padding: 20px;
                 border-radius: 10px;
@@ -852,7 +868,7 @@
         <script>
             // Abrir modal ao clicar no botão de editar
             document.querySelectorAll('.edit').forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function () {
                     const modal = document.querySelector(button.getAttribute('data-modal-target'));
                     modal.classList.add('active');
                 });
@@ -860,14 +876,14 @@
 
             // Fechar modal ao clicar no botão de fechar
             document.querySelectorAll('.close').forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function () {
                     const modal = button.closest('.modal');
                     modal.classList.remove('active');
                 });
             });
 
             // Fechar modal ao clicar fora do modal
-            window.addEventListener('click', function(event) {
+            window.addEventListener('click', function (event) {
                 const modals = document.querySelectorAll('.modal.active');
                 modals.forEach(modal => {
                     if (event.target === modal) {

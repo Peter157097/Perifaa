@@ -63,11 +63,12 @@ class DashboardController extends Controller
             'categoria' => 'nullable|exists:tbCategoriaProduto,idCategoriaProduto',
             'roupa' => 'required|exists:tbGenero,idGenero',
             'condicao' => 'required|exists:tbCondicao,idCondicao',
-            'imagemProduto' => 'nullable|image|max:2048',
-            'imagemProduto2' => 'nullable|image|max:2048',
-            'imagemProduto3' => 'nullable|image|max:2048',
-            'imagemProduto4' => 'nullable|image|max:2048',
-            'imagemProduto5' => 'nullable|image|max:2048',
+            'imagemProduto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'imagemProduto2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'imagemProduto3' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'imagemProduto4' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'imagemProduto5' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
         ]);
     
         $produto = new Produto();

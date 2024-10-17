@@ -108,6 +108,21 @@ class ProdutoController extends Controller
         return view('entrar-produto', compact('produtos', 'favorited', 'carrinho'));
     }
 
+    public function destroy($idProduto)
+    {
+        $produto = Produto::find($idProduto);
+
+        if (!$produto) {
+            return redirect()->back()->with('error', 'Produto não encontrado.');
+        }
+
+        // Deleta o produto
+        $produto->delete();
+
+        return redirect()->route('produtosVendedor')->with('success', 'Produto deletado com sucesso.');
+    }
+
+
     public function edit()
     {
         $idVendedor = Session::get('idVendedor');
@@ -156,11 +171,7 @@ class ProdutoController extends Controller
             'categoria' => 'nullable|exists:tbCategoriaProduto,idCategoriaProduto',
             'roupa' => 'required|exists:tbGenero,idGenero',
             'condicao' => 'required|exists:tbCondicao,idCondicao',
-            'imagemProduto' => 'nullable|image|max:2048',
-            'imagemProduto2' => 'nullable|image|max:2048',
-            'imagemProduto3' => 'nullable|image|max:2048',
-            'imagemProduto4' => 'nullable|image|max:2048',
-            'imagemProduto5' => 'nullable|image|max:2048',
+            'imagemProduto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         // Encontrar o produto
@@ -171,26 +182,29 @@ class ProdutoController extends Controller
         }
 
         // Atualizar os dados do produto
-        $produto->update([
-            'nomeProduto' => $validated['nomeProduto'],
-            'valorProduto' => $validated['valorProduto'],
-            'descricaoProduto' => $validated['descricaoProduto'],
-            'idCor' => $validated['idCor'],
-            'idTamanho' => $validated['idTamanho'],
-            'idRegiao' => $validated['idRegiao'],
-            'idCategoria' => $validated['idCategoria'],
-            'idGenero' => $validated['idGenero'],
-            'idCondicao' => $validated['idCondicao'],
-            // Atualize as imagens se foram enviadas
-            'imagemProduto' => $request->hasFile('imagemProduto') ? $request->file('imagemProduto')->store('produtos') : $produto->imagemProduto,
-            'imagemProduto2' => $request->hasFile('imagemProduto2') ? $request->file('imagemProduto2')->store('produtos') : $produto->imagemProduto2,
-            'imagemProduto3' => $request->hasFile('imagemProduto3') ? $request->file('imagemProduto3')->store('produtos') : $produto->imagemProduto3,
-            'imagemProduto4' => $request->hasFile('imagemProduto4') ? $request->file('imagemProduto4')->store('produtos') : $produto->imagemProduto4,
-            'imagemProduto5' => $request->hasFile('imagemProduto5') ? $request->file('imagemProduto5')->store('produtos') : $produto->imagemProduto5,
-        ]);
+        $produto->nomeProduto = $validated['nomeProduto'];
+        $produto->valorProduto = $validated['valorProduto'];
+        $produto->descricaoProduto = $validated['descricaoProduto'];
+        $produto->idCor = $validated['cor'];
+        $produto->idTamanho = $validated['tamanho'];
+        $produto->idRegiao = $validated['regiao'];
+        $produto->idCategoriaProduto = $validated['categoria'] ?? $produto->idCategoriaProduto;
+        $produto->idGenero = $validated['roupa'];
+        $produto->idCondicao = $validated['condicao'];
+
+        if ($request->hasFile('imagemProduto')) {
+            $file = $request->file('imagemProduto');
+            $filename = time() . '_1.' . $file->getClientOriginalExtension();
+            $file->move(public_path('images/produtos'), $filename);
+            $produto->imagemProduto = 'images/produtos/' . $filename;
+        }
+        // Salvar as alterações no banco de dados
+        $produto->save();
 
         return redirect()->route('produtosVendedor')->with('success', 'Produto atualizado com sucesso.');
     }
+
+
 
 
 

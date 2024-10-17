@@ -182,3 +182,8 @@ Route::get('/filtro-usuarios', function () {
 
 Route::post('/filtro-usuarios', [UserController::class, 'filtrarUsuarios'])->name('filtrar-usuarios');
 
+// Rota para o produtosVendedor
+Route::get('/produtosVendedor', function () {
+    return view('produtosVendedor');
+}); 
+

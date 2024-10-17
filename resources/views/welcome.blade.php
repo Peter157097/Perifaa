@@ -6,6 +6,18 @@
     @include('includes.header')
 
     @include('includes.nav')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if(session('success'))
+        <script>
+            Swal.fire({
+                title: 'Sucesso!',
+                text: '{{ session('success') }}',
+                icon: 'success',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#00a849'
+            });
+        </script>
+    @endif
 
     <!--Começo do carousel-->
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">

@@ -8,100 +8,726 @@
     @include('includes.nav')
     <main>
         <div class="mensagensContainer">
-            <div class="topSubNav">
-                <ul class="subNavItens">
-                    <li>Pedidos</li>
-                    <li>Mensagens</li>
-                </ul>
-            </div>
-            <div class="containerMensagens">
-                <div class="panelMensagens">
-                    <div class="sidePanelMensagens">
-                        <div class="msgTitlePanel">
-                            Mensagens
+            @if(session('is_Cliente'))
+                <div class="containerMensagens">
+                    <div class="panelMensagens">
+                        <div class="sidePanelMensagens">
+                            <div class="msgTitlePanel">
+                                Mensagens
+                            </div>
+                            <div class="scroll-sidePanelMsg">
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="scroll-sidePanelMsg">
-                            <div class="cardMensagem">
-                                <div class="pfpMsgContainer">
+                        <div class="contentMsg">
+                            <div class="selectedMsg">
+                                <div class="pfpSelectedMsg">
                                     <div class="pfpMsg">
                                         <img src="{{url('images/10.png')}}" class="pfpConsulta">
                                     </div>
                                 </div>
-                                <div class="containerMsg">
-                                    <div class="titleMsg">
+                                <div class="infoSelectecMsg">
+                                    <div class="titleSelectedImg">
                                         Julia S.
-                                    </div>
-                                    <div class="bodyMsg">
-                                        Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
                                     </div>
                                 </div>
                             </div>
-                            <div class="cardMensagem">
-                                <div class="pfpMsgContainer">
-                                    <div class="pfpMsg">
-                                        <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                    </div>
-                                </div>
-                                <div class="containerMsg">
-                                    <div class="titleMsg">
-                                        Julia S.
-                                    </div>
-                                    <div class="bodyMsg">
-                                        Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cardMensagem">
-                                <div class="pfpMsgContainer">
-                                    <div class="pfpMsg">
-                                        <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                    </div>
-                                </div>
-                                <div class="containerMsg">
-                                    <div class="titleMsg">
-                                        Julia S.
-                                    </div>
-                                    <div class="bodyMsg">
-                                        Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cardMensagem">
-                                <div class="pfpMsgContainer">
-                                    <div class="pfpMsg">
-                                        <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                    </div>
-                                </div>
-                                <div class="containerMsg">
-                                    <div class="titleMsg">
-                                        Julia S.
-                                    </div>
-                                    <div class="bodyMsg">
-                                        Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cardMensagem">
-                                <div class="pfpMsgContainer">
-                                    <div class="pfpMsg">
-                                        <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                    </div>
-                                </div>
-                                <div class="containerMsg">
-                                    <div class="titleMsg">
-                                        Julia S.
-                                    </div>
-                                    <div class="bodyMsg">
-                                        Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                    </div>
-                                </div>
-                            </div>
+                            <div class="msgDisplay">
 
+                            </div>
+                            <div class="msgWrite">
+                                <div class="contentWrite">
+                                    <div class="anexoMsg">
+                                        <img src="{{url('images/anexoMsg.png')}}" class="iconMsg" title="Anexar arquivo">
+                                    </div>
+                                    <div class="inputMsg">
+                                        <input type="text" placeholder="Mensangem..." class="inputCampo">
+                                    </div>
+                                    <div class="anexoMsg">
+                                        <img src="{{url('images/sendMsg.png')}}" class="iconMsg" title="Enviar">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @elseif(session('is_vendedor'))
+                <div class="topSubNav">
+                    <ul class="subNavItens">
+                        <li>Pedidos</li>
+                        <li>Mensagens</li>
+                    </ul>
+                </div>
+                <div class="containerMensagens">
+                    <div class="panelMensagens">
+                        <div class="sidePanelMensagens">
+                            <div class="msgTitlePanel">
+                                Mensagens
+                            </div>
+                            <div class="scroll-sidePanelMsg">
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contentMsg">
+                            <div class="selectedMsg">
+                                <div class="pfpSelectedMsg">
+                                    <div class="pfpMsg">
+                                        <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                    </div>
+                                </div>
+                                <div class="infoSelectecMsg">
+                                    <div class="titleSelectedImg">
+                                        Julia S.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="msgDisplay">
+
+                            </div>
+                            <div class="msgWrite">
+                                <div class="contentWrite">
+                                    <div class="anexoMsg">
+                                        <img src="{{url('images/anexoMsg.png')}}" class="iconMsg" title="Anexar arquivo">
+                                    </div>
+                                    <div class="inputMsg">
+                                        <input type="text" placeholder="Mensangem..." class="inputCampo">
+                                    </div>
+                                    <div class="anexoMsg">
+                                        <img src="{{url('images/sendMsg.png')}}" class="iconMsg" title="Enviar">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @elseif(session('is_Admin'))
+                <div class="topSubNav">
+                    <ul class="subNavItens">
+                        <li>Pedidos</li>
+                        <li>Mensagens</li>
+                    </ul>
+                </div>
+                <div class="containerMensagens">
+                    <div class="panelMensagens">
+                        <div class="sidePanelMensagens">
+                            <div class="msgTitlePanel">
+                                Mensagens
+                            </div>
+                            <div class="scroll-sidePanelMsg">
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contentMsg">
+                            <div class="selectedMsg">
+                                <div class="pfpSelectedMsg">
+                                    <div class="pfpMsg">
+                                        <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                    </div>
+                                </div>
+                                <div class="infoSelectecMsg">
+                                    <div class="titleSelectedImg">
+                                        Julia S.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="msgDisplay">
+
+                            </div>
+                            <div class="msgWrite">
+                                <div class="contentWrite">
+                                    <div class="anexoMsg">
+                                        <img src="{{url('images/anexoMsg.png')}}" class="iconMsg" title="Anexar arquivo">
+                                    </div>
+                                    <div class="inputMsg">
+                                        <input type="text" placeholder="Mensangem..." class="inputCampo">
+                                    </div>
+                                    <div class="anexoMsg">
+                                        <img src="{{url('images/sendMsg.png')}}" class="iconMsg" title="Enviar">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @else
+                <div class="topSubNav">
+                    <ul class="subNavItens">
+                        <li>Pedidos</li>
+                        <li>Mensagens</li>
+                    </ul>
+                </div>
+                <div class="containerMensagens">
+                    <div class="panelMensagens">
+                        <div class="sidePanelMensagens">
+                            <div class="msgTitlePanel">
+                                Mensagens
+                            </div>
+                            <div class="scroll-sidePanelMsg">
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contentMsg">
+                            <div class="selectedMsg">
+
+                            </div>
+                            <div class="msgDisplay">
+
+                            </div>
+                            <div class="msgWrite">
+                                <div class="contentWrite">
+                                    <div class="anexoMsg">
+                                        <img src="{{url('images/anexoMsg.png')}}" class="iconMsg" title="Anexar arquivo">
+                                    </div>
+                                    <div class="inputMsg">
+                                        <input type="text" placeholder="Mensangem..." class="inputCampo">
+                                    </div>
+                                    <div class="anexoMsg">
+                                        <img src="{{url('images/sendMsg.png')}}" class="iconMsg" title="Enviar">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endif
         </div>
+
     </main>
 
     @include('includes.footer')

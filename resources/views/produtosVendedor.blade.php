@@ -295,22 +295,27 @@
         <div class="imagem-horizontal">
             <img src="images/vendeProd.png" alt="">
         </div>
+
         <div class="part2">
             <div class="carousel-container">
                 <button class="carousel-arrow left" id="prev">&lt;</button>
                 <div class="carousel-wrapper" id="carousel">
+                    @foreach($produtos as $produto)
                     <div class="carousel-item">
                         <div class="wrapper">
                             <div class="container">
-                                <div class="top"> <!--bota a imagem do item aqui --> </div>
+                                <div class="top">
+                                    <!-- Aqui você pode adicionar a imagem do produto -->
+                                    <img src="{{ url($produto->imagemProduto) }}" alt="{{ $produto->nomeProduto }}">
+                                </div>
                                 <div class="bottom">
                                     <div class="left">
                                         <div class="details">
-                                            <h1>Camisa</h1>
-                                            <p>R$ 150</p>
+                                            <h1>{{ $produto->nomeProduto }}</h1>
+                                            <p>R$ {{ number_format($produto->valorProduto, 2, ',', '.') }}</p> <!-- Formatação do preço -->
                                         </div>
-                                        <div class="edit" data-modal-target="#modal-editar"><i
-                                                class="material-icons">edit</i>
+                                        <div class="edit" data-modal-target="#modal-editar-{{ $produto->idProduto }}">
+                                            <i class="material-icons">edit</i>
                                         </div>
                                     </div>
                                     <div class="right">
@@ -327,139 +332,174 @@
                                 <div class="icon"><i class="material-icons">info_outline</i></div>
                                 <div class="contents">
                                     <ul class="product-info">
-                                        <li><strong>Tamanho:</strong> M</li>
-                                        <li><strong>Cor:</strong> Azul</li>
-                                        <li><strong>Material:</strong> Algodão</li>
-                                        <li><strong>Disponibilidade:</strong> Em estoque</li>
+                                        <li><strong>Tamanho:</strong> {{$produto->tamanho->nomeTamanho}}</li>
+                                        <li><strong>Cor:</strong> {{$produto->cor->nomeCor}}</li>
+                                        <li><strong>Condição:</strong> {{$produto->condicao->nomeCondicao}}</li>
+                                        <li><strong>Categoria:</strong>{{$produto->categoria->nomeCategoriaProduto}}</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Modal específico para cada produto -->
+                    <div class="modal" id="modal-editar-{{ $produto->idProduto }}">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <form action="{{ route('produtos.update', $produto->idProduto) }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                @method('PUT')
+                                <label for="nome">Nome</label>
+                                <input type="text" id="nome-{{ $produto->idProduto }}" value="{{$produto->nomeProduto}}">
 
+                                <label for="valor">Valor</label>
+                                <input type="text" id="valor-{{ $produto->idProduto }}" value="{{$produto->valorProduto}}">
 
+                                <label for="descricao">Descrição</label>
+                                <textarea id="descricao-{{ $produto->idProduto }}" placeholder="Peça em bom estado, nunca usada">{{$produto->descricaoProduto}}</textarea>
+
+                                <label for="cor">Cor</label>
+                                <select id="cor" name="cor">
+                                    <option value="">Selecione</option>
+                                    @foreach($cores as $cor)
+                                    <option value="{{ $cor->idCor }}" {{ $cor->idCor == $produto->idCor ? 'selected' : '' }}>
+                                        {{ $cor->nomeCor }}
+                                    </option>
+                                    @endforeach
+                                </select>
+
+                                <label for="regiao">Região</label>
+                                <select id="regiao" name="regiao">
+                                    <option value="">Selecione</option>
+                                    @foreach($regioes as $regiao)
+                                    <option value="{{ $regiao->idRegiao }}" {{ $regiao->idRegiao == $produto->idRegiao ? 'selected' : '' }}>
+                                        {{ $regiao->nomeRegiao }}
+                                    </option>
+                                    @endforeach
+                                </select>
+
+                                <label for="tamanho">Tamanho</label>
+                                <select id="tamanho" name="tamanho">
+                                    <option value="">Selecione</option>
+                                    @foreach($tamanhos as $tamanho)
+                                    <option value="{{ $tamanho->idTamanho }}" {{ $tamanho->idTamanho == $produto->idTamanho ? 'selected' : '' }}>
+                                        {{ $tamanho->nomeTamanho }}
+                                    </option>
+                                    @endforeach
+                                </select>
+
+                                <label for="genero">Gênero</label>
+                                <select id="genero" name="genero">
+                                    <option value="">Selecione</option>
+                                    @foreach($generos as $genero)
+                                    <option value="{{ $genero->idGenero }}" {{ $genero->idGenero == $produto->idGenero ? 'selected' : '' }}>
+                                        {{ $genero->nomeGenero }}
+                                    </option>
+                                    @endforeach
+                                </select>
+
+                                <label for="categoria">Categoria</label>
+                                <select id="categoria" name="categoria">
+                                    <option value="">Selecione</option>
+                                    @foreach($categorias as $categoria)
+                                    <option value="{{ $categoria->idCategoriaProduto }}" {{ $categoria->idCategoriaProduto == $produto->idCategoriaProduto ? 'selected' : '' }}>
+                                        {{ $categoria->nomeCategoriaProduto }}
+                                    </option>
+                                    @endforeach
+                                </select>
+
+                                <label for="condicao">Condição</label>
+                                <select id="condicao" name="condicao">
+                                    <option value="">Selecione</option>
+                                    @foreach($condicoes as $condicao)
+                                    <option value="{{ $condicao->idCondicao }}" {{ $condicao->idCondicao == $produto->idCondicao ? 'selected' : '' }}>
+                                        {{ $condicao->nomeCondicao }}
+                                    </option>
+                                    @endforeach
+                                </select>
+
+                                <div class="image-upload-section">
+                                    <label for="image-upload-{{ $produto->idProduto }}" class="image-label">Editar Imagem</label>
+                                    <input type="file" id="image-upload-{{ $produto->idProduto }}" value="{{$produto->imagemProduto}}" class="image-input" accept="image/*">
+                                    <div class="image-preview">
+                                        <img id="image-preview-{{ $produto->idProduto }}" src="{{ url($produto->imagemProduto) }}" alt="Nenhuma imagem selecionada">
+                                    </div>
+                                    <p class="image-placeholder">Tudo pronto? Salve as alterações!</p>
+                                    <input type="submit" class="salvar-btn">Salvar</input>
+                                </div>
+
+                                <div class="image-upload-section">
+                                    <p class="image-placeholder">Deseja deletar este produto?</p>
+                                    <button type="submit" class="deletar-btn" title="Clique para deletar o produto">Deletar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    @endforeach
                 </div>
                 <button class="carousel-arrow right" id="next">&gt;</button>
             </div>
-
-
         </div>
+
+
 
 
         <!-- Modal para editar produto -->
-        <div class="modal" id="modal-editar">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <form>
-                    <label for="nome">Nome</label>
-                    <input type="text" id="nome" placeholder="Calça Jens Zara">
 
-                    <label for="valor">Valor</label>
-                    <input type="text" id="valor" placeholder="R$">
-
-                    <label for="descricao">Descrição</label>
-                    <textarea id="descricao" placeholder="Peça em bom estado, nunca usada"></textarea>
-
-                    <label for="cor">Cor</label>
-                    <select id="cor">
-                        <option>Selecione</option>
-                        <!-- outras opções -->
-                    </select>
-
-                    <label for="regiao">Região</label>
-                    <select id="regiao">
-                        <option>Selecione</option>
-                        <!-- outras opções -->
-                    </select>
-
-                    <label for="tamanho">Tamanho</label>
-                    <select id="tamanho">
-                        <option>Selecione</option>
-                        <!-- outras opções -->
-                    </select>
-
-                    <label for="genero">Gênero</label>
-                    <select id="genero">
-                        <option>Selecione</option>
-                        <!-- outras opções -->
-                    </select>
-
-                    <label for="categoria">Categoria</label>
-                    <select id="categoria">
-                        <option>Selecione</option>
-                        <!-- outras opções -->
-                    </select>
-
-                    <label for="condicao">Condição</label>
-                    <select id="condicao">
-                        <option>Selecione</option>
-                        <!-- outras opções -->
-                    </select>
-
-                    <div class="image-upload-section">
-                        <label for="image-upload" class="image-label">Editar Imagem</label>
-                        <input type="file" id="image-upload" class="image-input" accept="image/*">
-                        <div class="image-preview">
-                            <img id="image-preview" src="" alt="Nenhuma imagem selecionada">
-                        </div>
-                        <p class="image-placeholder">Tudo pronto? Salve as alterações!</p>
-
-                        <button type="submit" class="salvar-btn">Salvar</button>
-
-                    </div>
-
-
-
-                    <div class="image-upload-section">
-                    <p class="image-placeholder">Deseja deletar este produto?</p>
-                    <button type="submit" class="deletar-btn" title="Clique para deletar o produto">Deletar</button>
-                    </div>
-
-                </form>
-            </div>
-        </div>
 
         <script>
-
-            const prevButton = document.getElementById('prev');
-            const nextButton = document.getElementById('next');
-            const carousel = document.getElementById('carousel');
-
-            prevButton.addEventListener('click', () => {
-                carousel.scrollBy({ left: -200, behavior: 'smooth' });
-            });
-
-            nextButton.addEventListener('click', () => {
-                carousel.scrollBy({ left: 200, behavior: 'smooth' });
-            });
-
-            // Abrir modal ao clicar no botão de editar
-            document.querySelectorAll('.edit').forEach(button => {
-                button.addEventListener('click', function () {
-                    const modal = document.querySelector(button.getAttribute('data-modal-target'));
-                    modal.classList.add('active');
+            document.addEventListener('DOMContentLoaded', () => {
+                // Abrir modal ao clicar no botão de editar
+                document.querySelectorAll('.edit').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const modalId = this.getAttribute('data-modal-target');
+                        const modal = document.querySelector(modalId);
+                        if (modal) {
+                            modal.style.display = 'block'; // Abre o modal
+                        }
+                    });
                 });
-            });
 
-            // Fechar modal ao clicar no botão de fechar
-            document.querySelectorAll('[data-close-button]').forEach(button => {
-                button.addEventListener('click', function () {
-                    const modal = button.closest('.modal');
-                    modal.classList.remove('active');
+                // Fechar o modal ao clicar no "x"
+                document.querySelectorAll('.close').forEach(closeBtn => {
+                    closeBtn.addEventListener('click', function() {
+                        this.closest('.modal').style.display = 'none'; // Fecha o modal
+                    });
                 });
-            });
 
-            // Fechar modal ao clicar fora do modal
-            window.addEventListener('click', (event) => {
-                const modals = document.querySelectorAll('.modal.active');
-                modals.forEach(modal => {
-                    if (event.target === modal) {
-                        modal.classList.remove('active');
-                    }
+                // Fechar o modal ao clicar fora dele
+                window.addEventListener('click', (event) => {
+                    const modals = document.querySelectorAll('.modal');
+                    modals.forEach(modal => {
+                        if (event.target === modal) {
+                            modal.style.display = 'none';
+                        }
+                    });
                 });
+
+                // Carousel navigation
+                const prevButton = document.getElementById('prev');
+                const nextButton = document.getElementById('next');
+                const carousel = document.getElementById('carousel');
+
+                if (prevButton && nextButton && carousel) {
+                    prevButton.addEventListener('click', () => {
+                        carousel.scrollBy({
+                            left: -200,
+                            behavior: 'smooth'
+                        });
+                    });
+
+                    nextButton.addEventListener('click', () => {
+                        carousel.scrollBy({
+                            left: 200,
+                            behavior: 'smooth'
+                        });
+                    });
+                }
             });
         </script>
+
 
         <style>
             .carousel-container {
@@ -661,7 +701,8 @@
                 color: white;
                 margin-top: 10px;
             }
-            .sla{
+
+            .sla {
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -811,7 +852,7 @@
         <script>
             // Abrir modal ao clicar no botão de editar
             document.querySelectorAll('.edit').forEach(button => {
-                button.addEventListener('click', function () {
+                button.addEventListener('click', function() {
                     const modal = document.querySelector(button.getAttribute('data-modal-target'));
                     modal.classList.add('active');
                 });
@@ -819,14 +860,14 @@
 
             // Fechar modal ao clicar no botão de fechar
             document.querySelectorAll('.close').forEach(button => {
-                button.addEventListener('click', function () {
+                button.addEventListener('click', function() {
                     const modal = button.closest('.modal');
                     modal.classList.remove('active');
                 });
             });
 
             // Fechar modal ao clicar fora do modal
-            window.addEventListener('click', function (event) {
+            window.addEventListener('click', function(event) {
                 const modals = document.querySelectorAll('.modal.active');
                 modals.forEach(modal => {
                     if (event.target === modal) {
@@ -834,7 +875,6 @@
                     }
                 });
             });
-
         </script>
 </body>
 

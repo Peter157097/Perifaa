@@ -7,6 +7,7 @@ use App\Models\Tamanho;
 use App\Models\Condicao;
 use App\Models\Categoria;
 use App\Models\Cor;
+use App\Models\Vendedor;
 use App\Models\Favorito;
 use App\Models\Carrinho;
 use App\Models\Regiao;
@@ -24,25 +25,25 @@ class ProdutoController extends Controller
     {
         $clienteId = Session::get('id');
         $cliente = Cliente::find($clienteId);
-    
+
         if ($cliente) {
             $preferenciaGenero = $cliente->preferencia;
         } else {
             $preferenciaGenero = null;
         }
-    
+
         $query = Produto::query();
-    
+
         if ($request->filled('preco_ate')) {
             $precoAte = (float) $request->input('preco_ate');
             $query->where('valorProduto', '<=', $precoAte);
         }
-    
+
         if ($request->filled('tamanho')) {
             $tamanhoIds = $request->input('tamanho');
             $query->whereIn('idTamanho', $tamanhoIds);
         }
-    
+
         if ($request->filled('condicoes')) {
             $condicoes = $request->input('condicoes');
             $query->whereIn('idCondicao', $condicoes);
@@ -51,29 +52,29 @@ class ProdutoController extends Controller
             $categorias = $request->input('categorias');
             $query->whereIn('idCategoriaProduto', $categorias);
         }
-    
+
         if ($request->filled('cores')) {
             $cores = $request->input('cores');
             $query->whereIn('idCor', $cores);
         }
-    
+
         if ($request->filled('regioes')) {
             $regioes = $request->input('regioes');
             $query->whereIn('idRegiao', $regioes);
         }
-    
+
         // Definir a condição para gênero e ordenar de acordo com a preferência
         if ($preferenciaGenero) {
-         
+
             $query->orderByRaw("CASE 
                 WHEN idGenero = " . ($preferenciaGenero == 'masculina' ? 1 : 2) . " THEN 0 
                 ELSE 1 
             END");
         }
-    
-      
+
+
         $query->orderBy('idProduto', 'desc');
-    
+
         // Pegar dados adicionais
         $tamanhos = Tamanho::all();
         $condicoes = Condicao::all();
@@ -81,15 +82,15 @@ class ProdutoController extends Controller
         $regioes = Regiao::all();
         $genero = Genero::all();
         $categorias = Categoria::all();
-    
+
         // Paginar os resultados
         $produtos = $query->paginate(8);
         $filtros = $request->all();
-    
+
         // Passar o request e os filtros explicitamente para a view
-        return view('produtos', compact('produtos', 'tamanhos', 'condicoes', 'cores', 'regioes', 'filtros', 'genero','categorias' ,'request'));
+        return view('produtos', compact('produtos', 'tamanhos', 'condicoes', 'cores', 'regioes', 'filtros', 'genero', 'categorias', 'request'));
     }
-    
+
 
     public function show($idProduto)
     {
@@ -106,6 +107,92 @@ class ProdutoController extends Controller
 
         return view('entrar-produto', compact('produtos', 'favorited', 'carrinho'));
     }
+
+    public function edit()
+    {
+        $idVendedor = Session::get('idVendedor');
+
+        if (!$idVendedor) {
+            return redirect()->route('login')->with('error', 'Você precisa estar logado.');
+        }
+
+        $vendedor = Vendedor::find($idVendedor);
+
+        if (!$vendedor) {
+            return redirect()->route('login')->with('error', 'Vendedor não encontrado.');
+        }
+
+        // Busca os produtos do vendedor
+        $produtos = $vendedor->produtos;
+        $cores = Cor::all(); // Assumindo que você tem um modelo Cor
+        $tamanhos = Tamanho::all(); // Assumindo que você tem um modelo Tamanho
+        $categorias = Categoria::all();
+        $generos = Genero::all();
+        $regioes = Regiao::all();
+        $condicoes = Condicao::all();
+
+        return view('produtosVendedor', [
+            'vendedor' => $vendedor,
+            'produtos' => $produtos,
+            'cores' => $cores,
+            'tamanhos' => $tamanhos,
+            'categorias' => $categorias,
+            'generos' => $generos,
+            'regioes' => $regioes,
+            'condicoes' => $condicoes,
+        ]);
+    }
+
+    public function update(Request $request, $idProduto)
+    {
+        // Validação dos dados do formulário
+        $validated = $request->validate([
+            'nomeProduto' => 'required|string|max:100',
+            'valorProduto' => 'required|numeric',
+            'descricaoProduto' => 'required|string|max:250',
+            'cor' => 'required|exists:tbCor,idCor',
+            'tamanho' => 'required|exists:tbTamanho,idTamanho',
+            'regiao' => 'required|exists:tbRegiao,idRegiao',
+            'categoria' => 'nullable|exists:tbCategoriaProduto,idCategoriaProduto',
+            'roupa' => 'required|exists:tbGenero,idGenero',
+            'condicao' => 'required|exists:tbCondicao,idCondicao',
+            'imagemProduto' => 'nullable|image|max:2048',
+            'imagemProduto2' => 'nullable|image|max:2048',
+            'imagemProduto3' => 'nullable|image|max:2048',
+            'imagemProduto4' => 'nullable|image|max:2048',
+            'imagemProduto5' => 'nullable|image|max:2048',
+        ]);
+
+        // Encontrar o produto
+        $produto = Produto::find($idProduto);
+
+        if (!$produto) {
+            return redirect()->back()->with('error', 'Produto não encontrado.');
+        }
+
+        // Atualizar os dados do produto
+        $produto->update([
+            'nomeProduto' => $validated['nomeProduto'],
+            'valorProduto' => $validated['valorProduto'],
+            'descricaoProduto' => $validated['descricaoProduto'],
+            'idCor' => $validated['idCor'],
+            'idTamanho' => $validated['idTamanho'],
+            'idRegiao' => $validated['idRegiao'],
+            'idCategoria' => $validated['idCategoria'],
+            'idGenero' => $validated['idGenero'],
+            'idCondicao' => $validated['idCondicao'],
+            // Atualize as imagens se foram enviadas
+            'imagemProduto' => $request->hasFile('imagemProduto') ? $request->file('imagemProduto')->store('produtos') : $produto->imagemProduto,
+            'imagemProduto2' => $request->hasFile('imagemProduto2') ? $request->file('imagemProduto2')->store('produtos') : $produto->imagemProduto2,
+            'imagemProduto3' => $request->hasFile('imagemProduto3') ? $request->file('imagemProduto3')->store('produtos') : $produto->imagemProduto3,
+            'imagemProduto4' => $request->hasFile('imagemProduto4') ? $request->file('imagemProduto4')->store('produtos') : $produto->imagemProduto4,
+            'imagemProduto5' => $request->hasFile('imagemProduto5') ? $request->file('imagemProduto5')->store('produtos') : $produto->imagemProduto5,
+        ]);
+
+        return redirect()->route('produtosVendedor')->with('success', 'Produto atualizado com sucesso.');
+    }
+
+
 
     public function search(Request $request)
     {

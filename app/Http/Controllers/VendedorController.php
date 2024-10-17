@@ -4,6 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Vendedor;
+use App\Models\Produto;
+use App\Models\Cor;
+use App\Models\Tamanho;
+use App\Models\Categoria;
+use App\Models\Genero;
+use App\Models\Regiao;
+use App\Models\Condicao;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Log;
@@ -14,7 +21,7 @@ class VendedorController extends Controller
 
     public function index() {
         $idVendedor = Session::get('idVendedor');
-    
+
     
         if (!$idVendedor) {
             // Redireciona se não houver vendedor logado
@@ -29,9 +36,7 @@ class VendedorController extends Controller
         }
     
         return view('dashboardVendedor', ['vendedor' => $vendedor]);
-    }
-
-  
+    }  
     
     public function store(Request $request)
     {

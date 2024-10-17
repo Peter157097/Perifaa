@@ -35,7 +35,9 @@
                         </div>
                     </div>
                     <div class="admCardDenuncia">
-                        <img src="{{$denuncia->produto->imagemProduto}}" class="imgProdutoDenuncia">
+                        <div class="placeholderImg">
+                            <img src="{{$denuncia->produto->imagemProduto}}">
+                        </div>
                         <div class="infoDenuncia">
                             <div class="topDenuncia">
                                 <p class="itemTopDenuncia">Produto</p>
@@ -67,7 +69,6 @@
                                 </button>
                             </div>
                         </div>
-
                     </div>
                 @endforeach
             </div>

@@ -97,7 +97,9 @@
                             </div>
                         </div>
                     </div>
+                    <div class="shadowNotif"></div>
                 </div>
+
                 <div class="adminGraficoContainer">
                     <div class="bigCardGrafico">
                         <div class="titleBigGraficoAdmin">
@@ -210,7 +212,9 @@
                         </div>
                     </div>
                     <div class="admCardDenuncia">
-                        <img src="{{$denuncia->produto->imagemProduto}}" class="imgProdutoDenuncia">
+                        <div class="placeholderImg">
+                            <img src="{{$denuncia->produto->imagemProduto}}">
+                        </div>
                         <div class="infoDenuncia">
                             <div class="topDenuncia">
                                 <p class="itemTopDenuncia">Produto</p>

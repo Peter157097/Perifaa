@@ -3579,7 +3579,7 @@ a:hover {
     padding-bottom: 1%;
     font-size: 4vh;
     width: 100%;
-   text-align: left;
+    text-align: left;
     margin-top: 5%;
 }
 
@@ -3707,7 +3707,7 @@ a:hover {
 }
 
 
-.containerFiltro{
+.containerFiltro {
     display: flex;
     flex-wrap: wrap;
     width: 80%;
@@ -3738,10 +3738,8 @@ a:hover {
 
 .pfpConsulta {
     background-color: rgb(66, 66, 66);
-    width: 100%;
-    height: 100%;
     border-radius: 50%;
-    border: #000000;
+    border: #a3a3a3;
     border-width: 1px;
     border-style: solid;
 }
@@ -3921,7 +3919,8 @@ a:hover {
     background-color: rgb(206, 205, 205);
     border: 1px solid rgb(223, 223, 223)
 }
-.adminPanelConsulta{
+
+.adminPanelConsulta {
     display: flex;
     border-radius: 20px;
     width: 100%;
@@ -4022,7 +4021,8 @@ svg {
     display: flex;
     padding-top: 1%;
     width: 100%;
-    align-items: center; /* Estica o gráfico verticalmente */
+    align-items: center;
+    /* Estica o gráfico verticalmente */
 }
 
 .titleGraficoAdmin {
@@ -4216,7 +4216,7 @@ svg {
 }
 
 .btnAcaoExcluir {
-    font-size: 2vh; 
+    font-size: 2vh;
     align-self: center;
     color: white;
     background-color: rgb(180, 83, 83);
@@ -4257,12 +4257,11 @@ svg {
 
 .scroll-notif {
     overflow-y: auto;
-    scrollbar-width:thin;
+    scrollbar-width: thin;
     scrollbar-color: #b1b1b1 #ffffff;
     scroll-behavior: smooth;
-    height: 90%;
     width: 100%;
-
+    height: 90%;
 }
 
 
@@ -4322,12 +4321,12 @@ svg {
 }
 
 .imgProdutoDenuncia {
-    width: 8%;
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
     border-radius: 15px;
     border-top-left-radius: 0;
-    border: 1px solid rgb(189, 189, 189);
-    background-color: rgb(202, 202, 202);
-    height: 100px;
+
 
 }
 
@@ -4368,11 +4367,151 @@ svg {
 .graficoAcessos {
     width: 100%;
 }
-.alignLabelConsulta{
+
+.alignLabelConsulta {
     display: flex;
     width: 100%;
     height: 6%;
     background-color: rgb(221, 221, 221);
     border-top-right-radius: 20px;
     justify-content: right;
+}
+
+.placeholderImg {
+    display: flex;
+    background-color: red;
+    width: 8%;
+    overflow: hidden;
+    border-radius: 15px;
+    border-top-left-radius: 0;
+    border: 1px solid rgb(189, 189, 189);
+    background-color: rgb(202, 202, 202);
+    position: relative;
+}
+
+.placeholderImg img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    object-fit: cover;
+}
+
+.shadowNotif {
+    position: absolute;
+    width: 100%;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.205), rgba(255, 255, 255, 0));
+    display: flex;
+    height: 6%;
+    bottom: 0;
+    left: 0;
+}
+
+/*style das mensagens*/
+.mensagensContainer {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.topSubNav {
+
+    width: 100%;
+    background-color: white;
+    height: auto;
+    display: flex;
+    align-items: center;
+    padding: 1%;
+}
+
+.subNavItens {
+    align-items: center;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    gap: 5%;
+}
+.containerMensagens{
+    width: 100%;
+    display: flex;
+    padding: 2%;
+}
+.panelMensagens{
+    display: flex;
+    background-color: white;
+    height: auto;
+    width: 100%;
+    border-radius: 20px;
+
+}
+.sidePanelMensagens{
+    display: flex;
+    flex-wrap: wrap;
+    width: 30%;
+    border-right: 1px solid rgb(221, 221, 221);
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+}
+.msgTitlePanel{
+    padding: 2%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+.cardMensagem{
+    display: flex;
+    padding: 3%;
+    height: fit-content;
+    border-bottom: 1px solid rgb(209, 209, 209);
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+
+}
+.scroll-sidePanelMsg{
+    height: 85vh;
+    background-color: rgb(243, 243, 243);
+    flex-wrap: wrap;
+    width: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    border-bottom-left-radius: 20px;
+}
+.pfpMsgContainer {
+    width: 45px;
+    height: 45px;
+}
+.pfpMsg {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(177, 177, 177);
+    border-radius: 100%;
+
+}
+.containerMsg{
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    padding-left: 4%;
+}
+.titleMsg {
+    font-weight: 550;
+    font-size: 85%;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.bodyMsg {
+    font-size: 70%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
 }

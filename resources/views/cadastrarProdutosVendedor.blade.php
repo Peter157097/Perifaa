@@ -462,6 +462,18 @@
 </head>
 
 <body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@if(session('success'))
+    <script>
+        Swal.fire({
+            title: 'Sucesso!',
+            text: '{{ session('success') }}',
+            icon: 'success',
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#00a849'
+        });
+    </script>
+@endif
 
     @include('includes.menuVendedor')
 
@@ -560,25 +572,11 @@
 
                 <div class="image-section">
                     <div class="image-upload">
-                        <input type="file" id="imagemProduto" name="imagemProduto" accept="image/*"
-                            onchange="handleFileInput(this, 'imagemFeedback1')">
+                        <input type="file" id="imagemProduto" name="imagemProduto[]" accept="image/*" multiple>
                     </div>
-                    <div class="image-upload">
-                        <input type="file" id="imagemProduto" name="imagemProduto2" accept="image/*"
-                            onchange="handleFileInput(this, 'imagemFeedback1')">
-                    </div>
-                    <div class="image-upload">
-                        <input type="file" id="imagemProduto" name="imagemProduto3" accept="image/*"
-                            onchange="handleFileInput(this, 'imagemFeedback1')">
-                    </div>
-                    <div class="image-upload">
-                        <input type="file" id="imagemProduto" name="imagemProduto4" accept="image/*"
-                            onchange="handleFileInput(this, 'imagemFeedback1')">
-                    </div>
-                    <div class="image-upload">
-                        <input type="file" id="imagemProduto" name="imagemProduto5" accept="image/*"
-                            onchange="handleFileInput(this, 'imagemFeedback1')">
-                    </div>
+
+
+
 
                     <div id="imagemFeedback1" class="image-feedback">Nenhuma imagem selecionada</div>
                 </div>

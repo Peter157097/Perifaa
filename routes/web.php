@@ -17,13 +17,11 @@ use App\Models\Denuncia;
 use App\Models\Admin;
 use App\Models\Vendedor;
 use Illuminate\Support\Facades\Session;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/cadastrarProdutosVendedor', [DashboardController::class, 'index'])->name('cadastrarProdutosVendedor');
-
 
 Route::post('/Cliente', [ClienteController::class, 'store']);
 
@@ -59,9 +57,11 @@ Route::post('/login', [AuthController::class, 'login']);
 // Rota para logout
 Route::get('/logout', [AuthController::class, 'logout']);
 
+Route::get('/cadastrarProdutosVendedor', [DashboardController::class, 'index'])->name('cadastrarProdutosVendedor');
+Route::post('/cadastrarProdutosVendedor', [DashboardController::class, 'store'])->name('produtos.store');
+Route::post('/produtos', [DashboardController::class, 'store'])->name('produtos.store');
 
 Route::get('/produtos', [ProdutoController::class, 'index'])->name('produtos.index');
-Route::put('/produtos/{idProduto}', [ProdutoController::class, 'update'])->name('produtos.update');
 
 
 
@@ -191,4 +191,5 @@ Route::post('/filtro-usuarios', [UserController::class, 'filtrarUsuarios'])->nam
 
 // Rota para o produtosVendedor
 Route::get('/produtosVendedor', [ProdutoController::class, 'edit'])->name('produtosVendedor');
-
+Route::post('/produtos/{idProduto}', [ProdutoController::class, 'update'])->name('produtos.update');
+Route::delete('/produtos/{idProduto}', [ProdutoController::class, 'destroy'])->name('produtos.destroy');

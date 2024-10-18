@@ -462,6 +462,18 @@
 </head>
 
 <body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+@if(session('success'))
+    <script>
+        Swal.fire({
+            title: 'Sucesso!',
+            text: '{{ session('success') }}',
+            icon: 'success',
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#00a849'
+        });
+    </script>
+@endif
 
     @include('includes.menuVendedor')
 
@@ -472,7 +484,7 @@
     @endif
 
 
-    <form action="{{ route('produto.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('produtos.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="part3rs">
             <div class="card-container">
@@ -560,9 +572,11 @@
 
                 <div class="image-section">
                     <div class="image-upload">
-                        <input type="file" id="imagemProduto" name="imagemProduto" accept="image/*"
-                            onchange="handleFileInput(this, 'imagemFeedback1')">
+                        <input type="file" id="imagemProduto" name="imagemProduto[]" accept="image/*" multiple>
                     </div>
+
+
+
 
                     <div id="imagemFeedback1" class="image-feedback">Nenhuma imagem selecionada</div>
                 </div>

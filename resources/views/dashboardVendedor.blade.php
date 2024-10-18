@@ -606,7 +606,18 @@
 <body>
 
 @include('includes.menuVendedor')
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if(session('success'))
+        <script>
+            Swal.fire({
+                title: 'Sucesso!',
+                text: '{{ session('success') }}',
+                icon: 'success',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#00a849'
+            });
+        </script>
+    @endif
         <div class="itensContainer">
             <div class="p1">
                 <div class="card">

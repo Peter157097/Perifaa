@@ -19,20 +19,20 @@
           <div class="select-image">
             <img src="{{ asset($produtos->imagemProduto) }}" alt="imagem produto">
           </div>
-          <!-- <div class="thumbnails">
+      <div class="thumbnails">
                         <div  class="thumbnail">
-                          <img src="{{ asset($produtos->imagemProduto) }}" alt="imagem produto">
+                          <img src="{{ asset($produtos->imagemProduto2) }}" alt="imagem produto">
                         </div>
                         <div  class="thumbnail">
-                          <img src="{{ asset($produtos->imagemProduto) }}" alt="imagem produto">
+                          <img src="{{ asset($produtos->imagemProduto3) }}" alt="imagem produto">
                         </div>
                         <div  class="thumbnail">
-                          <img src="{{ asset($produtos->imagemProduto) }}" alt="imagem produto">
+                          <img src="{{ asset($produtos->imagemProduto4) }}" alt="imagem produto">
                         </div>
                         <div  class="thumbnail">
-                          <img src="{{ asset($produtos->imagemProduto) }}" alt="imagem produto">
+                          <img src="{{ asset($produtos->imagemProduto5) }}" alt="imagem produto">
                         </div>
-                    </div>             -->
+                    </div>          
         </div>
       </div>
       <div class="direito">

@@ -64,8 +64,8 @@ class AuthController extends Controller
                     Session::put('is_Cliente', $isCliente);
 
                     // Define a mensagem de alerta para o cliente
-                    Session::flash('loginAlert', 'Bem-vindo, Cliente!');
-                    return redirect('/');
+        
+                    return redirect('/',)->with('success', 'Bem vindo, Cliente!');
 
                 } elseif (isset($usuario->idVendedor)) { // Vendedor
                     Session::put('idVendedor', $usuario->idVendedor);
@@ -83,8 +83,8 @@ class AuthController extends Controller
                     Session::put('is_vendedor', $isVendedor);
 
                     // Define a mensagem de alerta para o vendedor
-                    Session::flash('loginAlert', 'Bem-vindo, Vendedor!');
-                    return redirect('/dashboardVendedor');
+                    
+                    return redirect('/dashboardVendedor')->with('success', 'Bem Vindo, Vendedor!');
 
                 } elseif (isset($usuario->idAdministrador)) { // Admin
                     Session::put('idAdmin', $usuario->idAdministrador);

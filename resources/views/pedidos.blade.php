@@ -81,8 +81,6 @@
             </div>
         </div>
     </main>
-
-    @include('includes.footer')
     <!--Import do javascript-->
     <script src="{{('js/script.js')}}"></script>
     <!--Imports do bootstrap do body-->

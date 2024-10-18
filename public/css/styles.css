@@ -4420,7 +4420,7 @@ svg {
     display: flex;
     align-items: center;
     padding: 1%;
-    background-color: rgb(255, 250, 246);
+    background-color: rgb(255, 252, 250);
 }
 
 .subNavItens {
@@ -4446,7 +4446,6 @@ svg {
 .containerMensagens {
     width: 100%;
     display: flex;
-    padding-bottom: 1%;
     flex-wrap: wrap;
 }
 
@@ -4702,7 +4701,7 @@ svg {
 .cardPedido{
     margin: 2px;
     border: 1px solid rgb(230, 230, 230);
-    padding: 1%;
+    padding: 0.5%;
     width: 100%;
     display: flex;
     background-color: white;
@@ -4712,7 +4711,7 @@ svg {
 .imgProdutoPedido{
     position: relative;
     overflow: hidden;
-    width: 60px;
+    width: 65px;
     background-color: #d4d4d4;
 }
 .imgProdutoPedido img{
@@ -4736,6 +4735,7 @@ svg {
     flex-wrap: wrap;
     margin: 0;
     padding-left: 1%;
+    align-items: center;
     font-size: smaller;
     display: flex;
     list-style: none;
@@ -4750,12 +4750,17 @@ svg {
     font-weight: 500;
 }
 .statusPedido{
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
     font-size: small;
     list-style: none;
+    align-items: center;
     width: 25%;
     padding: 0;
 }
 .sttsPedido{
+    width: 90%;
     font-weight: 550;
 }
 .situacaoPedido{

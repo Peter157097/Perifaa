@@ -4396,10 +4396,10 @@ svg {
     object-fit: cover;
 }
 
-.shadowNotif {
+.shadowScroll {
     position: absolute;
     width: 100%;
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.205), rgba(255, 255, 255, 0));
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.205), rgba(139, 139, 139, 0));
     display: flex;
     height: 6%;
     bottom: 0;
@@ -4420,25 +4420,34 @@ svg {
     display: flex;
     align-items: center;
     padding: 1%;
+    background-color: rgb(255, 250, 246);
 }
 
 .subNavItens {
-    cursor: pointer;
+    
     align-items: center;
     margin: 0;
     width: 100%;
     display: flex;
     list-style: none;
     flex-direction: row;
-    font-weight: 600;
     gap: 5%;
+}
+
+.subNavItens a{
+    font-weight: 550;
+    color: black;
+    
+}
+.subNavItens a:hover{
+    color: rgb(133, 113, 90);
 }
 
 .containerMensagens {
     width: 100%;
     display: flex;
-
     padding-bottom: 1%;
+    flex-wrap: wrap;
 }
 
 .panelMensagens {
@@ -4453,6 +4462,7 @@ svg {
 .sidePanelMensagens {
     display: flex;
     flex-wrap: wrap;
+    position: relative;
     width: 30%;
     border-right: 1px solid rgb(221, 221, 221);
     border-bottom-left-radius: 20px;
@@ -4473,7 +4483,7 @@ svg {
     display: flex;
     padding: 3%;
     height: fit-content;
-    border-bottom: 1px solid rgb(209, 209, 209);
+    border-bottom: 1px solid rgb(231, 231, 231);
     width: 100%;
     background-color: rgb(255, 255, 255);
     transition: 0.2s ease-in-out;
@@ -4638,4 +4648,116 @@ svg {
     white-space: nowrap;    
     align-items: center;
 
+}
+.shadowMsgScroll{
+    padding: 2%;
+    display: flex;
+    width: 100%;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.678), rgba(0, 0, 0, 0.329));
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/*Style dos pedidos*/
+.panelPedidos{
+    display: flex;
+    background-color: white;
+    height: auto;
+    width: 100%;
+    border-top: 1px solid rgb(221, 221, 221);
+    border-bottom: 1px solid rgb(221, 221, 221);
+    flex-wrap: wrap;
+}
+.containerPedidos{
+    width: 100%;
+    display: flex;
+    padding-bottom: 1%;
+}
+.pedidosContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+.pedidosTitlePanel{
+    padding: 2%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+.itensPedidosContainer{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.itensWrap{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1%;
+    background-color: rgb(240, 240, 240);
+}
+.cardPedido{
+    margin: 2px;
+    border: 1px solid rgb(230, 230, 230);
+    padding: 1%;
+    width: 100%;
+    display: flex;
+    background-color: white;
+    height: 5rem;
+
+}
+.imgProdutoPedido{
+    position: relative;
+    overflow: hidden;
+    width: 60px;
+    background-color: #d4d4d4;
+}
+.imgProdutoPedido img{
+    width: 100%; /* Faz a imagem se ajustar à largura da div */
+    height: 100%; /* Define a altura */
+    object-fit:cover;
+}
+.infoProdutoPedido{
+    display: flex;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    width: 90%;
+}
+.infoPedido{
+    display: flex;
+    width: 100%;
+    padding: 0.5%;
+    flex-wrap: wrap;
+}
+.labelPedido{
+    flex-wrap: wrap;
+    margin: 0;
+    padding-left: 1%;
+    font-size: smaller;
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    width: 75%;
+    gap: 10%;
+}
+.labelPedido li{
+    padding: 0;
+    width: 25%;
+    height: fit-content;
+    font-weight: 500;
+}
+.statusPedido{
+    font-size: small;
+    list-style: none;
+    width: 25%;
+    padding: 0;
+}
+.sttsPedido{
+    font-weight: 550;
+}
+.situacaoPedido{
+    color: rgb(255, 168, 36);
 }

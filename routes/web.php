@@ -113,6 +113,9 @@ Route::get('/adminDenuncias', function () {
 Route::get('/mensagens', function () {
     return view('mensagens');
 }); 
+Route::get('/pedidos', function () {
+    return view('pedidos');
+}); 
 
 
 

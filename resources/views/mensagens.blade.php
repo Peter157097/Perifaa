@@ -1,6 +1,9 @@
 @include('includes.head')
 
 <!--Começo do body-->
+<style>
+
+</style>
 
 <body>
     @include('includes.header')
@@ -10,8 +13,15 @@
         <div class="mensagensContainer">
             @if(session('is_Cliente'))
                 <div class="containerMensagens">
+                    <div class="topSubNav">
+                        <ul class="subNavItens">
+                            <li><a href="/pedidos">Pedidos</a></li>
+                            <li><a href="/mensagens">Mensagens</a></li>
+                        </ul>
+                    </div>
                     <div class="panelMensagens">
                         <div class="sidePanelMensagens">
+
                             <div class="msgTitlePanel">
                                 Mensagens
                             </div>
@@ -151,6 +161,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="shadowScroll"></div>
                             </div>
                         </div>
                         <div class="contentMsg">
@@ -188,8 +199,8 @@
             @elseif(session('is_vendedor'))
                 <div class="topSubNav">
                     <ul class="subNavItens">
-                        <li>Pedidos</li>
-                        <li>Mensagens</li>
+                        <li><a href="/pedidos">Pedidos</a></li>
+                        <li><a href="/mensagens">Mensagens</a></li>
                     </ul>
                 </div>
                 <div class="containerMensagens">
@@ -334,6 +345,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="shadowScroll"></div>
                             </div>
                         </div>
                         <div class="contentMsg">
@@ -371,8 +383,8 @@
             @elseif(session('is_Admin'))
                 <div class="topSubNav">
                     <ul class="subNavItens">
-                        <li>Pedidos</li>
-                        <li>Mensagens</li>
+                        <li><a href="/pedidos">Pedidos</a></li>
+                        <li><a href="/mensagens">Mensagens</a></li>
                     </ul>
                 </div>
                 <div class="containerMensagens">
@@ -517,6 +529,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="shadowScroll"></div>
                             </div>
                         </div>
                         <div class="contentMsg">
@@ -554,8 +567,8 @@
             @else
                 <div class="topSubNav">
                     <ul class="subNavItens">
-                        <li>Pedidos</li>
-                        <li>Mensagens</li>
+                        <li><a href="/pedidos">Pedidos</a></li>
+                        <li><a href="/mensagens">Mensagens</a></li>
                     </ul>
                 </div>
                 <div class="containerMensagens">
@@ -700,11 +713,23 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="shadowScroll"></div>
                             </div>
+
                         </div>
+
                         <div class="contentMsg">
                             <div class="selectedMsg">
-
+                                <div class="pfpSelectedMsg">
+                                    <div class="pfpMsg">
+                                        <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                    </div>
+                                </div>
+                                <div class="infoSelectecMsg">
+                                    <div class="titleSelectedImg">
+                                        Julia S.
+                                    </div>
+                                </div>
                             </div>
                             <div class="msgDisplay">
 

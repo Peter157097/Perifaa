@@ -233,7 +233,7 @@
                                         <img src="{{url('images/anexoMsg.png')}}" class="iconMsg" title="Anexar arquivo">
                                     </div>
                                     <div class="inputMsg">
-                                        <input type="text" placeholder="Mensangem..." class="inputCampo">
+                                        <input type="text" placeholder="Mensagem..." class="inputCampo">
                                     </div>
                                     <div class="anexoMsg">
                                         <img src="{{url('images/sendMsg.png')}}" class="iconMsg" title="Enviar">
@@ -417,7 +417,7 @@
                                         <img src="{{url('images/anexoMsg.png')}}" class="iconMsg" title="Anexar arquivo">
                                     </div>
                                     <div class="inputMsg">
-                                        <input type="text" placeholder="Mensangem..." class="inputCampo">
+                                        <input type="text" placeholder="Mensagem..." class="inputCampo">
                                     </div>
                                     <div class="anexoMsg">
                                         <img src="{{url('images/sendMsg.png')}}" class="iconMsg" title="Enviar">
@@ -601,7 +601,7 @@
                                         <img src="{{url('images/anexoMsg.png')}}" class="iconMsg" title="Anexar arquivo">
                                     </div>
                                     <div class="inputMsg">
-                                        <input type="text" placeholder="Mensangem..." class="inputCampo">
+                                        <input type="text" placeholder="Mensagem..." class="inputCampo">
                                     </div>
                                     <div class="anexoMsg">
                                         <img src="{{url('images/sendMsg.png')}}" class="iconMsg" title="Enviar">

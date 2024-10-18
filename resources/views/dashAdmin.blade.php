@@ -97,7 +97,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="shadowNotif"></div>
+                    <div class="shadowScroll"></div>
                 </div>
 
                 <div class="adminGraficoContainer">

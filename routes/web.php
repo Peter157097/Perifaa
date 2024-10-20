@@ -193,3 +193,9 @@ Route::post('/filtro-usuarios', [UserController::class, 'filtrarUsuarios'])->nam
 Route::get('/produtosVendedor', [ProdutoController::class, 'edit'])->name('produtosVendedor');
 Route::post('/produtos/{idProduto}', [ProdutoController::class, 'update'])->name('produtos.update');
 Route::delete('/produtos/{idProduto}', [ProdutoController::class, 'destroy'])->name('produtos.destroy');
+
+//rota para a central de ajuda
+
+Route::get('/centralAjuda', function () {
+    return view('centralAjuda');
+});

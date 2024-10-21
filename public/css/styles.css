@@ -3162,12 +3162,13 @@ a {
     padding: 1%;
     padding-top: 3%;
 }
-.linkHomeCarrinho{
+
+.linkHomeCarrinho {
     color: #5b3a2e;
 }
-.tituloCarrinhoVazio h2{
-    
-}
+
+.tituloCarrinhoVazio h2 {}
+
 .linkHomeCarrinho {
     position: relative;
     z-index: 10;
@@ -3562,6 +3563,7 @@ hr {
     background-color: #523b1d;
     box-shadow: 0 5px 15px rgba(84, 92, 246, 0.3);
 }
+
 .container-cards-favorite {
     display: flex;
     gap: 1vh;
@@ -3585,7 +3587,8 @@ hr {
     padding: 4%;
     padding-left: 5%;
 }
-.container-fav-vazio p{
+
+.container-fav-vazio p {
     font-size: 90%;
 }
 
@@ -3919,7 +3922,7 @@ a:hover {
 }
 
 .infoDenuncia-top {
-
+    height: 10%;
     display: flex;
     padding: 0.5%;
     width: 100%;
@@ -4014,12 +4017,6 @@ a:hover {
     transition: background-color 0.6s ease;
 }
 
-.adminContainerConsulta {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-}
 
 .titleAdm {
 
@@ -4060,7 +4057,6 @@ a:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
-
     width: fit-content;
 }
 
@@ -4070,12 +4066,8 @@ a:hover {
     padding: 1%;
     width: 100%;
     font-size: 3vh;
-    background-color: rgb(218, 218, 218);
 }
 
-.labelConsulta:hover {
-    background-color: rgb(196, 196, 196);
-}
 
 .btnConsultaSubmit {
     background-color: #5882d6;
@@ -4089,7 +4081,7 @@ a:hover {
 .camposConsulta {
     display: flex;
     flex-direction: column;
-    background-color: rgb(230, 230, 230);
+    background-color: rgb(255, 0, 0);
     width: 100%;
     padding: 4%;
 
@@ -4114,17 +4106,9 @@ a:hover {
 .ConsultaCardContainer {
     border-top: solid;
     border-width: 1px;
-    border-color: #dd0000;
     width: 100%;
     display: block;
     flex-wrap: wrap;
-}
-
-.cardConsulta {
-    display: flex;
-    background-color: rgb(224, 224, 224);
-    width: 100%;
-    height: 10vh;
 }
 
 .pfpConsultaContainer {
@@ -4135,7 +4119,7 @@ a:hover {
 }
 
 .pfpConsulta {
-    background-color: rgb(66, 66, 66);
+    background-color: rgb(201, 201, 201);
     border-radius: 50%;
     border: #a3a3a3;
     border-width: 1px;
@@ -4492,7 +4476,7 @@ svg {
     border-right: 1px solid rgb(214, 214, 214);
     width: 25%;
     height: 100%;
-    background-color: rgb(221, 221, 221);
+    background-color: rgb(255, 255, 255);
     padding: 2%;
     align-items: center;
 }
@@ -4502,7 +4486,7 @@ svg {
     border-bottom-right-radius: 20px;
     width: 100%;
     height: 94%;
-    background-color: rgb(221, 221, 221);
+    background-color: rgb(255, 255, 255);
     overflow-y: auto;
     scrollbar-width: thin;
     /* Define a largura da barra (auto, thin, none) */
@@ -4513,15 +4497,20 @@ svg {
 }
 
 .cardConsulta {
-    border-top: 1px solid rgb(219, 219, 219);
+    border-bottom: 1px solid rgb(219, 219, 219);
+    
     display: flex;
-    background-color: rgb(241, 241, 241);
+    background-color: rgb(245, 245, 245);
     width: 100%;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 10vh;
 
 }
 
 .infoLabelConsulta {
-    background-color: rgb(221, 221, 221);
+    background-color: rgb(255, 255, 255);
     align-items: center;
     float: right;
     width: 93%;
@@ -4551,7 +4540,6 @@ svg {
 .pfpBusca {
     width: 100%;
     height: 100%;
-    background-color: green;
     border-radius: 100%;
 
 }
@@ -4570,6 +4558,7 @@ svg {
     margin: 0;
     font-weight: 550;
     font-style: italic;
+    background-color: white;
 }
 
 .consultaAviso {
@@ -4578,6 +4567,9 @@ svg {
     display: flex;
     width: 75%;
     height: 100%;
+    background-color: rgb(255, 255, 255);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .tempoGraficoAdmin {
@@ -4734,7 +4726,7 @@ svg {
     border-top: 1px solid rgb(226, 226, 226);
     border-left: 1px solid rgb(226, 226, 226);
     border-right: 1px solid rgb(226, 226, 226);
-    height: 3%;
+    height: 5vh;
     background-color: #ffffff;
 }
 
@@ -4751,6 +4743,7 @@ svg {
     padding: 4%;
     display: flex;
     flex-wrap: wrap;
+    background-color: #e9e9e9;
 }
 
 .btnDenunciaContainer {
@@ -4768,9 +4761,10 @@ svg {
 
 .alignLabelConsulta {
     display: flex;
+    border-bottom: 1px solid rgb(219, 219, 219);
     width: 100%;
     height: 6%;
-    background-color: rgb(221, 221, 221);
+    background-color: rgb(255, 255, 255);
     border-top-right-radius: 20px;
     justify-content: right;
 }
@@ -5155,77 +5149,87 @@ svg {
     color: rgb(255, 168, 36);
 }
 
-.noContent{
+.noContent {
     display: block;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
     height: 100%;
 }
-.noContentImg{
+
+.noContentImg {
     width: 300px;
     height: 300px;
 }
-.noContentMsg{
+
+.noContentMsg {
     display: flex;
-    flex-wrap: wrap ;
+    flex-wrap: wrap;
     justify-content: center;
     width: 100%;
 }
-.noContentMsg h4{
+
+.noContentMsg h4 {
     display: flex;
-    flex-wrap: wrap ;
+    flex-wrap: wrap;
     justify-content: center;
     width: 100%;
 }
-.HoldNoContentImg{
+
+.HoldNoContentImg {
     display: flex;
     justify-content: center;
 }
-.containerNoRegister{
+
+.containerNoRegister {
     padding: 4%;
     padding-top: 0;
     width: 100%;
     display: block;
     background-color: white;
 }
-.noRegisterImg{
+
+.noRegisterImg {
     display: flex;
-    width: 100%;    
+    width: 100%;
     justify-content: center;
 }
-.noRegisterMsg{
+
+.noRegisterMsg {
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
 }
-.noRegisterMsg h4{
+
+.noRegisterMsg h4 {
     display: flex;
     width: 100%;
     justify-content: center;
 }
-.noRegisterMsg a{
-   
-}
-.noRegisterMsg a:hover{
-    
+
+.noRegisterMsg a {}
+
+.noRegisterMsg a:hover {
+
     cursor: pointer;
 }
-.noRegisterMsg span{
+
+.noRegisterMsg span {
     font-weight: 550;
 }
-.noRegisterMsg button{
+
+.noRegisterMsg button {
     padding: 0;
     color: rgb(131, 103, 52);
     background-color: transparent;
     border: none;
 }
-.noRegisterMsg button:hover{
+
+.noRegisterMsg button:hover {
     cursor: pointer;
     padding: 0;
     color: rgb(110, 87, 45);
     background-color: transparent;
     border: none;
 }
-

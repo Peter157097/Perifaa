@@ -4424,7 +4424,7 @@ svg {
 }
 
 .subNavItens {
-    
+
     align-items: center;
     margin: 0;
     width: 100%;
@@ -4434,12 +4434,13 @@ svg {
     gap: 5%;
 }
 
-.subNavItens a{
+.subNavItens a {
     font-weight: 550;
     color: black;
-    
+
 }
-.subNavItens a:hover{
+
+.subNavItens a:hover {
     color: rgb(133, 113, 90);
 }
 
@@ -4469,13 +4470,14 @@ svg {
 }
 
 .msgTitlePanel {
-    padding: 2%;
+    padding: 1%;
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
     font-weight: 500;
-    border-bottom: 1px solid rgb(221, 221, 221);
+    background-color: white;
+    border-top: 1px solid rgb(221, 221, 221);
 }
 
 .cardMensagem {
@@ -4490,16 +4492,11 @@ svg {
 
 .cardMensagem:hover {
     cursor: pointer;
-    display: flex;
     padding: 3%;
-    height: fit-content;
-    border-bottom: 1px solid rgb(209, 209, 209);
-    width: 100%;
     background-color: rgb(241, 241, 241);
 }
 
 .cardMensagem:hover::after {
-    width: 5%;
     cursor: pointer;
     align-content: center;
     content: ">";
@@ -4530,7 +4527,6 @@ svg {
 }
 
 .containerMsg {
-    display: flex;
     flex-wrap: wrap;
     width: 85%;
     padding-left: 4%;
@@ -4546,7 +4542,7 @@ svg {
 }
 
 .bodyMsg {
-    font-size: 70%;
+    font-size: 75%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -4557,6 +4553,7 @@ svg {
     display: flex;
     flex-wrap: wrap;
     width: 70%;
+    height: 85vh;
 }
 
 .selectedMsg {
@@ -4629,26 +4626,30 @@ svg {
     height: 100%;
     outline: none;
 }
-.pfpSelectedMsg{
+
+.pfpSelectedMsg {
     padding: 0.7%;
     display: flex;
 }
-.infoSelectecMsg{
+
+.infoSelectecMsg {
     display: flex;
     width: 90%;
 }
-.titleSelectedImg{
+
+.titleSelectedImg {
     font-weight: 500;
     font-size: 85%;
     display: flex;
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;    
+    white-space: nowrap;
     align-items: center;
 
 }
-.shadowMsgScroll{
+
+.shadowMsgScroll {
     padding: 2%;
     display: flex;
     width: 100%;
@@ -4659,7 +4660,7 @@ svg {
 }
 
 /*Style dos pedidos*/
-.panelPedidos{
+.panelPedidos {
     display: flex;
     background-color: white;
     height: auto;
@@ -4668,17 +4669,20 @@ svg {
     border-bottom: 1px solid rgb(221, 221, 221);
     flex-wrap: wrap;
 }
-.containerPedidos{
+
+.containerPedidos {
     width: 100%;
     display: flex;
     padding-bottom: 1%;
 }
-.pedidosContainer{
+
+.pedidosContainer {
     display: flex;
     flex-wrap: wrap;
 }
-.pedidosTitlePanel{
-    padding: 2%;
+
+.pedidosTitlePanel {
+    padding: 1%;
     display: flex;
     width: 100%;
     justify-content: center;
@@ -4686,19 +4690,22 @@ svg {
     font-weight: 500;
     border-bottom: 1px solid rgb(221, 221, 221);
 }
-.itensPedidosContainer{
+
+.itensPedidosContainer {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
 }
-.itensWrap{
+
+.itensWrap {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     padding: 1%;
     background-color: rgb(240, 240, 240);
 }
-.cardPedido{
+
+.cardPedido {
     margin: 2px;
     border: 1px solid rgb(230, 230, 230);
     padding: 0.5%;
@@ -4708,30 +4715,37 @@ svg {
     height: 5rem;
 
 }
-.imgProdutoPedido{
+
+.imgProdutoPedido {
     position: relative;
     overflow: hidden;
     width: 65px;
     background-color: #d4d4d4;
 }
-.imgProdutoPedido img{
-    width: 100%; /* Faz a imagem se ajustar à largura da div */
-    height: 100%; /* Define a altura */
-    object-fit:cover;
+
+.imgProdutoPedido img {
+    width: 100%;
+    /* Faz a imagem se ajustar à largura da div */
+    height: 100%;
+    /* Define a altura */
+    object-fit: cover;
 }
-.infoProdutoPedido{
+
+.infoProdutoPedido {
     display: flex;
     height: 100%;
     background-color: rgb(255, 255, 255);
     width: 90%;
 }
-.infoPedido{
+
+.infoPedido {
     display: flex;
     width: 100%;
     padding: 0.5%;
     flex-wrap: wrap;
 }
-.labelPedido{
+
+.labelPedido {
     flex-wrap: wrap;
     margin: 0;
     padding-left: 1%;
@@ -4743,13 +4757,15 @@ svg {
     width: 75%;
     gap: 10%;
 }
-.labelPedido li{
+
+.labelPedido li {
     padding: 0;
     width: 25%;
     height: fit-content;
     font-weight: 500;
 }
-.statusPedido{
+
+.statusPedido {
     margin: 0;
     display: flex;
     flex-wrap: wrap;
@@ -4759,10 +4775,71 @@ svg {
     width: 25%;
     padding: 0;
 }
-.sttsPedido{
+
+.sttsPedido {
     width: 90%;
     font-weight: 550;
 }
-.situacaoPedido{
+
+.situacaoPedido {
     color: rgb(255, 168, 36);
 }
+
+.noContent{
+    display: block;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+.noContentImg{
+    width: 300px;
+    height: 300px;
+}
+.noContentMsg{
+    display: flex;
+    flex-wrap: wrap ;
+    justify-content: center;
+    width: 100%;
+}
+.noContentMsg h4{
+    display: flex;
+    flex-wrap: wrap ;
+    justify-content: center;
+    width: 100%;
+}
+.HoldNoContentImg{
+    display: flex;
+    justify-content: center;
+}
+.containerNoRegister{
+    padding: 4%;
+    padding-top: 0;
+    width: 100%;
+    display: block;
+    background-color: white;
+}
+.noRegisterImg{
+    display: flex;
+    width: 100%;    
+    justify-content: center;
+}
+.noRegisterMsg{
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.noRegisterMsg h4{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.noRegisterMsg a{
+    color: rgb(131, 103, 52);
+}
+.noRegisterMsg a:hover{
+    color: rgb(110, 87, 45);
+    cursor: pointer;
+}
+

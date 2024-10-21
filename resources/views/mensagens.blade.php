@@ -213,18 +213,18 @@
 
                             <!--  
 
-                                                    ----Caso nao tenha mensagem selecionada (Parte do cliente)----
+                                                                            ----Caso nao tenha mensagem selecionada (Parte do cliente)----
 
-                                                        <div class="noContent">
-                                                            <div class="HoldNoContentImg">
-                                                                <img src="{{url('images/msgIconCli.png')}}" class="noContentImg">
-                                                            </div>
-                                                            <div class="noContentMsg">
-                                                                <h4>Suas mensagens</h4>
-                                                                <p>Aqui é onde você se conecta com outros usuários.</p>
-                                                            </div>
-                                                        </div>
-                                                    -->
+                                                                                <div class="noContent">
+                                                                                    <div class="HoldNoContentImg">
+                                                                                        <img src="{{url('images/msgIconCli.png')}}" class="noContentImg">
+                                                                                    </div>
+                                                                                    <div class="noContentMsg">
+                                                                                        <h4>Suas mensagens</h4>
+                                                                                        <p>Aqui é onde você se conecta com outros usuários.</p>
+                                                                                    </div>
+                                                                                </div>
+                                                                            -->
                             <div class="selectedMsg">
                                 <div class="pfpSelectedMsg">
                                     <div class="pfpMsg">
@@ -412,18 +412,18 @@
                         <div class="contentMsg">
                             <!--  
 
-                                            ----Caso nao tenha mensagem selecionada (parte do vendedor)----
+                                                                    ----Caso nao tenha mensagem selecionada (parte do vendedor)----
 
-                                                <div class="noContent">
-                                                    <div class="HoldNoContentImg">
-                                                        <img src="{{url('images/msgIconVend.png')}}" class="noContentImg">
-                                                    </div>
-                                                    <div class="noContentMsg">
-                                                        <h4>Suas mensagens</h4>
-                                                        <p>Aqui é onde você se conecta com outros usuários.</p>
-                                                    </div>
-                                                </div>
-                                            -->
+                                                                        <div class="noContent">
+                                                                            <div class="HoldNoContentImg">
+                                                                                <img src="{{url('images/msgIconVend.png')}}" class="noContentImg">
+                                                                            </div>
+                                                                            <div class="noContentMsg">
+                                                                                <h4>Suas mensagens</h4>
+                                                                                <p>Aqui é onde você se conecta com outros usuários.</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    -->
                             <div class="selectedMsg">
                                 <div class="pfpSelectedMsg">
                                     <div class="pfpMsg">
@@ -611,18 +611,18 @@
                             <div class="selectedMsg">
                                 <!--  
 
-                                        ----Caso nao tenha mensagem selecionada (parte do Admin)----
+                                                                ----Caso nao tenha mensagem selecionada (parte do Admin)----
 
-                                            <div class="noContent">
-                                                <div class="HoldNoContentImg">
-                                                    <img src="{{url('images/msgIconAdmin.png')}}" class="noContentImg">
-                                                </div>
-                                                <div class="noContentMsg">
-                                                    <h4>Suas mensagens</h4>
-                                                    <p>Aqui é onde você se conecta com outros usuários.</p>
-                                                </div>
-                                            </div>
-                                        -->
+                                                                    <div class="noContent">
+                                                                        <div class="HoldNoContentImg">
+                                                                            <img src="{{url('images/msgIconAdmin.png')}}" class="noContentImg">
+                                                                        </div>
+                                                                        <div class="noContentMsg">
+                                                                            <h4>Suas mensagens</h4>
+                                                                            <p>Aqui é onde você se conecta com outros usuários.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                -->
                                 <div class="pfpSelectedMsg">
                                     <div class="pfpMsg">
                                         <img src="{{url('images/10.png')}}" class="pfpConsulta">
@@ -670,7 +670,24 @@
                         </div>
                         <div class="noRegisterMsg">
                             <h4>Quem é você?</h4>
-                            <p>Faça <a href="">login</a> ou <a href="">cadastre-se</a> para ver suas <span>mensagens</span>.</p>
+                            <p>Faça
+                                <a href="#">
+                                    <button class="abrir-modal" data-modal="modal-1">
+                                        login
+                                    </button>
+                                </a>
+                                ou
+                                <a href="#">
+                                    <button class="abrir-modal" data-modal="modal-2">
+                                        cadastre-se
+                                    </button>
+                                </a>para ver suas
+                                <span>
+                                    mensagens.
+                                </span>
+                            </p>
+                           
+
                         </div>
                     </div>
                 </div>

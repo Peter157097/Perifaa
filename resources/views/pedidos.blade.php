@@ -86,8 +86,23 @@
                                     <img src="{{url('images/msgSemRegistro.png')}}" class="noContentImg">
                                 </div>
                                 <div class="noRegisterMsg">
-                                    <h4>Quem é você?</h4>
-                                    <p>Faça <a href="">login</a> ou <a href="">cadastre-se</a> para ver seus <span>pedidos</span>.</p>
+                                    <<h4>Quem é você?</h4>
+                                        <p>Faça
+                                            <a href="#">
+                                                <button class="abrir-modal" data-modal="modal-1">
+                                                    login
+                                                </button>
+                                            </a>
+                                            ou
+                                            <a href="#">
+                                                <button class="abrir-modal" data-modal="modal-2">
+                                                    cadastre-se
+                                                </button>
+                                            </a>para ver seus
+                                            <span>
+                                                pedidos.
+                                            </span>
+                                        </p>
                                 </div>
                             </div>
                         </div>

@@ -4836,13 +4836,26 @@ svg {
     justify-content: center;
 }
 .noRegisterMsg a{
-    color: rgb(131, 103, 52);
+   
 }
 .noRegisterMsg a:hover{
-    color: rgb(110, 87, 45);
+    
     cursor: pointer;
 }
 .noRegisterMsg span{
     font-weight: 550;
+}
+.noRegisterMsg button{
+    padding: 0;
+    color: rgb(131, 103, 52);
+    background-color: transparent;
+    border: none;
+}
+.noRegisterMsg button:hover{
+    cursor: pointer;
+    padding: 0;
+    color: rgb(110, 87, 45);
+    background-color: transparent;
+    border: none;
 }
 

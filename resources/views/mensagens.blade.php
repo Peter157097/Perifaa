@@ -12,12 +12,6 @@
     <main>
         <div class="mensagensContainer">
             @if(session('is_Cliente'))
-                <div class="topSubNav">
-                    <ul class="subNavItens">
-                        <li><a href="/pedidos">Pedidos</a></li>
-                        <li><a href="/mensagens">Mensagens</a></li>
-                    </ul>
-                </div>
                 <div class="containerMensagens">
                     <div class="msgTitlePanel">
                         Mensagens
@@ -258,12 +252,6 @@
                     </div>
                 </div>
             @elseif(session('is_vendedor'))
-                <div class="topSubNav">
-                    <ul class="subNavItens">
-                        <li><a href="/pedidos">Pedidos</a></li>
-                        <li><a href="/mensagens">Mensagens</a></li>
-                    </ul>
-                </div>
                 <div class="containerMensagens">
                     <div class="msgTitlePanel">
                         Mensagens
@@ -456,12 +444,6 @@
                     </div>
                 </div>
             @elseif(session('is_Admin'))
-                <div class="topSubNav">
-                    <ul class="subNavItens">
-                        <li><a href="/pedidos">Pedidos</a></li>
-                        <li><a href="/mensagens">Mensagens</a></li>
-                    </ul>
-                </div>
                 <div class="containerMensagens">
                     <div class="panelMensagens">
                         <div class="sidePanelMensagens">
@@ -654,12 +636,6 @@
                     </div>
                 </div>
             @else
-                <div class="topSubNav">
-                    <ul class="subNavItens">
-                        <li><a href="/pedidos">Pedidos</a></li>
-                        <li><a href="/mensagens">Mensagens</a></li>
-                    </ul>
-                </div>
                 <div class="containerMensagens">
                     <div class="msgTitlePanel">
                         Mensagens

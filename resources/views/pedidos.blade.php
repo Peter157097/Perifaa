@@ -9,13 +9,6 @@
 
     <main>
         <div class="pedidosContainer">
-            <div class="topSubNav">
-                <ul class="subNavItens">
-                    <li><a href="/pedidos">Pedidos</a></li>
-                    <li><a href="/mensagens">Mensagens</a></li>
-                </ul>
-            </div>
-
             <div class="containerMensagens">
                 @if(session('is_Cliente'))
                     <div class="panelPedidos">

@@ -288,7 +288,8 @@
                 @if(session('is_vendedor'))
                     <div class="drop-perfil"> <!--Começo menu dropdown das roupas-->
                         <a href="{{ url('/dashboardVendedor') }}" id="link-perfil"><i class="bi bi-kanban"></i>Dashboard</a>
-                        <a href="{{ url('/mensagens') }}"><i class="fa-solid fa-message"></i>Mensagens e pedidos</a>
+                        <a href="{{ url('/mensagens') }}"><i class="fa-solid fa-message"></i>Mensagens</a>
+                        <a href="{{ url('/pedidos') }}"><i class="fa-solid fa-receipt"></i>Pedidos</a>
                         <a href="#" id="link-perfil"><i class="fa-solid fa-circle-question"></i>Ajuda</a>
                         <a href="{{ url('/logout') }}" id="link-perfil"><i
                                 class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a>
@@ -310,6 +311,7 @@
                             <div class="drop-perfil"> <!--Começo menu dropdown das roupas-->
                                 <a href="{{ url('/perfil') }}"><i class="fa-solid fa-user"></i>Meu perfil</a>
                                 <a href="{{ url('/mensagens') }}"><i class="fa-solid fa-message"></i>Mensagens</a>
+                                <a href="{{ url('/pedidos') }}"><i class="fa-solid fa-receipt"></i>Pedidos</a>
                                 <a href="{{ url('/favorites') }}"><i class="fa-solid fa-heart"></i>Favoritos</a>
                                 <a href="{{url('carrinho')}}"><i class="fa-solid fa-cart-shopping"></i>Carrinho</a>
                                 <a href="{{url('/centralAjuda')}}"><i class="fa-solid fa-circle-question"></i>Ajuda</a>

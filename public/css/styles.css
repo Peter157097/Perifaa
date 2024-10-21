@@ -4814,37 +4814,6 @@ svg {
     flex-wrap: wrap;
 }
 
-.topSubNav {
-
-    width: 100%;
-    background-color: white;
-    height: auto;
-    display: flex;
-    align-items: center;
-    padding: 1%;
-    background-color: rgb(255, 252, 250);
-}
-
-.subNavItens {
-
-    align-items: center;
-    margin: 0;
-    width: 100%;
-    display: flex;
-    list-style: none;
-    flex-direction: row;
-    gap: 5%;
-}
-
-.subNavItens a {
-    font-weight: 550;
-    color: black;
-
-}
-
-.subNavItens a:hover {
-    color: rgb(133, 113, 90);
-}
 
 .containerMensagens {
     width: 100%;
@@ -4857,7 +4826,6 @@ svg {
     background-color: white;
     height: auto;
     width: 100%;
-    border-top: 1px solid rgb(221, 221, 221);
     border-bottom: 1px solid rgb(221, 221, 221)
 }
 
@@ -4879,7 +4847,7 @@ svg {
     align-items: center;
     font-weight: 500;
     background-color: white;
-    border-top: 1px solid rgb(221, 221, 221);
+    border-bottom: 1px solid rgb(221, 221, 221);
 }
 
 .cardMensagem {

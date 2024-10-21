@@ -11,7 +11,7 @@
     @include('includes.nav')
     <main>
         <div class="mensagensContainer">
-            @if(session('is_Cliente'))
+            @if (session('is_vendedor') || session('is_Cliente'))
                 <div class="containerMensagens">
                     <div class="msgTitlePanel">
                         Mensagens
@@ -204,21 +204,22 @@
                             </div>
                         </div>
                         <div class="contentMsg">
+                            <!--
+                                 Caso nao tenha mensagem selecionada 
 
-                            <!--  
-
-                                                                            ----Caso nao tenha mensagem selecionada (Parte do cliente)----
-
-                                                                                <div class="noContent">
-                                                                                    <div class="HoldNoContentImg">
-                                                                                        <img src="{{url('images/msgIconCli.png')}}" class="noContentImg">
-                                                                                    </div>
-                                                                                    <div class="noContentMsg">
-                                                                                        <h4>Suas mensagens</h4>
-                                                                                        <p>Aqui é onde você se conecta com outros usuários.</p>
-                                                                                    </div>
-                                                                                </div>
-                                                                            -->
+                                <div class="noContent">
+                                    <div class="HoldNoContentImg">
+                                        (Cliente)
+                                        <img src="{{url('images/msgIconCli.png')}}" class="noContentImg">
+                                        (Vendedor)
+                                        <img src="{{url('images/msgIconVend.png')}}" class="noContentImg">
+                                    </div>
+                                    <div class="noContentMsg">
+                                        <h4>Suas mensagens</h4>
+                                        <p>Aqui é onde você se conecta com outros usuários.</p>
+                                    </div>
+                                </div>
+                                -->
                             <div class="selectedMsg">
                                 <div class="pfpSelectedMsg">
                                     <div class="pfpMsg">
@@ -248,394 +249,11 @@
                                 </div>
                             </div>
 
-                        </div>
-                    </div>
-                </div>
-            @elseif(session('is_vendedor'))
-                <div class="containerMensagens">
-                    <div class="msgTitlePanel">
-                        Mensagens
-                    </div>
-                    <div class="panelMensagens">
-                        <div class="sidePanelMensagens">
-                            <div class="scroll-sidePanelMsg">
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="contentMsg">
-                            <!--  
-
-                                                                    ----Caso nao tenha mensagem selecionada (parte do vendedor)----
-
-                                                                        <div class="noContent">
-                                                                            <div class="HoldNoContentImg">
-                                                                                <img src="{{url('images/msgIconVend.png')}}" class="noContentImg">
-                                                                            </div>
-                                                                            <div class="noContentMsg">
-                                                                                <h4>Suas mensagens</h4>
-                                                                                <p>Aqui é onde você se conecta com outros usuários.</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    -->
-                            <div class="selectedMsg">
-                                <div class="pfpSelectedMsg">
-                                    <div class="pfpMsg">
-                                        <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                    </div>
-                                </div>
-                                <div class="infoSelectecMsg">
-                                    <div class="titleSelectedImg">
-                                        Julia S.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="msgDisplay">
-
-                            </div>
-                            <div class="msgWrite">
-                                <div class="contentWrite">
-                                    <div class="anexoMsg">
-                                        <img src="{{url('images/anexoMsg.png')}}" class="iconMsg" title="Anexar arquivo">
-                                    </div>
-                                    <div class="inputMsg">
-                                        <input type="text" placeholder="Mensagem..." class="inputCampo">
-                                    </div>
-                                    <div class="anexoMsg">
-                                        <img src="{{url('images/sendMsg.png')}}" class="iconMsg" title="Enviar">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @elseif(session('is_Admin'))
-                <div class="containerMensagens">
-                    <div class="panelMensagens">
-                        <div class="sidePanelMensagens">
-                            <div class="msgTitlePanel">
-                                Mensagens
-                            </div>
-                            <div class="scroll-sidePanelMsg">
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="shadowScroll"></div>
-                            </div>
-                        </div>
-                        <div class="contentMsg">
-                            <div class="selectedMsg">
-                                <!--  
-
-                                                                ----Caso nao tenha mensagem selecionada (parte do Admin)----
-
-                                                                    <div class="noContent">
-                                                                        <div class="HoldNoContentImg">
-                                                                            <img src="{{url('images/msgIconAdmin.png')}}" class="noContentImg">
-                                                                        </div>
-                                                                        <div class="noContentMsg">
-                                                                            <h4>Suas mensagens</h4>
-                                                                            <p>Aqui é onde você se conecta com outros usuários.</p>
-                                                                        </div>
-                                                                    </div>
-                                                                -->
-                                <div class="pfpSelectedMsg">
-                                    <div class="pfpMsg">
-                                        <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                    </div>
-                                </div>
-                                <div class="infoSelectecMsg">
-                                    <div class="titleSelectedImg">
-                                        Julia S.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="msgDisplay">
-
-                            </div>
-                            <div class="msgWrite">
-                                <div class="contentWrite">
-                                    <div class="anexoMsg">
-                                        <img src="{{url('images/anexoMsg.png')}}" class="iconMsg" title="Anexar arquivo">
-                                    </div>
-                                    <div class="inputMsg">
-                                        <input type="text" placeholder="Mensagem..." class="inputCampo">
-                                    </div>
-                                    <div class="anexoMsg">
-                                        <img src="{{url('images/sendMsg.png')}}" class="iconMsg" title="Enviar">
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             @else
+                <!--Caso nao tenha login--> 
                 <div class="containerMensagens">
                     <div class="msgTitlePanel">
                         Mensagens
@@ -662,7 +280,7 @@
                                     mensagens.
                                 </span>
                             </p>
-                           
+
 
                         </div>
                     </div>

@@ -4842,4 +4842,7 @@ svg {
     color: rgb(110, 87, 45);
     cursor: pointer;
 }
+.noRegisterMsg span{
+    font-weight: 550;
+}
 

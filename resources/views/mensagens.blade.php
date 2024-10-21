@@ -669,8 +669,8 @@
                             <img src="{{url('images/msgSemRegistro.png')}}" class="noContentImg">
                         </div>
                         <div class="noRegisterMsg">
-                            <h4>Oops...</h4>
-                            <p>Faça <a href="">login</a> ou <a href="">cadastre-se</a> para ver suas mensagems.</p>
+                            <h4>Quem é você?</h4>
+                            <p>Faça <a href="">login</a> ou <a href="">cadastre-se</a> para ver suas <span>mensagens</span>.</p>
                         </div>
                     </div>
                 </div>

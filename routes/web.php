@@ -199,3 +199,9 @@ Route::delete('/produtos/{idProduto}', [ProdutoController::class, 'destroy'])->n
 Route::get('/centralAjuda', function () {
     return view('centralAjuda');
 });
+
+
+// Rota para o compras do cliente
+Route::get('/comprasCliente', function () {
+    return view('comprasCliente');
+}); 

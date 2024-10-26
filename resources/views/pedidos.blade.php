@@ -53,7 +53,10 @@
                                             </ul>
                                             <ul class="statusPedido">
                                                 <li class="sttsPedido">Status</li>
-                                                <li class="situacaoPedido">Enviado</li>
+                                                <li class="situacaoPedido">
+                                                    Entregue 
+                                                    <i class="fa-solid fa-circle-check"></i>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -81,7 +84,10 @@
                                             </ul>
                                             <ul class="statusPedido">
                                                 <li class="sttsPedido">Status</li>
-                                                <li class="situacaoPedido">Enviado</li>
+                                                <li class="situacaoPedido">
+                                                    Entregue 
+                                                    <i class="fa-solid fa-circle-check"></i>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -109,7 +115,10 @@
                                             </ul>
                                             <ul class="statusPedido">
                                                 <li class="sttsPedido">Status</li>
-                                                <li class="situacaoPedido">Enviado</li>
+                                                <li class="situacaoPedido">
+                                                    Entregue 
+                                                    <i class="fa-solid fa-circle-check"></i>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -143,7 +152,10 @@
                                             </ul>
                                             <ul class="statusPedido">
                                                 <li class="sttsPedido">Status</li>
-                                                <li class="situacaoPedido">Enviado</li>
+                                                <li class="situacaoPedido">
+                                                    Entregue 
+                                                    <i class="fa-solid fa-circle-check"></i>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>

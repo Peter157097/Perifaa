@@ -205,21 +205,21 @@
                         </div>
                         <div class="contentMsg">
                             <!--
-                                 Caso nao tenha mensagem selecionada 
+                                        Caso nao tenha mensagem selecionada 
 
-                                <div class="noContent">
-                                    <div class="HoldNoContentImg">
-                                        (Cliente)
-                                        <img src="{{url('images/msgIconCli.png')}}" class="noContentImg">
-                                        (Vendedor)
-                                        <img src="{{url('images/msgIconVend.png')}}" class="noContentImg">
+                                    <div class="noContent">
+                                        <div class="HoldNoContentImg">
+                                            (Cliente)
+                                            <img src="{{url('images/msgIconCli.png')}}" class="noContentImg">
+                                            (Vendedor)
+                                            <img src="{{url('images/msgIconVend.png')}}" class="noContentImg">
+                                        </div>
+                                        <div class="noContentMsg">
+                                            <h4>Suas mensagens</h4>
+                                            <p>Aqui é onde você se conecta com outros usuários.</p>
+                                        </div>
                                     </div>
-                                    <div class="noContentMsg">
-                                        <h4>Suas mensagens</h4>
-                                        <p>Aqui é onde você se conecta com outros usuários.</p>
-                                    </div>
-                                </div>
-                                -->
+                                    -->
                             <div class="selectedMsg">
                                 <div class="pfpSelectedMsg">
                                     <div class="pfpMsg">
@@ -230,6 +230,15 @@
                                     <div class="titleSelectedImg">
                                         Julia S.
                                     </div>
+                                    <div class="optionsSelectedMsg">
+                                        <div class="optItem">                           
+                                            <span class="iconInicialChat"> <i class="fa-regular fa-flag"></i></span>
+                                            <span class="hoverDenunciaChat"><i class="fa-solid fa-flag" title="Denunciar"></i></span>
+                                        </div>
+                                        <div class="optItem">
+                                            <i class="fa-solid fa-circle-info" title="Detalhes"></i>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="msgDisplay">
@@ -237,14 +246,14 @@
                             </div>
                             <div class="msgWrite">
                                 <div class="contentWrite">
-                                    <div class="anexoMsg">
-                                        <img src="{{url('images/anexoMsg.png')}}" class="iconMsg" title="Anexar arquivo">
+                                    <div class="msgIcon">
+                                        <i class="fa-solid fa-paperclip" title="Anexar arquivo"></i>
                                     </div>
                                     <div class="inputMsg">
                                         <input type="text" placeholder="Mensagem..." class="inputCampo">
                                     </div>
-                                    <div class="anexoMsg">
-                                        <img src="{{url('images/sendMsg.png')}}" class="iconMsg" title="Enviar">
+                                    <div class="msgIcon">
+                                        <i class="fa-solid fa-paper-plane" title="Enviar"></i>
                                     </div>
                                 </div>
                             </div>
@@ -253,7 +262,7 @@
                     </div>
                 </div>
             @else
-                <!--Caso nao tenha login--> 
+                <!--Caso nao tenha login-->
                 <div class="containerMensagens">
                     <div class="msgTitlePanel">
                         Mensagens

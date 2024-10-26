@@ -2482,9 +2482,14 @@ dialog #modal-2::backdrop {
 }
 
 .card-produto {
+    border-radius: 10px;
+    border: 1px solid rgb(212, 212, 212);
     width: 35vh;
     height: 50vh;
     background-color: #ffffff;
+}
+.card-produto:hover .img-card-produto{
+    transform: scale(1.1);
 }
 
 .produtos-body {
@@ -2499,37 +2504,43 @@ dialog #modal-2::backdrop {
     background-color: rgb(0, 0, 0);
     width: 100%;
     height: 25vh;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 .img-card-produto {
     width: 35vh;
     height: 25vh;
-
-}
-
-.img-card-produto:hover {
-    transform: scale(1.1);
-    transition: 150ms ease-in-out;
+    transition: 200ms ease-in-out;
 }
 
 .txt-info-vendedor {
     color: #6e6e6e;
     display: flex;
     font-size: 2vh;
+    padding: 2%;
+    padding-right: 3%;
     justify-content: space-between;
     margin-top: 1vh;
     margin-left: 2vh;
     margin-right: 2vh
 }
-
-.txt-nome-produto {
-    font-weight: 600;
-    margin-left: 2vh;
+/*anteriorumente txt-nome-produto*/
+.txt-info-produto-top {
+    font-weight: 500;
+    margin: 0;
+    padding: 5%;
+    font-size: 2vh;
+}
+.txt-info-produto-bottom {
+    font-weight: 500;
+    margin: 0;
+    padding: 5%;
+    font-size: 2vh;
 }
 
 .valor-produto {
-    font-weight: 300;
-    margin-left: 2vh;
+    font-weight: 600;
 }
 
 .loja-icon {
@@ -2538,9 +2549,8 @@ dialog #modal-2::backdrop {
     height: 4vh;
 }
 
-.txt-info-produto {
+.txt-info-produto-bottom {
     font-size: 2vh;
-    margin-top: 3vh
 }
 
 .row-info {
@@ -2609,7 +2619,7 @@ dialog #modal-2::backdrop {
 
     .valor-produto {
         margin: 0;
-        margin-left: 4%;
+      
     }
 
     .row-info {
@@ -2619,8 +2629,7 @@ dialog #modal-2::backdrop {
     .info-produto {
         position: relative;
         margin: 0;
-        padding-left: 3%;
-        padding-right: 3%;
+
     }
 
     .txt-info-vendedor {
@@ -2628,17 +2637,16 @@ dialog #modal-2::backdrop {
 
     }
 
-    .txt-info-produto {
+    .txt-info-produto.txt-info-produto {
 
         margin: 0;
-        margin-top: 10%;
     }
 
     .txt-nome-produto {
         margin: 0;
-        margin-left: 4%;
+ 
 
-        padding: 1%;
+       
     }
 
 }
@@ -2668,7 +2676,7 @@ dialog #modal-2::backdrop {
 
     .valor-produto {
         margin: 0;
-        margin-left: 4%;
+    
     }
 
     .row-info {
@@ -2678,8 +2686,6 @@ dialog #modal-2::backdrop {
     .info-produto {
         position: relative;
         margin: 0;
-        padding-left: 3%;
-        padding-right: 3%;
     }
 
     .txt-info-vendedor {
@@ -2690,14 +2696,13 @@ dialog #modal-2::backdrop {
     .txt-info-produto {
 
         margin: 0;
-        margin-top: 10%;
     }
 
     .txt-nome-produto {
         margin: 0;
-        margin-left: 4%;
 
-        padding: 0%;
+
+ 
     }
 
     .preco-filtro {
@@ -2754,7 +2759,7 @@ dialog #modal-2::backdrop {
 
     .valor-produto {
         margin: 0;
-        margin-left: 4%;
+  
     }
 
     .row-info {
@@ -2764,8 +2769,6 @@ dialog #modal-2::backdrop {
     .info-produto {
         position: relative;
         margin: 0;
-        padding-left: 3%;
-        padding-right: 3%;
     }
 
     .txt-info-vendedor {
@@ -2776,14 +2779,13 @@ dialog #modal-2::backdrop {
     .txt-info-produto {
 
         margin: 0;
-        margin-top: 10%;
     }
 
     .txt-nome-produto {
         margin: 0;
-        margin-left: 4%;
 
-        padding: 0%;
+
+
     }
 
     .preco-filtro {
@@ -2848,7 +2850,7 @@ dialog #modal-2::backdrop {
 
     .valor-produto {
         margin: 0;
-        margin-left: 4%;
+
     }
 
     .row-info {
@@ -2858,8 +2860,6 @@ dialog #modal-2::backdrop {
     .info-produto {
         position: relative;
         margin: 0;
-        padding-left: 3%;
-        padding-right: 3%;
     }
 
     .txt-info-vendedor {
@@ -2870,14 +2870,13 @@ dialog #modal-2::backdrop {
     .txt-info-produto {
 
         margin: 0;
-        margin-top: 10%;
     }
 
     .txt-nome-produto {
         margin: 0;
-        margin-left: 4%;
+     
 
-        padding: 0%;
+
     }
 
     .preco-filtro {
@@ -3571,7 +3570,6 @@ hr {
     max-width: 100%;
     padding: 5%;
     padding-top: 4%;
-    justify-content: center;
 
 }
 
@@ -4498,7 +4496,7 @@ svg {
 
 .cardConsulta {
     border-bottom: 1px solid rgb(219, 219, 219);
-    
+
     display: flex;
     background-color: rgb(245, 245, 245);
     width: 100%;
@@ -4951,27 +4949,44 @@ svg {
 
 }
 
-.anexoMsg {
-    padding: 1%;
+.msgIcon {
+    padding-left: 1%;
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 5%;
-
+    font-size: 100%;
+    padding: 0;
 }
-
-.anexoMsg img:hover {
-    padding: 6%;
+.msgIcon i:hover {
+    font-size: 125%;
+    cursor: pointer;
     display: flex;
     align-items: center;
-
-
+    color: rgb(0, 162, 255);
 }
 
-.iconMsg {
+.optItem {
+    font-size: 100%;
+    display: flex;
     cursor: pointer;
-    width: 100%;
-    transition: 0.1s ease-in-out;
 }
+.iconInicialChat{
+    display: flex;
+}
+.hoverDenunciaChat {
+    display: none;
+}
+
+.optItem:hover .hoverDenunciaChat {
+    display: flex;
+
+}
+.optItem:hover .iconInicialChat {
+    display: none;
+
+}
+
 
 .inputMsg {
     background-color: rgb(240, 240, 240);
@@ -4998,23 +5013,24 @@ svg {
 
 .infoSelectecMsg {
     display: flex;
-    width: 90%;
+    width: 100%;
 }
 
 .titleSelectedImg {
     font-weight: 500;
     font-size: 85%;
     display: flex;
-    width: 100%;
+    width: 50%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
     align-items: center;
+    padding: 1%;
 
 }
 
 .shadowMsgScroll {
-    padding: 2%;
+    padding: 1%;
     display: flex;
     width: 100%;
     background-image: linear-gradient(to top, rgba(0, 0, 0, 0.678), rgba(0, 0, 0, 0.329));
@@ -5022,6 +5038,20 @@ svg {
     bottom: 0;
     left: 0;
 }
+
+.optionsSelectedMsg {
+    width: 50%;
+    padding: 1%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 6%;
+
+}
+
+
+
+/*Fim style da mensangens*/
 
 /*Style dos pedidos*/
 .panelPedidos {
@@ -5043,6 +5073,7 @@ svg {
 .pedidosContainer {
     display: flex;
     flex-wrap: wrap;
+    height: 100%;
 }
 
 .pedidosTitlePanel {
@@ -5065,7 +5096,7 @@ svg {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    padding: 1%;
+    padding: 0.5%;
     background-color: rgb(240, 240, 240);
 }
 
@@ -5083,15 +5114,15 @@ svg {
 .imgProdutoPedido {
     position: relative;
     overflow: hidden;
-    width: 65px;
+    width: 5%;
     background-color: #d4d4d4;
+    max-width: 80px;
+    min-width: 70px;
 }
 
 .imgProdutoPedido img {
     width: 100%;
-    /* Faz a imagem se ajustar à largura da div */
     height: 100%;
-    /* Define a altura */
     object-fit: cover;
 }
 
@@ -5099,12 +5130,15 @@ svg {
     display: flex;
     height: 100%;
     background-color: rgb(255, 255, 255);
-    width: 90%;
+    width: 85%;
+    position: relative;
 }
 
 .infoPedido {
+
+    position: relative;
     display: flex;
-    width: 100%;
+    width: 90%;
     padding: 0.5%;
     flex-wrap: wrap;
 }
@@ -5148,6 +5182,85 @@ svg {
 .situacaoPedido {
     color: rgb(255, 168, 36);
 }
+
+.optPedidos {
+    align-items: center;
+    padding: 0.5%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.optPedidos a {
+    font-size: small;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.optPedidos a:hover {
+    color: rgb(110, 94, 63);
+
+}
+
+.ajudaPedido {
+    align-items: center;
+    padding: 0.5%;
+    display: flex;
+    width: 10%;
+
+}
+
+.listAjuda {
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: small;
+    width: 100%;
+    list-style-type: none;
+    height: 100%;
+}
+
+.listAjuda li:hover {
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.nomeVendPedido {
+    position: relative;
+    display: inline-block;
+}
+
+
+.nomeVendPedido span {
+    cursor: pointer;
+}
+
+.texto-inicial {
+    transition: opacity 0.3s ease;
+}
+
+.texto-hover {
+    display: none;
+    cursor: pointer;
+}
+
+.nomeVendPedido:hover .texto-inicial {
+    display: none;
+}
+
+.nomeVendPedido:hover .texto-hover {
+    background-color: #5c4322;
+    color: #fff;
+    padding: 3%;
+    border-radius: 2px;
+    display: inline;
+}
+
+/*fim style do pedido*/
 
 .noContent {
     display: block;

@@ -1,19 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <title>Perifa</title>
-    <style>
-        .btn-favorite {
-            background-color: gray;
-            color: white;
-        }
-
-        .btn-favorite.favorited {
-            background-color: brown;
-        }
-    </style>
-</head>
+@include('includes.head') 
 
 <body>
     @include('includes.head')
@@ -65,31 +53,35 @@
                                             <p>Produto não encontrado.</p>
                                         @endif
                                     </div>
-                                    <div class="txt-info-vendedor">
-                                        <p></p>
-                                        <p>Recente</p>
+                                    <div class="txt-info-produto-top">
+                                        <div class="txt-nome-produto">
+                                            {{ $favorite->product->nomeProduto ?? 'Produto Desconhecido' }}
+                                        </div>
+                                        <p class="valor-produto">{{ $favorite->product->valorProduto ?? 'Valor Desconhecido' }}
+                                        </p>
                                     </div>
-                                    <div class="txt-nome-produto">
-                                        {{ $favorite->product->nomeProduto ?? 'Produto Desconhecido' }}
-                                    </div>
-                                    <p class="valor-produto">{{ $favorite->product->valorProduto ?? 'Valor Desconhecido' }}</p>
-                                    <div class="txt-info-produto">
+
+
+                                    <div class="txt-info-produto-bottom">
                                         <div class="row-info">
                                             <p class="info-produto">{{ $favorite->product->cor->nomeCor ?? 'Cor Desconhecida' }}
                                             </p>
                                             <p class="info-produto">
-                                                {{ $favorite->product->condicao->nomeCondicao ?? 'Condição Desconhecida' }}</p>
+                                                {{ $favorite->product->condicao->nomeCondicao ?? 'Condição Desconhecida' }}
+                                            </p>
                                         </div>
                                         <div class="row-info">
                                             <p class="info-produto">
                                                 {{ $favorite->product->categoria->nomeCategoriaProduto ?? 'Categoria Desconhecida' }}
                                             </p>
                                             <p class="info-produto">
-                                                {{ $favorite->product->tamanho->nomeTamanho ?? 'Tamanho Desconhecido' }}</p>
+                                                {{ $favorite->product->tamanho->nomeTamanho ?? 'Tamanho Desconhecido' }}
+                                            </p>
                                         </div>
                                         <div class="row-info">
                                             <p class="info-produto">
-                                                {{ $favorite->product->regiao->nomeRegiao ?? 'Região Desconhecida' }}</p>
+                                                {{ $favorite->product->regiao->nomeRegiao ?? 'Região Desconhecida' }}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>

@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
-    @include('includes.head')
-</head>
+@include('includes.head')   
 
 <body>
     @include('includes.header')
@@ -274,15 +272,13 @@
                                     <img class="img-card-produto" src="{{ asset($produto->imagemProduto) }}"
                                         alt="{{ $produto->nomeProduto }}">
                                 </div>
-                                <div class="txt-info-vendedor">
-                                    <p></p>
-                                    <p>Recente</p>
-                                </div>
-                                <div class="txt-nome-produto">
+                                
+                                <div class="txt-info-produto-top">
                                     {{ $produto->nomeProduto }}
+                                    <p class="valor-produto">R${{ $produto->valorProduto }}</p>
                                 </div>
-                                <p class="valor-produto">{{ $produto->valorProduto }}</p>
-                                <div class="txt-info-produto">
+                               
+                                <div class="txt-info-produto-bottom">
                                     <div class="row-info">
                                         <p class="info-produto">{{ $produto->cor->nomeCor ?? 'Cor Desconhecida' }}</p>
                                         <p class="info-produto">
@@ -294,11 +290,11 @@
                                             {{ $produto->categoria->nomeCategoriaProduto ?? 'Categoria Desconhecida' }}
                                         </p>
                                         <p class="info-produto">
-                                            {{ $produto->tamanho->nomeTamanho ?? 'Tamanho Desconhecido' }}
+                                            Tam: {{ $produto->tamanho->nomeTamanho ?? 'Tamanho Desconhecido' }}
                                         </p>
                                     </div>
                                     <div class="row-info">
-                                        <p class="info-produto">{{ $produto->regiao->nomeRegiao ?? 'Região Desconhecida' }}
+                                        <p class="info-produto"><i class="fa-solid fa-location-dot"></i>{{ $produto->regiao->nomeRegiao ?? 'Região Desconhecida' }}
                                         </p>
                                     </div>
 

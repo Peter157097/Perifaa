@@ -54,7 +54,7 @@
                                             <ul class="statusPedido">
                                                 <li class="sttsPedido">Status</li>
                                                 <li class="situacaoPedido">
-                                                    Entregue 
+                                                    Entregue
                                                     <i class="fa-solid fa-circle-check"></i>
                                                 </li>
                                             </ul>
@@ -62,7 +62,7 @@
                                     </div>
                                     <div class="ajudaPedido">
                                         <ul class="listAjuda">
-                                            <li><i class="fa-solid fa-circle-info"></i>Detalhes</li>
+                                            <li><i class="fa-solid fa-circle-info"></i> Detalhes</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -85,7 +85,7 @@
                                             <ul class="statusPedido">
                                                 <li class="sttsPedido">Status</li>
                                                 <li class="situacaoPedido">
-                                                    Entregue 
+                                                    Entregue
                                                     <i class="fa-solid fa-circle-check"></i>
                                                 </li>
                                             </ul>
@@ -93,7 +93,7 @@
                                     </div>
                                     <div class="ajudaPedido">
                                         <ul class="listAjuda">
-                                            <li><i class="fa-solid fa-circle-info"></i>Detalhes</li>
+                                            <li><i class="fa-solid fa-circle-info"></i> Detalhes</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -116,7 +116,7 @@
                                             <ul class="statusPedido">
                                                 <li class="sttsPedido">Status</li>
                                                 <li class="situacaoPedido">
-                                                    Entregue 
+                                                    Entregue
                                                     <i class="fa-solid fa-circle-check"></i>
                                                 </li>
                                             </ul>
@@ -124,7 +124,7 @@
                                     </div>
                                     <div class="ajudaPedido">
                                         <ul class="listAjuda">
-                                            <li><i class="fa-solid fa-circle-info"></i>Detalhes</li>
+                                            <li><i class="fa-solid fa-circle-info"></i> Detalhes</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -138,7 +138,6 @@
                         </div>
                         <div class="itensPedidosContainer">
                             <div class="itensWrap">
-                                <!-- Card de exemplo para quando o cliente não está logado -->
                                 <div class="cardPedido">
                                     <div class="imgProdutoPedido">
                                         <img src="{{ url('images/teste.jpg') }}">
@@ -153,14 +152,13 @@
                                             <ul class="statusPedido">
                                                 <li class="sttsPedido">Status</li>
                                                 <li class="situacaoPedido">
-                                                    Entregue 
+                                                    Entregue
                                                     <i class="fa-solid fa-circle-check"></i>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Adicione mais cards se necessário -->
                             </div>
                         </div>
                     </div>
@@ -175,23 +173,23 @@
                                     <img src="{{url('images/msgSemRegistro.png')}}" class="noContentImg">
                                 </div>
                                 <div class="noRegisterMsg">
-                                    <<h4>Quem é você?</h4>
-                                        <p>Faça
-                                            <a href="#">
-                                                <button class="abrir-modal" data-modal="modal-1">
-                                                    login
-                                                </button>
-                                            </a>
-                                            ou
-                                            <a href="#">
-                                                <button class="abrir-modal" data-modal="modal-2">
-                                                    cadastre-se
-                                                </button>
-                                            </a>para ver seus
-                                            <span>
-                                                pedidos.
-                                            </span>
-                                        </p>
+                                    <h4>Quem é você?</h4>
+                                    <p>Faça
+                                        <a href="#">
+                                            <button class="abrir-modal" data-modal="modal-1">
+                                                login
+                                            </button>
+                                        </a>
+                                        ou
+                                        <a href="#">
+                                            <button class="abrir-modal" data-modal="modal-2">
+                                                cadastre-se
+                                            </button>
+                                        </a>para ver seus
+                                        <span>
+                                            pedidos.
+                                        </span>
+                                    </p>
                                 </div>
                             </div>
                         </div>

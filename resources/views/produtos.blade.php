@@ -269,15 +269,18 @@
                         <a href="{{ url('/entrar-produto', $produto->idProduto)}}">
                             <div class="card-produto">
                                 <div class="image-display">
-                                    <img class="img-card-produto" src="{{ asset($produto->imagemProduto) }}"
-                                        alt="{{ $produto->nomeProduto }}">
+                                    <img class="img-card-produto" src="{{ asset($produto->imagemProduto) }}">
                                 </div>
-                                
                                 <div class="txt-info-produto-top">
-                                    {{ $produto->nomeProduto }}
+                                    <div class="labelNomeProduto">
+                                        <p>{{ $produto->nomeProduto }}</p>
+                                    </div>
+                                    <div class="dataPubProduto">
+                                        <p>5d</p>
+                                    </div>
                                     <p class="valor-produto">R${{ $produto->valorProduto }}</p>
                                 </div>
-                               
+
                                 <div class="txt-info-produto-bottom">
                                     <div class="row-info">
                                         <p class="info-produto">{{ $produto->cor->nomeCor ?? 'Cor Desconhecida' }}</p>
@@ -294,7 +297,8 @@
                                         </p>
                                     </div>
                                     <div class="row-info">
-                                        <p class="info-produto"><i class="fa-solid fa-location-dot"></i>{{ $produto->regiao->nomeRegiao ?? 'Região Desconhecida' }}
+                                        <p class="info-produto"><i
+                                                class="fa-solid fa-location-dot"></i>{{ $produto->regiao->nomeRegiao ?? 'Região Desconhecida' }}
                                         </p>
                                     </div>
 

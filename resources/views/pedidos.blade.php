@@ -197,7 +197,7 @@
                 @elseif(session('is_vendedor'))
                     <div class="panelPedidos">
                         <div class="pedidosTitlePanel">
-                            Seus pedidos
+                            Meus pedidos
                         </div>
                         <div class="itensPedidosContainer">
                             <div class="itensWrap">
@@ -228,7 +228,7 @@
                 @else
                     <div class="panelPedidos">
                         <div class="pedidosTitlePanel">
-                            Seus pedidos
+                            Meus pedidos
                         </div>
                         <div class="itensPedidosContainer">
                             <div class="containerNoRegister">
@@ -304,7 +304,6 @@
                                         </ul>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -374,10 +373,7 @@
                 @endif
             </div>
         </div>
-
     </div>
-
-
 
     <script>
         function openTab(event, tabName) {

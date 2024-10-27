@@ -41,12 +41,10 @@
             border-radius: 5px;
             text-align: center;
             font-weight: bold;
-            border: 2px solid transparent;
             transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
         .file-upload-btn:hover {
-            background-color: #442a17;
             border-color: #ffffff;
         }
     </style>
@@ -77,33 +75,34 @@
                 </div>
                 <div class="opcoes-usuario">
                     <a href="{{ route('favorites.index') }}">
-                        <p style="margin:0; padding: 1vh">Meus favoritos &hearts;</p>
+                        <p style="margin:0; padding: 1vh">Meus favoritos <i class="fa-solid fa-heart"></i></p>
                     </a>
-
                     <a href="{{url('carrinho')}}">
-                        <p style="margin:0; padding: 1vh">Carrinho</p>
+                        <p style="margin:0; padding: 1vh">Carrinho <i class="fa-solid fa-shopping-cart"></i></p>
+                    </a>
+                    <a href="{{url('mensagens')}}">
+                        <p style="margin:0; padding: 1vh">Mensagens <i class="fa-solid fa-message"></i></p>
                     </a>
                 </div>
             </div>
             <div class="align-info">
-                <div class="titulo-perfil">
-                    <img class="user-icon" src="{{ url('images/user-icon.png') }}" alt="Ícone usuário">
-                    <h4 class="titulo-font">Meu perfil</h4>
-                </div>
-
                 <div class="info-perfil">
+                    <div class="titulo-perfil">
+                        <h4 class="titulo-font">Meu perfil</h4>
+                    </div>
                     <form action="{{ url('/perfil/update') }}" method="POST" enctype="multipart/form-data"
                         class="form-info">
                         @csrf
 
                         <div class="titulo-info-font">
-                            <h5 class="info-texto">Dados Pessoais</h5>
+                            <h5 class="info-texto">Dados Pessoais</h5>                     
                         </div>
+                        <hr style="margin: 0">
                         <div class="container-info">
                             <ul class="lista-info">
-                                <li class="lista-item">Nome</li>
-                                <li class="lista-item">E-mail</li>
-                                <li class="lista-item">Telefone</li>
+                                <li class="lista-item">Nome:</li>
+                                <li class="lista-item">E-mail:</li>
+                                <li class="lista-item">Telefone:</li>
                             </ul>
                             <ul class="lista-info">
                                 <li class="lista-item"><input type="text" name="nomeCliente" value="{{ $nome }}"></li>
@@ -122,14 +121,16 @@
 
                         <div class="titulo-info-font">
                             <h5 class="info-texto">Endereços</h5>
+                     
                         </div>
+                        <hr style="margin: 0">
                         <div class="container-info">
                             <ul class="lista-info">
-                                <li class="lista-item">Endereço</li>
-                                <li class="lista-item">Numero da casa</li>
-                                <li class="lista-item">CEP</li>
-                                <li class="lista-item">Cidade</li>
-                                <li class="lista-item">Estado</li>
+                                <li class="lista-item">Endereço:</li>
+                                <li class="lista-item">Numero da casa:</li>
+                                <li class="lista-item">CEP:</li>
+                                <li class="lista-item">Cidade:</li>
+                                <li class="lista-item">Estado:</li>
                             </ul>
                             <ul class="lista-info">
                                 <li class="lista-item"><input type="text" name="logradouroCliente"

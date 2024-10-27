@@ -1623,6 +1623,7 @@ dialog #modal-2::backdrop {
     margin-left: 16vh;
     margin-top: 10vh;
     margin-bottom: 10vh;
+    overflow: hidden;
 
 }
 
@@ -1634,26 +1635,27 @@ dialog #modal-2::backdrop {
 }
 
 .foto-perfil {
-    border-color: black;
-    border-width: 0.5vh;
-    border-style: solid;
+    border: 2px solid rgb(255, 255, 255);
     background-color: #ffffff;
     width: 30vh;
     height: 30vh;
     border-radius: 100%;
     display: flex;
-    position: relative;
+    position: absolute;
+    justify-content: center;
     align-self: center;
     margin-left: 10vh;
     margin-top: 25vh;
 }
 
 .info-perfil {
+    width: 100%;
+    overflow: hidden;
     margin-bottom: 10vh;
     background-color: #ffffff;
-    height: 120vh;
-    width: 120vh;
-    max-width: 120rem
+    border-radius: 20px;
+    border: 1px solid rgb(211, 211, 211);
+
 }
 
 .container-perfil {
@@ -1662,15 +1664,16 @@ dialog #modal-2::backdrop {
 }
 
 .titulo-perfil {
+    padding: 3%;
+    padding-bottom: 0%;
     display: flex;
     background-color: #ffffff;
-    width: 120vh;
-    height: 10vh;
     justify-content: left;
     align-items: center;
 }
 
 .align-info {
+    width: 70%;
     margin-top: 10vh;
 }
 
@@ -1693,11 +1696,12 @@ dialog #modal-2::backdrop {
 .titulo-info-font {
     width: 114vh;
     height: 6vh;
-    background-color: #ebeaea;
+    background-color: #ffffff;
     margin-top: 2vh;
     margin-right: 16vh;
 
 }
+
 
 .user-icon {
     margin-left: 2vh;
@@ -1718,6 +1722,7 @@ dialog #modal-2::backdrop {
     list-style: none;
     margin-top: 4vh;
     margin-left: 2vh;
+    font-weight: 400;
 }
 
 .lista-info {
@@ -1791,8 +1796,8 @@ dialog #modal-2::backdrop {
     }
 
     .align-info {
+        width: 65%;
         margin: 0;
-        width: fit-content;
     }
 
     .container-perfil {
@@ -1820,12 +1825,15 @@ dialog #modal-2::backdrop {
     .lista-item {
         margin: 0;
         margin-top: 2%;
-        width: 20%;
+        width: 40%;
 
     }
 
     .frame-perfil {
+        border: 1px solid rgb(212, 212, 212);
+        border-radius: 20px;
         margin: 0;
+        overflow: hidden;
     }
 
     .form-group {
@@ -1838,6 +1846,7 @@ dialog #modal-2::backdrop {
         height: 100%;
         padding: 3%;
         background-color: rgb(255, 255, 255);
+        border-radius: 20px;
 
     }
 
@@ -1864,12 +1873,13 @@ dialog #modal-2::backdrop {
     }
 
     .container-submit {
-        padding: 3%;
+        padding: 1%;
+        padding-top: 3%;
     }
 
     .nome-usuario {
         padding: 4%;
-        font-size: 90%;
+        font-size: 100%;
         font-weight: 560;
         justify-content: center;
         width: 100%;
@@ -1889,9 +1899,13 @@ dialog #modal-2::backdrop {
     }
 
     .frame-foto-perfil {
+        position: relative;
         display: flex;
         width: 100%;
         justify-content: center;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        
 
     }
 
@@ -1918,7 +1932,7 @@ dialog #modal-2::backdrop {
 
     .align-info {
         margin: 0;
-        width: fit-content;
+        width: 65%;
     }
 
     .container-perfil {
@@ -1932,6 +1946,7 @@ dialog #modal-2::backdrop {
         margin: 0;
         width: 100%;
     }
+
 
     .info-texto {
         margin: 0
@@ -1952,7 +1967,9 @@ dialog #modal-2::backdrop {
     }
 
     .frame-perfil {
+        
         margin: 0;
+        overflow: hidden;
     }
 
     .form-group {
@@ -1968,6 +1985,7 @@ dialog #modal-2::backdrop {
     }
 
     .form-info {
+        border-radius: 20px;
         height: 100%;
         padding: 3%;
         background-color: rgb(255, 255, 255);
@@ -2000,7 +2018,7 @@ dialog #modal-2::backdrop {
 
     .nome-usuario {
         padding: 4%;
-        font-size: 90%;
+        font-size: 100%;
         font-weight: 560;
         justify-content: center;
         width: 100%;
@@ -2020,9 +2038,13 @@ dialog #modal-2::backdrop {
     }
 
     .frame-foto-perfil {
+        position: relative;
         display: flex;
         width: 100%;
         justify-content: center;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        
 
     }
 
@@ -2050,11 +2072,13 @@ dialog #modal-2::backdrop {
 
     .align-info {
         margin: 0;
-        width: fit-content;
+        width: 65%;
     }
 
     .info-perfil {
-        width: 100%;
+        overflow: hidden;
+        width:  100%;
+        border-radius: 20px;
     }
 
     .container-perfil {
@@ -2069,6 +2093,7 @@ dialog #modal-2::backdrop {
         margin: 0;
         width: 100%;
     }
+
 
     .info-texto {
         margin: 0
@@ -2089,9 +2114,12 @@ dialog #modal-2::backdrop {
     }
 
     .frame-foto-perfil {
+        position: relative;
         display: flex;
         width: 100%;
         justify-content: center;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
 
     }
 
@@ -2101,7 +2129,9 @@ dialog #modal-2::backdrop {
     }
 
     .frame-perfil {
+        
         margin: 0;
+        overflow: hidden;
     }
 
     .form-group {
@@ -2111,6 +2141,7 @@ dialog #modal-2::backdrop {
     }
 
     .form-info {
+        border-radius: 20px;
         width: 100%;
         height: 100%;
         padding: 3%;
@@ -2145,7 +2176,7 @@ dialog #modal-2::backdrop {
 
     .nome-usuario {
         padding: 4%;
-        font-size: 90%;
+        font-size: 100%;
         font-weight: 560;
         justify-content: center;
         width: 100%;
@@ -2190,7 +2221,9 @@ dialog #modal-2::backdrop {
     }
 
     .info-perfil {
-        width: 100%;
+        width:  100%;
+        overflow: hidden;
+        border-radius: 20px;
     }
 
     .container-perfil {
@@ -2205,6 +2238,7 @@ dialog #modal-2::backdrop {
         margin: 0;
         width: 100%;
     }
+
 
     .info-texto {
         margin: 0
@@ -2227,7 +2261,9 @@ dialog #modal-2::backdrop {
     }
 
     .frame-perfil {
+
         margin: 0;
+        overflow: hidden;
         width: 100%;
         height: 70vh;
     }
@@ -2237,9 +2273,12 @@ dialog #modal-2::backdrop {
     }
 
     .frame-foto-perfil {
+        position: relative;
         display: flex;
         width: 100%;
         justify-content: center;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
 
     }
 
@@ -2256,6 +2295,7 @@ dialog #modal-2::backdrop {
     }
 
     .form-info {
+        border-radius: 20px;
         width: 100%;
         height: 100%;
         padding: 3%;
@@ -2296,7 +2336,7 @@ dialog #modal-2::backdrop {
 
     .nome-usuario {
         padding: 4%;
-        font-size: 90%;
+        font-size: 100%;
         font-weight: 560;
         justify-content: center;
         width: 100%;
@@ -2340,13 +2380,14 @@ dialog #modal-2::backdrop {
 .filtro-produtos {
     word-spacing: 2vh;
     margin: auto;
-    margin-left: 8vh;
+    margin-left: 8vh; margin-right: 2vh;
+
 }
 
 .filtro-display {
     font-weight: 700;
     margin: auto;
-    margin-top: 3vh;
+    margin-top: 1vh;
     margin-bottom: 1vh;
 }
 
@@ -2525,8 +2566,31 @@ dialog #modal-2::backdrop {
     margin-left: 2vh;
     margin-right: 2vh
 }
+
+.dataPubProduto{
+    color: rgb(139, 139, 139);
+    width: 50%;
+    display: flex;
+    justify-content: right;
+    font-size: 80%;
+}
+
+.labelNomeProduto{
+    width: 50%;
+    display: flex;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.labelNomeProduto p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 /*anteriorumente txt-nome-produto*/
 .txt-info-produto-top {
+    display: flex;
+    flex-wrap: wrap;
     font-weight: 500;
     margin: 0;
     padding: 5%;
@@ -4116,13 +4180,7 @@ a:hover {
     height: 100%;
 }
 
-.pfpConsulta {
-    background-color: rgb(201, 201, 201);
-    border-radius: 50%;
-    border: #a3a3a3;
-    border-width: 1px;
-    border-style: solid;
-}
+
 
 .infoAlvoConsulta {
     padding: 1%;
@@ -4280,8 +4338,13 @@ a:hover {
 
 .pfpConsulta {
     display: flex;
-    height: inherit;
-    width: inherit;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(201, 201, 201);
+    border-radius: 50%;
+    border: #a3a3a3;
+    border-width: 1px;
+    border-style: solid;
 }
 
 
@@ -4541,6 +4604,7 @@ svg {
     border-radius: 100%;
 
 }
+
 
 .itemInfoConsulta {
     margin: 0;
@@ -4876,22 +4940,28 @@ svg {
 }
 
 .pfpMsgContainer {
-    width: 10%;
-    height: 10%;
+    display: flex;
+    width: 12%;
+    min-height: 45px;
+    max-height: 45px;
+
 }
 
 .pfpMsg {
-    width: 100%;
-    height: 100%;
-    background-color: rgb(177, 177, 177);
-    border-radius: 100%;
+    border: 1px solid rgb(228, 228, 228);
+    width: 100;         /* Tamanho fixo do círculo */
+    height: 100%;        /* Altura igual à largura para manter a forma */
+    border-radius: 50%;  /* Cria o círculo */
+    overflow: hidden;    /* Garante que a imagem fique dentro do círculo */
 
 }
 
 .containerMsg {
+    display: flex;
     flex-wrap: wrap;
+    align-items: center;
     width: 85%;
-    padding-left: 4%;
+    padding-left: 2%;
 }
 
 .titleMsg {
@@ -5049,7 +5119,11 @@ svg {
 
 }
 
-
+.pfpMsgImg{
+    width: 100%;       
+    height: 100%;        
+    object-fit: cover;   
+}
 
 /*Fim style da mensangens*/
 

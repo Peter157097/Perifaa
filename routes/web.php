@@ -116,6 +116,9 @@ Route::get('/mensagens', function () {
 Route::get('/pedidos', function () {
     return view('pedidos');
 }); 
+Route::get('/mensagensAdmin', function () {
+    return view('mensagensAdmin');
+}); 
 
 
 

@@ -14,7 +14,8 @@
             @if (session('is_vendedor') || session('is_Cliente'))
                 <div class="containerMensagens">
                     <div class="msgTitlePanel">
-                        Mensagens
+                        <i class="fa-solid fa-message"></i>
+                        <span>Mensagens</span>
                     </div>
                     <div class="panelMensagens">
                         <div class="sidePanelMensagens">
@@ -205,21 +206,21 @@
                         </div>
                         <div class="contentMsg">
                             <!--
-                                        Caso nao tenha mensagem selecionada 
+                                                                Caso nao tenha mensagem selecionada 
 
-                                    <div class="noContent">
-                                        <div class="HoldNoContentImg">
-                                            (Cliente)
-                                            <img src="{{url('images/msgIconCli.png')}}" class="noContentImg">
-                                            (Vendedor)
-                                            <img src="{{url('images/msgIconVend.png')}}" class="noContentImg">
-                                        </div>
-                                        <div class="noContentMsg">
-                                            <h4>Suas mensagens</h4>
-                                            <p>Aqui é onde você se conecta com outros usuários.</p>
-                                        </div>
-                                    </div>
-                                    -->
+                                                            <div class="noContent">
+                                                                <div class="HoldNoContentImg">
+                                                                    (Cliente)
+                                                                    <img src="{{url('images/msgIconCli.png')}}" class="noContentImg">
+                                                                    (Vendedor)
+                                                                    <img src="{{url('images/msgIconVend.png')}}" class="noContentImg">
+                                                                </div>
+                                                                <div class="noContentMsg">
+                                                                    <h4>Suas mensagens</h4>
+                                                                    <p>Aqui é onde você se conecta com outros usuários.</p>
+                                                                </div>
+                                                            </div>
+                                                            -->
                             <div class="selectedMsg">
                                 <div class="pfpSelectedMsg">
                                     <div class="pfpMsg">
@@ -231,9 +232,10 @@
                                         Julia S.
                                     </div>
                                     <div class="optionsSelectedMsg">
-                                        <div class="optItem">                           
+                                        <div class="optItem">
                                             <span class="iconInicialChat"> <i class="fa-regular fa-flag"></i></span>
-                                            <span class="hoverDenunciaChat"><i class="fa-solid fa-flag" title="Denunciar"></i></span>
+                                            <span class="hoverDenunciaChat"><i class="fa-solid fa-flag"
+                                                    title="Denunciar"></i></span>
                                         </div>
                                         <div class="optItem">
                                             <i class="fa-solid fa-circle-info" title="Detalhes"></i>

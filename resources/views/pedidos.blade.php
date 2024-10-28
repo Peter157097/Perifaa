@@ -26,7 +26,7 @@
         transition: color 0.3s ease, transform 0.3s ease;
     }
 
-    .nav button.active {
+    .nav button.pedidosActive {
         color: #523b1d;
     }
 
@@ -34,7 +34,7 @@
         color: #806544;
     }
 
-    .nav button.active::after {
+    .nav button.pedidosActive::after {
         content: '';
         position: absolute;
         left: 0;
@@ -67,11 +67,12 @@
     visibility: hidden; /* Esconde o conteúdo fora da área visível */
 }
 
-.content.active {
+.content.pedidosActive {
     opacity: 1;
     transform: translateX(0);
     visibility: visible;
     position: relative; /* Coloca o conteúdo na posição correta */
+    padding: 0;
 }
 </style>
 
@@ -87,7 +88,7 @@
     </div>
 
 
-    <div id="pedidos" class="content active">
+    <div id="pedidos" class="content pedidosActive">
         <div class="pedidosContainer">
             <div class="containerMensagens">
                 @if(session('is_Cliente'))
@@ -381,13 +382,13 @@
             const tabs = document.querySelectorAll('.nav button');
             const contents = document.querySelectorAll('.content');
 
-            tabs.forEach(tab => tab.classList.remove('active'));
-            contents.forEach(content => content.classList.remove('active'));
+            tabs.forEach(tab => tab.classList.remove('pedidosActive'));
+            contents.forEach(content => content.classList.remove('pedidosActive'));
 
             // Adiciona a classe 'active' na aba e conteúdo selecionados
-            event.currentTarget.classList.add('active');
+            event.currentTarget.classList.add('pedidosActive');
             const currentContent = document.getElementById(tabName);
-            currentContent.classList.add('active');
+            currentContent.classList.add('pedidosActive');
         }
     </script>
     <!--Import do javascript-->

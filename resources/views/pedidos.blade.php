@@ -11,7 +11,7 @@
     /* Estilo da barra de navegação */
     .nav {
         display: flex;
-        border-bottom: 2px solid #523b1d;
+        border-bottom: 1px solid #846E49;
         background-color: #f5f5f5;
     }
 
@@ -58,22 +58,22 @@
     /* Estilo e animação para o conteúdo */
 
     .content {
-    position: absolute;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    transform: translateX(0px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-    visibility: hidden; /* Esconde o conteúdo fora da área visível */
-}
+        position: absolute;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        transform: translateX(0px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+        visibility: hidden;
+        /* Esconde o conteúdo fora da área visível */
+    }
 
-.content.pedidosActive {
-    opacity: 1;
-    transform: translateX(0);
-    visibility: visible;
-    position: relative; /* Coloca o conteúdo na posição correta */
-    padding: 0;
-}
+    .content.pedidosActive {
+        opacity: 1;
+        transform: translateX(0);
+        visibility: visible;
+        padding: 0;
+    }
 </style>
 
 <body>
@@ -90,176 +90,191 @@
 
     <div id="pedidos" class="content pedidosActive">
         <div class="pedidosContainer">
-            <div class="containerMensagens">
-                @if(session('is_Cliente'))
-                    <div class="panelPedidos">
-                        <div class="pedidosTitlePanel">
-                            Meus pedidos
+            @if(session('is_Cliente'))
+                <div class="panelPedidos">
+                    <div class="pedidosTitlePanel">
+                        Meus pedidos
+                    </div>
+                    <div class="optPedidos">
+                        <a href="contato">
+                            <i class="fa-solid fa-phone"></i>
+                            Suporte
+                        </a>
+                        <a href="favorites">
+                            <i class="fa-solid fa-heart"></i>
+                            Favoritos
+                        </a>
+                        <a href="perfil">
+                            <i class="fa-solid fa-house"></i>
+                            Meus endereços
+                        </a>
+                        <a href="centralAjuda">
+                            <i class="fa-solid fa-circle-question"></i>
+                            Central de ajuda
+                        </a>
+                    </div>
+                    <div class="itensPedidosContainer">
+                        <div class="itensWrap">
+                            <div class="cardPedido">
+                                <div class="imgProdutoPedido">
+                                    <img src="{{ url('images/teste.jpg') }}">
+                                </div>
+                                <div class="infoProdutoPedido">
+                                    <div class="infoPedido">
+                                        <ul class="labelPedido">
+                                            <li class="nomeVendPedido">
+                                                <span class="texto-inicial">Vestindo a Quebrada</span>
+                                                <a href="/mensagens" class="texto-hover">
+                                                    Falar com vendedor
+                                                </a>
+                                            </li>
+                                            <li><span class="nomeItemPedido">Nike Tech Fleece</span></li>
+                                            <li>R$49,90</li>
+                                        </ul>
+                                        <ul class="statusPedido">
+                                            <li class="sttsPedido">Status</li>
+                                            <li class="situacaoPedido">
+                                                Entregue
+                                                <i class="fa-solid fa-circle-check"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="ajudaPedido">
+                                    <ul class="listAjuda">
+                                        <li><i class="fa-solid fa-circle-info"></i> Detalhes</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cardPedido">
+                                <div class="imgProdutoPedido">
+                                    <img src="{{ url('images/teste.jpg') }}">
+                                </div>
+                                <div class="infoProdutoPedido">
+                                    <div class="infoPedido">
+                                        <ul class="labelPedido">
+                                            <li class="nomeVendPedido">
+                                                <span class="texto-inicial">Vestindo a Quebrada</span>
+                                                <a href="/mensagens" class="texto-hover">
+                                                    Falar com vendedor
+                                                </a>
+                                            </li>
+                                            <li>Nike Tech Fleece</li>
+                                            <li>R$49,90</li>
+                                        </ul>
+                                        <ul class="statusPedido">
+                                            <li class="sttsPedido">Status</li>
+                                            <li class="situacaoPedido">
+                                                Entregue
+                                                <i class="fa-solid fa-circle-check"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="ajudaPedido">
+                                    <ul class="listAjuda">
+                                        <li><i class="fa-solid fa-circle-info"></i> Detalhes</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cardPedido">
+                                <div class="imgProdutoPedido">
+                                    <img src="{{ url('images/teste.jpg') }}">
+                                </div>
+                                <div class="infoProdutoPedido">
+                                    <div class="infoPedido">
+                                        <ul class="labelPedido">
+                                            <li class="nomeVendPedido">
+                                                <span class="texto-inicial">Vestindo a Quebrada</span>
+                                                <a href="/mensagens" class="texto-hover">
+                                                    Falar com vendedor
+                                                </a>
+                                            </li>
+                                            <li>Nike Tech Fleece</li>
+                                            <li>R$49,90</li>
+                                        </ul>
+                                        <ul class="statusPedido">
+                                            <li class="sttsPedido">Status</li>
+                                            <li class="situacaoPedido">
+                                                Entregue
+                                                <i class="fa-solid fa-circle-check"></i>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="ajudaPedido">
+                                    <ul class="listAjuda">
+                                        <li><i class="fa-solid fa-circle-info"></i> Detalhes</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-
-                        <div class="itensPedidosContainer">
-                            <div class="itensWrap">
-                                <div class="cardPedido">
-                                    <div class="imgProdutoPedido">
-                                        <img src="{{ url('images/teste.jpg') }}">
-                                    </div>
-                                    <div class="infoProdutoPedido">
-                                        <div class="infoPedido">
-                                            <ul class="labelPedido">
-                                                <li class="nomeVendPedido">
-                                                    <span class="texto-inicial">Vestindo a Quebrada</span>
-                                                    <a href="/mensagens" class="texto-hover">
-                                                        Falar com vendedor
-                                                    </a>
-                                                </li>
-                                                <li>Nike Tech Fleece</li>
-                                                <li>R$49,90</li>
-                                            </ul>
-                                            <ul class="statusPedido">
-                                                <li class="sttsPedido">Status</li>
-                                                <li class="situacaoPedido">
-                                                    Entregue
-                                                    <i class="fa-solid fa-circle-check"></i>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="ajudaPedido">
-                                        <ul class="listAjuda">
-                                            <li><i class="fa-solid fa-circle-info"></i> Detalhes</li>
-                                        </ul>
-                                    </div>
+                    </div>
+                </div>
+            @elseif(session('is_vendedor'))
+                <div class="panelPedidos">
+                    <div class="pedidosTitlePanel">
+                        Meus pedidos
+                    </div>
+                    <div class="itensPedidosContainer">
+                        <div class="itensWrap">
+                            <div class="cardPedido">
+                                <div class="imgProdutoPedido">
+                                    <img src="{{ url('images/teste.jpg') }}">
                                 </div>
-                                <div class="cardPedido">
-                                    <div class="imgProdutoPedido">
-                                        <img src="{{ url('images/teste.jpg') }}">
-                                    </div>
-                                    <div class="infoProdutoPedido">
-                                        <div class="infoPedido">
-                                            <ul class="labelPedido">
-                                                <li class="nomeVendPedido">
-                                                    <span class="texto-inicial">Vestindo a Quebrada</span>
-                                                    <a href="/mensagens" class="texto-hover">
-                                                        Falar com vendedor
-                                                    </a>
-                                                </li>
-                                                <li>Nike Tech Fleece</li>
-                                                <li>R$49,90</li>
-                                            </ul>
-                                            <ul class="statusPedido">
-                                                <li class="sttsPedido">Status</li>
-                                                <li class="situacaoPedido">
-                                                    Entregue
-                                                    <i class="fa-solid fa-circle-check"></i>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="ajudaPedido">
-                                        <ul class="listAjuda">
-                                            <li><i class="fa-solid fa-circle-info"></i> Detalhes</li>
+                                <div class="infoProdutoPedido">
+                                    <div class="infoPedido">
+                                        <ul class="labelPedido">
+                                            <li>Vestindo a Quebrada</li>
+                                            <li>Nike Tech Fleece</li>
+                                            <li>R$49,90</li>
                                         </ul>
-                                    </div>
-                                </div>
-                                <div class="cardPedido">
-                                    <div class="imgProdutoPedido">
-                                        <img src="{{ url('images/teste.jpg') }}">
-                                    </div>
-                                    <div class="infoProdutoPedido">
-                                        <div class="infoPedido">
-                                            <ul class="labelPedido">
-                                                <li class="nomeVendPedido">
-                                                    <span class="texto-inicial">Vestindo a Quebrada</span>
-                                                    <a href="/mensagens" class="texto-hover">
-                                                        Falar com vendedor
-                                                    </a>
-                                                </li>
-                                                <li>Nike Tech Fleece</li>
-                                                <li>R$49,90</li>
-                                            </ul>
-                                            <ul class="statusPedido">
-                                                <li class="sttsPedido">Status</li>
-                                                <li class="situacaoPedido">
-                                                    Entregue
-                                                    <i class="fa-solid fa-circle-check"></i>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="ajudaPedido">
-                                        <ul class="listAjuda">
-                                            <li><i class="fa-solid fa-circle-info"></i> Detalhes</li>
+                                        <ul class="statusPedido">
+                                            <li class="sttsPedido">Status</li>
+                                            <li class="situacaoPedido">
+                                                Entregue
+                                                <i class="fa-solid fa-circle-check"></i>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                @elseif(session('is_vendedor'))
-                    <div class="panelPedidos">
-                        <div class="pedidosTitlePanel">
-                            Meus pedidos
-                        </div>
-                        <div class="itensPedidosContainer">
-                            <div class="itensWrap">
-                                <div class="cardPedido">
-                                    <div class="imgProdutoPedido">
-                                        <img src="{{ url('images/teste.jpg') }}">
-                                    </div>
-                                    <div class="infoProdutoPedido">
-                                        <div class="infoPedido">
-                                            <ul class="labelPedido">
-                                                <li>Vestindo a Quebrada</li>
-                                                <li>Nike Tech Fleece</li>
-                                                <li>R$49,90</li>
-                                            </ul>
-                                            <ul class="statusPedido">
-                                                <li class="sttsPedido">Status</li>
-                                                <li class="situacaoPedido">
-                                                    Entregue
-                                                    <i class="fa-solid fa-circle-check"></i>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                </div>
+            @else
+                <div class="panelPedidos">
+                    <div class="pedidosTitlePanel">
+                        Meus pedidos
+                    </div>
+                    <div class="itensPedidosContainer">
+                        <div class="containerNoRegister">
+                            <div class="noRegisterImg">
+                                <img src="{{url('images/msgSemRegistro.png')}}" class="noContentImg">
+                            </div>
+                            <div class="noRegisterMsg">
+                                <h4>Quem é você?</h4>
+                                <p>Faça
+                                    <a href="#">
+                                        <button class="abrir-modal" data-modal="modal-1">
+                                            login
+                                        </button>
+                                    </a>
+                                    ou
+                                    <a href="#">
+                                        <button class="abrir-modal" data-modal="modal-2">
+                                            cadastre-se
+                                        </button>
+                                    </a>para ver seus
+                                    <span>
+                                        pedidos.
+                                    </span>
+                                </p>
                             </div>
                         </div>
                     </div>
-                @else
-                    <div class="panelPedidos">
-                        <div class="pedidosTitlePanel">
-                            Meus pedidos
-                        </div>
-                        <div class="itensPedidosContainer">
-                            <div class="containerNoRegister">
-                                <div class="noRegisterImg">
-                                    <img src="{{url('images/msgSemRegistro.png')}}" class="noContentImg">
-                                </div>
-                                <div class="noRegisterMsg">
-                                    <h4>Quem é você?</h4>
-                                    <p>Faça
-                                        <a href="#">
-                                            <button class="abrir-modal" data-modal="modal-1">
-                                                login
-                                            </button>
-                                        </a>
-                                        ou
-                                        <a href="#">
-                                            <button class="abrir-modal" data-modal="modal-2">
-                                                cadastre-se
-                                            </button>
-                                        </a>para ver seus
-                                        <span>
-                                            pedidos.
-                                        </span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endif
-            </div>
+                </div>
+            @endif
         </div>
     </div>
 
@@ -271,9 +286,90 @@
                         <div class="pedidosTitlePanel">
                             Suas compras
                         </div>
-
+                        <div class="optPedidos">
+                            <a href="contato">
+                                <i class="fa-solid fa-phone"></i>
+                                Suporte
+                            </a>
+                            <a href="favorites">
+                                <i class="fa-solid fa-heart"></i>
+                                Favoritos
+                            </a>
+                            <a href="perfil">
+                                <i class="fa-solid fa-house"></i>
+                                Meus endereços
+                            </a>
+                            <a href="centralAjuda">
+                                <i class="fa-solid fa-circle-question"></i>
+                                Central de ajuda
+                            </a>
+                        </div>
                         <div class="itensPedidosContainer">
                             <div class="itensWrap">
+                                <div class="cardPedido">
+                                    <div class="imgProdutoPedido">
+                                        <img src="{{ url('images/teste.jpg') }}">
+                                    </div>
+                                    <div class="infoProdutoPedido">
+                                        <div class="infoPedido">
+                                            <ul class="labelPedido">
+                                                <li class="nomeVendPedido">
+                                                    <span class="texto-inicial">Vestindo a Quebrada</span>
+                                                    <a href="/mensagens" class="texto-hover">
+                                                        Falar com vendedor
+                                                    </a>
+                                                </li>
+                                                <li>Nike Tech Fleece</li>
+                                                <li>R$49,90</li>
+                                            </ul>
+                                            <ul class="statusPedido">
+                                                <li class="sttsPedido">Status</li>
+                                                <li class="situacaoPedido">
+                                                    Entregue
+                                                    <i class="fa-solid fa-circle-check"></i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="ajudaPedido">
+                                        <ul class="listAjuda">
+                                            <li><i class="fa-solid fa-circle-info"></i> Detalhes</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="cardPedido">
+                                    <div class="imgProdutoPedido">
+                                        <img src="{{ url('images/teste.jpg') }}">
+                                    </div>
+                                    <div class="infoProdutoPedido">
+                                        <div class="infoPedido">
+                                            <ul class="labelPedido">
+                                                <li class="nomeVendPedido">
+                                                    <span class="texto-inicial">Vestindo a Quebrada</span>
+                                                    <a href="/mensagens" class="texto-hover">
+                                                        Falar com vendedor
+                                                    </a>
+                                                </li>
+                                                <li>Nike Tech Fleece</li>
+                                                <li>R$49,90</li>
+                                            </ul>
+                                            <ul class="statusPedido">
+                                                <li class="sttsPedido">Status</li>
+                                                <li class="situacaoPedido">
+                                                    Entregue
+                                                    <i class="fa-solid fa-circle-check"></i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="ajudaPedido">
+                                        <ul class="listAjuda">
+                                            <li><i class="fa-solid fa-circle-info"></i> Detalhes</li>
+                                        </ul>
+                                    </div>
+                                </div>
                                 <div class="cardPedido">
                                     <div class="imgProdutoPedido">
                                         <img src="{{ url('images/teste.jpg') }}">

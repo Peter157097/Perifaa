@@ -1905,7 +1905,7 @@ dialog #modal-2::backdrop {
         justify-content: center;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
-        
+
 
     }
 
@@ -1967,7 +1967,7 @@ dialog #modal-2::backdrop {
     }
 
     .frame-perfil {
-        
+
         margin: 0;
         overflow: hidden;
     }
@@ -2044,7 +2044,7 @@ dialog #modal-2::backdrop {
         justify-content: center;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
-        
+
 
     }
 
@@ -2077,7 +2077,7 @@ dialog #modal-2::backdrop {
 
     .info-perfil {
         overflow: hidden;
-        width:  100%;
+        width: 100%;
         border-radius: 20px;
     }
 
@@ -2129,7 +2129,7 @@ dialog #modal-2::backdrop {
     }
 
     .frame-perfil {
-        
+
         margin: 0;
         overflow: hidden;
     }
@@ -2221,7 +2221,7 @@ dialog #modal-2::backdrop {
     }
 
     .info-perfil {
-        width:  100%;
+        width: 100%;
         overflow: hidden;
         border-radius: 20px;
     }
@@ -2380,7 +2380,8 @@ dialog #modal-2::backdrop {
 .filtro-produtos {
     word-spacing: 2vh;
     margin: auto;
-    margin-left: 8vh; margin-right: 2vh;
+    margin-left: 8vh;
+    margin-right: 2vh;
 
 }
 
@@ -2422,6 +2423,7 @@ dialog #modal-2::backdrop {
     overflow-y: hidden;
 
 }
+
 .accordion .accordion-final {
     display: none;
 }
@@ -2459,30 +2461,33 @@ dialog #modal-2::backdrop {
 
 }
 
-.accordion:after  {
-    outline: none;  
+.accordion:after {
+    outline: none;
     font-size: 13px;
     color: #777;
     float: right;
     margin-left: 5px;
 }
 
-.active .accordion-inicial{
+.active .accordion-inicial {
     display: none;
 
 }
-.active .accordion-final{
+
+.active .accordion-final {
     display: flex;
 
 }
 
-.btn-text-accordion{
+.btn-text-accordion {
     display: flex;
     justify-content: space-between;
 }
-.btn-text-accordion p{
+
+.btn-text-accordion p {
     margin: 0;
-}   
+}
+
 .accordion-filtro {
 
     margin-top: 6vh;
@@ -2540,7 +2545,8 @@ dialog #modal-2::backdrop {
     height: 50vh;
     background-color: #ffffff;
 }
-.card-produto:hover .img-card-produto{
+
+.card-produto:hover .img-card-produto {
     transform: scale(1.1);
 }
 
@@ -2578,7 +2584,7 @@ dialog #modal-2::backdrop {
     margin-right: 2vh
 }
 
-.dataPubProduto{
+.dataPubProduto {
     color: rgb(139, 139, 139);
     width: 50%;
     display: flex;
@@ -2586,18 +2592,20 @@ dialog #modal-2::backdrop {
     font-size: 80%;
 }
 
-.labelNomeProduto{
+.labelNomeProduto {
     width: 50%;
     display: flex;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.labelNomeProduto p{
+
+.labelNomeProduto p {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
 /*anteriorumente txt-nome-produto*/
 .txt-info-produto-top {
     display: flex;
@@ -2607,6 +2615,7 @@ dialog #modal-2::backdrop {
     padding: 5%;
     font-size: 2vh;
 }
+
 .txt-info-produto-bottom {
     font-weight: 500;
     margin: 0;
@@ -2694,7 +2703,7 @@ dialog #modal-2::backdrop {
 
     .valor-produto {
         margin: 0;
-      
+
     }
 
     .row-info {
@@ -2719,9 +2728,9 @@ dialog #modal-2::backdrop {
 
     .txt-nome-produto {
         margin: 0;
- 
 
-       
+
+
     }
 
 }
@@ -2751,7 +2760,7 @@ dialog #modal-2::backdrop {
 
     .valor-produto {
         margin: 0;
-    
+
     }
 
     .row-info {
@@ -2777,7 +2786,7 @@ dialog #modal-2::backdrop {
         margin: 0;
 
 
- 
+
     }
 
     .preco-filtro {
@@ -2834,7 +2843,7 @@ dialog #modal-2::backdrop {
 
     .valor-produto {
         margin: 0;
-  
+
     }
 
     .row-info {
@@ -2949,7 +2958,7 @@ dialog #modal-2::backdrop {
 
     .txt-nome-produto {
         margin: 0;
-     
+
 
 
     }
@@ -4932,7 +4941,7 @@ svg {
     transition: 0.2s ease-in-out;
     justify-content: left;
     position: relative;
-    transition: translateY ease-in-out ;
+    transition: translateY ease-in-out;
 }
 
 .cardMensagem:hover {
@@ -4940,6 +4949,7 @@ svg {
     background-color: rgb(241, 241, 241);
 
 }
+
 .cardMensagem::after {
     content: ">";
     position: absolute;
@@ -4955,11 +4965,11 @@ svg {
     content: ">";
     right: 10px;
     top: 50%;
-    transform: translateY(-50%); 
+    transform: translateY(-50%);
     cursor: pointer;
-    color: rgb(0, 0, 0); 
+    color: rgb(0, 0, 0);
     transform: translateY(-50%) scale(1);
-    opacity: 1; 
+    opacity: 1;
 
 
 }
@@ -4983,10 +4993,10 @@ svg {
 
 .pfpMsg {
     border: x solid rgb(235, 235, 235);
-    width:40px; 
+    width: 40px;
     height: 40px;
-    border-radius: 50%; 
-    overflow-y: hidden; 
+    border-radius: 50%;
+    overflow-y: hidden;
     display: flex;
 
 
@@ -5063,6 +5073,7 @@ svg {
     font-size: 100%;
     padding: 0;
 }
+
 .msgIcon i:hover {
     font-size: 125%;
     cursor: pointer;
@@ -5076,9 +5087,11 @@ svg {
     display: flex;
     cursor: pointer;
 }
-.iconInicialChat{
+
+.iconInicialChat {
     display: flex;
 }
+
 .hoverDenunciaChat {
     display: none;
 }
@@ -5087,6 +5100,7 @@ svg {
     display: flex;
 
 }
+
 .optItem:hover .iconInicialChat {
     display: none;
 
@@ -5154,10 +5168,13 @@ svg {
 
 }
 
-.pfpMsgImg{
-    width: 100%; /* Ocupa toda a largura do contêiner */
-    height: 100%; /* Ocupa toda a altura do contêiner */
-    object-fit: cover; /* Ajusta a imagem para cobrir o contêiner sem deformar */
+.pfpMsgImg {
+    width: 100%;
+    /* Ocupa toda a largura do contêiner */
+    height: 100%;
+    /* Ocupa toda a altura do contêiner */
+    object-fit: cover;
+    /* Ajusta a imagem para cobrir o contêiner sem deformar */
     display: flex;
 
 }
@@ -5300,19 +5317,21 @@ svg {
     width: 100%;
     display: flex;
     justify-content: center;
-    gap: 2%;
+    gap: 7%;
     border-bottom: 1px solid rgb(221, 221, 221);
 }
 
 .optPedidos a {
+    width: 10%;
     font-size: small;
     font-weight: 400;
     cursor: pointer;
+    transition: font-weight 0.3s ease;
 }
 
 .optPedidos a:hover {
     color: rgb(110, 94, 63);
-
+    font-weight: 600;
 }
 
 .ajudaPedido {
@@ -5343,6 +5362,8 @@ svg {
 .nomeVendPedido {
     position: relative;
     display: inline-block;
+
+
 }
 
 
@@ -5352,16 +5373,29 @@ svg {
 
 .texto-inicial {
     transition: opacity 0.3s ease;
+    display: flex;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+.nomeItemPedido{
+    display: flex;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .texto-hover {
     display: none;
     cursor: pointer;
+
 }
 
 .nomeVendPedido:hover .texto-inicial {
     display: none;
 }
+
 
 .nomeVendPedido:hover .texto-hover {
     background-color: #5c4322;

@@ -125,6 +125,7 @@
                         Preço até R$ {{ $request->input('preco_ate') }}
                         <span class="remove-filter">&times;</span>
                     </button>
+
                 @endif
                 @if($request->filled('tamanho'))
                     @foreach($tamanhos->whereIn('idTamanho', $request->input('tamanho')) as $tamanho)
@@ -174,7 +175,14 @@
             <div class="accordion-body">
                 <form id="filter-form" method="GET" action="{{ url('/produtos') }}">
                     <div class="accordion-filtro">
-                        <button type='button' class="accordion">Preço</button>
+                        <button type='button' class="accordion" style="justify-content: space-between">
+                            <div class="btn-text-accordion">
+                                <p>Preço</p>
+                                <span class="accordion-inicial"><i class="bi bi-chevron-down"></i></span>
+                                <span class="accordion-final"><i class="bi bi-chevron-up"></i></span>
+                            </div>
+                        </button>
+
                         <div class="panel">
                             <div class="panelContainer">
                                 <div class="precoFiltroTudo">
@@ -184,6 +192,7 @@
                                             value="{{ isset($filtros['preco_ate']) ? $filtros['preco_ate'] : '' }}"
                                             min="0" placeholder="R$">
                                     </label>
+
                                 </div>
                                 <div class="parte-botaoPreco">
                                     <button type="submit" class="btn btn-primary" id="botaoPreco">Aplicar
@@ -194,7 +203,13 @@
 
                         </div>
 
-                        <button type='button' class="accordion">Tamanhos</button>
+                        <button type='button' class="accordion">
+                            <div class="btn-text-accordion">
+                                <p>Tamanhos</p>
+                                <span class="accordion-inicial"><i class="bi bi-chevron-down"></i></span>
+                                <span class="accordion-final"><i class="bi bi-chevron-up"></i></span>
+                            </div>
+                        </button>
                         <div class="panel">
                             <div class="panelContainer">
                                 <div class="tamanhos-buttons">
@@ -209,7 +224,13 @@
                             </div>
                         </div>
 
-                        <button type='button' class="accordion">Condição</button>
+                        <button type='button' class="accordion">
+                            <div class="btn-text-accordion">
+                                <p>Condição</p>
+                                <span class="accordion-inicial"><i class="bi bi-chevron-down"></i></span>
+                                <span class="accordion-final"><i class="bi bi-chevron-up"></i></span>
+                            </div>
+                        </button>
                         <div class="panel">
                             <div class="panelContainer">
                                 <div class="condicoes-buttons">
@@ -223,8 +244,13 @@
                                 </div>
                             </div>
                         </div>
-
-                        <button type='button' class="accordion">Cores</button>
+                        <button type='button' class="accordion">
+                            <div class="btn-text-accordion">
+                                <p>Cores</p>
+                                <span class="accordion-inicial"><i class="bi bi-chevron-down"></i></span>
+                                <span class="accordion-final"><i class="bi bi-chevron-up"></i></span>
+                            </div>
+                        </button>
                         <div class="panel">
                             <div class="panelContainer">
                                 @foreach($cores as $cor)
@@ -236,8 +262,13 @@
                                 @endforeach
                             </div>
                         </div>
-
-                        <button type='button' class="accordion">Local</button>
+                        <button type='button' class="accordion">
+                            <div class="btn-text-accordion">
+                                <p>Região</p>
+                                <span class="accordion-inicial"><i class="bi bi-chevron-down"></i></span>
+                                <span class="accordion-final"><i class="bi bi-chevron-up"></i></span>
+                            </div>
+                        </button>
                         <div class="panel">
                             <div class="panelContainer">
                                 @foreach($regioes as $regiao)

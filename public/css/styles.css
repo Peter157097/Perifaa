@@ -2422,6 +2422,9 @@ dialog #modal-2::backdrop {
     overflow-y: hidden;
 
 }
+.accordion .accordion-final {
+    display: none;
+}
 
 .accordion-body {
     display: flex;
@@ -2456,22 +2459,30 @@ dialog #modal-2::backdrop {
 
 }
 
-.accordion:after {
-    outline: none;
-    content: '⮟';
+.accordion:after  {
+    outline: none;  
     font-size: 13px;
     color: #777;
     float: right;
     margin-left: 5px;
+}
+
+.active .accordion-inicial{
+    display: none;
+
+}
+.active .accordion-final{
+    display: flex;
 
 }
 
-.active:after {
-
-    outline: none;
-    content: "⮝"
+.btn-text-accordion{
+    display: flex;
+    justify-content: space-between;
 }
-
+.btn-text-accordion p{
+    margin: 0;
+}   
 .accordion-filtro {
 
     margin-top: 6vh;

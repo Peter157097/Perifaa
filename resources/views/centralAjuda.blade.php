@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
 
-    <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ url('images/logo.png') }}" type="image/x-icon">
     <title>Perifa</title>
 
     <style>
@@ -17,6 +17,7 @@
 
         body {
             font-family: "Poppins", sans-serif;
+            background-color: #eee9e4;
         }
 
         header {
@@ -105,6 +106,10 @@
             margin-bottom: 30px;
         }
 
+        .buttons-section a{
+            text-decoration: none;
+        }
+
         .buttons-section .button {
             padding: 20px 20px;
             background-color: #f4f4f4;
@@ -133,7 +138,7 @@
             padding-bottom: 11px;
         }
 
-        /* Perguntas Frequentes */
+      
         .faq-section {
             display: flex;
             justify-content: center;
@@ -216,19 +221,29 @@
     </div>
 
     <div class="buttons-section">
-        <div class="button"><i class="fa-solid fa-credit-card"></i>Pagamentos</div>
-        <div class="button"><i class="fa-solid fa-money-bill-transfer"></i>Reembolso</div>
-        <div class="button"><i class="fa-solid fa-truck"></i>Envios</div>
-        <div class="button"><i class="fa-solid fa-circle-info"></i>Informações</div>
-    </div>
+    <a href="{{ route('centralAjudaEntrar', ['categoria' => 'Pagamentos']) }}" class="button">
+        <i class="fa-solid fa-credit-card"></i>Pagamentos
+    </a>
+    <a href="{{ route('centralAjudaEntrar', ['categoria' => 'Reembolso']) }}" class="button">
+        <i class="fa-solid fa-money-bill-transfer"></i>Reembolso
+    </a>
+    <a href="{{ route('centralAjudaEntrar', ['categoria' => 'Envios']) }}" class="button">
+        <i class="fa-solid fa-truck"></i>Envios
+    </a>
+    <a href="{{ route('centralAjudaEntrar', ['categoria' => 'Informações']) }}" class="button">
+        <i class="fa-solid fa-circle-info"></i>Informações
+    </a>
+</div>
+
+
 
     <h2>Perguntas frequentes</h2>
     <div class="faq-section">
         <div class="faq-box">
-            <a href=""><p>Qual a procedência dos produtos?</p></a>
-            <a href=""><p>Como são as embalagens?</p></a>
-            <a href=""><p>Posso trocar ou devolver um produto?</p></a>
-            <a href=""><p>Quais são os métodos de pagamento aceitos?</p></a>
+            <a href="{{ route('centralAjudaEntrar', ['categoria' => 'Informações']) }}"><p>Qual a procedência dos produtos?</p></a>
+            <a href="{{ route('centralAjudaEntrar', ['categoria' => 'Informações']) }}"><p>Como são as embalagens?</p></a>
+            <a href="{{ route('centralAjudaEntrar', ['categoria' => 'Envios']) }}"><p>Posso trocar ou devolver um produto?</p></a>
+            <a href="{{ route('centralAjudaEntrar', ['categoria' => 'Pagamentos']) }}"><p>Quais são os métodos de pagamento aceitos?</p></a>
         </div>
     </div>
 </main>

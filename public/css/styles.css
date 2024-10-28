@@ -4879,11 +4879,13 @@ svg {
 .mensagensContainer {
     display: flex;
     flex-wrap: wrap;
+    height: 100%;
 }
 
 
 .containerMensagens {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
 }
@@ -4893,10 +4895,12 @@ svg {
     background-color: white;
     height: auto;
     width: 100%;
+    height: 100%;
     border-bottom: 1px solid rgb(221, 221, 221)
 }
 
 .sidePanelMensagens {
+    height: 100%;
     display: flex;
     flex-wrap: wrap;
     position: relative;
@@ -4918,6 +4922,7 @@ svg {
 }
 
 .cardMensagem {
+    height: 100%;
     display: flex;
     padding: 3%;
     height: fit-content;
@@ -4925,18 +4930,37 @@ svg {
     width: 100%;
     background-color: rgb(255, 255, 255);
     transition: 0.2s ease-in-out;
+    justify-content: left;
+    position: relative;
+    transition: translateY ease-in-out ;
 }
 
 .cardMensagem:hover {
     cursor: pointer;
-    padding: 3%;
     background-color: rgb(241, 241, 241);
+
+}
+.cardMensagem::after {
+    content: ">";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    transition: transform 0.2s ease;
+    color: rgb(100, 100, 100);
+    opacity: 0;
 }
 
 .cardMensagem:hover::after {
-    cursor: pointer;
-    align-content: center;
     content: ">";
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%); 
+    cursor: pointer;
+    color: rgb(0, 0, 0); 
+    transform: translateY(-50%) scale(1);
+    opacity: 1; 
+
 
 }
 
@@ -4952,18 +4976,19 @@ svg {
 
 .pfpMsgContainer {
     display: flex;
-    width: 12%;
-    min-height: 45px;
-    max-height: 45px;
-
+    height: 100%;
+    width: 16%;
+    display: flex;
 }
 
 .pfpMsg {
-    border: 1px solid rgb(228, 228, 228);
-    width: 100;         /* Tamanho fixo do círculo */
-    height: 100%;        /* Altura igual à largura para manter a forma */
-    border-radius: 50%;  /* Cria o círculo */
-    overflow: hidden;    /* Garante que a imagem fique dentro do círculo */
+    border: x solid rgb(235, 235, 235);
+    width:40px; 
+    height: 40px;
+    border-radius: 50%; 
+    overflow-y: hidden; 
+    display: flex;
+
 
 }
 
@@ -4971,25 +4996,24 @@ svg {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    width: 85%;
-    padding-left: 2%;
+    width: 80%;
 }
 
 .titleMsg {
     font-weight: 500;
     font-size: 85%;
-    width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    width: 100%;
 }
 
 .bodyMsg {
+    width: 100%;
     font-size: 75%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    width: 100%;
 }
 
 .contentMsg {
@@ -5131,9 +5155,11 @@ svg {
 }
 
 .pfpMsgImg{
-    width: 100%;       
-    height: 100%;        
-    object-fit: cover;   
+    width: 100%; /* Ocupa toda a largura do contêiner */
+    height: 100%; /* Ocupa toda a altura do contêiner */
+    object-fit: cover; /* Ajusta a imagem para cobrir o contêiner sem deformar */
+    display: flex;
+
 }
 
 /*Fim style da mensangens*/

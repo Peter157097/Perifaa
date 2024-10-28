@@ -23,7 +23,22 @@
                                 <div class="cardMensagem">
                                     <div class="pfpMsgContainer">
                                         <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                            <img src="{{url('images/muieGraf.png')}}" class="pfpMsgImg">
+                                        </div>
+                                    </div>
+                                    <div class="containerMsg">
+                                        <div class="titleMsg">
+                                            Julia S.
+                                        </div>
+                                        <div class="bodyMsg">
+                                            Oiii, bom dia, queria sabe
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cardMensagem">
+                                    <div class="pfpMsgContainer">
+                                        <div class="pfpMsg">
+                                            <img src="{{url('images/logo.png')}}" class="pfpMsgImg">
                                         </div>
                                     </div>
                                     <div class="containerMsg">
@@ -38,7 +53,7 @@
                                 <div class="cardMensagem">
                                     <div class="pfpMsgContainer">
                                         <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                            <img src="{{url('images/10.png')}}" class="pfpMsgImg">
                                         </div>
                                     </div>
                                     <div class="containerMsg">
@@ -53,7 +68,7 @@
                                 <div class="cardMensagem">
                                     <div class="pfpMsgContainer">
                                         <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                            <img src="{{url('images/10.png')}}" class="pfpMsgImg">
                                         </div>
                                     </div>
                                     <div class="containerMsg">
@@ -68,7 +83,7 @@
                                 <div class="cardMensagem">
                                     <div class="pfpMsgContainer">
                                         <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                            <img src="{{url('images/10.png')}}" class="pfpMsgImg">
                                         </div>
                                     </div>
                                     <div class="containerMsg">
@@ -83,7 +98,7 @@
                                 <div class="cardMensagem">
                                     <div class="pfpMsgContainer">
                                         <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                            <img src="{{url('images/10.png')}}" class="pfpMsgImg">
                                         </div>
                                     </div>
                                     <div class="containerMsg">
@@ -98,7 +113,7 @@
                                 <div class="cardMensagem">
                                     <div class="pfpMsgContainer">
                                         <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                            <img src="{{url('images/10.png')}}" class="pfpMsgImg">
                                         </div>
                                     </div>
                                     <div class="containerMsg">
@@ -113,7 +128,7 @@
                                 <div class="cardMensagem">
                                     <div class="pfpMsgContainer">
                                         <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                            <img src="{{url('images/10.png')}}" class="pfpMsgImg">
                                         </div>
                                     </div>
                                     <div class="containerMsg">
@@ -128,7 +143,7 @@
                                 <div class="cardMensagem">
                                     <div class="pfpMsgContainer">
                                         <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                            <img src="{{url('images/10.png')}}" class="pfpMsgImg">
                                         </div>
                                     </div>
                                     <div class="containerMsg">
@@ -144,52 +159,7 @@
                                 <div class="cardMensagem">
                                     <div class="pfpMsgContainer">
                                         <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                            <img src="{{url('images/10.png')}}" class="pfpMsgImg">
                                         </div>
                                     </div>
                                     <div class="containerMsg">

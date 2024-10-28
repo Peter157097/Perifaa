@@ -259,7 +259,7 @@
   <ul>
         <li class="dropdown">
             <a href="{{ url('/produtos') }}" class="linkHomeCarrinho">
-                ROUPA <i class="fa-solid fa-caret-down"></i>
+                ROUPAS <i class="fa-solid fa-caret-down"></i>
             </a>
             <div class="dropdown-menu"> <!-- Começo do menu dropdown -->
                 <a href="#">Blazeres & Ternos</a>

@@ -203,8 +203,21 @@ Route::get('/centralAjuda', function () {
     return view('centralAjuda');
 });
 
+//rota para a entrada da central de ajuda
+
+Route::get('/centralAjuda-entrar', function () {
+    return view('centralAjuda-entrar');
+});
 
 // Rota para o compras do cliente
 Route::get('/comprasCliente', function () {
     return view('comprasCliente');
 }); 
+
+//rota dos caminhos do accordions
+
+use App\Http\Controllers\CentralAjudaController;
+
+Route::get('/central-ajuda', [CentralAjudaController::class, 'index'])->name('centralAjuda');
+Route::get('/central-ajuda/entrar', [CentralAjudaController::class, 'entrar'])->name('centralAjudaEntrar');
+

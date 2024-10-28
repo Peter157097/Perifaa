@@ -1,6 +1,42 @@
 @include('includes.head')
 @include('includes.header')
 @include('includes.nav')
+<style>
+  .thumbnails {
+    display: flex;
+    /* Para alinhar as miniaturas horizontalmente */
+    gap: 0.0px;
+    /* Espaço entre as miniaturas */
+  }
+
+  .thumbnail {
+    width: 100px;
+    /* Largura fixa */
+    height: 100px;
+    /* Altura fixa */
+    overflow: hidden;
+    /* Oculta partes da imagem que excedem o contêiner */
+
+
+  }
+
+  .thumbnail img {
+    width: 100%;
+    /* Faz a imagem ocupar 100% da largura do contêiner */
+    height: 100%;
+    /* Faz a imagem ocupar 100% da altura do contêiner */
+    object-fit: cover;
+    /* Corta a imagem para preencher o contêiner */
+  }
+
+  .select-image img {
+    width: 400px; /* Defina a largura desejada */
+    height: 300px; /* Defina a altura desejada */
+    object-fit: cover; /* Ajusta a imagem para preencher a caixa sem distorção */
+  }
+
+
+</style>
 <main>
   <section>
     @if(session('success'))
@@ -16,23 +52,33 @@
     <div class="container-entrar-produto">
       <div class="esquerdo">
         <div class="itens">
-          <div class="select-image">
-            <img src="{{ asset($produtos->imagemProduto) }}" alt="imagem produto">
+          <div class="select-image"
+            onclick="openModal('{{ $produtos->imagemProduto ? asset($produtos->imagemProduto) : asset('images/padrao.png') }}')">
+            <img src="{{ $produtos->imagemProduto ? asset($produtos->imagemProduto) : asset('images/padrao.png') }}"
+              alt="imagem produto">
           </div>
-      <div class="thumbnails">
-                        <div  class="thumbnail">
-                          <img src="{{ asset($produtos->imagemProduto2) }}" alt="imagem produto">
-                        </div>
-                        <div  class="thumbnail">
-                          <img src="{{ asset($produtos->imagemProduto3) }}" alt="imagem produto">
-                        </div>
-                        <div  class="thumbnail">
-                          <img src="{{ asset($produtos->imagemProduto4) }}" alt="imagem produto">
-                        </div>
-                        <div  class="thumbnail">
-                          <img src="{{ asset($produtos->imagemProduto5) }}" alt="imagem produto">
-                        </div>
-                    </div>          
+          <div class="thumbnails">
+            <div class="thumbnail"
+              onclick="openModal('{{ $produtos->imagemProduto2 ? asset($produtos->imagemProduto2) : asset('images/padrao.png') }}')">
+              <img src="{{ $produtos->imagemProduto2 ? asset($produtos->imagemProduto2) : asset('images/padrao.png') }}"
+                alt="imagem produto">
+            </div>
+            <div class="thumbnail"
+              onclick="openModal('{{ $produtos->imagemProduto3 ? asset($produtos->imagemProduto3) : asset('images/padrao.png') }}')">
+              <img src="{{ $produtos->imagemProduto3 ? asset($produtos->imagemProduto3) : asset('images/padrao.png') }}"
+                alt="imagem produto">
+            </div>
+            <div class="thumbnail"
+              onclick="openModal('{{ $produtos->imagemProduto4 ? asset($produtos->imagemProduto4) : asset('images/padrao.png') }}')">
+              <img src="{{ $produtos->imagemProduto4 ? asset($produtos->imagemProduto4) : asset('images/padrao.png') }}"
+                alt="imagem produto">
+            </div>
+            <div class="thumbnail"
+              onclick="openModal('{{ $produtos->imagemProduto5 ? asset($produtos->imagemProduto5) : asset('images/padrao.png') }}')">
+              <img src="{{ $produtos->imagemProduto5 ? asset($produtos->imagemProduto5) : asset('images/padrao.png') }}"
+                alt="imagem produto">
+            </div>
+          </div>
         </div>
       </div>
       <div class="direito">

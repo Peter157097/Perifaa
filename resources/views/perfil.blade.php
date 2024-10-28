@@ -47,6 +47,58 @@
         .file-upload-btn:hover {
             border-color: #ffffff;
         }
+
+        .form-group {
+            margin-top: 20px;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            border: none;
+            /* Sem borda inicialmente */
+            border-bottom: 2px solid transparent;
+            /* Borda inferior transparente */
+            outline: none;
+            /* Remove o contorno */
+            transition: border-color 0.3s ease;
+            /* Transição suave para a borda */
+            background-color: #f0f0f0;
+            /* Fundo cinza claro */
+            color: #888;
+            /* Cor do texto em cinza */
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus {
+            border-bottom: 2px solid #5e3e24;
+            /* Adiciona a borda ao focar */
+            background-color: white;
+            /* Fundo branco ao focar */
+            color: #000;
+            /* Cor do texto preta ao focar */
+        }
+
+        input[type="text"]:disabled,
+        input[type="email"]:disabled {
+            background-color: #e0e0e0;
+            /* Fundo cinza mais escuro quando desabilitado */
+            color: #aaa;
+            /* Cor do texto em cinza mais claro */
+        }
+
+        .lista-info {
+            list-style-type: none;
+            /* Remove os marcadores de lista */
+            padding: 0;
+            /* Remove o preenchimento */
+            margin: 0;
+            /* Remove a margem */
+        }
+
+        .lista-item {
+            margin-bottom: 10px;
+            /* Espaçamento entre os itens, se desejado */
+        }
     </style>
 </head>
 
@@ -95,7 +147,7 @@
                         @csrf
 
                         <div class="titulo-info-font">
-                            <h5 class="info-texto">Dados Pessoais</h5>                     
+                            <h5 class="info-texto">Dados Pessoais</h5>
                         </div>
                         <hr style="margin: 0">
                         <div class="container-info">
@@ -105,10 +157,19 @@
                                 <li class="lista-item">Telefone:</li>
                             </ul>
                             <ul class="lista-info">
-                                <li class="lista-item"><input type="text" name="nomeCliente" value="{{ $nome }}"></li>
-                                <li class="lista-item"><input type="email" name="emailCliente" value="{{ $email }}">
+                                <li class=""><input type="text" name="nomeCliente" value="{{ $nome }}">
+                                    <button type="submit" class="btn btn-primary"
+                                        style="background-color: #5e3e24;"></button>
                                 </li>
-                                <li class="lista-item"><input type="text" name="numeroCliente" value="{{ $numero }}">
+
+                                <li class=""><input type="email" name="emailCliente" value="{{ $email }}">
+                                    <button type="submit" class="btn btn-primary"
+                                        style="background-color: #5e3e24;"></button>
+                                </li>
+
+                                <li class=""><input type="text" name="numeroCliente" value="{{ $numero }}">
+                                    <button type="submit" class="btn btn-primary"
+                                        style="background-color: #5e3e24;"></button>
                                 </li>
                             </ul>
                         </div>
@@ -121,7 +182,7 @@
 
                         <div class="titulo-info-font">
                             <h5 class="info-texto">Endereços</h5>
-                     
+
                         </div>
                         <hr style="margin: 0">
                         <div class="container-info">
@@ -133,14 +194,19 @@
                                 <li class="lista-item">Estado:</li>
                             </ul>
                             <ul class="lista-info">
-                                <li class="lista-item"><input type="text" name="logradouroCliente"
-                                        value="{{ $logradouro }}"></li>
-                                <li class="lista-item"><input type="text" name="numCasaCliente"
-                                        value="{{ $numCasaCliente }}"></li>
-                                <li class="lista-item"><input type="text" name="cepCliente" value="{{ $cep }}"></li>
-                                <li class="lista-item"><input type="text" name="cidadeCliente" value="{{ $cidade }}">
+                                <li class=""><input type="text" name="logradouroCliente"
+                                        value="{{ $logradouro }}"><button type="submit" class="btn btn-primary"
+                                        style="background-color: #5e3e24;"></button></li>
+                                <li class=""><input type="text" name="numCasaCliente"
+                                        value="{{ $numCasaCliente }}"><button type="submit" class="btn btn-primary"
+                                        style="background-color: #5e3e24;"></button></li>
+                                <li class=""><input type="text" name="cepCliente" value="{{ $cep }}"><button type="submit" class="btn btn-primary"
+                                style="background-color: #5e3e24;"></button></li>
+                                <li class=""><input type="text" name="cidadeCliente" value="{{ $cidade }}"><button type="submit" class="btn btn-primary"
+                                style="background-color: #5e3e24;"></button>
                                 </li>
-                                <li class="lista-item"><input type="text" name="estadoCliente" value="{{ $estado }}">
+                                <li class=""><input type="text" name="estadoCliente" value="{{ $estado }}"><button type="submit" class="btn btn-primary"
+                                style="background-color: #5e3e24;"></button>
                                 </li>
                             </ul>
                         </div>

@@ -76,6 +76,7 @@ class ProdutoController extends Controller
         $query->orderBy('idProduto', 'desc');
 
         // Pegar dados adicionais
+        $clientId = Session::get('id');
         $tamanhos = Tamanho::all();
         $condicoes = Condicao::all();
         $cores = Cor::all();
@@ -86,6 +87,7 @@ class ProdutoController extends Controller
         // Paginar os resultados
         $produtos = $query->paginate(8);
         $filtros = $request->all();
+        
 
         // Passar o request e os filtros explicitamente para a view
         return view('produtos', compact('produtos', 'tamanhos', 'condicoes', 'cores', 'regioes', 'filtros', 'genero', 'categorias', 'request'));
@@ -104,9 +106,12 @@ class ProdutoController extends Controller
         $favorited = Favorito::where('idProduto', $idProduto)
             ->where('idCliente', $clientId)
             ->exists();
+            
 
         return view('entrar-produto', compact('produtos', 'favorited', 'carrinho'));
     }
+    
+    
 
     public function destroy($idProduto)
     {

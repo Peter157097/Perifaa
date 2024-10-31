@@ -2412,7 +2412,6 @@ dialog #modal-2::backdrop {
     color: #444;
     cursor: pointer;
     padding: 18px;
-
     width: 100%;
     text-align: left;
     outline: none;
@@ -2429,6 +2428,7 @@ dialog #modal-2::backdrop {
 }
 
 .accordion-body {
+    
     display: flex;
 }
 
@@ -2442,8 +2442,6 @@ dialog #modal-2::backdrop {
 .accordion:hover {
     background-color: #d2cfc8;
     outline: none;
-    border: 1px solid #898181;
-
 }
 
 .panel {
@@ -2497,6 +2495,7 @@ dialog #modal-2::backdrop {
 }
 
 .panelContainer {
+    flex-wrap: wrap;
     display: flex;
     flex-direction: column;
     padding: 10px;
@@ -2506,6 +2505,7 @@ dialog #modal-2::backdrop {
     display: flex;
     flex-direction: column;
 }
+
 
 .checkbox-buttons {
     width: 20px;
@@ -2649,7 +2649,9 @@ dialog #modal-2::backdrop {
 }
 
 .valor-produto {
+    width: 100%;
     font-weight: 600;
+    font-size: 2.5vh;
 }
 
 .loja-icon {
@@ -2700,6 +2702,11 @@ dialog #modal-2::backdrop {
 .label-preco {
     display: flex;
     flex-direction: column;
+    
+}
+.label-preco p{
+    margin: 0;
+    
 }
 
 .parte-botaoPreco {
@@ -2727,7 +2734,6 @@ dialog #modal-2::backdrop {
     }
 
     .valor-produto {
-        margin: 0;
 
     }
 
@@ -3931,7 +3937,14 @@ a:hover {
     display: flex;
     flex-direction: column;
     margin: 10px;
+
+}
+.headerAdmin1{
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
     padding-left: 7vh;
+
 }
 
 .titulo1 {

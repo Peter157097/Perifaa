@@ -21,7 +21,7 @@
 <!-- Conteúdo principal da página -->
 <div class="containerdashboard">
     <div class="navDash">
-        <div class="parte1">
+        <div class="headerAdmin1">
             <div class="titulo2">
                 Perifa <span class="titleNavAdmin">admin</span>
             </div>

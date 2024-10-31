@@ -305,18 +305,19 @@
                         <div class="card-produto">
                             <div class="image-display">
                                 <div class="btnAmeiContainer">
-                                    <i class="fa-solid fa-heart fa-lg botaoAmei"></i>
+                                    <i class="fa-solid fa-heart fa-lg botaoAmei" ></i>
                                 </div>
                                 <img class="img-card-produto" src="{{ asset($produto->imagemProduto) }}">
                             </div>
                             <div class="txt-info-produto-top">
+                            <p class="valor-produto">R${{ $produto->valorProduto }}</p>
                                 <div class="labelNomeProduto">
                                     <p>{{ $produto->nomeProduto }}</p>
                                 </div>
                                 <div class="dataPubProduto">
                                     <p>5d</p>
                                 </div>
-                                <p class="valor-produto">R${{ $produto->valorProduto }}</p>
+                               
                             </div>
 
                             <div class="txt-info-produto-bottom">

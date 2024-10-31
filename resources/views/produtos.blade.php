@@ -304,7 +304,14 @@
                         <div class="card-produto">
                             <div class="image-display">
                                 <div class="btnAmeiContainer">
-                                    <i class="fa-solid fa-heart fa-lg botaoAmei" ></i>
+                                <form action="{{ route('favorites.add') }}" method="POST">
+        @csrf
+        <input type="hidden" name="product_id" value="{{ $produto->idProduto }}">
+        <button type="submit" class="btn-favorite">
+            <i class="fa-solid fa-heart fa-lg botaoAmei"></i>
+        </button>
+    </form>
+                                    
                                 </div>
                                 <img class="img-card-produto" src="{{ asset($produto->imagemProduto) }}">
                             </div>
@@ -378,12 +385,13 @@
         <script>
         // deixa o icone de coracaozinho vermei
         document.querySelectorAll(".botaoAmei").forEach(button => {
-            button.addEventListener("click", function() {
-                this.classList.toggle("clicado");
-                event.preventDefault(); 
-                event.stopPropagation(); 
-            });
-        });
+    button.addEventListener("click", function(event) {
+        this.classList.toggle("clicado");
+        event.preventDefault(); // Previne o envio imediato do formulário
+        this.closest('form').submit(); // Envia o formulário após a animação
+    });
+});
+
 
 
 

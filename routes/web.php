@@ -62,9 +62,6 @@ Route::post('/cadastrarProdutosVendedor', [DashboardController::class, 'store'])
 Route::post('/produtos', [DashboardController::class, 'store'])->name('produtos.store');
 
 Route::get('/produtos', [ProdutoController::class, 'index'])->name('produtos.index');
-
-
-
 Route::get('/entrar-produto/{idProduto}', [ProdutoController::class, 'show'])->name('show');
 
 Route::get('/editarPerfilVendedor', function () {

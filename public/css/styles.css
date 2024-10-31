@@ -2549,6 +2549,10 @@ dialog #modal-2::backdrop {
 .card-produto:hover .img-card-produto {
     transform: scale(1.1);
 }
+.card-produto:hover i {
+    left: 0;
+    transition: left 0.3s ease;
+}
 
 .produtos-body {
     display: flex;
@@ -2564,6 +2568,24 @@ dialog #modal-2::backdrop {
     height: 25vh;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    position: relative;
+}
+.image-display i {
+    transition: left 0.3s ease;
+    padding: 8%;
+    left: -20%;
+    color: white;
+    position: absolute;
+}
+.botaoAmei{
+    color: white;
+    z-index: 1;
+}
+.botaoAmei:hover{
+    color: rgb(255, 144, 144);
+}
+.botaoAmei.clicado{
+    color: red;
 }
 
 .img-card-produto {

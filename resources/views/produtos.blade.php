@@ -224,7 +224,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <button type='button' class="accordion">
                             <div class="btn-text-accordion">
                                 <p>Condição</p>
@@ -311,15 +310,13 @@
                             </div>
                             <div class="txt-info-produto-top">
                             <p class="valor-produto">R${{ $produto->valorProduto }}</p>
-                                <div class="labelNomeProduto">
-                                    <p>{{ $produto->nomeProduto }}</p>
-                                </div>
-                                <div class="dataPubProduto">
+                            <div class="dataPubProduto">
                                     <p>5d</p>
                                 </div>
-                               
+                                <div class="labelNomeProduto">
+                                    <p>{{ $produto->nomeProduto }}</p>
+                                </div>                                                
                             </div>
-
                             <div class="txt-info-produto-bottom">
                                 <div class="row-info">
                                     <p class="info-produto">{{ $produto->cor->nomeCor ?? 'Cor Desconhecida' }}</p>

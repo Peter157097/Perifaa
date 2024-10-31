@@ -2570,11 +2570,12 @@ dialog #modal-2::backdrop {
     border-top-right-radius: 10px;
     position: relative;
 }
-.image-display i {
+.btnAmeiContainer i {
     transition: left 0.3s ease;
     padding: 8%;
     left: -20%;
     color: white;
+    scale: (1);
     position: absolute;
 }
 .botaoAmei{
@@ -2586,6 +2587,8 @@ dialog #modal-2::backdrop {
 }
 .botaoAmei.clicado{
     color: red;
+    transition: left 0.3s ease;
+    transform: scale(1.1);
 }
 
 .img-card-produto {

@@ -382,6 +382,8 @@
         document.querySelectorAll(".botaoAmei").forEach(button => {
             button.addEventListener("click", function() {
                 this.classList.toggle("clicado");
+                event.preventDefault(); 
+                event.stopPropagation(); 
             });
         });
 

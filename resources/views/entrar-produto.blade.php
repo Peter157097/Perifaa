@@ -2,43 +2,180 @@
 @include('includes.header')
 @include('includes.nav')
 <style>
-  .thumbnails {
-    display: flex;
-    /* Para alinhar as miniaturas horizontalmente */
-    gap: 0.0px;
-    /* Espaço entre as miniaturas */
+
+  nav {
+  margin-bottom: 10px; 
   }
+main {
+  padding-top: 10px;
+  background-color: #ffffff;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-  .thumbnail {
-    width: 100px;
-    /* Largura fixa */
-    height: 100px;
-    /* Altura fixa */
-    overflow: hidden;
-    /* Oculta partes da imagem que excedem o contêiner */
+
+.info-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  margin-top: 20px;
+}
 
 
+.questions h3 {
+  font-size: 1.5em; 
+  line-height: 1.5; 
+  font-weight: bold;
+}
+
+.questions button {
+  font-size: 1em;
+  width: 100%;
+  padding: 10px 20px; 
+  margin-top: 10px;
+  background-color: #5e3e24;
+  border-radius: 17px;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.questions button:hover {
+  animation: shine 1s infinite alternate; 
+  transform: scale(1.05); /* Leve aumento de tamanho */
+}
+
+@keyframes shine {
+  0% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
   }
-
-  .thumbnail img {
-    width: 100%;
-    /* Faz a imagem ocupar 100% da largura do contêiner */
-    height: 100%;
-    /* Faz a imagem ocupar 100% da altura do contêiner */
-    object-fit: cover;
-    /* Corta a imagem para preencher o contêiner */
+  100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
   }
+}
 
-  .select-image img {
-    width: 400px; /* Defina a largura desejada */
-    height: 300px; /* Defina a altura desejada */
-    object-fit: cover; /* Ajusta a imagem para preencher a caixa sem distorção */
-  }
+.questions {
+  width: 100%;
+  max-width: 600px; 
+  padding: 20px;
+  margin: 0 auto; 
+  text-align: center;
+}
 
+/* Estiliza o perfil do vendedor */
+.profile-container {
+  max-width: 400px;
+  padding: 20px;
+  background-color: #ffffff;
+ 
+}
 
+.profile-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.profile-photo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.profile-details a{
+  color: #5e3e24;
+}
+
+.profile-details a:hover{
+  color: #fff;
+}
+.profile-name {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.profile-location {
+  color: #777;
+  font-size: 0.9em;
+}
+
+.profile-rating {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.stars {
+  color: #ffcc00;
+}
+
+.reviews {
+  color: #5e3e24;
+  font-weight: bold;
+}
+
+.follow-btn {
+  padding: 5px 15px;
+  background-color: #fff;
+  border: solid #5e3e24;
+  color: #5e3e24;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+}
+.follow-btn:hover {
+    background-color: #5e3e24;
+    color: #fff;
+    transition: 1s;
+    position: relative;
+}
+.profile-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  gap: 20px;
+}
+
+.stat-item h5 {
+  font-size: 0.9em;
+  color: #777;
+}
+
+.stat-item p {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin: 0;
+}
+
+article{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+section {
+  border-bottom: 1px solid #ddd; 
+  padding-bottom: 20px; 
+  margin-bottom: 20px; 
+}
 </style>
 <main>
-  <section>
+  
+  <section >
     @if(session('success'))
     <div class="alert alert-success">
       {{ session('success') }}
@@ -155,10 +292,6 @@
             </div>
           </div>
 
-
-
-
-
           <h4>Descrição</h4>
           <p>{{$produtos->descricaoProduto}}</p>
 
@@ -188,10 +321,47 @@
 
       </div>
   </section>
+  <article>
+  <aside>
+    <div class="questions">
+      <h3>Duvidas sobre o produto?</h3>
+      <button>Pergunte ao vendedor</button>
+    </div>
+  </aside>
+
+  <div class="profile-container">
+  <div class="profile-info">
+    <img src="{{ asset('images/card-brecho-two.png') }}" alt="Foto do usuário" class="profile-photo">
+  
+    <div class="profile-details">
+      <h4 class="profile-name">Giselle</h4>
+      <p class="profile-location">Cidade, Estado</p>
+      <div class="profile-rating">
+        <span class="stars">★★★★★</span>
+        <span class="reviews">(53 avaliações)</span>
+      </div>
+      <br>
+    <a class="follow-btn" href="/perfilVendedor">Ver perfil</a>
+    </div>
+  </div>
+  <div class="profile-stats">
+    <div class="stat-item">
+      <h5>Produtos à venda</h5>
+      <p>1</p>
+    </div>
+    <div class="stat-item">
+      <h5>Produtos vendidos</h5>
+      <p>3</p>
+    </div>
+    <div class="stat-item">
+      <h5>Na Perifa desde</h5>
+      <p>mar/2024</p>
+    </div>
+  </div>
+</div>
+</article>
+
 </main>
-
-
-
 
 <!--Import do javascript-->
 <script src="{{('js/script.js')}}"></script>

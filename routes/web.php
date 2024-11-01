@@ -229,3 +229,10 @@ Route::get('/perfilVendedor/vendas', [PerfilVendedorController::class, 'vendas']
 Route::get('/perfilVendedor/vendidos', [PerfilVendedorController::class, 'vendidos'])->name('perfil.vendidos');
 
 
+
+// Rota para os pagamentos
+Route::get('/pagamentos', function () {
+    return view('pagamentos');
+}); 
+
+

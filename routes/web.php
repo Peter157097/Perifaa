@@ -218,3 +218,14 @@ use App\Http\Controllers\CentralAjudaController;
 Route::get('/central-ajuda', [CentralAjudaController::class, 'index'])->name('centralAjuda');
 Route::get('/central-ajuda/entrar', [CentralAjudaController::class, 'entrar'])->name('centralAjudaEntrar');
 
+//rota pro perfil do vendedor
+use App\Http\Controllers\PerfilVendedorController;
+
+Route::get('/perfilVendedor', function () {
+    return view('perfilVendedor'); // página principal
+});
+
+Route::get('/perfilVendedor/vendas', [PerfilVendedorController::class, 'vendas'])->name('perfil.vendas');
+Route::get('/perfilVendedor/vendidos', [PerfilVendedorController::class, 'vendidos'])->name('perfil.vendidos');
+
+

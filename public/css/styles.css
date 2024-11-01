@@ -3017,8 +3017,12 @@ dialog #modal-2::backdrop {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 75vh;
+    height: 50vh;
     gap: 100px;
+    background-color: #ffffff;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .container-entrar-produto .esquerdo {
@@ -3033,13 +3037,17 @@ dialog #modal-2::backdrop {
 }
 
 .select-image {
-    max-width: 400px;
+    width: 400px; 
+    height: 300px; 
+    overflow: hidden; 
 }
-
+  
 .select-image img {
     width: 100%;
+    height: 100%;
+    object-fit: cover; 
 }
-
+  
 .thumbnails {
     display: flex;
     max-width: 400px;

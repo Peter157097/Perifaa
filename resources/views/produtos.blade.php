@@ -304,15 +304,26 @@
                         <div class="card-produto">
                             <div class="image-display">
                                 <div class="btnAmeiContainer">
-                                <form action="{{ route('favorites.add') }}" method="POST">
-        @csrf
-        <input type="hidden" name="product_id" value="{{ $produto->idProduto }}">
-        <button type="submit" class="btn-favorite">
-            <i class="fa-solid fa-heart fa-lg botaoAmei"></i>
-        </button>
-    </form>
-                                    
+                                    @if (session('is_Cliente'))
+                                    <form action="{{ route('favorites.add') }}" method="POST" class="formBtnProdutos">
+                                    @csrf
+                                        <input type="hidden" name="product_id" value="{{ $produto->idProduto }}">
+                                        <button type="submit" class="buttonAmei">
+                                            <i class="fa-solid fa-heart fa-lg botaoAmei"></i>
+                                        </button>                          
+                                    </form>  
+                                    <form action="{{ route('carrinho.add') }}" method="POST" class="formBtnProdutos">
+                                    @csrf
+                                        <input type="hidden" name="product_id" value="{{ $produto->idProduto }}">
+                                        <button type="submit" class="buttonAmei">
+                                            <i class="fa-solid fa-shopping-cart fa-lg botaoCarrinho"></i>
+                                        </button>                          
+                                    </form>                                 
+                                    @else                     
+                                                 
+                                    @endif                             
                                 </div>
+                                
                                 <img class="img-card-produto" src="{{ asset($produto->imagemProduto) }}">
                             </div>
                             <div class="txt-info-produto-top">
@@ -326,22 +337,30 @@
                             </div>
                             <div class="txt-info-produto-bottom">
                                 <div class="row-info">
-                                    <p class="info-produto">{{ $produto->cor->nomeCor ?? 'Cor Desconhecida' }}</p>
+                                    <p class="info-produto-label">Condição:</p>
                                     <p class="info-produto">
                                         {{ $produto->condicao->nomeCondicao ?? 'Condição Desconhecida' }}
                                     </p>
                                 </div>
                                 <div class="row-info">
-                                    <p class="info-produto">
-                                        {{ $produto->categoria->nomeCategoriaProduto ?? 'Categoria Desconhecida' }}
+                                    <p class="info-produto-label">
+                                        Cor:
+                                    </p>
+                                    <p class="info-produto">{{ $produto->cor->nomeCor ?? 'Cor Desconhecida' }}</p>
+                                    
+                                </div>
+                                <div class="row-info">
+                                    <p class="info-produto-label">
+                                       Tamanho:
                                     </p>
                                     <p class="info-produto">
-                                        Tam: {{ $produto->tamanho->nomeTamanho ?? 'Tamanho Desconhecido' }}
+                                       {{ $produto->tamanho->nomeTamanho ?? 'Tamanho Desconhecido' }}
                                     </p>
                                 </div>
                                 <div class="row-info">
-                                    <p class="info-produto"><i
-                                            class="fa-solid fa-location-dot"></i>{{ $produto->regiao->nomeRegiao ?? 'Região Desconhecida' }}
+                                    <p class="info-produto" style="color: dimgray">
+                                        <i class="fa-solid fa-location-dot" ></i>
+                                        {{ $produto->regiao->nomeRegiao ?? 'Região Desconhecida' }}
                                     </p>
                                 </div>
 

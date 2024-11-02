@@ -22,7 +22,7 @@
 @if($carrinho->isEmpty())
     <div class="containerCarrinhoVazio">
 
-        <div class="tituloCarrinhoVazio">
+        <div class="tituloCarrinho">
             CARRINHO
         </div>
         <br>
@@ -41,12 +41,13 @@
     </div>
 @else
     <div class="containerCarrinho">
-        <div class="tituloCarrinhoVazio">
+        <div class="tituloCarrinho">
             CARRINHO
         </div>
         <br>
 
         <!-- card carrinho -->
+         
         @foreach ($carrinho as $item)
             <div class="containerCardCarrinho">
                 <div class="cardCaPt1">

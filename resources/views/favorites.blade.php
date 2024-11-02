@@ -21,11 +21,11 @@
         @if($favorites->isEmpty())
 
             <div class="containerCarrinhoVazio">
-                <div class="tituloCarrinhoVazio">
+                <div class="tituloCarrinho">
                     Favoritos
                 </div>
                 <br>
-                <div class="tituloCarrinhoVazio">
+                <div class="tituloCarrinho">
                     <h3>Tá meio deserto aqui...</h3>
                 </div>
                 <div class="textoCarrinhoVazio">
@@ -39,59 +39,65 @@
                 </a>
             </div>
         @else
+        
             <ul style="padding:0">
                 <div class="cards-body">
                     <div class="container-cards-favorite">
                         @foreach ($favorites as $favorite)
-                            <li style="list-style:none">
-                                <div class="card-produto">
-                                    <div class="image-display">
-                                        @if ($favorite->product)
-                                            <img class="img-card-produto" src="{{ $favorite->product->imagemProduto }}"
-                                                alt="imagem produto">
-                                        @else
-                                            <p>Produto não encontrado.</p>
-                                        @endif
+                            <div class="card-produto">
+                                <div class="image-display">
+                                    <div class="btnAmeiContainer">
+                                        <form action="{{ route('favorites.destroy', $favorite->idProduto) }}" method="POST"
+                                            class="formBtnProdutos">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="buttonAmei">
+                                                <i class="fa-solid fa-heart fa-lg botaoAmei clicado"></i>
+                                            </button>
+                                        </form>
                                     </div>
-                                    <div class="txt-info-produto-top">
-                                        <div class="txt-nome-produto">
-                                            {{ $favorite->product->nomeProduto ?? 'Produto Desconhecido' }}
-                                        </div>
-                                        <p class="valor-produto">{{ $favorite->product->valorProduto ?? 'Valor Desconhecido' }}
-                                        </p>
+                                    @if ($favorite->product)
+                                        <img class="img-card-produto" src="{{ $favorite->product->imagemProduto }}"
+                                            alt="imagem produto">
+                                    @else
+                                        <p>Produto não encontrado.</p>
+                                    @endif
+                                </div>
+                                <div class="txt-info-produto-top">
+                                    <p class="valor-produto">R${{ $favorite->product->valorProduto }}</p>
+                                    <div class="dataPubProduto">
+                                        <p>5d</p>
                                     </div>
-
-
-                                    <div class="txt-info-produto-bottom">
-                                        <div class="row-info">
-                                            <p class="info-produto">{{ $favorite->product->cor->nomeCor ?? 'Cor Desconhecida' }}
-                                            </p>
-                                            <p class="info-produto">
-                                                {{ $favorite->product->condicao->nomeCondicao ?? 'Condição Desconhecida' }}
-                                            </p>
-                                        </div>
-                                        <div class="row-info">
-                                            <p class="info-produto">
-                                                {{ $favorite->product->categoria->nomeCategoriaProduto ?? 'Categoria Desconhecida' }}
-                                            </p>
-                                            <p class="info-produto">
-                                                {{ $favorite->product->tamanho->nomeTamanho ?? 'Tamanho Desconhecido' }}
-                                            </p>
-                                        </div>
-                                        <div class="row-info">
-                                            <p class="info-produto">
-                                                {{ $favorite->product->regiao->nomeRegiao ?? 'Região Desconhecida' }}
-                                            </p>
-                                        </div>
+                                    <div class="labelNomeProduto">
+                                        <p>{{ $favorite->product->nomeProduto  }}</p>
                                     </div>
                                 </div>
-                                <form action="{{ route('favorites.destroy', $favorite->idProduto) }}" method="POST"
-                                    style="display:inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="remove-fav-btn">Remover</button>
-                                </form>
-                            </li>
+
+
+                                <div class="txt-info-produto-bottom">
+                                    <div class="row-info">
+                                        <p class="info-produto">{{ $favorite->product->cor->nomeCor ?? 'Cor Desconhecida' }}
+                                        </p>
+                                        <p class="info-produto">
+                                            {{ $favorite->product->condicao->nomeCondicao ?? 'Condição Desconhecida' }}
+                                        </p>
+                                    </div>
+                                    <div class="row-info">
+                                        <p class="info-produto">
+                                            {{ $favorite->product->categoria->nomeCategoriaProduto ?? 'Categoria Desconhecida' }}
+                                        </p>
+                                        <p class="info-produto">
+                                            {{ $favorite->product->tamanho->nomeTamanho ?? 'Tamanho Desconhecido' }}
+                                        </p>
+                                    </div>
+                                    <div class="row-info">
+                                        <p class="info-produto">
+                                            <i class="fa-solid fa-location-dot"></i>
+                                            {{ $favorite->product->regiao->nomeRegiao ?? 'Região Desconhecida' }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         @endforeach
                     </div>
                 </div>

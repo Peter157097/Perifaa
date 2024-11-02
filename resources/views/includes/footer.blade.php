@@ -22,10 +22,10 @@
             <div class="section">
                 <h5 class="titulo-section">Social</h5>
                 <div class="letras">
-                    <p>Facebook</p>
-                    <p>Instagram</p>
-                    <p>Youtube</p>
-                    <p>Twitter</p>
+                    <p><i class="fa-brands fa-facebook"></i> Facebook</p>
+                    <p><i class="fa-brands fa-square-instagram"></i> Instagram</p>
+                    <p><i class="fa-brands fa-youtube"></i> Youtube</p>
+                    <p><i class="fa-brands fa-twitter"></i> Twitter</p>
                 </div>
             </div>
             

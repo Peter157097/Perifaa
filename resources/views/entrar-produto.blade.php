@@ -49,14 +49,7 @@ main {
   transform: scale(1.05); /* Leve aumento de tamanho */
 }
 
-@keyframes shine {
-  0% {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-  }
-  100% {
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
-  }
-}
+
 
 .questions {
   width: 100%;
@@ -172,6 +165,51 @@ section {
   padding-bottom: 20px; 
   margin-bottom: 20px; 
 }
+
+.duvidas {
+    position: relative; /* ou absolute, dependendo do seu layout */
+    z-index: 1; /* ajuste conforme necessário */
+}
+
+
+@media (max-width: 768px) {
+  /* Estilos para dispositivos com largura máxima de 768px */
+  .container-entrar-produto {
+    flex-direction: column; /* Exemplo de mudança de layout */
+    padding-top: 130%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .container-entrar-produto .esquerda{
+    padding-right: 50px;
+    align-items: center;
+    justify-content: center;
+  }
+  .conteudo-entrada-produto .parte1{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+}
+
+@media (max-width: 768px) {
+  /* Estilos para dispositivos com largura máxima de 768px */
+  article{
+    flex-direction: column; /* Exemplo de mudança de layout */
+    padding: 10px; /* Ajuste de padding */
+    padding-top: 120%;
+  
+  }
+}
+@media (max-width: 768px) {
+    .duvidas {
+        padding: 10px; /* ou outro ajuste necessário */
+        margin: 0; /* ajuste de margem se necessário */
+    }
+}
+
 </style>
 <main>
   
@@ -321,6 +359,7 @@ section {
 
       </div>
   </section>
+ 
   <article>
   <aside>
     <div class="questions">

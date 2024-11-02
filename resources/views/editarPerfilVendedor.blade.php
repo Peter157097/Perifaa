@@ -1,3 +1,5 @@
+@include('includes.headVendedor')
+
 @include('includes.menuVendedor')
 
 <style>

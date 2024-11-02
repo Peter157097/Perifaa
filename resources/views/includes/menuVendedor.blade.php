@@ -233,6 +233,86 @@
         padding-right: 6vh;
 
     }
+
+
+
+        @media (max-width: 768px) {
+    /* Estilos para telas menores */
+    
+    /* Ícone do menu hambúrguer */
+    .hamburger {
+        top: 15px;
+        left: 15px;
+        font-size: 24px;
+    }
+
+    /* Menu lateral */
+    .sidebar {
+        width: 200px; /* Reduz a largura do menu */
+        left: -200px; /* Ajuste a posição inicial */
+    }
+    
+    .sidebar.open {
+        left: 0; /* Menu expandido */
+    }
+
+    /* Ajuste do texto e espaçamento nos itens do menu */
+    .sidebar ul li a {
+        font-size: 14px;
+        padding: 10px;
+        margin-right: 10px;
+    }
+
+    /* Reorganização da barra de navegação da dashboard */
+    .navDash {
+        padding: 10px;
+        align-items: flex-start;
+    }
+
+    .parte1, .parte2 {
+        padding: 10px;
+        text-align: left;
+    }
+
+    /* Ajuste das fontes para dispositivos móveis */
+    .titulo1 {
+        font-size: 14px;
+    }
+
+    .titulo2 {
+        font-size: 20px;
+    }
+
+    /* Ajuste do perfil de usuário */
+    .user-profile {
+        flex-direction: row;
+        gap: 5px;
+    }
+
+    .user-info .user-name, .user-info .user-status {
+        font-size: 12px;
+    }
+
+    .icons .icon {
+        width: 25px;
+        height: 25px;
+        font-size: 12px;
+    }
+
+    /* Ajuste dos ícones */
+    .icon .fas {
+        font-size: 14px;
+    }
+
+    /* Notificação do badge */
+    .notification .badge {
+        width: 10px;
+        height: 10px;
+        font-size: 7px;
+    }
+}
+
+    
 </style>
 <div class="hamburger" id="hamburger" onclick="toggleMenu()">
     &#9776;

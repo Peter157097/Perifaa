@@ -340,6 +340,47 @@
         transform: translateY(-2px) scale(0.98);
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
+
+
+
+
+    @media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+    }
+
+    .form-section {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .image-section {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .image-upload img {
+        width: 100%;
+        height: auto;
+    }
+
+    .caixa-botao {
+        margin-top: 20px;
+    }
+
+    .finalizar-cadastro-botao {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+}
+
 </style>
 
 <body>

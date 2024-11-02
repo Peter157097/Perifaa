@@ -595,7 +595,7 @@
 
     
                         <div class="login-botao">
-                            <button type='submit'>Recuperar senha</button>
+                            <button class="abrir-modal-5">Recuperar senha</button>
                         </div>
                     </form>
                 </div>
@@ -606,7 +606,7 @@
                     <h2 class="modal-title">
                         Verificação de E-mail
                     </h2>
-                    <button class="fechar-modal" data-modal="modal-4" type="button">
+                    <button class="fechar-modal" data-modal="modal-5" type="button">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
@@ -623,7 +623,7 @@
                         </div>                    
                         <p class="reenviar">Você não recebeu o código? <a href="#">reenviar</a></p>
                         <div class="login-botao">
-                            <button type='submit'>Verificar</button>
+                            <button class="abrir-modal-6">Verificar</button>
                         </div>
                     </form>
                 </div>
@@ -634,7 +634,7 @@
                     <h2 class="modal-title">
                         Redefinir senha
                     </h2>
-                    <button class="fechar-modal" data-modal="modal-4" type="button">
+                    <button class="fechar-modal" data-modal="modal-6" type="button">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>

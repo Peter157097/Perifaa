@@ -2,7 +2,17 @@
 
 <!--Começo do body-->
 <style>
+    main {
+        display: flex;
+        height: 100%;
+        width: 100%;
+    }
 
+    html,
+    body {
+        height: 100%;
+
+    }
 </style>
 
 <body>
@@ -176,21 +186,21 @@
                         </div>
                         <div class="contentMsg">
                             <!--
-                                                                Caso nao tenha mensagem selecionada 
+                                                                                            Caso nao tenha mensagem selecionada 
 
-                                                            <div class="noContent">
-                                                                <div class="HoldNoContentImg">
-                                                                    (Cliente)
-                                                                    <img src="{{url('images/msgIconCli.png')}}" class="noContentImg">
-                                                                    (Vendedor)
-                                                                    <img src="{{url('images/msgIconVend.png')}}" class="noContentImg">
-                                                                </div>
-                                                                <div class="noContentMsg">
-                                                                    <h4>Suas mensagens</h4>
-                                                                    <p>Aqui é onde você se conecta com outros usuários.</p>
-                                                                </div>
-                                                            </div>
-                                                            -->
+                                                                                        <div class="noContent">
+                                                                                            <div class="HoldNoContentImg">
+                                                                                                (Cliente)
+                                                                                                <img src="{{url('images/msgIconCli.png')}}" class="noContentImg">
+                                                                                                (Vendedor)
+                                                                                                <img src="{{url('images/msgIconVend.png')}}" class="noContentImg">
+                                                                                            </div>
+                                                                                            <div class="noContentMsg">
+                                                                                                <h4>Suas mensagens</h4>
+                                                                                                <p>Aqui é onde você se conecta com outros usuários.</p>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        -->
                             <div class="selectedMsg">
                                 <div class="pfpSelectedMsg">
                                     <div class="pfpMsg">
@@ -214,7 +224,8 @@
                                 </div>
                             </div>
                             <div class="msgDisplay">
-
+                                <div class="textDisplay">
+                                </div>
                             </div>
                             <div class="msgWrite">
                                 <div class="contentWrite">
@@ -222,7 +233,7 @@
                                         <i class="fa-solid fa-paperclip" title="Anexar arquivo"></i>
                                     </div>
                                     <div class="inputMsg">
-                                        <input type="text" placeholder="Mensagem..." class="inputCampo">
+                                        <input type="text" placeholder="Mensagem" class="inputCampo">
                                     </div>
                                     <div class="msgIcon">
                                         <i class="fa-solid fa-paper-plane" title="Enviar"></i>
@@ -271,7 +282,26 @@
 
     </main>
 
+    <script>
+        document.querySelectorAll('.cardMensagem').forEach(element => {
+            element.addEventListener('click', () => {
+                // Seleciona todos os elementos que devem desaparecer
+                const elementosParaDesaparecer = document.querySelectorAll('.sidePanelMensagens, header');
 
+                // Seleciona todos os elementos que devem aparecer
+                const elementosParaAparecer = document.querySelectorAll('.contentMsg');
+
+
+                // Adiciona a classe .visivel para desaparecer
+                elementosParaDesaparecer.forEach(el => el.classList.add('invisivel'));
+
+                // Adiciona a classe .visivel para aparecer
+                elementosParaAparecer.forEach(el => el.classList.add('visivel'));
+
+            });
+        });
+
+    </script>
     <!--Import do javascript-->
     <script src="{{('js/script.js')}}"></script>
     <!--Imports do bootstrap do body-->

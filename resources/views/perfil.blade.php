@@ -6,7 +6,6 @@
 <html lang="en">
 
 <head>
-
     <style>
         /* Estilização do campo de upload de imagem */
         .form-group {
@@ -48,63 +47,42 @@
             border-color: #ffffff;
         }
 
-        .form-group {
-            margin-top: 20px;
-        }
-
         input[type="text"],
         input[type="email"] {
             border: none;
-            /* Sem borda inicialmente */
             border-bottom: 2px solid transparent;
-            /* Borda inferior transparente */
             outline: none;
-            /* Remove o contorno */
             transition: border-color 0.3s ease;
-            /* Transição suave para a borda */
             background-color: #f0f0f0;
-            /* Fundo cinza claro */
             color: #888;
-            /* Cor do texto em cinza */
         }
 
         input[type="text"]:focus,
         input[type="email"]:focus {
             border-bottom: 2px solid #5e3e24;
-            /* Adiciona a borda ao focar */
             background-color: white;
-            /* Fundo branco ao focar */
             color: #000;
-            /* Cor do texto preta ao focar */
         }
 
         input[type="text"]:disabled,
         input[type="email"]:disabled {
             background-color: #e0e0e0;
-            /* Fundo cinza mais escuro quando desabilitado */
             color: #aaa;
-            /* Cor do texto em cinza mais claro */
         }
 
         .lista-info {
             list-style-type: none;
-            /* Remove os marcadores de lista */
             padding: 0;
-            /* Remove o preenchimento */
             margin: 0;
-            /* Remove a margem */
         }
 
         .lista-item {
             margin-bottom: 10px;
-            /* Espaçamento entre os itens, se desejado */
         }
     </style>
 </head>
 
 <body>
-
-
     @if(Session::has('editarCliente'))
         <script>
             alert("{{ Session::get('editarCliente') }}");
@@ -113,6 +91,7 @@
 
     <main>
         <div class="container-perfil">
+            <!-- Início do perfil do usuário -->
             <div class="frame-perfil">
                 <div class="img-topo-perfil">
                     <div class="frame-foto-perfil">
@@ -137,11 +116,15 @@
                     </a>
                 </div>
             </div>
+            <!-- Fim do perfil do usuário -->
+
+            <!-- Início das informações do perfil -->
             <div class="align-info">
                 <div class="info-perfil">
                     <div class="titulo-perfil">
                         <h4 class="titulo-font">Meu perfil</h4>
                     </div>
+
                     <form action="{{ url('/perfil/update') }}" method="POST" enctype="multipart/form-data"
                         class="form-info">
                         @csrf
@@ -157,17 +140,17 @@
                                 <li class="lista-item">Telefone:</li>
                             </ul>
                             <ul class="lista-info">
-                                <li class=""><input type="text" name="nomeCliente" value="{{ $nome }}">
+                                <li><input type="text" name="nomeCliente" value="{{ $nome }}">
                                     <button type="submit" class="btn btn-primary"
                                         style="background-color: #5e3e24;"></button>
                                 </li>
 
-                                <li class=""><input type="email" name="emailCliente" value="{{ $email }}">
+                                <li><input type="email" name="emailCliente" value="{{ $email }}">
                                     <button type="submit" class="btn btn-primary"
                                         style="background-color: #5e3e24;"></button>
                                 </li>
 
-                                <li class=""><input type="text" name="numeroCliente" value="{{ $numero }}">
+                                <li><input type="text" name="numeroCliente" value="{{ $numero }}">
                                     <button type="submit" class="btn btn-primary"
                                         style="background-color: #5e3e24;"></button>
                                 </li>
@@ -180,9 +163,9 @@
                             <input type="file" name="imagemCliente" class="form-control" id="imagemCliente">
                         </div>
 
+                        <!-- Informações de Endereços -->
                         <div class="titulo-info-font">
                             <h5 class="info-texto">Endereços</h5>
-
                         </div>
                         <hr style="margin: 0">
                         <div class="container-info">
@@ -194,34 +177,34 @@
                                 <li class="lista-item">Estado:</li>
                             </ul>
                             <ul class="lista-info">
-                                <li class=""><input type="text" name="logradouroCliente"
-                                        value="{{ $logradouro }}"><button type="submit" class="btn btn-primary"
-                                        style="background-color: #5e3e24;"></button></li>
-                                <li class=""><input type="text" name="numCasaCliente"
-                                        value="{{ $numCasaCliente }}"><button type="submit" class="btn btn-primary"
-                                        style="background-color: #5e3e24;"></button></li>
-                                <li class=""><input type="text" name="cepCliente" value="{{ $cep }}"><button type="submit" class="btn btn-primary"
-                                style="background-color: #5e3e24;"></button></li>
-                                <li class=""><input type="text" name="cidadeCliente" value="{{ $cidade }}"><button type="submit" class="btn btn-primary"
-                                style="background-color: #5e3e24;"></button>
+                                <li><input type="text" name="logradouroCliente" value="{{ $logradouro }}">
+                                    <button type="submit" class="btn btn-primary" style="background-color: #5e3e24;"></button>
                                 </li>
-                                <li class=""><input type="text" name="estadoCliente" value="{{ $estado }}"><button type="submit" class="btn btn-primary"
-                                style="background-color: #5e3e24;"></button>
+                                <li><input type="text" name="numCasaCliente" value="{{ $numCasaCliente }}">
+                                    <button type="submit" class="btn btn-primary" style="background-color: #5e3e24;"></button>
+                                </li>
+                                <li><input type="text" name="cepCliente" value="{{ $cep }}">
+                                    <button type="submit" class="btn btn-primary" style="background-color: #5e3e24;"></button>
+                                </li>
+                                <li><input type="text" name="cidadeCliente" value="{{ $cidade }}">
+                                    <button type="submit" class="btn btn-primary" style="background-color: #5e3e24;"></button>
+                                </li>
+                                <li><input type="text" name="estadoCliente" value="{{ $estado }}">
+                                    <button type="submit" class="btn btn-primary" style="background-color: #5e3e24;"></button>
                                 </li>
                             </ul>
                         </div>
+
+                        <!-- Botão de submit -->
                         <div class="container-submit">
-                            <button type="submit" class="btn btn-primary" style="background-color: #5e3e24;">Salvar
-                                alterações</button>
+                            <button type="submit" class="btn btn-primary" style="background-color: #5e3e24;">Salvar alterações</button>
                             <p class="excluir-txt">Excluir minha conta</p>
                             <p class="aviso-excluir">Ao excluir a conta, torna-se impossível recuperá-la.</p>
                         </div>
                     </form>
-
-
-
                 </div>
             </div>
+            <!-- Fim das informações do perfil -->
         </div>
     </main>
 
@@ -237,8 +220,4 @@
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-</body>
-
-</html>
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/Jm

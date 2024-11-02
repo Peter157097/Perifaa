@@ -1625,12 +1625,15 @@ dialog #modal-2::backdrop {
     margin-bottom: 10vh;
     overflow: hidden;
 
+
 }
 
 .img-topo-perfil {
     display: flex;
     background-color: #5e3e24;
-    width: 50vh;
+    justify-items: center;
+    align-items: center;
+    width: 100%;
     height: 20vh;
 }
 
@@ -1644,7 +1647,6 @@ dialog #modal-2::backdrop {
     position: absolute;
     justify-content: center;
     align-self: center;
-    margin-left: 10vh;
     margin-top: 25vh;
 }
 
@@ -1659,6 +1661,7 @@ dialog #modal-2::backdrop {
 }
 
 .container-perfil {
+    height: 100%;
     display: flex;
     gap: 3vh
 }
@@ -1801,6 +1804,7 @@ dialog #modal-2::backdrop {
     }
 
     .container-perfil {
+        height: 100%;
         justify-content: center;
         padding: 4%;
     }
@@ -1937,6 +1941,7 @@ dialog #modal-2::backdrop {
 
     .container-perfil {
         justify-content: center;
+        height: 100%;
         padding: 4%;
         display: flex;
     }
@@ -2082,6 +2087,7 @@ dialog #modal-2::backdrop {
     }
 
     .container-perfil {
+        height: 100%;
         justify-content: center;
         padding: 4%;
         display: flex;
@@ -2116,11 +2122,16 @@ dialog #modal-2::backdrop {
     .frame-foto-perfil {
         position: relative;
         display: flex;
+        justify-content: center;
         width: 100%;
         justify-content: center;
         border-top-left-radius: 20px;
         border-top-right-radius: 20px;
 
+    }
+
+    .img-topo-perfil {
+        width: 100%;
     }
 
     .foto-perfil {
@@ -2129,7 +2140,7 @@ dialog #modal-2::backdrop {
     }
 
     .frame-perfil {
-
+        position: relative;
         margin: 0;
         overflow: hidden;
     }
@@ -2141,6 +2152,7 @@ dialog #modal-2::backdrop {
     }
 
     .form-info {
+
         border-radius: 20px;
         width: 100%;
         height: 100%;
@@ -2199,7 +2211,7 @@ dialog #modal-2::backdrop {
 
 }
 
-@media (max-width:460px) {
+@media (max-width:550px) {
     .container-info {
         width: 100%;
         padding: 0;
@@ -2223,7 +2235,7 @@ dialog #modal-2::backdrop {
     .info-perfil {
         width: 100%;
         overflow: hidden;
-        border-radius: 20px;
+        border-radius: 0;
     }
 
     .container-perfil {
@@ -2261,7 +2273,7 @@ dialog #modal-2::backdrop {
     }
 
     .frame-perfil {
-
+        border-radius: 0;
         margin: 0;
         overflow: hidden;
         width: 100%;
@@ -2295,7 +2307,7 @@ dialog #modal-2::backdrop {
     }
 
     .form-info {
-        border-radius: 20px;
+        border-radius: 0;
         width: 100%;
         height: 100%;
         padding: 3%;
@@ -2352,6 +2364,10 @@ dialog #modal-2::backdrop {
         flex-direction: column;
         width: 100%;
         padding: 3%;
+    }
+
+    .footer {
+        display: none;
     }
 
 
@@ -2553,7 +2569,7 @@ dialog #modal-2::backdrop {
 
 .card-produto:hover i {
     left: 0;
-   
+
 }
 
 .produtos-body {
@@ -2580,7 +2596,8 @@ dialog #modal-2::backdrop {
     gap: 15px;
     position: absolute;
 }
-.buttonAmei{
+
+.buttonAmei {
     display: flex;
     padding: 20%;
 
@@ -2597,7 +2614,7 @@ dialog #modal-2::backdrop {
     color: white;
     position: absolute;
     z-index: 1;
-    transition: color 0.2s ease,left 0.3s ease;
+    transition: color 0.2s ease, left 0.3s ease;
     left: -10vh;
     color: white;
     scale: (1);
@@ -2608,19 +2625,21 @@ dialog #modal-2::backdrop {
 }
 
 .botaoAmei.clicado {
-    transition: color 0.2s ease,left 0.3s ease, font-size 0.2s ease;
+    transition: color 0.2s ease, left 0.3s ease, font-size 0.2s ease;
     color: red;
     transform: scale(1.1);
 }
+
 .botaoAmei.clicado:hover {
     color: rgb(224, 2, 2);
 }
+
 .botaoCarrinho {
     cursor: pointer;
     color: white;
     position: absolute;
     z-index: 1;
-    transition: color 0.2s ease,left 0.3s ease;
+    transition: color 0.2s ease, left 0.3s ease;
     left: -10vh;
     color: white;
     scale: (1);
@@ -2631,10 +2650,11 @@ dialog #modal-2::backdrop {
 }
 
 .botaoCarrinho.clicado {
-    transition: color 0.2s ease,left 0.3s ease, font-size 0.2s ease;
+    transition: color 0.2s ease, left 0.3s ease, font-size 0.2s ease;
     color: rgb(255, 241, 46);
     transform: scale(1.1);
 }
+
 .botaoCarrinho.clicado:hover {
     color: rgb(247, 215, 38);
 }
@@ -2672,6 +2692,7 @@ dialog #modal-2::backdrop {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
 .labelNomeProduto p {
     margin: 0;
     font-size: larger;
@@ -2721,6 +2742,7 @@ dialog #modal-2::backdrop {
     display: flex;
     justify-content: space-between;
 }
+
 .info-produto-label {
     position: relative;
     margin: 0;
@@ -4997,6 +5019,7 @@ svg {
     display: flex;
     flex-wrap: wrap;
     height: 100%;
+    width: 100%;
 }
 
 
@@ -5010,7 +5033,6 @@ svg {
 .panelMensagens {
     display: flex;
     background-color: white;
-    height: auto;
     width: 100%;
     height: 100%;
     border-bottom: 1px solid rgb(221, 221, 221)
@@ -5083,7 +5105,7 @@ svg {
 }
 
 .scroll-sidePanelMsg {
-    height: 85vh;
+    height: 100%;
     background-color: rgb(243, 243, 243);
     flex-wrap: wrap;
     width: 100%;
@@ -5115,6 +5137,7 @@ svg {
     flex-wrap: wrap;
     align-items: center;
     width: 80%;
+    height: 100%;
 }
 
 .titleMsg {
@@ -5137,8 +5160,9 @@ svg {
 .contentMsg {
     display: flex;
     flex-wrap: wrap;
+    align-content: baseline;
     width: 70%;
-    height: 85vh;
+    height: 100%;
 }
 
 .selectedMsg {
@@ -5153,7 +5177,23 @@ svg {
     width: 100%;
     display: flex;
     background-color: rgb(240, 240, 240);
-    height: 81%;
+
+    height: 80%;
+}
+
+.textDisplay {
+    color: red;
+    background-color: rgb(240, 240, 240);
+    display: block;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+}
+
+.textDisplay p {
+    color: red;
+    width: 100%;
+    height: fit-content;
 }
 
 .msgWrite {
@@ -5278,16 +5318,534 @@ svg {
 
 .pfpMsgImg {
     width: 100%;
-    /* Ocupa toda a largura do contêiner */
     height: 100%;
-    /* Ocupa toda a altura do contêiner */
     object-fit: cover;
-    /* Ajusta a imagem para cobrir o contêiner sem deformar */
     display: flex;
 
 }
 
-/*Fim style da mensangens*/
+@media (max-width: 768px) {
+    .msgTitlePanel {
+        display: none;
+    }
+
+    .titleMsg {
+        font-size: 100%;
+        font-weight: 600;
+    }
+
+    .bodyMsg {
+        font-size: 100%;
+        width: 95%;
+    }
+
+
+    .contentMsg {
+        display: none;
+        height: 100%;
+    }
+
+    .cardMensagem {
+        width: 100%;
+        padding: 1%;
+    }
+
+    .cardMensagem.clicado {
+        display: none;
+    }
+
+    .visivel {
+        display: flex;
+        width: 100%;
+    }
+
+    .panelMensagens {
+        height: 100%;
+    }
+
+    .contentMsg.visivel {
+        display: flex;
+        height: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .selectedMsg {
+        align-items: center;
+
+    }
+
+    .msgDisplay {
+        background-color: red;
+        height: 100%;
+    }
+
+    .invisivel {
+        display: none;
+    }
+
+    .containerMsg {
+        width: 88%;
+        padding: 1%;
+    }
+
+    .sidePanelMensagens {
+        width: 100%;
+    }
+
+    .mensagensContainer {
+        height: 100%;
+    }
+
+    .textDisplay {
+        height: 100%;
+    }
+
+    .pfpMsgContainer {
+        width: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding: 1%;
+    }
+
+    .pfpMsgImg {
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .pfpMsg {
+        width: 50px;
+        height: 50px;
+    }
+
+    .inputCampo {
+        font-size: 90%;
+        background-color: rgb(240, 240, 240);
+        border: none;
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border-radius: 20px;
+    }
+
+    .msgWrite {
+        justify-content: space-between;
+        border-top: 1px solid rgb(221, 221, 221);
+        width: 100%;
+        display: flex;
+        background-color: rgb(255, 255, 255);
+        height: 8%;
+    }
+
+    .inputMsg {
+        border-radius: 20px;
+        width: 90%;
+        font-size: 70%;
+    }
+
+    .contentWrite {
+        justify-content: space-between;
+    }
+
+    .msgIcon {
+        width: 5%;
+    }
+}
+
+@media (max-width: 560px) {
+    .msgTitlePanel {
+        display: none;
+    }
+
+    .contentMsg {
+        display: none;
+        height: 100%;
+    }
+
+    .cardMensagem {
+        width: 100%;
+        padding: 0%;
+        height: 10%;
+    }
+
+    .cardMensagem.clicado {
+        display: none;
+    }
+
+    .pfpMsgContainer {
+        width: 12%;
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    .pfpMsgImg {
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .pfpMsg {
+        width: 50px;
+        height: 50px;
+    }
+
+    .titleMsg {
+        font-size: 90%;
+        font-weight: 600;
+    }
+
+    .bodyMsg {
+        font-size: 80%;
+        width: 100%;
+    }
+
+    .containerMsg {
+        width: 88%;
+    }
+
+    .visivel {
+        display: flex;
+        width: 100%;
+    }
+
+    .panelMensagens {
+        height: 100%;
+    }
+
+    .contentMsg.visivel {
+        display: flex;
+        height: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .selectedMsg {
+        align-items: center;
+
+    }
+
+    .msgDisplay {
+        background-color: red;
+        height: 100%;
+    }
+
+    .invisivel {
+        display: none;
+    }
+
+    .sidePanelMensagens {
+        width: 100%;
+    }
+
+    .mensagensContainer {
+        height: 100%;
+    }
+
+    .textDisplay {
+        height: 100%;
+    }
+
+    .inputCampo {
+        font-size: 90%;
+        background-color: rgb(240, 240, 240);
+        border: none;
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border-radius: 20px;
+    }
+
+    .msgWrite {
+        justify-content: space-between;
+        border-top: 1px solid rgb(221, 221, 221);
+        width: 100%;
+        display: flex;
+        background-color: rgb(255, 255, 255);
+        height: 8%;
+    }
+
+    .inputMsg {
+        border-radius: 20px;
+        width: 80%;
+        font-size: 70%;
+    }
+
+    .contentWrite {
+        justify-content: space-between;
+    }
+
+    .msgIcon {
+        width: 10%;
+    }
+
+
+}
+
+@media (max-width: 480px) {
+    .msgTitlePanel {
+        display: none;
+    }
+
+    .contentMsg {
+        display: none;
+        height: 100%;
+    }
+
+    .cardMensagem {
+        width: 100%;
+        padding: 0%;
+        height: 10%;
+    }
+
+    .cardMensagem.clicado {
+        display: none;
+    }
+
+    .pfpMsgContainer {
+        width: 12%;
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    .pfpMsgImg {
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .pfpMsg {
+        width: 40px;
+        height: 40px;
+    }
+
+    .titleMsg {
+        font-size: 90%;
+        font-weight: 600;
+    }
+
+    .bodyMsg {
+        font-size: 80%;
+        width: 95%;
+    }
+
+    .containerMsg {
+        width: 88%;
+    }
+
+    .visivel {
+        display: flex;
+        width: 100%;
+    }
+
+    .panelMensagens {
+        height: 100%;
+    }
+
+    .contentMsg.visivel {
+        display: flex;
+        height: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .selectedMsg {
+        align-items: center;
+
+    }
+
+    .msgDisplay {
+        background-color: red;
+        height: 100%;
+    }
+
+    .invisivel {
+        display: none;
+    }
+
+    .sidePanelMensagens {
+        width: 100%;
+    }
+
+    .mensagensContainer {
+        height: 100%;
+    }
+
+    .textDisplay {
+        height: 100%;
+    }
+
+    .inputCampo {
+        font-size: 90%;
+        background-color: rgb(240, 240, 240);
+        border: none;
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border-radius: 20px;
+    }
+
+    .msgWrite {
+        justify-content: space-between;
+        border-top: 1px solid rgb(221, 221, 221);
+        width: 100%;
+        display: flex;
+        background-color: rgb(255, 255, 255);
+        height: 8%;
+    }
+
+    .inputMsg {
+        border-radius: 20px;
+        width: 80%;
+        font-size: 70%;
+    }
+
+    .contentWrite {
+        justify-content: space-between;
+    }
+
+    .msgIcon {
+        width: 10%;
+    }
+
+}
+
+@media (max-width: 375px) {
+    .msgTitlePanel {
+        display: none;
+    }
+
+    .contentMsg {
+        display: none;
+        height: 100%;
+    }
+
+    .cardMensagem {
+        width: 100%;
+        padding: 0%;
+        height: 10%;
+    }
+
+    .cardMensagem.clicado {
+        display: none;
+    }
+
+    .pfpMsgContainer {
+        width: 12%;
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    .pfpMsgImg {
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .pfpMsg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .titleMsg {
+        font-size: 90%;
+        font-weight: 600;
+    }
+
+    .bodyMsg {
+        font-size: 75%;
+        width: 100%;
+    }
+
+    .containerMsg {
+        width: 88%;
+    }
+
+    .visivel {
+        display: flex;
+        width: 100%;
+    }
+
+    .panelMensagens {
+        height: 100%;
+    }
+
+    .contentMsg.visivel {
+        display: flex;
+        height: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .selectedMsg {
+        align-items: center;
+
+    }
+
+    .msgDisplay {
+        background-color: red;
+        height: 100%;
+    }
+
+    .invisivel {
+        display: none;
+    }
+
+    .sidePanelMensagens {
+        width: 100%;
+    }
+
+    .mensagensContainer {
+        height: 100%;
+    }
+
+    .textDisplay {
+        height: 100%;
+    }
+
+    .inputCampo {
+        font-size: 90%;
+        background-color: rgb(240, 240, 240);
+        border: none;
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border-radius: 20px;
+    }
+
+    .msgWrite {
+        justify-content: space-between;
+        border-top: 1px solid rgb(221, 221, 221);
+        width: 100%;
+        display: flex;
+        background-color: rgb(255, 255, 255);
+        height: 8%;
+    }
+
+    .inputMsg {
+        border-radius: 20px;
+        width: 80%;
+        font-size: 70%;
+    }
+
+    .contentWrite {
+        justify-content: space-between;
+    }
+
+    .msgIcon {
+        width: 10%;
+    }
+
+}
 
 /*Style dos pedidos*/
 .panelPedidos {
@@ -5405,7 +5963,6 @@ svg {
     flex-wrap: wrap;
     font-size: small;
     list-style: none;
-    align-items: center;
     width: 25%;
     padding: 0;
 }
@@ -5430,7 +5987,10 @@ svg {
 }
 
 .optPedidos a {
-    width: 10%;
+    display: flex;
+    justify-content: center;
+    width: 40%;
+    align-items: center;
     font-size: small;
     font-weight: 400;
     cursor: pointer;
@@ -5446,7 +6006,7 @@ svg {
     align-items: center;
     padding: 0.5%;
     display: flex;
-    width: 10%;
+    width: 25%;
 
 }
 
@@ -5512,6 +6072,109 @@ svg {
     padding: 3%;
     border-radius: 2px;
     display: inline;
+}
+
+/*media dos pedidos*/
+@media (max-width:950px) {
+    .infoProdutoPedido {
+        width: 65%;
+    }
+
+    .labelPedido {
+        flex-wrap: wrap;
+        margin: 0;
+        padding-left: 1%;
+        font-size: 60%;
+        display: flex;
+        list-style: none;
+        flex-direction: column;
+        align-content: center;
+        width: 50%;
+        gap: 0;
+
+        align-self: center;
+    }
+
+    .precoProdPedido {
+        font-size: 100%;
+    }
+
+    .labelPedido li {
+        padding: 0;
+        width: 100%;
+        font-weight: 500;
+    }
+
+    .optPedidos a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nomeVendPedido .texto-hover {
+        display: none;
+    }
+
+    .nomeVendPedido .texto-inicial {
+        display: none;
+    }
+
+    .nomeItemPedido {
+        font-size: 120%;
+        display: flex;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 80%;
+        white-space: nowrap;
+
+    }
+
+    .situacaoPedido {
+        gap: 4%;
+        height: fit-content;
+        font-size: 80%;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .statusPedido {
+        flex-wrap: wrap;
+        align-items: center;
+        width: 50%;
+        display: flex;
+        align-content: center;
+
+    }
+
+    .sttsPedido {
+        display: none;
+        font-size: 90%;
+        width: 100%;
+        height: fit-content;
+    }
+
+    .listAjuda {
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        font-size: 70%;
+        width: 100%;
+        list-style-type: none;
+        height: 100%;
+        flex-direction: row;
+    }
+
+    .listAjuda li {
+
+        align-items: center;
+        width: 100%;
+    }
+
+
 }
 
 /*fim style do pedido*/

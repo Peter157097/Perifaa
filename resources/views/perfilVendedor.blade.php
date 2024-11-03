@@ -24,7 +24,7 @@
 
 .banner {
     height: 200px; 
-    background-image: url('{{ asset('images/image-blusa.png') }}');
+    background-color: #5e3e24;
     background-size: cover; 
     background-position: center; 
     margin-bottom: 20px;

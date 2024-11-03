@@ -229,30 +229,29 @@
 
     @include('includes.nav')
 
-    <div class="tudoContato">
-        <div class="contact-form-wrapper">
-            <div class="contact-form">
-                <input type="text" placeholder="Seu nome aqui" class="contact-input">
+    <form action="{{ route('enviar.contato') }}" method="POST" class="contact-form-wrapper">
+    @csrf
+    <div class="contact-form">
+        <input type="text" name="nome" id="nome "placeholder="Seu nome aqui" class="contact-input" required>
 
-                <div class="contact-input-row">
-                    <div class="input-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" class="contact-input half-width">
-                    </div>
-                    <div class="input-group">
-                        <label for="phone">Número de telefone</label>
-                        <input type="tel" id="phone" class="contact-input half-width">
-                    </div>
-                </div>
-
-                <div class="input-row">
-                    <label for="message">Mensagem</label>
-                    <textarea id="message" class="contact-input"></textarea>
-                </div>
+        <div class="contact-input-row">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" class="contact-input half-width" required>
             </div>
-            <button type="submit" class="contact-submit-btn">Enviar</button>
+            <div class="input-group">
+                <label for="phone">Número de telefone</label>
+                <input type="tel" name="phone" id="phone" class="contact-input half-width" required>
+            </div>
         </div>
 
+        <div class="input-row">
+            <label for="message">Mensagem</label>
+            <textarea name="message" id="message'" class="contact-input" required></textarea>
+        </div>
+    </div>
+    <button type="submit" class="contact-submit-btn">Enviar</button>
+</form>
 
 
         <div class="p2Contato">

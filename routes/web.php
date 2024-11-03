@@ -11,6 +11,8 @@ use App\Http\Controllers\FavoritoController;
 use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\DenunciaController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\EmailController;
+use App\Http\Controllers\ContactController;
 use App\Models\Produto;
 use App\Models\Cliente;
 use App\Models\Denuncia;
@@ -184,9 +186,8 @@ Route::get('/produtos/search', [ProdutoController::class, 'search'])->name('prod
 
 Route::get('/dashboardVendedor', [VendedorController::class, 'index'])->name('dashboardVendedor');
 
-Route::get('/filtro-usuarios', function () {
-    return view('filtro-usuarios');
-})->name('filtro-usuarios');
+Route::match(['get', 'post'], '/filtro-usuarios', [UserController::class, 'mostrarTelaFiltro'])->name('mostrar.filtro');
+
 
 Route::post('/filtro-usuarios', [UserController::class, 'filtrarUsuarios'])->name('filtrar-usuarios');
 
@@ -236,4 +237,20 @@ Route::get('/pagamentos', function () {
     return view('pagamentos');
 }); 
 
+//rota email
+Route::get('/enviar-codigo-form', [EmailController::class, 'mostrarFormulario'])->name('enviar.codigo.form');
+Route::post('/enviar-codigo', [EmailController::class, 'enviarCodigo'])->name('enviar.codigo');
 
+Route::get('/verificar-codigo', [EmailController::class, 'mostrarVerificacao'])->name('verificar.codigo.form');
+Route::post('/verificar-codigo', [EmailController::class, 'verificarCodigo'])->name('verificar.codigo');
+
+Route::get('/sucesso', function () {
+    return view('sucesso');
+})->name('sucesso');
+Route::get('/atualizar-senha', [EmailController::class, 'mostrarFormularioAtualizarSenha'])->name('atualizar.senha.form');
+Route::post('/atualizar-senha', [EmailController::class, 'atualizarSenha']);
+
+
+Route::post('/filtrar-usuarios', [UserController::class, 'filtrarUsuarios'])->name('filtrar-usuarios');
+
+Route::post('/enviar-contato', [ContactController::class, 'enviarContato'])->name('enviar.contato');

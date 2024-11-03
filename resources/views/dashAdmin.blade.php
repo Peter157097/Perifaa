@@ -238,8 +238,8 @@
                                 </p>
                             </div>
                             <div class="btnDenunciaContainer">
-                                <button class="btnAcaoDetalhes">
-                                    <a>Ver anuncio</a>
+                            <button class="btnAcaoDetalhes">
+                                    <a href="/entrar-produto/{{$denuncia->produto->idProduto}}">Ver anuncio</a>
                                 </button>
                                 <button class="btnAcaoExcluir">
                                     <a>Excluir anuncio</a>

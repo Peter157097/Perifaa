@@ -24,7 +24,12 @@ class UserController extends Controller
                       ->get()
                   );
 
-    return view('filtro-usuarios', ['usuarios' => $usuarios, 'tipoSelecionado' => 'todos']);
+    // Retorna a view com todos os usuários
+    return view('filtro-usuarios', [
+        'usuarios' => $usuarios,
+        'tipoSelecionado' => 'todos', // Você pode mudar isso se necessário
+    
+    ]);
 }
 
 public function filtrarUsuarios(Request $request)
@@ -66,7 +71,39 @@ public function filtrarUsuarios(Request $request)
                       ->get();
     }
 
-    return view('filtro-usuarios', ['usuarios' => $usuarios, 'tipoSelecionado' => $tipo]);
+    return response()->json($usuarios);
 }
+
+public function pesquisarUsuarios(Request $request)
+{
+    $tipo = $request->input('tipo');
+    $nome = $request->input('nome');
+
+    $usuarios = [];
+
+    if ($tipo === 'todos') {
+        $usuarios = $this->carregarUsuarios()->filter(function($usuario) use ($nome) {
+            return str_contains(strtolower($usuario->nome), strtolower($nome));
+        })->values();
+    } elseif ($tipo === 'cliente') {
+        $usuarios = DB::table('tbCliente')
+                      ->where('nomeCliente', 'like', '%' . $nome . '%')
+                      ->select('nomeCliente as nome', 'emailCliente as email', 'imagemCliente as imagem', DB::raw('"cliente" as tipo'))
+                      ->get();
+    } elseif ($tipo === 'vendedor') {
+        $usuarios = DB::table('tbVendedor')
+                      ->where('nomeVendedor', 'like', '%' . $nome . '%')
+                      ->select('nomeVendedor as nome', 'emailVendedor as email', 'imagemVendedor as imagem', DB::raw('"vendedor" as tipo'))
+                      ->get();
+    } elseif ($tipo === 'administrador') {
+        $usuarios = DB::table('tbAdministrador')
+                      ->where('nomeAdministrador', 'like', '%' . $nome . '%')
+                      ->select('nomeAdministrador as nome', 'emailAdministrador as email', 'imagemAdministrador as imagem', DB::raw('"administrador" as tipo'))
+                      ->get();
+    }
+
+    return response()->json($usuarios);
+}
+
 
 }

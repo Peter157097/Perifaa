@@ -39,7 +39,7 @@
                     </div>
                     <div class="alvoConsultaContainer">
                         <div class="alvoConsulta">
-                            <form action="{{ route('filtrar-usuarios') }}" method="POST">
+                            <form action="{{ route('filtrar-usuarios') }}"  onchange="this.form.submit()" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <label for="tipo">Tipo de Usuário</label>
@@ -57,8 +57,6 @@
                                     <input type="text" name="nome" id="nome" class="form-control"
                                         value="{{ old('nome') }}" placeholder="Digite o nome do usuário">
                                 </div>
-
-                                <button type="submit" class="btn btn-primary mt-3">Buscar</button>
                             </form>
                         </div>
                     </div>
@@ -73,7 +71,7 @@
                                 <p class="labelInfoConsulta">Status</p>
                             </div>
                         </div>
-                        <div class="resultBuscaContainer">
+                        <div id="resultBuscaContainer" class="resultBuscaContainer">
                             @foreach($usuarios as $usuario)
                                 <div class="cardConsulta">
                                     <div class="pfpBuscaContainer">
@@ -101,6 +99,7 @@
             </div>
         </div>
     </div>
+    >
 
     <script>
         // Função para abrir/fechar o menu lateral
@@ -136,6 +135,52 @@
             });
         });
     </script>
+    <script>
+    // Função para realizar a busca dinâmica com AJAX
+    function realizarBuscaDinamica() {
+        const nome = document.getElementById('nome').value;
+        const tipo = document.getElementById('tipo').value;
+
+        fetch(`{{ route('filtrar-usuarios') }}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            body: JSON.stringify({ nome, tipo })
+        })
+        .then(response => response.json())
+        .then(data => {
+            const resultContainer = document.getElementById('resultBuscaContainer');
+            resultContainer.innerHTML = ''; // Limpa os resultados anteriores
+
+            if (data.length > 0) {
+                data.forEach(usuario => {
+                    resultContainer.innerHTML += `
+                        <div class="cardConsulta">
+                            <div class="pfpBuscaContainer">
+                                <div class="pfpBusca">
+                                    <img src="${usuario.imagem}" class="pfpConsulta">
+                                </div>
+                            </div>
+                            <div class="infoConsulta">
+                                <p class="itemInfoConsulta">${usuario.nome}</p>
+                                <p class="itemInfoConsulta">${usuario.email}</p>
+                                <p class="itemInfoConsulta">${usuario.tipo.charAt(0).toUpperCase() + usuario.tipo.slice(1)}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+            } else {
+                resultContainer.innerHTML = '<h5>Nenhum usuário encontrado para sua busca.</h5>';
+            }
+        });
+    }
+
+    // Adiciona o evento 'input' ao campo de nome e 'change' ao campo de tipo
+    document.getElementById('nome').addEventListener('input', realizarBuscaDinamica);
+    document.getElementById('tipo').addEventListener('change', realizarBuscaDinamica);
+</script>
 </body>
 
 </html>

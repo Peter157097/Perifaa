@@ -32,7 +32,7 @@
                     <img class="imgLogin" src="{{url('/images/user-icon.png')}}">
                 </a>
                 <div class="user-info">
-                    <span class="user-name">Peter Gomes</span>
+                    <span class="user-name">{{ session('nomeAdmin') }}</span>
                 </div>
                 <div class="icons">
                     <div class="input-container-mobile">

@@ -89,14 +89,13 @@ class AuthController extends Controller
                 } elseif (isset($usuario->idAdministrador)) { // Admin
                     Session::put('idAdmin', $usuario->idAdministrador);
                     Session::put('emailAdmin', $usuario->emailAdministrador);
-                    // Adicione outras informações do admin conforme necessário
-                    Session::put('is_admin', true);
+                    Session::put('nomeAdmin', $usuario->nomeAdministrador);
 
-                    $isAdmin = isset($usuario->idAdmin);
+                    $isAdmin = isset($usuario->idAdministrador);
+                    Session::put('is_admin', $isAdmin);
 
                     // Define a mensagem de alerta para o administrador
-                    Session::flash('loginAlert', 'Bem-vindo, Admin!');
-                    return redirect('/dashAdmin');
+                    return redirect('/dashAdmin',)->with('success', 'Bem vindo, Admin!');
                 }
 
             } else {

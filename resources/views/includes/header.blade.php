@@ -296,7 +296,7 @@
 
 
             <li class="drop-hover-perfil">
-                @if (session('is_vendedor') || session('is_Cliente'))
+                @if (session('is_vendedor') || session('is_Cliente') || session('is_admin'))
                     <button class="abrir-modal" data-modal="modal-1" disabled>
                         <i class="bi bi-person-circle"></i>
                     </button>
@@ -412,7 +412,7 @@
                         </div>
 
                         <div class="senha-opcoes">
-                            <a href="#" class="esqueci-senha abrir-modal" data-modal="modal-4">Esqueci minha senha</a>
+                            <a href="{{ url('/enviar-codigo-form') }}" class="esqueci-senha abrir-modal" data-modal="modal-4">Esqueci minha senha</a>
                         </div>
                         <div class="login-botao">
                             <button type='submit'>Entrar</button>

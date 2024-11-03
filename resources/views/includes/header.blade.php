@@ -8,7 +8,6 @@
     .linkHomeCarrinho {
         position: relative;
         z-index: 10;
-        /* Garanta que o link esteja no topo */
     }
 
     .modal-content {
@@ -77,6 +76,31 @@
         background-color: #5e3e24;
         box-shadow: none;
     }
+
+    .btn-primary{
+        background-color: #5e3e24;
+        border-color: #5e3e24;
+    }
+
+    .btn-primary:hover, 
+    .btn-primary:focus, 
+    .btn-primary:active, 
+    .btn-primary:focus:active,
+    .btn-primary:active:focus, 
+    .btn-primary:visited, 
+    .btn-primary:focus-visible {
+        background-color: #5e3e24 !important;
+        border-color: #5e3e24 !important;
+        color: #fff;
+        box-shadow: none !important; 
+        outline: none !important; 
+    }
+
+.btn-primary:active {
+    background-color: #5e3e24 !important;
+    border-color: #5e3e24 !important;
+    transition: none !important; 
+}
 </style>
 
 @if(session('is_vendedor'))
@@ -85,7 +109,7 @@
             .header2 {
                 display: flex;
                 justify-content: center;
-                /* Centraliza o conteúdo do cabeçalho */
+              
                 padding: 1.5rem;
                 background-color: #5e3e24;
             }
@@ -144,7 +168,6 @@
                         <button class="botao-pesquisa" data-toggle="modal" data-target="#modalSair">
                             <i class="fa-solid fa-magnifying-glass" id="pesquisa"></i>
                         </button>
-
                     </div>
 
                     <nav class="nav-mobile"><!--Começo da nav-->
@@ -153,7 +176,7 @@
                         <ul>
                             <li class="drop-hover"><a class="linkHomeCarrinho" href="{{ url('/produtos') }}">ROUPAS <i
                                         class="fa-solid fa-caret-right"></i></a>
-                                <div class="drop"> <!--Começo menu dropdown das roupas-->
+                                <div class="dropdown-menu"> <!--Começo menu dropdown das roupas-->
                                     <a href="#">Blazeres & Ternos</a>
                                     <a href="#">Blusas & Body</a>
                                     <a href="#">Calças & Leggings</a>
@@ -315,7 +338,7 @@
                                 <a href="{{ url('/favorites') }}"><i class="fa-solid fa-heart"></i>Favoritos</a>
                                 <a href="{{url('carrinho')}}"><i class="fa-solid fa-cart-shopping"></i>Carrinho</a>
                                 <a href="{{url('/centralAjuda')}}"><i class="fa-solid fa-circle-question"></i>Ajuda</a>
-                                <a href="{{ url('/logout') }}" id="link-perfil"><i
+                                <a href="{{ url('/logout') }}"  data-toggle="modal" data-target="#modalSair"><i
                                         class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a><!--o data-toggle e data-target fazem o modal abrir quando clica no link-->
                             </div> <!--Fim menu dropdown das roupas-->
 
@@ -332,7 +355,7 @@
                         <a href="{{ url('/favorites') }}"><i class="fa-solid fa-heart"></i>Favoritos</a>
                         <a href="{{url('carrinho')}}"><i class="fa-solid fa-cart-shopping"></i>Carrinho</a>
                         <a href="#"><i class="fa-solid fa-circle-question"></i>Ajuda</a>
-                        <a href="{{ url('/logout') }}" data-toggle="modal" data-target="#modalExemplo"><i
+                        <a href="{{ url('/logout') }}" data-toggle="modal" data-target="#modalSair"><i
                                 class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a><!--o data-toggle e data-target fazem o modal abrir quando clica no link-->
                     </div> <!--Fim menu dropdown das roupas-->
 
@@ -341,32 +364,28 @@
 
         <!-- Modal Sair -->
 
-        <div class="modal fade" id="modalSair" tabindex="-1" role="dialog" aria-labelledby="modalSairLabel"
-            aria-hidden="true">
+       <!-- Modal -->
 
-            <div class="modal fade" id="modalSair" tabindex="-1" role="dialog" aria-labelledby="modalSairLabel"
-                aria-hidden="true">
-
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h2 class="modal-title" id="modalSairLabel">Sair</h2>
-                        </div>
-                        <div class="modal-body">
-                            <h4>Deseja mesmo sair?</h4>
-                        </div>
-                        <div class="modal-footer">
-
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                                id="botao-modal-cancelar">Cancelar</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                                id="botao-modal-cancelar">Cancelar</button>
-
-                            <button type="button" class="btn btn-primary" id="botao-modal-sair">Sair</button>
-                        </div>
-                    </div>
-                </div>
+<div class="modal fade" id="modalSair" tabindex="-1" role="dialog" aria-labelledby="modalSairLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalSairLabel">Sair</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
+            <div class="modal-body">
+                Deseja mesmo sair?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <a href="{{ url('/logout') }}" class="btn btn-primary">Sair</a>
+            </div>
+        </div>
+    </div>
+</div>
+
             </li>
             <!--modal 1-->
             <dialog id="modal-1">

@@ -98,6 +98,11 @@ class ProdutoController extends Controller
     {
         $produtos = Produto::find($idProduto);
         $clientId = Session::get('id');
+        if (!$produtos) {
+            abort(404);
+        }
+
+        $vendedor = Vendedor::find($produtos->idVendedor);
 
         $carrinho = Carrinho::where('idProduto', $idProduto)
             ->where('idCliente', $clientId)
@@ -108,7 +113,7 @@ class ProdutoController extends Controller
             ->exists();
             
 
-        return view('entrar-produto', compact('produtos', 'favorited', 'carrinho'));
+        return view('entrar-produto', compact('produtos', 'favorited', 'carrinho','vendedor'));
     }
     
     

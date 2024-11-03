@@ -64,6 +64,7 @@ Route::post('/produtos', [DashboardController::class, 'store'])->name('produtos.
 Route::get('/produtos', [ProdutoController::class, 'index'])->name('produtos.index');
 Route::get('/entrar-produto/{idProduto}', [ProdutoController::class, 'show'])->name('show');
 
+
 Route::get('/editarPerfilVendedor', function () {
     $nomeVendedor = Session::get('nomeVendedor');
     $emailVendedor = Session::get('emailVendedor');
@@ -221,9 +222,9 @@ Route::get('/central-ajuda/entrar', [CentralAjudaController::class, 'entrar'])->
 //rota pro perfil do vendedor
 use App\Http\Controllers\PerfilVendedorController;
 
-Route::get('/perfilVendedor', function () {
-    return view('perfilVendedor'); // página principal
-});
+Route::get('/perfilVendedor/{idVendedor}', [PerfilVendedorController::class, 'show'])->name('show');
+
+
 
 Route::get('/perfilVendedor/vendas', [PerfilVendedorController::class, 'vendas'])->name('perfil.vendas');
 Route::get('/perfilVendedor/vendidos', [PerfilVendedorController::class, 'vendidos'])->name('perfil.vendidos');

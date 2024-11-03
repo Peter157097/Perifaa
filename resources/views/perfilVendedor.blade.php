@@ -173,12 +173,12 @@
             <div class="banner"></div> 
 
             <div class="profile-container">
-                <img class="profile-pic" src="{{ asset('images/card-brecho-two.png') }}" alt="Foto do Vendedor">
-                <h2 class="seller-name">Giselle</h2>
+                <img class="profile-pic" src="{{ asset($vendedor->imagemVendedor) }}" alt="Foto do Vlendedor">
+                <h2 class="seller-name">{{$vendedor->nomeVendedor}}</h2>
                 <div class="rating">
                     ⭐⭐⭐⭐⭐ <span>(8)</span>
                 </div>
-                <p class="location">São Bernardo do Campo, SP • Na perifa desde 2024</p>
+                <p class="location">{{$vendedor->bairroVendedor}}, {{$vendedor->estadoVendedor}} • Na perifa desde 2024</p>
                
             </div>
 
@@ -189,48 +189,43 @@
             </div>
 
 <div class="cards-body">
-                <div class="container-cards">  
-                    <a href="#">
-                        <div class="card-produto">
-                            <div class="image-display">
-                                <div class="btnAmeiContainer">
-                                    <i class="fa-solid fa-heart fa-lg botaoAmei" ></i>
-                                </div>
-                                <img class="img-card-produto" src="{{ asset('images/card-image-two.png') }}">
-                            </div>
-                            <div class="txt-info-produto-top">
-                            <p class="valor-produto">R$ 19</p>
-                            <div class="dataPubProduto">
-                                    <p>5d</p>
-                                </div>
-                                <div class="labelNomeProduto">
-                                    <p>nome tatal</p>
-                                </div>                                                
-                            </div>
-                            <div class="txt-info-produto-bottom">
-                                <div class="row-info">
-                                    <p class="info-produto">cor</p>
-                                    <p class="info-produto">
-                                       condicao
-                                    </p>
-                                </div>
-                                <div class="row-info">
-                                    <p class="info-produto">
-                                       categoria
-                                    </p>
-                                    <p class="info-produto">
-                                        Tam: x
-                                    </p>
-                                </div>
-                                <div class="row-info">
-                                    <p class="info-produto"><i
-                                            class="fa-solid fa-location-dot"></i> regiao
-                                    </p>
-                                </div>
+<div class="container-cards">
+    @foreach($produtos as $produto)
 
-                            </div>
-                        </div>
+            <div class="card-produto">
+                <div class="image-display">
+                    <div class="btnAmeiContainer">
+                        <i class="fa-solid fa-heart fa-lg botaoAmei"></i>
+                    </div>
+                    <img class="img-card-produto" src="{{ asset($produto->imagemProduto ? $produto->imagemProduto : 'images/card-image-two.png') }}">
+                </div>
+                <div class="txt-info-produto-top">
+                    <p class="valor-produto">R$ {{ number_format($produto->valorProduto, 2, ',', '.') }}</p>
+                    <div class="dataPubProduto">
+                        <p>{{ \Carbon\Carbon::parse($produto->created_at)->diffForHumans() }}</p>
+                    </div>
+                    <div class="labelNomeProduto">
+                        <p>{{ $produto->nomeProduto }}</p>
+                    </div>
+                </div>
+                <div class="txt-info-produto-bottom">
+                    <div class="row-info">
+                        <p class="info-produto">{{$produto->cor->nomeCor}}</p>
+                        <p class="info-produto">{{$produto->condicao->nomeCondicao}}</p>
+                    </div>
+                    <div class="row-info">
+                        <p class="info-produto">{{$produto->categoria->nomeCategoriaProduto}}</p>
+                        <p class="info-produto">Tam: {{$produto->tamanho->nomeTamanho}}</p>
+                    </div>
+                    <div class="row-info">
+                        <p class="info-produto"><i class="fa-solid fa-location-dot"></i> {{$produto->regiao->nomeRegiao}}</p>
+                    </div>
+                </div>
             </div>
+        
+    @endforeach
+</div>
+
         </div>
     </div>
 </body>

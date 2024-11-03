@@ -370,18 +370,19 @@ section {
 
   <div class="profile-container">
   <div class="profile-info">
-    <img src="{{ asset('images/card-brecho-two.png') }}" alt="Foto do usuário" class="profile-photo">
+    <img src="{{ url('$vendedor->imagemVendedor') }}" alt="Foto do usuário" class="profile-photo">
   
     <div class="profile-details">
-      <h4 class="profile-name">Giselle</h4>
-      <p class="profile-location">Cidade, Estado</p>
-      <div class="profile-rating">
+    <h4 class="profile-name">{{ $vendedor->nomeVendedor }}</h4>
+    <p class="profile-location">{{ $vendedor->localizacao }}</p>
+    <div class="profile-rating">
         <span class="stars">★★★★★</span>
-        <span class="reviews">(53 avaliações)</span>
-      </div>
-      <br>
-    <a class="follow-btn" href="/perfilVendedor">Ver perfil</a>
+        <span class="reviews">({{ $vendedor->avaliacoes_count }} avaliações)</span>
     </div>
+    <br>
+    <a  href="/perfilVendedor,{{ $vendedor->id }}">Ver perfil</a>
+    <a class="follow-btn" href="{{ url('/perfilVendedor', $vendedor->idVendedor)}}">Ver PErfil</a>
+</div>
   </div>
   <div class="profile-stats">
     <div class="stat-item">

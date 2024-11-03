@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 01-Out-2024 às 06:13
--- Versão do servidor: 10.4.32-MariaDB
--- versão do PHP: 8.2.12
+-- Tempo de geração: 04/11/2024 às 00:20
+-- Versão do servidor: 10.4.28-MariaDB
+-- Versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,141 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbadministrador`
+-- Estrutura para tabela `mensagens`
+--
+
+CREATE TABLE `mensagens` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `idCliente` int(11) NOT NULL,
+  `idVendedor` int(11) NOT NULL,
+  `mensagem` text NOT NULL,
+  `enviado_por_cliente` tinyint(1) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `mensagens`
+--
+
+INSERT INTO `mensagens` (`id`, `idCliente`, `idVendedor`, `mensagem`, `enviado_por_cliente`, `created_at`, `updated_at`) VALUES
+(1, 2, 4, 'a', 1, '2024-10-28 02:30:16', '2024-10-28 02:30:16'),
+(2, 2, 4, 'asdasd', 1, '2024-10-28 02:30:24', '2024-10-28 02:30:24'),
+(3, 2, 4, 'ads', 0, '2024-10-28 02:31:27', '2024-10-28 02:31:27'),
+(4, 2, 4, 'asdasdasd', 0, '2024-10-28 02:31:31', '2024-10-28 02:31:31'),
+(5, 2, 4, 'asdasd', 0, '2024-10-28 02:31:33', '2024-10-28 02:31:33'),
+(6, 2, 4, 'asdasda', 0, '2024-10-28 02:31:34', '2024-10-28 02:31:34'),
+(7, 24, 4, 'asd', 1, '2024-10-28 02:33:40', '2024-10-28 02:33:40'),
+(9, 24, 4, 'droga', 0, '2024-10-28 02:38:15', '2024-10-28 02:38:15'),
+(10, 24, 4, 'a', 0, '2024-10-28 02:43:40', '2024-10-28 02:43:40'),
+(11, 24, 4, 'opa', 0, '2024-10-28 02:44:02', '2024-10-28 02:44:02'),
+(12, 24, 4, 'eae ', 1, '2024-10-28 02:44:13', '2024-10-28 02:44:13'),
+(13, 24, 4, 'as', 1, '2024-10-28 02:47:35', '2024-10-28 02:47:35'),
+(14, 24, 4, 'eae', 1, '2024-10-28 02:48:39', '2024-10-28 02:48:39'),
+(15, 24, 4, 'slv cachorro magro', 0, '2024-10-28 02:49:08', '2024-10-28 02:49:08'),
+(16, 24, 0, 'aas', 1, '2024-11-02 03:49:25', '2024-11-02 03:49:25'),
+(17, 24, 0, 'eae', 1, '2024-11-02 03:49:42', '2024-11-02 03:49:42'),
+(18, 0, 0, 'asd', 0, '2024-11-02 03:49:50', '2024-11-02 03:49:50'),
+(19, 24, 4, 'eae', 1, '2024-11-02 03:55:01', '2024-11-02 03:55:01'),
+(20, 24, 4, 'slv d', 0, '2024-11-02 03:57:49', '2024-11-02 03:57:49'),
+(21, 24, 4, 'só na paz de cristo?', 1, '2024-11-02 03:57:58', '2024-11-02 03:57:58'),
+(22, 24, 4, 'logico', 0, '2024-11-02 03:58:03', '2024-11-02 03:58:03'),
+(23, 24, 4, 'oii', 1, '2024-11-02 04:00:25', '2024-11-02 04:00:25'),
+(24, 24, 3, 'slv', 1, '2024-11-02 04:00:40', '2024-11-02 04:00:40'),
+(25, 24, 4, 'aa', 1, '2024-11-02 04:21:32', '2024-11-02 04:21:32'),
+(26, 24, 4, 'caramba que chav', 1, '2024-11-02 04:24:15', '2024-11-02 04:24:15'),
+(27, 24, 3, 'eae', 1, '2024-11-02 04:24:38', '2024-11-02 04:24:38'),
+(28, 24, 4, 'a', 0, '2024-11-02 17:21:02', '2024-11-02 17:21:02'),
+(29, 24, 4, 'opa', 0, '2024-11-02 17:21:07', '2024-11-02 17:21:07'),
+(30, 2, 4, 'a', 0, '2024-11-02 17:35:26', '2024-11-02 17:35:26'),
+(31, 24, 3, 'ata', 1, '2024-11-02 17:38:13', '2024-11-02 17:38:13'),
+(32, 24, 4, 'eae', 0, '2024-11-02 17:39:34', '2024-11-02 17:39:34'),
+(33, 24, 4, 'só salve', 1, '2024-11-02 17:39:50', '2024-11-02 17:39:50'),
+(34, 24, 4, 'tem que ser dinamica', 1, '2024-11-02 17:40:07', '2024-11-02 17:40:07'),
+(35, 24, 4, 'sav', 0, '2024-11-02 17:43:03', '2024-11-02 17:43:03'),
+(36, 24, 4, 'a', 0, '2024-11-02 18:01:35', '2024-11-02 18:01:35'),
+(37, 24, 4, 'ae', 1, '2024-11-02 18:02:23', '2024-11-02 18:02:23'),
+(38, 24, 4, 'aaaa', 0, '2024-11-02 18:02:30', '2024-11-02 18:02:30'),
+(39, 24, 4, 'slv', 0, '2024-11-02 18:02:34', '2024-11-02 18:02:34'),
+(40, 24, 4, 'a', 1, '2024-11-02 18:02:38', '2024-11-02 18:02:38'),
+(41, 24, 4, 'asd', 0, '2024-11-02 18:03:14', '2024-11-02 18:03:14'),
+(42, 24, 4, 'eae', 1, '2024-11-02 18:05:18', '2024-11-02 18:05:18'),
+(43, 24, 4, 'eae', 0, '2024-11-02 18:05:25', '2024-11-02 18:05:25'),
+(44, 24, 4, 'salve', 0, '2024-11-02 18:12:00', '2024-11-02 18:12:00'),
+(45, 24, 4, 'a', 0, '2024-11-02 18:12:07', '2024-11-02 18:12:07'),
+(46, 24, 4, 'slk cz', 1, '2024-11-02 18:13:15', '2024-11-02 18:13:15'),
+(47, 24, 4, 'a', 0, '2024-11-02 18:15:38', '2024-11-02 18:15:38'),
+(48, 24, 4, 'agora sim', 1, '2024-11-02 18:17:57', '2024-11-02 18:17:57'),
+(49, 24, 4, 'aa', 0, '2024-11-02 18:25:30', '2024-11-02 18:25:30'),
+(50, 24, 4, 'teste eniar mensagem teste', 1, '2024-11-02 18:29:13', '2024-11-02 18:29:13'),
+(51, 24, 4, 'sale d to vendo bda 8', 1, '2024-11-02 18:36:10', '2024-11-02 18:36:10'),
+(52, 24, 4, 'sla ', 1, '2024-11-02 18:37:23', '2024-11-02 18:37:23'),
+(53, 24, 4, 'eae', 1, '2024-11-02 18:55:24', '2024-11-02 18:55:24'),
+(54, 24, 3, 'asdsasaasda', 1, '2024-11-02 18:56:05', '2024-11-02 18:56:05'),
+(55, 24, 3, 'ox', 1, '2024-11-02 18:56:14', '2024-11-02 18:56:14'),
+(56, 24, 4, 'azideia', 1, '2024-11-02 18:56:21', '2024-11-02 18:56:21'),
+(57, 24, 4, 'a n prc', 0, '2024-11-02 18:56:38', '2024-11-02 18:56:38'),
+(58, 24, 3, 'eae', 1, '2024-11-03 01:03:34', '2024-11-03 01:03:34'),
+(59, 24, 3, 'iae coiote', 1, '2024-11-03 01:03:44', '2024-11-03 01:03:44'),
+(60, 24, 3, 'aeae', 1, '2024-11-03 01:06:26', '2024-11-03 01:06:26'),
+(61, 24, 3, 'sae', 1, '2024-11-03 01:07:54', '2024-11-03 01:07:54'),
+(62, 24, 3, 'asdwasdwadadadadadadd', 1, '2024-11-03 01:07:57', '2024-11-03 01:07:57'),
+(63, 24, 3, 'AE porra', 1, '2024-11-03 01:08:00', '2024-11-03 01:08:00'),
+(64, 24, 3, 'iae ', 1, '2024-11-03 01:08:23', '2024-11-03 01:08:23'),
+(65, 24, 3, 's', 1, '2024-11-03 01:08:25', '2024-11-03 01:08:25'),
+(66, 24, 3, 'sadwasd', 1, '2024-11-03 01:08:27', '2024-11-03 01:08:27'),
+(67, 24, 3, 'eae', 1, '2024-11-03 01:11:44', '2024-11-03 01:11:44'),
+(68, 24, 3, 'adasdsadad', 1, '2024-11-03 01:11:47', '2024-11-03 01:11:47'),
+(69, 24, 3, 'slv dog', 1, '2024-11-03 01:11:56', '2024-11-03 01:11:56'),
+(70, 24, 4, 'arlindo na voz', 1, '2024-11-03 01:12:08', '2024-11-03 01:12:08'),
+(71, 24, 4, 'chav', 0, '2024-11-03 01:12:52', '2024-11-03 01:12:52'),
+(72, 24, 4, 'chav', 1, '2024-11-03 01:13:03', '2024-11-03 01:13:03'),
+(73, 2, 4, 'esse aí tem q logar', 0, '2024-11-03 01:13:21', '2024-11-03 01:13:21'),
+(74, 2, 4, 'mo trampo', 0, '2024-11-03 01:13:30', '2024-11-03 01:13:30'),
+(75, 24, 4, 'qual', 1, '2024-11-03 01:13:42', '2024-11-03 01:13:42'),
+(76, 24, 4, 'esse peter aí', 0, '2024-11-03 01:13:56', '2024-11-03 01:13:56'),
+(77, 24, 4, 'ata ', 1, '2024-11-03 01:14:06', '2024-11-03 01:14:06'),
+(78, 24, 3, 'sda', 1, '2024-11-03 01:17:09', '2024-11-03 01:17:09'),
+(79, 24, 4, 'oiiiiii', 0, '2024-11-03 03:09:07', '2024-11-03 03:09:07'),
+(80, 2, 4, 'oi', 0, '2024-11-03 03:10:59', '2024-11-03 03:10:59'),
+(81, 24, 4, 'oieeeeeee', 1, '2024-11-03 03:11:30', '2024-11-03 03:11:30'),
+(82, 24, 4, 'kkkkk e nois cachorro', 0, '2024-11-03 03:11:46', '2024-11-03 03:11:46'),
+(83, 2, 4, 'salve dawg', 0, '2024-11-03 03:13:37', '2024-11-03 03:13:37'),
+(84, 24, 3, 'oi', 1, '2024-11-03 03:20:14', '2024-11-03 03:20:14'),
+(85, 24, 4, 'oi', 1, '2024-11-03 03:20:22', '2024-11-03 03:20:22'),
+(86, 24, 4, 'asdasdasd', 1, '2024-11-03 03:20:27', '2024-11-03 03:20:27'),
+(87, 24, 3, 'asdasd', 1, '2024-11-03 03:20:31', '2024-11-03 03:20:31'),
+(88, 24, 4, 'eae', 0, '2024-11-03 03:20:40', '2024-11-03 03:20:40'),
+(89, 2, 4, 'eae', 0, '2024-11-03 03:22:05', '2024-11-03 03:22:05'),
+(90, 24, 4, 'oies', 0, '2024-11-03 03:36:08', '2024-11-03 03:36:08'),
+(91, 24, 4, 'asd', 0, '2024-11-03 03:36:11', '2024-11-03 03:36:11'),
+(92, 24, 4, 'asd', 0, '2024-11-03 03:36:13', '2024-11-03 03:36:13'),
+(93, 24, 4, 'ww', 0, '2024-11-03 03:36:16', '2024-11-03 03:36:16'),
+(94, 24, 4, 'tlg ne ', 0, '2024-11-03 03:36:21', '2024-11-03 03:36:21'),
+(95, 24, 4, 'anan', 0, '2024-11-03 03:36:26', '2024-11-03 03:36:26'),
+(96, 24, 4, 'asd', 0, '2024-11-03 04:06:46', '2024-11-03 04:06:46'),
+(97, 24, 4, 'awdsa', 0, '2024-11-03 04:06:49', '2024-11-03 04:06:49'),
+(98, 24, 4, 'asd', 0, '2024-11-03 04:20:50', '2024-11-03 04:20:50'),
+(99, 2, 4, 'asd', 0, '2024-11-03 04:21:35', '2024-11-03 04:21:35'),
+(101, 2, 4, 'tses', 0, '2024-11-03 04:23:19', '2024-11-03 04:23:19'),
+(102, 2, 4, 'asd', 0, '2024-11-03 04:23:46', '2024-11-03 04:23:46'),
+(103, 24, 4, 'asd', 0, '2024-11-03 04:31:26', '2024-11-03 04:31:26'),
+(104, 24, 3, 'iae', 1, '2024-11-03 04:39:50', '2024-11-03 04:39:50'),
+(105, 24, 4, 'poi', 1, '2024-11-03 04:40:03', '2024-11-03 04:40:03'),
+(106, 24, 3, 'lk', 1, '2024-11-03 11:57:38', '2024-11-03 11:57:38'),
+(107, 24, 3, 'eae pae suave?', 1, '2024-11-03 23:14:10', '2024-11-03 23:14:10'),
+(108, 24, 4, 'eae pae suave?', 1, '2024-11-03 23:15:03', '2024-11-03 23:15:03'),
+(109, 24, 4, 'slv', 0, '2024-11-03 23:15:29', '2024-11-03 23:15:29'),
+(110, 24, 3, 'eae', 1, '2024-11-03 23:16:27', '2024-11-03 23:16:27'),
+(111, 24, 3, 'eae', 1, '2024-11-03 23:17:51', '2024-11-03 23:17:51'),
+(112, 24, 4, 'aa', 0, '2024-11-03 23:18:21', '2024-11-03 23:18:21'),
+(113, 24, 4, 'vendedor', 1, '2024-11-03 23:19:20', '2024-11-03 23:19:20'),
+(114, 24, 4, 'da hora', 1, '2024-11-03 23:19:37', '2024-11-03 23:19:37');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `tbadministrador`
 --
 
 CREATE TABLE `tbadministrador` (
@@ -36,7 +170,7 @@ CREATE TABLE `tbadministrador` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tbadministrador`
+-- Despejando dados para a tabela `tbadministrador`
 --
 
 INSERT INTO `tbadministrador` (`idAdministrador`, `nomeAdministrador`, `emailAdministrador`, `senhaAdministrador`, `imagemAdministrador`) VALUES
@@ -45,7 +179,7 @@ INSERT INTO `tbadministrador` (`idAdministrador`, `nomeAdministrador`, `emailAdm
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbcarrinho`
+-- Estrutura para tabela `tbcarrinho`
 --
 
 CREATE TABLE `tbcarrinho` (
@@ -55,17 +189,18 @@ CREATE TABLE `tbcarrinho` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tbcarrinho`
+-- Despejando dados para a tabela `tbcarrinho`
 --
 
 INSERT INTO `tbcarrinho` (`idCarrinho`, `idProduto`, `idCliente`) VALUES
 (1, 2, 13),
-(2, 10, 15);
+(2, 10, 15),
+(3, 4, 24);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbcategoriaproduto`
+-- Estrutura para tabela `tbcategoriaproduto`
 --
 
 CREATE TABLE `tbcategoriaproduto` (
@@ -74,7 +209,7 @@ CREATE TABLE `tbcategoriaproduto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tbcategoriaproduto`
+-- Despejando dados para a tabela `tbcategoriaproduto`
 --
 
 INSERT INTO `tbcategoriaproduto` (`idCategoriaProduto`, `nomeCategoriaProduto`) VALUES
@@ -92,7 +227,7 @@ INSERT INTO `tbcategoriaproduto` (`idCategoriaProduto`, `nomeCategoriaProduto`) 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbcliente`
+-- Estrutura para tabela `tbcliente`
 --
 
 CREATE TABLE `tbcliente` (
@@ -114,7 +249,7 @@ CREATE TABLE `tbcliente` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tbcliente`
+-- Despejando dados para a tabela `tbcliente`
 --
 
 INSERT INTO `tbcliente` (`idCliente`, `nomeCliente`, `cpfCliente`, `emailCliente`, `senhaCliente`, `logradouroCliente`, `numeroCliente`, `complementoCliente`, `bairroCliente`, `cepCliente`, `cidadeCliente`, `estadoCliente`, `imagemCliente`, `numCasaCliente`, `preferencia`) VALUES
@@ -154,7 +289,7 @@ INSERT INTO `tbcliente` (`idCliente`, `nomeCliente`, `cpfCliente`, `emailCliente
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbcondicao`
+-- Estrutura para tabela `tbcondicao`
 --
 
 CREATE TABLE `tbcondicao` (
@@ -163,7 +298,7 @@ CREATE TABLE `tbcondicao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tbcondicao`
+-- Despejando dados para a tabela `tbcondicao`
 --
 
 INSERT INTO `tbcondicao` (`idCondicao`, `nomeCondicao`) VALUES
@@ -175,7 +310,7 @@ INSERT INTO `tbcondicao` (`idCondicao`, `nomeCondicao`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbcontato`
+-- Estrutura para tabela `tbcontato`
 --
 
 CREATE TABLE `tbcontato` (
@@ -189,7 +324,7 @@ CREATE TABLE `tbcontato` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbcor`
+-- Estrutura para tabela `tbcor`
 --
 
 CREATE TABLE `tbcor` (
@@ -199,7 +334,7 @@ CREATE TABLE `tbcor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tbcor`
+-- Despejando dados para a tabela `tbcor`
 --
 
 INSERT INTO `tbcor` (`idCor`, `nomeCor`, `rgbCor`) VALUES
@@ -216,7 +351,7 @@ INSERT INTO `tbcor` (`idCor`, `nomeCor`, `rgbCor`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbcupom`
+-- Estrutura para tabela `tbcupom`
 --
 
 CREATE TABLE `tbcupom` (
@@ -228,7 +363,7 @@ CREATE TABLE `tbcupom` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbdenuncia`
+-- Estrutura para tabela `tbdenuncia`
 --
 
 CREATE TABLE `tbdenuncia` (
@@ -241,7 +376,7 @@ CREATE TABLE `tbdenuncia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tbdenuncia`
+-- Despejando dados para a tabela `tbdenuncia`
 --
 
 INSERT INTO `tbdenuncia` (`idDenuncia`, `tipoDenuncia`, `descDenuncia`, `dataDenuncia`, `idProduto`, `idCliente`) VALUES
@@ -250,7 +385,7 @@ INSERT INTO `tbdenuncia` (`idDenuncia`, `tipoDenuncia`, `descDenuncia`, `dataDen
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbdevolucoes`
+-- Estrutura para tabela `tbdevolucoes`
 --
 
 CREATE TABLE `tbdevolucoes` (
@@ -267,7 +402,7 @@ CREATE TABLE `tbdevolucoes` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbfavorito`
+-- Estrutura para tabela `tbfavorito`
 --
 
 CREATE TABLE `tbfavorito` (
@@ -277,7 +412,7 @@ CREATE TABLE `tbfavorito` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tbfavorito`
+-- Despejando dados para a tabela `tbfavorito`
 --
 
 INSERT INTO `tbfavorito` (`idFavorito`, `idCliente`, `idProduto`) VALUES
@@ -291,7 +426,7 @@ INSERT INTO `tbfavorito` (`idFavorito`, `idCliente`, `idProduto`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbgenero`
+-- Estrutura para tabela `tbgenero`
 --
 
 CREATE TABLE `tbgenero` (
@@ -300,7 +435,7 @@ CREATE TABLE `tbgenero` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tbgenero`
+-- Despejando dados para a tabela `tbgenero`
 --
 
 INSERT INTO `tbgenero` (`idGenero`, `nomeGenero`) VALUES
@@ -310,7 +445,7 @@ INSERT INTO `tbgenero` (`idGenero`, `nomeGenero`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbhistoricopedido`
+-- Estrutura para tabela `tbhistoricopedido`
 --
 
 CREATE TABLE `tbhistoricopedido` (
@@ -324,7 +459,7 @@ CREATE TABLE `tbhistoricopedido` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbitensvenda`
+-- Estrutura para tabela `tbitensvenda`
 --
 
 CREATE TABLE `tbitensvenda` (
@@ -337,7 +472,7 @@ CREATE TABLE `tbitensvenda` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbnotificacao`
+-- Estrutura para tabela `tbnotificacao`
 --
 
 CREATE TABLE `tbnotificacao` (
@@ -351,7 +486,7 @@ CREATE TABLE `tbnotificacao` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbpagamento`
+-- Estrutura para tabela `tbpagamento`
 --
 
 CREATE TABLE `tbpagamento` (
@@ -365,7 +500,7 @@ CREATE TABLE `tbpagamento` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbproduto`
+-- Estrutura para tabela `tbproduto`
 --
 
 CREATE TABLE `tbproduto` (
@@ -388,7 +523,7 @@ CREATE TABLE `tbproduto` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tbproduto`
+-- Despejando dados para a tabela `tbproduto`
 --
 
 INSERT INTO `tbproduto` (`idProduto`, `nomeProduto`, `idTamanho`, `valorProduto`, `descricaoProduto`, `idCor`, `idCondicao`, `idCategoriaProduto`, `idGenero`, `idRegiao`, `imagemProduto`, `imagemProduto2`, `imagemProduto3`, `imagemProduto4`, `imagemProduto5`, `idVendedor`) VALUES
@@ -400,7 +535,7 @@ INSERT INTO `tbproduto` (`idProduto`, `nomeProduto`, `idTamanho`, `valorProduto`
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbregiao`
+-- Estrutura para tabela `tbregiao`
 --
 
 CREATE TABLE `tbregiao` (
@@ -409,7 +544,7 @@ CREATE TABLE `tbregiao` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tbregiao`
+-- Despejando dados para a tabela `tbregiao`
 --
 
 INSERT INTO `tbregiao` (`idRegiao`, `nomeRegiao`) VALUES
@@ -471,7 +606,7 @@ INSERT INTO `tbregiao` (`idRegiao`, `nomeRegiao`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbtamanho`
+-- Estrutura para tabela `tbtamanho`
 --
 
 CREATE TABLE `tbtamanho` (
@@ -480,7 +615,7 @@ CREATE TABLE `tbtamanho` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tbtamanho`
+-- Despejando dados para a tabela `tbtamanho`
 --
 
 INSERT INTO `tbtamanho` (`idTamanho`, `nomeTamanho`) VALUES
@@ -535,7 +670,7 @@ INSERT INTO `tbtamanho` (`idTamanho`, `nomeTamanho`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbtelefonecliente`
+-- Estrutura para tabela `tbtelefonecliente`
 --
 
 CREATE TABLE `tbtelefonecliente` (
@@ -547,7 +682,7 @@ CREATE TABLE `tbtelefonecliente` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbtelefonevendedor`
+-- Estrutura para tabela `tbtelefonevendedor`
 --
 
 CREATE TABLE `tbtelefonevendedor` (
@@ -559,7 +694,7 @@ CREATE TABLE `tbtelefonevendedor` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbvenda`
+-- Estrutura para tabela `tbvenda`
 --
 
 CREATE TABLE `tbvenda` (
@@ -576,7 +711,7 @@ CREATE TABLE `tbvenda` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `tbvendedor`
+-- Estrutura para tabela `tbvendedor`
 --
 
 CREATE TABLE `tbvendedor` (
@@ -597,7 +732,7 @@ CREATE TABLE `tbvendedor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Extraindo dados da tabela `tbvendedor`
+-- Despejando dados para a tabela `tbvendedor`
 --
 
 INSERT INTO `tbvendedor` (`idVendedor`, `nomeVendedor`, `emailVendedor`, `senhaVendedor`, `cpfVendedor`, `numeroVendedor`, `cepVendedor`, `logradouroVendedor`, `bairroVendedor`, `cidadeVendedor`, `estadoVendedor`, `complementoVendedor`, `imagemVendedor`, `numCasaVendedor`) VALUES
@@ -611,13 +746,19 @@ INSERT INTO `tbvendedor` (`idVendedor`, `nomeVendedor`, `emailVendedor`, `senhaV
 --
 
 --
--- Índices para tabela `tbadministrador`
+-- Índices de tabela `mensagens`
+--
+ALTER TABLE `mensagens`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices de tabela `tbadministrador`
 --
 ALTER TABLE `tbadministrador`
   ADD PRIMARY KEY (`idAdministrador`);
 
 --
--- Índices para tabela `tbcarrinho`
+-- Índices de tabela `tbcarrinho`
 --
 ALTER TABLE `tbcarrinho`
   ADD PRIMARY KEY (`idCarrinho`),
@@ -625,44 +766,44 @@ ALTER TABLE `tbcarrinho`
   ADD KEY `idCliente` (`idCliente`);
 
 --
--- Índices para tabela `tbcategoriaproduto`
+-- Índices de tabela `tbcategoriaproduto`
 --
 ALTER TABLE `tbcategoriaproduto`
   ADD PRIMARY KEY (`idCategoriaProduto`);
 
 --
--- Índices para tabela `tbcliente`
+-- Índices de tabela `tbcliente`
 --
 ALTER TABLE `tbcliente`
   ADD PRIMARY KEY (`idCliente`);
 
 --
--- Índices para tabela `tbcondicao`
+-- Índices de tabela `tbcondicao`
 --
 ALTER TABLE `tbcondicao`
   ADD PRIMARY KEY (`idCondicao`);
 
 --
--- Índices para tabela `tbcontato`
+-- Índices de tabela `tbcontato`
 --
 ALTER TABLE `tbcontato`
   ADD PRIMARY KEY (`idContato`),
   ADD KEY `idCliente` (`idCliente`);
 
 --
--- Índices para tabela `tbcor`
+-- Índices de tabela `tbcor`
 --
 ALTER TABLE `tbcor`
   ADD PRIMARY KEY (`idCor`);
 
 --
--- Índices para tabela `tbcupom`
+-- Índices de tabela `tbcupom`
 --
 ALTER TABLE `tbcupom`
   ADD PRIMARY KEY (`idCupom`);
 
 --
--- Índices para tabela `tbdenuncia`
+-- Índices de tabela `tbdenuncia`
 --
 ALTER TABLE `tbdenuncia`
   ADD PRIMARY KEY (`idDenuncia`),
@@ -670,7 +811,7 @@ ALTER TABLE `tbdenuncia`
   ADD KEY `idCliente` (`idCliente`);
 
 --
--- Índices para tabela `tbdevolucoes`
+-- Índices de tabela `tbdevolucoes`
 --
 ALTER TABLE `tbdevolucoes`
   ADD PRIMARY KEY (`idDevolucao`),
@@ -678,7 +819,7 @@ ALTER TABLE `tbdevolucoes`
   ADD KEY `fk_idProduto` (`idProduto`);
 
 --
--- Índices para tabela `tbfavorito`
+-- Índices de tabela `tbfavorito`
 --
 ALTER TABLE `tbfavorito`
   ADD PRIMARY KEY (`idFavorito`),
@@ -686,38 +827,38 @@ ALTER TABLE `tbfavorito`
   ADD KEY `fk_idProduto_UNIQUE` (`idProduto`);
 
 --
--- Índices para tabela `tbgenero`
+-- Índices de tabela `tbgenero`
 --
 ALTER TABLE `tbgenero`
   ADD PRIMARY KEY (`idGenero`);
 
 --
--- Índices para tabela `tbhistoricopedido`
+-- Índices de tabela `tbhistoricopedido`
 --
 ALTER TABLE `tbhistoricopedido`
   ADD PRIMARY KEY (`idHistoricoPedido`),
   ADD KEY `fk_idVenda` (`idVenda`);
 
 --
--- Índices para tabela `tbitensvenda`
+-- Índices de tabela `tbitensvenda`
 --
 ALTER TABLE `tbitensvenda`
   ADD PRIMARY KEY (`idItensVenda`);
 
 --
--- Índices para tabela `tbnotificacao`
+-- Índices de tabela `tbnotificacao`
 --
 ALTER TABLE `tbnotificacao`
   ADD PRIMARY KEY (`idNotificacao`);
 
 --
--- Índices para tabela `tbpagamento`
+-- Índices de tabela `tbpagamento`
 --
 ALTER TABLE `tbpagamento`
   ADD PRIMARY KEY (`idPagamento`);
 
 --
--- Índices para tabela `tbproduto`
+-- Índices de tabela `tbproduto`
 --
 ALTER TABLE `tbproduto`
   ADD PRIMARY KEY (`idProduto`),
@@ -728,31 +869,31 @@ ALTER TABLE `tbproduto`
   ADD KEY `idRegiao` (`idRegiao`);
 
 --
--- Índices para tabela `tbregiao`
+-- Índices de tabela `tbregiao`
 --
 ALTER TABLE `tbregiao`
   ADD PRIMARY KEY (`idRegiao`);
 
 --
--- Índices para tabela `tbtamanho`
+-- Índices de tabela `tbtamanho`
 --
 ALTER TABLE `tbtamanho`
   ADD PRIMARY KEY (`idTamanho`);
 
 --
--- Índices para tabela `tbtelefonecliente`
+-- Índices de tabela `tbtelefonecliente`
 --
 ALTER TABLE `tbtelefonecliente`
   ADD PRIMARY KEY (`idTelCliente`);
 
 --
--- Índices para tabela `tbtelefonevendedor`
+-- Índices de tabela `tbtelefonevendedor`
 --
 ALTER TABLE `tbtelefonevendedor`
   ADD PRIMARY KEY (`idTelVendedor`);
 
 --
--- Índices para tabela `tbvenda`
+-- Índices de tabela `tbvenda`
 --
 ALTER TABLE `tbvenda`
   ADD PRIMARY KEY (`idVenda`),
@@ -760,14 +901,20 @@ ALTER TABLE `tbvenda`
   ADD KEY `idVendedor` (`idVendedor`);
 
 --
--- Índices para tabela `tbvendedor`
+-- Índices de tabela `tbvendedor`
 --
 ALTER TABLE `tbvendedor`
   ADD PRIMARY KEY (`idVendedor`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT para tabelas despejadas
 --
+
+--
+-- AUTO_INCREMENT de tabela `mensagens`
+--
+ALTER TABLE `mensagens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 
 --
 -- AUTO_INCREMENT de tabela `tbadministrador`
@@ -779,7 +926,7 @@ ALTER TABLE `tbadministrador`
 -- AUTO_INCREMENT de tabela `tbcarrinho`
 --
 ALTER TABLE `tbcarrinho`
-  MODIFY `idCarrinho` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idCarrinho` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `tbcategoriaproduto`
@@ -833,7 +980,7 @@ ALTER TABLE `tbdevolucoes`
 -- AUTO_INCREMENT de tabela `tbfavorito`
 --
 ALTER TABLE `tbfavorito`
-  MODIFY `idFavorito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idFavorito` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `tbgenero`
@@ -908,38 +1055,38 @@ ALTER TABLE `tbvendedor`
   MODIFY `idVendedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Restrições para despejos de tabelas
+-- Restrições para tabelas despejadas
 --
 
 --
--- Limitadores para a tabela `tbdenuncia`
+-- Restrições para tabelas `tbdenuncia`
 --
 ALTER TABLE `tbdenuncia`
   ADD CONSTRAINT `idCliente` FOREIGN KEY (`idCliente`) REFERENCES `tbcliente` (`idCliente`),
   ADD CONSTRAINT `idProduto` FOREIGN KEY (`idProduto`) REFERENCES `tbproduto` (`idProduto`);
 
 --
--- Limitadores para a tabela `tbdevolucoes`
+-- Restrições para tabelas `tbdevolucoes`
 --
 ALTER TABLE `tbdevolucoes`
   ADD CONSTRAINT `fk_idProduto` FOREIGN KEY (`idProduto`) REFERENCES `tbproduto` (`idProduto`),
   ADD CONSTRAINT `idVenda` FOREIGN KEY (`idVenda`) REFERENCES `tbvenda` (`idVenda`);
 
 --
--- Limitadores para a tabela `tbfavorito`
+-- Restrições para tabelas `tbfavorito`
 --
 ALTER TABLE `tbfavorito`
   ADD CONSTRAINT `fk_idCliente` FOREIGN KEY (`idCliente`) REFERENCES `tbcliente` (`idCliente`),
   ADD CONSTRAINT `fk_idProduto_UNIQUE` FOREIGN KEY (`idProduto`) REFERENCES `tbproduto` (`idProduto`);
 
 --
--- Limitadores para a tabela `tbhistoricopedido`
+-- Restrições para tabelas `tbhistoricopedido`
 --
 ALTER TABLE `tbhistoricopedido`
   ADD CONSTRAINT `fk_idVenda` FOREIGN KEY (`idVenda`) REFERENCES `tbvenda` (`idVenda`);
 
 --
--- Limitadores para a tabela `tbproduto`
+-- Restrições para tabelas `tbproduto`
 --
 ALTER TABLE `tbproduto`
   ADD CONSTRAINT `idCategoriaProduto` FOREIGN KEY (`idCategoriaProduto`) REFERENCES `tbcategoriaproduto` (`idCategoriaProduto`),
@@ -949,7 +1096,7 @@ ALTER TABLE `tbproduto`
   ADD CONSTRAINT `idRegiao` FOREIGN KEY (`idRegiao`) REFERENCES `tbregiao` (`idRegiao`);
 
 --
--- Limitadores para a tabela `tbvenda`
+-- Restrições para tabelas `tbvenda`
 --
 ALTER TABLE `tbvenda`
   ADD CONSTRAINT `idItensVenda` FOREIGN KEY (`idItensVenda`) REFERENCES `tbitensvenda` (`idItensVenda`),

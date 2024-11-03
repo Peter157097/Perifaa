@@ -111,8 +111,21 @@ Route::get('/adminDenuncias', function () {
 }); 
 
 Route::get('/mensagens', function () {
-    return view('mensagens');
-}); 
+    $nomeVendedor = Session::get('nomeVendedor');
+    $idVendedor = Session::get('idVendedor');
+    $nomeCliente = Session::get('nome');
+    $idCliente = Session::get('id');
+    $tipoUsuario = $idVendedor ? 'vendedor' : 'cliente';
+
+    return view('mensagens', [
+        'nomeVendedor' => $nomeVendedor,
+        'idVendedor' => $idVendedor,
+        'nome' => $nomeCliente,
+        'idCliente' => $idCliente,
+        'tipoUsuario' => $tipoUsuario
+    ]);
+})->name('mensagens');
+
 Route::get('/pedidos', function () {
     return view('pedidos');
 }); 

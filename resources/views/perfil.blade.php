@@ -6,8 +6,9 @@
 <html lang="en">
 
 <head>
+
     <style>
-        /* Estilização do campo de upload de imagem */
+      
         .form-group {
             margin-top: 20px;
         }
@@ -47,11 +48,15 @@
             border-color: #ffffff;
         }
 
+        .form-group {
+            margin-top: 20px;
+        }
+
         input[type="text"],
         input[type="email"] {
             border: none;
             border-bottom: 2px solid transparent;
-            outline: none;
+            outline: none; 
             transition: border-color 0.3s ease;
             background-color: #f0f0f0;
             color: #888;
@@ -78,20 +83,58 @@
 
         .lista-item {
             margin-bottom: 10px;
+          
+        }
+
+        .lista-info .btn-primary {
+            background-color: transparent;
+            border-color: #ffffff;
+            border: none; 
+        } 
+        .lista-info i{
+            color: #5e3e24;
+        }  
+
+        .lista-info input{
+            all: unset;
+        }
+
+        .lista-info .btn-primary:hover,
+        .lista-info .btn-primary:focus,
+        .lista-info .btn-primary:active {
+            background-color: transparent !important; 
+            border: none !important; 
+            color: #5e3e24; 
+            box-shadow: none !important; 
+            outline: none !important; 
+        }
+
+        .lista-info .btn-primary:active {
+            transition: none !important; 
+            border: none !important;
         }
     </style>
 </head>
 
 <body>
+
+
     @if(Session::has('editarCliente'))
-        <script>
-            alert("{{ Session::get('editarCliente') }}");
-        </script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+       
+            <script>
+                Swal.fire({
+                    title: 'Sucesso!',
+                    text: '{{ session('success') }}',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#5e3e24'
+                });
+            </script>
     @endif
 
     <main>
         <div class="container-perfil">
-            <!-- Início do perfil do usuário -->
             <div class="frame-perfil">
                 <div class="img-topo-perfil">
                     <div class="frame-foto-perfil">
@@ -116,15 +159,11 @@
                     </a>
                 </div>
             </div>
-            <!-- Fim do perfil do usuário -->
-
-            <!-- Início das informações do perfil -->
             <div class="align-info">
                 <div class="info-perfil">
                     <div class="titulo-perfil">
                         <h4 class="titulo-font">Meu perfil</h4>
                     </div>
-
                     <form action="{{ url('/perfil/update') }}" method="POST" enctype="multipart/form-data"
                         class="form-info">
                         @csrf
@@ -140,19 +179,19 @@
                                 <li class="lista-item">Telefone:</li>
                             </ul>
                             <ul class="lista-info">
-                                <li><input type="text" name="nomeCliente" value="{{ $nome }}">
+                                <li class=""><input type="text" name="nomeCliente" value="{{ $nome }}">
                                     <button type="submit" class="btn btn-primary"
-                                        style="background-color: #5e3e24;"></button>
+                                        ><i class="bi bi-pencil-square"></i></button>
                                 </li>
 
-                                <li><input type="email" name="emailCliente" value="{{ $email }}">
+                                <li class=""><input type="email" name="emailCliente" value="{{ $email }}">
                                     <button type="submit" class="btn btn-primary"
-                                        style="background-color: #5e3e24;"></button>
+                                       ><i class="bi bi-pencil-square"></i></button>
                                 </li>
 
-                                <li><input type="text" name="numeroCliente" value="{{ $numero }}">
+                                <li class=""><input type="text" name="numeroCliente" value="{{ $numero }}">
                                     <button type="submit" class="btn btn-primary"
-                                        style="background-color: #5e3e24;"></button>
+                                        ><i class="bi bi-pencil-square"></i></button>
                                 </li>
                             </ul>
                         </div>
@@ -163,9 +202,9 @@
                             <input type="file" name="imagemCliente" class="form-control" id="imagemCliente">
                         </div>
 
-                        <!-- Informações de Endereços -->
                         <div class="titulo-info-font">
                             <h5 class="info-texto">Endereços</h5>
+
                         </div>
                         <hr style="margin: 0">
                         <div class="container-info">
@@ -177,38 +216,38 @@
                                 <li class="lista-item">Estado:</li>
                             </ul>
                             <ul class="lista-info">
-                                <li><input type="text" name="logradouroCliente" value="{{ $logradouro }}">
-                                    <button type="submit" class="btn btn-primary" style="background-color: #5e3e24;"></button>
+                                <li class=""><input type="text" name="logradouroCliente"
+                                        value="{{ $logradouro }}"><button type="submit" class="btn btn-primary"
+                                       ><i class="bi bi-pencil-square"></i></button></li>
+                                <li class=""><input type="text" name="numCasaCliente"
+                                        value="{{ $numCasaCliente }}"><button type="submit" class="btn btn-primary"
+                                       ><i class="bi bi-pencil-square"></i></button></li>
+                                <li class=""><input type="text" name="cepCliente" value="{{ $cep }}"><button type="submit" class="btn btn-primary"
+                               ><i class="bi bi-pencil-square"></i></button></li>
+                                <li class=""><input type="text" name="cidadeCliente" value="{{ $cidade }}"><button type="submit" class="btn btn-primary"
+                                ><i class="bi bi-pencil-square"></i></button>
                                 </li>
-                                <li><input type="text" name="numCasaCliente" value="{{ $numCasaCliente }}">
-                                    <button type="submit" class="btn btn-primary" style="background-color: #5e3e24;"></button>
-                                </li>
-                                <li><input type="text" name="cepCliente" value="{{ $cep }}">
-                                    <button type="submit" class="btn btn-primary" style="background-color: #5e3e24;"></button>
-                                </li>
-                                <li><input type="text" name="cidadeCliente" value="{{ $cidade }}">
-                                    <button type="submit" class="btn btn-primary" style="background-color: #5e3e24;"></button>
-                                </li>
-                                <li><input type="text" name="estadoCliente" value="{{ $estado }}">
-                                    <button type="submit" class="btn btn-primary" style="background-color: #5e3e24;"></button>
+                                <li class=""><input type="text" name="estadoCliente" value="{{ $estado }}"><button type="submit" class="btn btn-primary"
+                               ><i class="bi bi-pencil-square"></i></button>
                                 </li>
                             </ul>
                         </div>
-
-                        <!-- Botão de submit -->
                         <div class="container-submit">
-                            <button type="submit" class="btn btn-primary" style="background-color: #5e3e24;">Salvar alterações</button>
+                            <button type="submit" class="btn btn-primary" style="background-color: #5e3e24;">Salvar
+                                alterações</button>
                             <p class="excluir-txt">Excluir minha conta</p>
                             <p class="aviso-excluir">Ao excluir a conta, torna-se impossível recuperá-la.</p>
                         </div>
                     </form>
+
+
+
                 </div>
             </div>
-            <!-- Fim das informações do perfil -->
         </div>
     </main>
 
-    @include('includes.footer')
+
 
     <!-- Import do javascript -->
     <script src="{{ url('js/script.js') }}"></script>
@@ -220,4 +259,8 @@
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/Jm
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

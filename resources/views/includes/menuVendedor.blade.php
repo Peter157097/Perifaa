@@ -333,7 +333,7 @@
         <li><a href="#saques" class="menu-item"><i class="fas fa-envelope"></i>Mensagens</a></li>
         <li><a href="{{url('editarPerfilVendedor')}}" class="menu-item"><i class="fas fa-user"></i>Perfil</a></li>
         <li><a href="{{url('produtosVendedor')}}" class="menu-item"><i class="fas fa-cog"></i>Configurações</a></li>
-        <li><a href="#sair" class="menu-item"><i class="fas fa-sign-out-alt"></i>Sair</a></li>
+        <li><a href="{{ url('/logout') }}" class="menu-item"><i class="fas fa-sign-out-alt"></i>Sair</a></li>
     </ul>
 </nav>
 

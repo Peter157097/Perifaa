@@ -7,12 +7,12 @@
     <div class="alert alert-success">
       {{ session('success') }}
     </div>
-    @endif
+  @endif
     @if(Session::has('cadastrarDenuncia'))
     <script>
       alert("{{ Session::get('cadastrarDenuncia') }}");
     </script>
-    @endif
+  @endif
     <div class="container-entrar-produto">
       <div class="esquerdo">
         <div class="itens">
@@ -40,17 +40,19 @@
           <h6><a href="#">Masculinas</a>/ <a href="#">Casaco</a>/ </h6>
 
           <div class="parte1">
-            <h2>{{$produtos->nomeProduto}}</h2>
             <!-- link para acionar modal de denúncia -->
-            <a href="#" data-toggle="modal" data-target="#modalDenuncia">Denunciar</a>
-            <form action="{{ route('favorites.add') }}" method="POST">
-              @csrf
-              <input type="hidden" name="product_id" value="{{ $produtos->idProduto }}">
-              <button id="favorite-button" class="btn btn-favorite {{ $favorited ? 'favorited' : '' }}"
-                data-product-id="{{ $produtos->idProduto }}">
-                {{ $favorited ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos' }}
-              </button>
-            </form>
+            <div class="botoes-entrar-produto">
+              <a href="#" data-toggle="modal" data-target="#modalDenuncia" class="denunciaEntrarProduto">Denunciar</a>
+              <form action="{{ route('favorites.add') }}" method="POST">
+                @csrf
+                <input type="hidden" name="product_id" value="{{ $produtos->idProduto }}">
+                <button id="favorite-button" class="btn btn-favorite {{ $favorited ? 'favorited' : '' }}"
+                  data-product-id="{{ $produtos->idProduto }}">
+                  {{ $favorited ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos' }}
+                </button>
+              </form>
+            </div>
+            <p>{{$produtos->nomeProduto}}</p>
           </div>
 
           <!-- Modal Denúncia -->
@@ -131,15 +133,13 @@
           </div>
 
           <h4>Descrição</h4>
-          <p>{{$produtos->descricaoProduto}}</p>
+          <p class="descEntrarProduto">{{$produtos->descricaoProduto}}</p>
 
           <div class="parte2">
-            <span class="price">{{$produtos->valorProduto}}</span>
+            <span class="price">R$ {{$produtos->valorProduto}}</span>
           </div>
-
           <div class="opcao-entrar-produto">
             <div class="botaos-entrar">
-
               <form action="{{ route('carrinho.add') }}" method="POST">
                 @csrf
                 <input type="hidden" name="product_id" value="{{ $produtos->idProduto }}">
@@ -166,42 +166,44 @@
 </main>
 
 <script>
-    async function enviarMensagem() {
-        const mensagem = document.getElementById('mensagemInput').value;
-        const idVendedor = {{ $produtos->idVendedor }}; // ID do vendedor associado ao produto
+  async function enviarMensagem() {
+    const mensagem = document.getElementById('mensagemInput').value;
+    const idVendedor = {{ $produtos->idVendedor }}; // ID do vendedor associado ao produto
 
-        if (mensagem.trim() === '') return;
+    if (mensagem.trim() === '') return;
 
-        try {
-            const response = await fetch(`http://localhost:3000/mensagens/${idVendedor}`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'id-usuario': '{{ session('id') }}',
-                    'tipo-usuario': 'cliente'
-                },
-                body: JSON.stringify({ mensagem })
-            });
+    try {
+      const response = await fetch(`http://localhost:3000/mensagens/${idVendedor}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'id-usuario': '{{ session('id') }}',
+          'tipo-usuario': 'cliente'
+        },
+        body: JSON.stringify({ mensagem })
+      });
 
-            const result = await response.json();
-            if (result.success) {
-                document.getElementById('mensagemInput').value = '';
-                $('#modalMensagem').modal('hide'); // Fecha o modal após enviar a mensagem
-                alert('Mensagem enviada!');
-            } else {
-                alert('Erro ao enviar mensagem. Tente novamente.');
-            }
-        } catch (error) {
-            console.error('Erro:', error);
-            alert('Erro ao enviar mensagem. Tente novamente.');
-        }
+      const result = await response.json();
+      if (result.success) {
+        document.getElementById('mensagemInput').value = '';
+        $('#modalMensagem').modal('hide'); // Fecha o modal após enviar a mensagem
+        alert('Mensagem enviada!');
+      } else {
+        alert('Erro ao enviar mensagem. Tente novamente.');
+      }
+    } catch (error) {
+      console.error('Erro:', error);
+      alert('Erro ao enviar mensagem. Tente novamente.');
     }
+  }
 </script>
 
 <!--Imports do bootstrap-->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+  crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
 </body>
+
 </html>
 ``

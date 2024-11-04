@@ -100,10 +100,10 @@ app.post('/mensagens/:idContato', (req, res) => {
     const tipoUsuario = req.headers['tipo-usuario'];
     const idContato = req.params.idContato;
     const { mensagem } = req.body;
-    const enviadoPorCliente = tipoUsuario === 'cliente';
+    const enviado = tipoUsuario === 'cliente';
 
-    const sql = 'INSERT INTO mensagens (idCliente, idVendedor, mensagem, enviado_por_cliente) VALUES (?, ?, ?, ?)';
-    const values = enviadoPorCliente
+    const sql = 'INSERT INTO mensagens (idCliente, idVendedor, mensagem, enviado) VALUES (?, ?, ?, ?)';
+    const values = enviado
         ? [idUsuario, idContato, mensagem, 1]
         : [idContato, idUsuario, mensagem, 0];
 

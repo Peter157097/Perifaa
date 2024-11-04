@@ -1,4 +1,7 @@
 @include('includes.head')
+<style>
+
+</style>
 
 <!--Começo do body-->
 <style>
@@ -29,178 +32,12 @@
                     </div>
                     <div class="panelMensagens">
                         <div class="sidePanelMensagens">
-                            <div class="scroll-sidePanelMsg">
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/muieGraf.png')}}" class="pfpMsgImg">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria sabe
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/logo.png')}}" class="pfpMsgImg">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpMsgImg">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpMsgImg">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpMsgImg">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpMsgImg">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpMsgImg">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpMsgImg">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpMsgImg">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="scroll-sidePanelMsg" id="listaClientes">
 
-                                <div class="cardMensagem">
-                                    <div class="pfpMsgContainer">
-                                        <div class="pfpMsg">
-                                            <img src="{{url('images/10.png')}}" class="pfpMsgImg">
-                                        </div>
-                                    </div>
-                                    <div class="containerMsg">
-                                        <div class="titleMsg">
-                                            Julia S.
-                                        </div>
-                                        <div class="bodyMsg">
-                                            Oiii, bom dia, queria saber se ainde tem essa peça, gostei mt dela
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="shadowScroll"></div>
                             </div>
+                            <div class="shadowScroll"></div>
                         </div>
                         <div class="contentMsg">
-                            <!--
-                                                                                            Caso nao tenha mensagem selecionada 
-
-                                                                                        <div class="noContent">
-                                                                                            <div class="HoldNoContentImg">
-                                                                                                (Cliente)
-                                                                                                <img src="{{url('images/msgIconCli.png')}}" class="noContentImg">
-                                                                                                (Vendedor)
-                                                                                                <img src="{{url('images/msgIconVend.png')}}" class="noContentImg">
-                                                                                            </div>
-                                                                                            <div class="noContentMsg">
-                                                                                                <h4>Suas mensagens</h4>
-                                                                                                <p>Aqui é onde você se conecta com outros usuários.</p>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        -->
                             <div class="selectedMsg">
                                 <div class="pfpSelectedMsg">
                                     <div class="pfpMsg">
@@ -209,7 +46,7 @@
                                 </div>
                                 <div class="infoSelectecMsg">
                                     <div class="titleSelectedImg">
-                                        Julia S.
+
                                     </div>
                                     <div class="optionsSelectedMsg">
                                         <div class="optItem">
@@ -224,7 +61,21 @@
                                 </div>
                             </div>
                             <div class="msgDisplay">
-                                <div class="textDisplay">
+                                <div id="messages" class="messages">
+
+
+                                    <!--
+                                                        <div class="noContent">
+                                                            <div id="mostrarNome"></div>
+                                                            <div class="HoldNoContentImg">
+                                                                <img src="{{url('images/msgIconVend.png')}}" class="noContentImg">
+                                                            </div>
+                                                            <div class="noContentMsg">
+                                                                <h4>Suas mensagens</h4>
+                                                                <p>Aqui é onde você se conecta com outros usuários.</p>
+                                                            </div>
+                                                        </div>
+                                                        -->
                                 </div>
                             </div>
                             <div class="msgWrite">
@@ -233,10 +84,15 @@
                                         <i class="fa-solid fa-paperclip" title="Anexar arquivo"></i>
                                     </div>
                                     <div class="inputMsg">
-                                        <input type="text" placeholder="Mensagem" class="inputCampo">
+                                        <input type="text" id="mensagemInput" placeholder="Mensagem" class="inputCampo">
                                     </div>
                                     <div class="msgIcon">
-                                        <i class="fa-solid fa-paper-plane" title="Enviar"></i>
+
+                                        <div class="send-message">
+                                            <button onclick="enviarMensagem()" class="btnEnviarMsg">
+                                                <i class="fa-solid fa-paper-plane" title="Enviar"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -300,7 +156,6 @@
 
             });
         });
-
     </script>
     <!--Import do javascript-->
     <script src="{{('js/script.js')}}"></script>
@@ -319,3 +174,154 @@
 <!--Fim do body-->
 
 </html>
+
+
+<script>
+    const tipoUsuario = '{{ $tipoUsuario }}';
+    const idUsuario = tipoUsuario === 'vendedor' ? '{{ $idVendedor }}' : '{{ $idCliente }}';
+    const nomeLogado = tipoUsuario === 'vendedor' ? '{{ $nomeVendedor }}' : '{{ $nome }}';
+    const messagesDiv = document.getElementById('messages');
+    const listaClientes = document.getElementById('listaClientes');
+    let idContatoAtual = null;
+    let nomeContato = '';
+
+    async function listarConversas() {
+        const endpoint = tipoUsuario === 'vendedor' ?
+            `http://localhost:3000/clientes-conversas/${idUsuario}` :
+            `http://localhost:3000/conversas/${idUsuario}`;
+
+        try {
+            const response = await fetch(endpoint);
+            const contatos = await response.json();
+
+            contatos.forEach((contato) => {
+                const contatoItem = document.createElement('div');
+                contatoItem.classList.add('cardMensagem');
+                contatoItem.dataset.idContato = tipoUsuario === 'vendedor' ? contato.idCliente : contato.idVendedor;
+
+                const contatoItem2 = document.createElement('div');
+                contatoItem2.classList.add('pfpMsgContainer');
+
+                const contatoItem3 = document.createElement('div');
+                contatoItem3.classList.add('pfpMsg');
+
+                const contatoItem4 = document.createElement('img');
+                contatoItem4.classList.add('pfpMsgImg');
+
+                const contatoItem5 = document.createElement('div');
+                contatoItem5.classList.add('containerMsg');
+
+                const contatoItem6 = document.createElement('div');
+                contatoItem6.classList.add('titleMsg');
+                contatoItem6.textContent = tipoUsuario === 'vendedor' ? contato.nomeCliente : contato.nomeVendedor;
+
+
+                const contatoItem7 = document.createElement('div');
+                contatoItem7.classList.add('bodyMsg');
+
+
+                contatoItem5.appendChild(contatoItem7);
+                contatoItem5.appendChild(contatoItem6);
+                contatoItem3.appendChild(contatoItem4);
+                contatoItem2.appendChild(contatoItem3);
+                contatoItem.appendChild(contatoItem2);
+                contatoItem.appendChild(contatoItem5);
+
+
+                contatoItem.onclick = () => {
+                    document.querySelectorAll('.cliente-item').forEach(item => item.classList.remove('active'));
+                    contatoItem.classList.add('active');
+                    idContatoAtual = contatoItem.dataset.idContato;
+                    nomeContato = tipoUsuario === 'vendedor' ? contato.nomeCliente : contato.nomeVendedor;
+                    carregarHistorico(idContatoAtual);
+                };
+
+                listaClientes.appendChild(contatoItem);
+            });
+        } catch (error) {
+            console.error('Erro ao listar conversas:', error);
+        }
+    }
+
+    async function carregarHistorico(idContato) {
+        try {
+            const response = await fetch(`http://localhost:3000/mensagens/${idContato}`, {
+                headers: {
+                    'id-usuario': idUsuario,
+                    'tipo-usuario': tipoUsuario
+                }
+            });
+            const mensagens = await response.json();
+
+            messagesDiv.innerHTML = '';
+
+            mensagens.forEach((mensagem) => {
+                const messageContainer = document.createElement('div');
+                messageContainer.classList.add('messageContainer');
+
+                const newMessage = document.createElement('div');
+
+                // Verifica se a mensagem foi enviada ou recebida
+                if (mensagem.enviado === 1 && tipoUsuario === 'cliente' || mensagem.enviado === 0 && tipoUsuario === 'vendedor') {
+                    newMessage.classList.add('mensagem-enviada');
+                } else {
+                    newMessage.classList.add('mensagem-recebida');
+                }
+
+                // Cria um elemento <p> para o texto da mensagem
+                const messageText = document.createElement('p');
+                messageText.classList.add('txtMsg'); // Adiciona a classe 'txtMsg'
+                messageText.textContent = mensagem.mensagem; // Define o texto da mensagem
+
+                newMessage.appendChild(messageText); // Adiciona o <p> ao novo contêiner da mensagem
+                messageContainer.appendChild(newMessage); // Adiciona o contêiner da mensagem ao contêiner principal
+                messagesDiv.appendChild(messageContainer); // Adiciona o contêiner de mensagem ao display
+            });
+
+            messagesDiv.scrollTop = messagesDiv.scrollHeight; // Rolagem automática
+        } catch (error) {
+            console.error('Erro ao carregar histórico:', error);
+        }
+    }
+
+    async function enviarMensagem() {
+        const mensagem = document.getElementById('mensagemInput').value;
+
+        if (mensagem.trim() !== '' && idContatoAtual) {
+            try {
+                const response = await fetch(`http://localhost:3000/mensagens/${idContatoAtual}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'id-usuario': idUsuario,
+                        'tipo-usuario': tipoUsuario
+                    },
+                    body: JSON.stringify({
+                        mensagem
+                    })
+                });
+
+                const result = await response.json();
+                if (result.success) {
+                    document.getElementById('mensagemInput').value = '';
+                    carregarHistorico(idContatoAtual);
+                } else {
+                    alert('Erro ao enviar mensagem.');
+                }
+            } catch (error) {
+                console.error('Erro ao enviar mensagem:', error);
+            }
+        } else {
+            console.warn("ID do contato ou mensagem inválida");
+        }
+    }
+
+
+    setInterval(() => {
+        if (idContatoAtual) {
+            carregarHistorico(idContatoAtual);
+        }
+    }, 5000);
+
+    listarConversas();
+</script>

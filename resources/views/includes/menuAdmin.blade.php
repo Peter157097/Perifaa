@@ -15,7 +15,7 @@
         <li><a href="/filtro-usuarios" class="menu-item"><i class="fas fa-box-open"></i>Consultar</a></li>
         <li><a href="/perfil" class="menu-item"><i class="fas fa-user"></i>Perfil</a></li>
         <li><a href="#config" class="menu-item"><i class="fas fa-cog"></i>Configurações</a></li>
-        <li><a href="#sair" class="menu-item"><i class="fas fa-sign-out-alt"></i>Sair</a></li>
+        <li><a href="{{ url('/logout') }}" class="menu-item"><i class="fas fa-sign-out-alt"></i>Sair</a></li>
     </ul>
 </nav>
 <!-- Conteúdo principal da página -->

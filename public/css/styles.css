@@ -2548,6 +2548,7 @@ dialog #modal-2::backdrop {
     display: flex;
     gap: 1vh;
     margin-top: 6vh;
+    justify-content: left;
     flex-wrap: wrap;
     max-width: 100%;
 
@@ -2557,8 +2558,7 @@ dialog #modal-2::backdrop {
 .card-produto {
     border-radius: 10px;
     border: 1px solid rgb(212, 212, 212);
-    width: 35vh;
-    height: 50vh;
+    width: 32vh;
     background-color: #ffffff;
     cursor: pointer;
 }
@@ -2574,7 +2574,6 @@ dialog #modal-2::backdrop {
 
 .produtos-body {
     display: flex;
-    gap: 20vh;
     margin-bottom: 20vh;
 
 }
@@ -2713,6 +2712,12 @@ dialog #modal-2::backdrop {
     padding: 5%;
     font-size: 2vh;
 }
+.txt-info-produto-top p {
+    
+    font-size: 2vh;
+    font-weight: 450;
+}
+
 
 .txt-info-produto-bottom {
     display: flex;
@@ -2805,13 +2810,8 @@ dialog #modal-2::backdrop {
 
 
 @media (max-width:2560px) {
-    .produtos-body {
-        gap: 5vh
-    }
 
-    .card-produto {
-        height: 55vh;
-    }
+
 
     .valor-produto {}
 
@@ -2864,9 +2864,6 @@ dialog #modal-2::backdrop {
         gap: 5vh
     }
 
-    .card-produto {
-        height: 55vh;
-    }
 
     .valor-produto {
         margin: 0;
@@ -2922,7 +2919,7 @@ dialog #modal-2::backdrop {
         gap: 2vh;
         margin-top: 0;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: left;
     }
 
     .produtos-body {
@@ -2945,10 +2942,6 @@ dialog #modal-2::backdrop {
 
     .produtos-body {
         gap: 5vh
-    }
-
-    .card-produto {
-        height: 55vh;
     }
 
     .valor-produto {
@@ -3038,9 +3031,6 @@ dialog #modal-2::backdrop {
         gap: 5vh
     }
 
-    .card-produto {
-        height: 55vh;
-    }
 
     .valor-produto {
         margin: 0;
@@ -6356,4 +6346,8 @@ svg {
 
 .msgDisplay{
     display: flex;
+}
+.btnEnviarMsg{
+    background-color: transparent;
+    border: none;
 }

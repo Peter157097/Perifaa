@@ -517,7 +517,7 @@
                     </div>
                     <div class="cadastrar2">
                         <a class="fechar-modal" data-modal="modal-2" id="have-account">Já tenho conta</a>
-                        <a href="#" class="abrir-modal" data-modal="modal-2" id="perifa-vender">Quero vender na
+                        <a href="#" class="abrir-modal" data-modal="modal-3" id="perifa-vender">Quero vender na
                             perifa</a>
                     </div>
                 </form>

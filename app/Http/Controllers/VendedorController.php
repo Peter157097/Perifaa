@@ -78,9 +78,9 @@ class VendedorController extends Controller
         $vendedor->save();
 
         
-        Session::flash('cadastrarVendedor', 'Vendedor cadastrado com sucesso!');
+        return redirect('/', )->with('success', 'Vendedor cadastro com sucesso! Você pode fazer login agora.');
 
-        return redirect("/");
+       
     }
 
     public function showProfile()

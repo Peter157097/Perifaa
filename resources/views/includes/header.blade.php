@@ -103,13 +103,14 @@
 }
 </style>
 
-@if(session('is_vendedor'))
+
+@if(session('is_admin'))
     <header class="header2">
         <style>
             .header2 {
                 display: flex;
                 justify-content: center;
-              
+
                 padding: 1.5rem;
                 background-color: #5e3e24;
             }
@@ -132,6 +133,7 @@
             .header2 .botao-abrir-menu i {
                 color: #fff;
             }
+            
         </style>
 @else
     <header>
@@ -343,6 +345,13 @@
                             </div> <!--Fim menu dropdown das roupas-->
 
                     </div> <!--Fim menu dropdown das roupas-->
+        
+                        @elseif(session('is_admin'))
+                    <div class="drop-perfil"> <!--Começo menu dropdown das roupas-->
+                        <a href="{{ url('/dashAdmin') }}" id="link-perfil"><i class="bi bi-kanban"></i>Dashboard</a>
+                        <a href="{{ url('/logout') }}" id="link-perfil"><i
+                                class="fa-solid fa-arrow-right-from-bracket"></i>Sair</a>
+                    </div> <!--Fim Drop do admin-->
                     <!--vendedor -->
                 @elseif(session('is_Cliente'))
                     <!--cliente -->

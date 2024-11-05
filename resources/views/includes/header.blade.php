@@ -273,7 +273,7 @@
                         </ul>
                     </nav><!--Fim do menu mobile-->
 
-                    @if(session('is_vendedor'))
+                    @if(session('is_admin'))
                             </div><a href="{{ url('/') }}">
                                 <img class="logoBranca" src="{{url('images/logoPerifa-branca.png')}}" alt="Logo perifa">
                             </a>

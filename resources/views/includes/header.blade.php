@@ -412,7 +412,7 @@
                         </div>
 
                         <div class="senha-opcoes">
-                            <a href="{{ url('/enviar-codigo-form') }}" class="esqueci-senha abrir-modal" data-modal="modal-4">Esqueci minha senha</a>
+                            <a href="{{ url('/enviar-codigo-form') }}" class="esqueci-senha" >Esqueci minha senha</a>
                         </div>
                         <div class="login-botao">
                             <button type='submit'>Entrar</button>

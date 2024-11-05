@@ -193,6 +193,9 @@ Route::get('/dashAdminResultConsulta', function () {
 Route::get('/contato', function () {
     return view('contato');
 });
+Route::get('/mensagensVendedor', function () {
+    return view('mensagensVendedor');
+});
 
 Route::post('/cadastrarProdutosVendedor', [DashboardController::class, 'index'])->name('produto.store');
 Route::get('/produtos/search', [ProdutoController::class, 'search'])->name('produtos.search');

@@ -403,8 +403,8 @@
 
         <script>
         // deixa o icone de coracaozinho vermei
-        document.querySelectorAll(".botaoAmei").forEach(button => {
-    button.addEventListener("click", function(event) {
+        document.querySelectorAll(".cardMensagem").forEach(button => {
+        button.addEventListener("click", function(event) {
         this.classList.toggle("clicado");
         event.preventDefault(); // Previne o envio imediato do formulário
         this.closest('form').submit(); // Envia o formulário após a animação

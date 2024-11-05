@@ -189,7 +189,7 @@
             </div>
 
 <div class="cards-body">
-<div class="container-cards">
+<div class="container-cards-perfilVendedor">
     @foreach($produtos as $produto)
 
             <div class="card-produto">

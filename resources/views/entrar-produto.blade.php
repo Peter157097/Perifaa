@@ -74,7 +74,6 @@ main {
   padding-bottom: 15px;
   border-bottom: 1px solid #ddd;
 }
-
 .profile-photo {
   width: 70px;
   height: 70px;
@@ -298,7 +297,25 @@ section {
               </div>
             </div>
           </div>
-
+          <div class="modal fade" id="modalMensagem" tabindex="-1" role="dialog" aria-labelledby="modalMensagemLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modalMensagemLabel">Enviar Mensagem</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <input type="text" id="mensagemInput" class="form-control" placeholder="Digite sua mensagem">
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-primary" onclick="enviarMensagem()">Enviar</button>
+                </div>
+              </div>
+            </div>
+          </div>
           <!-- Modal Detalhe da Denúncia -->
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
@@ -364,10 +381,11 @@ section {
   <aside>
     <div class="questions">
       <h3>Duvidas sobre o produto?</h3>
-      <button>Pergunte ao vendedor</button>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalMensagem">
+      <p style="margin: 0">Pergunte ao vendedor <i class="fa-solid fa-message"></i></p>
+      </button>
     </div>
   </aside>
-
   <div class="profile-container">
   <div class="profile-info">
     <img src="{{ url('$vendedor->imagemVendedor') }}" alt="Foto do usuário" class="profile-photo">
@@ -380,8 +398,8 @@ section {
         <span class="reviews">({{ $vendedor->avaliacoes_count }} avaliações)</span>
     </div>
     <br>
-    <a  href="/perfilVendedor,{{ $vendedor->id }}">Ver perfil</a>
-    <a class="follow-btn" href="{{ url('/perfilVendedor', $vendedor->idVendedor)}}">Ver PErfil</a>
+    <a  href="/perfilVendedor,{{ $vendedor->id }}"></a>
+    <a class="follow-btn" href="{{ url('/perfilVendedor', $vendedor->idVendedor)}}">Ver Perfil</a>
 </div>
   </div>
   <div class="profile-stats">
@@ -418,6 +436,39 @@ section {
 
   // Atribui o valor à input hidden
   document.getElementById('minhaVariavel').value = valorDaVariavel;
+
+
+
+  async function enviarMensagem() {
+    const mensagem = document.getElementById('mensagemInput').value;
+    const idVendedor = {{ $produtos->idVendedor }}; // ID do vendedor associado ao produto
+
+    if (mensagem.trim() === '') return;
+
+    try {
+      const response = await fetch(`http://localhost:3000/mensagens/${idVendedor}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'id-usuario': '{{ session('id') }}',
+          'tipo-usuario': 'cliente'
+        },
+        body: JSON.stringify({ mensagem })
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        document.getElementById('mensagemInput').value = '';
+        $('#modalMensagem').modal('hide'); // Fecha o modal após enviar a mensagem
+        alert('Mensagem enviada!');
+      } else {
+        alert('Erro ao enviar mensagem. Tente novamente.');
+      }
+    } catch (error) {
+      console.error('Erro:', error);
+      alert('Erro ao enviar mensagem. Tente novamente.');
+    }
+  }
 </script>
 
 </body>

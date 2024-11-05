@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04/11/2024 às 05:09
+-- Tempo de geração: 05/11/2024 às 04:57
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -135,38 +135,15 @@ CREATE TABLE `tbcliente` (
 --
 
 INSERT INTO `tbcliente` (`idCliente`, `nomeCliente`, `cpfCliente`, `emailCliente`, `senhaCliente`, `logradouroCliente`, `numeroCliente`, `complementoCliente`, `bairroCliente`, `cepCliente`, `cidadeCliente`, `estadoCliente`, `imagemCliente`, `numCasaCliente`, `preferencia`) VALUES
-(1, 'rer', 'rer', 'rer@gmail.com', 'rer', 'rer', 'rer', 're', 're', 're', 're', 'er', NULL, NULL, NULL),
-(2, 'Peter', '132.156.166-73', 'petergomes@gmail.com', '$2y$10$teywkxiijBvjis9RB4QRjuMRw94LKpJ7g16Q9Q5cKtppIxRD1fkAC', 'PEe', '11986529942', 'we', 'we', '08451100', 'Arapiraca', 'AL', NULL, NULL, NULL),
-(3, 'peter', '132.156.166-73', 'marcus@gmail.com', '$2y$10$hKk2tWek78LYlxE.pujnoeXdgOy2vlveFb6EmGbk7BNljxZae/YsC', 'PEe', '11986529942', 'we', 'we', '08451100', 'Bayeux', 'PB', 'images/perfil/1724448764.jpg', NULL, NULL),
-(4, 'Eduardo da Silva Nascimento', '24056783810', 'mundomelhorltd@gmail.com', '$2y$10$A.XmoxU0Hobmfy.rR.I3n.5MXWx4V1VBPVgj5qxs01pb4ydwwbaRm', 'Rua Doutor Wilson issamo minada', '11951788048', 'sda', 'VIla curuçá', '08031400', 'Porto Alegre', 'RS', 'images/perfil/1724475833.png', NULL, NULL),
-(5, 'Eduardo da Silva Nascimento', '24056783810', 'eduardo@gmail.com', '$2y$10$xsabscYz7EyVKXwcfVss0.xbQosCtTYqKwGiQ1lA2Jc3/eDm9cAdm', 'Rua Doutor Wilson Issamo Minada', '11951788048', 'a', 'Vila Nova Curuçá', '08031400', 'São Paulo', 'SP', 'images/perfil/1724531106.jpg', NULL, NULL),
-(6, 'Eduardo da Silva Nascimento', '24056783810', 'teste123123@gmail.com', '$2y$10$2w5ljazdXLagZ2IJcTURTeQvOAr2K6abyfJXJDkBj0Fa9Kp3ERh0W', 'Rua Doutor Wilson Issamo Minada', '11951788048', 'a', 'Vila Nova Curuçá', '08031400', 'São Paulo', 'SP', NULL, NULL, NULL),
-(7, 'NADIA AUGUSTA DA SILVA', '24056783810', 'nnadiasilva@gmail.com', '$2y$10$3ASRp4C/YSGxJ3d5oYz9cOambtHpgoJvf/Yl6RIugDbYhxd4PZ4Ji', 'Rua Doutor Wilson Issamo Minada', '11951788048', NULL, 'Vila Nova Curuçá', '08031400', 'São Paulo', 'SP', 'images/perfil/1724613226.png', NULL, NULL),
-(8, 'Eduardo da Silva Nascimento', '24056783810', 'we@gmail.com', '$2y$10$.Kfpmk1kn5noQsaHEEkhSeqChcEDYNzwyXUnnZIpmEfDjR87QaqIO', 'Rua Doutor Wilson Issamo Minada', '11951788048', NULL, 'Vila Nova Curuçá', '08031400', 'São Paulo', 'SP', 'images/perfil/1724543305.jpg', NULL, NULL),
-(9, 'Luiz Fernando', '12312312312', 'fernando123@gmail.com', '$2y$10$Bh1cgkLV7QBRhGMIiCzqAObfHHyLUv9rRUSLa5nBwLh2imhOUyGw.', 'Rua Baía da Guanabara', '11123123123', 'casa 2', 'Jardim Fanganiello', '08450462', 'São Paulo', 'SP', 'images/perfil/1724543501.jpg', NULL, NULL),
-(10, 'Eduardo da Silva Nascimento', '24056783810', 'eduardo1234@gmail.com', '$2y$10$Sr/UT9L869MPPl7VsF72muS7.wK2wNcqnNEfBrsqOHROeqFKezfn.', 'Rua Doutor Wilson Issamo Minada', '11951788048', NULL, 'Vila Nova Curuçá', '08031400', 'São Paulo', 'SP', 'images/perfil/1724564073.png', NULL, NULL),
-(11, 'peter', '132.156.166-73', 'marcus123@gmail.com', '$2y$10$.Uz9uc8FG21OtuK2mAwlZ.0mdQklCkl4SvWzTWQWMwAEeSQ.9dQ26', 'Rua Francisco Orellana', '11986529942', 'we', 'Vila Iolanda(Lajeado)', '08451100', 'São Paulo', 'SP', 'images/logo3.jpeg', 40, NULL),
-(12, 'peter', '132.156.166-73', 'ppp@gmail.com', '$2y$10$bK.EcqJ1FWyeXpHL37Htl.B5j.IwocljOeMYRy7E9EcQ1qU9CE5Ru', 'Rua Francisco Orellana', '11986529942', 'we', 'Vila Iolanda(Lajeado)', '08451100', 'São Paulo', 'SP', 'images/logo3.jpeg', 40, NULL),
-(13, 'Eduardo da Silva Nascimento', '24056783810', 'xarpteste@gmail.com', '$2y$10$YsQAMOWZu.GczvITyn.QX.tofF4zXn5D2Ie545K57gCrsYi9zA5Sa', 'Rua Doutor Wilson Issamo Minada', '11951788048', NULL, 'Vila Nova Curuçá', '08031400', 'São Paulo', 'SP', 'images/logo3.jpeg', 12, NULL),
-(14, 'NADIA AUGUSTA DA SILVA', '24056783810', 'testeaa@gmail.com', '$2y$10$dCww.PyukFNJnRL9T/wOkekeTMLhwbJjN5OAZNgvIVeNs2Ht6hoW.', 'Rua Doutor Wilson Issamo Minada', '11951788048', NULL, 'Vila Nova Curuçá', '08031400', 'São Paulo', 'SP', 'images/logo3.jpeg', 15, NULL),
-(15, 'uioyyo', 'yioiuuiu', 'dou2@gmail.com', '$2y$10$6pkMkmzN6RIffWJB7jIfmugpMrw.GcRRjyV/tL7KvxAyki4SQA2SO', 'Rua São Lázaro', 'yi', '525', 'Jardim São Lázaro', '08541100', 'Ferraz de Vasconcelos', 'SP', 'images/logo3.jpeg', 5252, NULL),
-(16, 'NADIA AUGUSTA DA SILVA', '24056783810', 'eduardopreferenciateste@gmail.com', '$2y$10$iagco8so/HOkBuTUwnp0o.m./DY0HDdhEJNfQernbnEZKXEAHiyTy', 'Rua Doutor Wilson Issamo Minada', '11951788048', '12', 'Vila Nova Curuçá', '08031400', 'São Paulo', 'SP', 'images/logo3.jpeg', 12, NULL),
-(17, 'NADIA AUGUSTA DA SILVA', '24056783810', 'eduardopreferenciateste1@gmail.com', '$2y$10$ZwxfLgnHkZDcVB75bzEDzOHnAzlA2R5XxBknlBotViFRN2MmndGBG', 'Rua Doutor Wilson Issamo Minada', '11951788048', NULL, 'Vila Nova Curuçá', '08031400', 'São Paulo', 'SP', 'images/logo3.jpeg', 12, 'feminina'),
-(18, 'NADIA AUGUSTA DA SILVA', '24056783810', 'marcusvini@gmail.com', '$2y$10$wudNoxR6ix9/uQiqCDkgoeI8Bo6SvO9F2ZZVKOJHgKWk2yWXV5IIi', 'Rua Doutor Wilson Issamo Minada', '11951788048', 'Casa', 'Jardim Jaraguá (Itaim Paulista)', '08031400', 'São Paulo', 'SP', 'images/logo3.jpeg', 12, 'feminina'),
-(19, 'Eduardo da Silva Nascimento', '12', 'mundomelhorltd@gmail.com', '$2y$10$.hEQiU9aYp5ycqM55jMeAu/Zp59sgEtlxPC/tCj1bLCxrhxcTd9Rm', 'Rua Francisco Orellana', '11951788048', '12', 'Vila Iolanda(Lajeado)', '08451-100', 'São Paulo', 'SP', 'images/logo3.jpeg', 12, 'feminina'),
-(20, 'NADIA AUGUSTA DA SILVA', '24056783810', 'mundomelhorltd@gmail.com', '$2y$10$mIhLTewL3hlTTgdZcwC4LuWfYXukEXQX4/.gJKZXQvhIo3kJiqhs.', 'Rua Doutor Wilson Issamo Minada', '11951788048', '12', 'Vila Nova Curuçá', '08031400', 'São Paulo', 'SP', 'images/logo3.jpeg', 12, 'feminina'),
-(21, 'NADIA AUGUSTA DA SILVA', '24056783810', 'mundomelhorltd@gmail.com', '$2y$10$08mA1oic/9pOvw9M0ynGHO6yE67KFu50iaLjVMUEGokLD/ElJHMyW', 'Rua Doutor Wilson Issamo Minada', '11951788048', '12', 'Vila Nova Curuçá', '08031400', 'São Paulo', 'SP', 'images/logo3.jpeg', 12, 'masculina'),
-(22, 'NADIA AUGUSTA DA SILVA', '24056783810', 'mundomelhorltd1221233@gmail.com', '$2y$10$EbEpernJWhULvGWa.HiYOuEY6RDAw2hU8aWsMCk6gLqlvQ7NuXYWW', 'Rua Doutor Wilson Issamo Minada', '11951788048', '12', 'Vila Nova Curuçá', '08031400', 'São Paulo', 'SP', 'images/logo3.jpeg', 12, 'feminina'),
 (23, 'Marcus', '24056783810', 'marcusvini123@gmail.com', '$2y$10$LV.rnUsgkl3vjSkRU8dQlepnW5x23gF8EtT6epobRDk0/0P9jeUXy', 'Rua Piraitá', '11958030871', 'Casa', 'Jardim Jaraguá (Itaim Paulista)', '08160280', 'São Paulo', 'SP', 'images/logo3.jpeg', 12, 'masculina'),
-(24, 'arlindo', '24056783810', 'testePerfil@gmail.com', '$2y$10$V1cVE26AWsGcZw8DI4VaEOZiJVW0YmvOQhCeCK8WGEi1srJBTIWNa', 'Rua Doutor Wilson Issamo Minada', '11951788048', '12', 'Vila Nova Curuçá', '08031400', 'São Paulo', 'SP', 'images/1.png', 12, 'masculina'),
-(27, 'Sandro', '24056783810', 'testePerfil2@gmail.com', '$2y$10$QEq2kIe8p5jBqg8C7qTOouvobu.GWg47MoezqNnPGMRJn0nYQoc4a', 'Rua Doutor Wilson Issamo Minada', '11951788048', NULL, 'Vila Nova Curuçá', '08031400', 'São Paulo', 'SP', NULL, 12, 'feminina'),
-(28, 'bernardo', '3248326438', 'bernardo@gmail.com', '$2y$10$wWQ8BGPIim3wtwvSfjFQcezHaQVWmreMTk3YkDA1D2/m/TMTOA/wy', 'Rua Doutor Wilson Issamo Minada', '11951788048', NULL, 'Vila Nova Curuçá', '08031400', 'São Paulo', 'SP', 'images/2.png', 12, 'feminina'),
-(29, 'bernardo', '24056783810', 'bernardo@gmail.com', '$2y$10$g/ZanHwmMmsl1NBdM1R1V.p4peupBQkUAln4USBy8UHyifM9EBcFa', 'Rua Doutor Wilson Issamo Minada', '11951788048', NULL, 'Vila Nova Curuçá', '08031400', 'São Paulo', 'SP', 'images/2.png', 12, 'feminina'),
-(30, 'Solange', '24056783810', 'solange@gmail.com', '$2y$10$n0wUxNA0tu3AijqE/2NGaOecEZ8tSnhHfAbQzK8f9bp4CM2ZZSiCO', 'Rua Doutor Wilson Issamo Minada', '11951788048', NULL, 'Vila Nova Curuçá', '08031400', 'São Paulo', 'SP', NULL, 12, 'feminina'),
-(31, 'Vivian', '24056783810', 'vivian@gmail.com', '$2y$10$pcn0IK9DwaTA01BWBpLpfeJ3VGkpmy1BfiuYMKg2sQ4wbQLF1wuOm', 'Rua Doutor Wilson Issamo Minada', '11951788048', NULL, 'Vila Nova Curuçá', '08031400', 'São Paulo', 'SP', NULL, 12, 'feminina'),
-(32, 'Sandrox', '24056783810', 'sandrox@gmail.com', '$2y$10$bu.fOnawSgSO1cVqT1UWwOFdoP9UKanGNLbBsAzLuoVnKvWb8Fyfa', 'Rua Doutor Wilson Issamo Minada', '11951788048', NULL, 'Vila Nova Curuçá', '08031400', 'São Paulo', 'SP', 'images/19.png', 12, 'feminina'),
-(33, 'Matheus', '24056783810', 'matheus15@gmail.com', '$2y$10$s3pbiEWB4AHJEdUfNwgbD.2RgsgghGULjdXDv3mLLkfw42UMbcb.u', 'Rua Doutor Wilson Issamo Minada', '11951788048', '12', 'Vila Nova Curuçá', '08031400', 'São Paulo', 'SP', 'images/13.png', 123, 'feminina'),
-(34, 'nando', '1231231231', 'nando@gmail.com', '$2y$10$dWOKBkR49WftafaSY.yAAeSU3QYkiWZMUqyD/SLPAZfOCxNKRUTte', 'Rua Baía da Guanabara', '12312312', 'casa 2', 'Jardim Fanganiello', '08450462', 'São Paulo', 'SP', 'images/14.png', 32, 'masculina');
+(40, 'Vanilza', '54212329912', 'vanilzinha@gmail.com', '$2y$10$s1JtqwKyOOBBGvdTL75cKu2GuUuREhBYE0kLhe49XlkylUCIgiHMO', 'Rua Osvaldo Souto de Oliveira', '1197874902', NULL, 'Cidade Nova São Miguel', '08042-530', 'São Paulo', 'SP', 'images/perfil/1730775650.png', 12, 'masculina'),
+(41, 'Rodrigo', '31231231232', 'rodrigo123@gmail.com', '$2y$10$ROHeTPGPjUZOZ9CAd7WbPOq5qHWk/sa/vLQbqhRXFfdJDWzQWnJia', 'Rua Moacir Dantas Itapicuru', '11995012342', 'Favelinha', 'Cidade Nova São Miguel', '08042-290', 'São Paulo', 'SP', 'images/perfil/1730775909.png', 112, 'masculina'),
+(42, 'Eduardo Teixeira', '892381923', 'eduardotx@gmail.com', '$2y$10$/56RhW5c/MDxtAPLw724q.0m4C/6VNb/6tgzVaV7b5blQEiQUzRKi', 'Rua Ribeirão das Furnas', '11981583773', NULL, 'Jardim Lajeado', '08441-190', 'São Paulo', 'SP', 'images/perfil/1730776198.png', 44, 'masculina'),
+(43, 'Nadia Augusta', '729104372124', 'nadiazinha@gmail.com', '$2y$10$zDPt3JSW5kZSrP2ZhI.YCuEW/4ZQ8s0A0Us3FlIRKrPeIyYyk1jyi', 'Rua Ribeirão das Furnas', '11981583773', NULL, 'Jardim Lajeado', '08441-190', 'São Paulo', 'SP', 'images/perfil/1730776835.png', 80, 'feminina'),
+(44, 'Dandara Galileia', '12231424244', 'dandarinha@gmail.com', '$2y$10$UETlAg7xja7eKsPLJ3T98usYn39PSdEcqKAaUC4Vy94GK3oEDm5Je', 'Rua Álcio Carneiro de Lima', '11981583773', NULL, 'Cidade Popular', '08461190', 'São Paulo', 'SP', 'images/perfil/1730777266.png', 1122, 'feminina'),
+(45, 'Rosangela Freire', '123223124214', 'rorofrefre@gmail.com', '$2y$10$4ZU5cUQdB1Hz767NhGvpVOq1e4Y6qhuTZrnMZf9iFgMKnJI/n2Z9i', 'Rua Ribeirão das Furnas', '11981583773', NULL, 'Jardim Lajeado', '08441-190', 'São Paulo', 'SP', 'images/perfil/1730777484.png', 1212, 'feminina'),
+(46, 'Rafaella Fields', '54212329912', 'rafaelafields@gmail.com', '$2y$10$AN1EZmmekFTHk9BEq5hFGOFFD/UU7kJoelhEDbiU9jOluCqq7.88a', 'Rua Ribeirão das Furnas', '11981583773', NULL, 'Jardim Lajeado', '08441-190', 'São Paulo', 'SP', 'images/perfil/1730777664.png', 99, 'feminina'),
+(47, 'Matheus Bergamota', '1342132132', 'bergamatheus@gmail.com', '$2y$10$vpnCUshy5TnKQpEs75Aae.4lAFuqdCnWA3GDxwikjyDAZiUn.O2Uq', 'Rua Ribeirão das Furnas', '11981583773', NULL, 'Jardim Lajeado', '08441-190', 'São Paulo', 'SP', 'images/perfil/1730777725.png', 19, 'masculina');
 
 -- --------------------------------------------------------
 
@@ -620,7 +597,16 @@ INSERT INTO `tbvendedor` (`idVendedor`, `nomeVendedor`, `emailVendedor`, `senhaV
 (1, 'peter', 'marcus@gmail.com', '$2y$10$MGWc2SKOTywDjMPzUpQxp.14Yx0.OJAN14biG11LreOzV5Nnu2eS.', '', '11986529942', '08451100', 'oo', 'we', 'Ouro Preto', 'MG', 'we', 'images/perfil/1724451217.png', NULL),
 (2, 'Eduardo da Silva Nascimento', 'a@gmail.com', '$2y$10$RR/.oMt6of7Lg4m1CVjdt.jeerzMB.TruUgJVQ00qojXxktjnJQky', '', '11951788048', '08031400', 'Rua Doutor Wilson Issamo Minada', 'Vila Nova Curuçá', 'São Paulo', 'SP', NULL, NULL, NULL),
 (3, 'luiz vendedor', 'fernandovendedor@gmail.com', '$2y$10$fAsIMBY9cVLBKv9kU77KLO0pY1cdYGrgOuDuTxRwBOwImNT/iHoQS', '', '119998131', '08450462', 'Rua Baía da Guanabara', 'Jardim Fanganiello', 'São Paulo', 'SP', 'casa 2', 'images/perfil/1724544506.png', NULL),
-(4, 'peter2', 'dou@gmail.com', '$2y$10$XhlbNKEEjFpA46vOMWY5KeZi1KateUelU0aRnQDmm8KDLiJZaf8bu', '123123', '1233', '08451100', 'Rua Francisco Orellana', 'Vila Iolanda(Lajeado)', 'São Paulo', 'SP', '123', 'images/perfil/1727739673.png', 123);
+(4, 'Manoel Feio', 'dou@gmail.com', '$2y$10$XhlbNKEEjFpA46vOMWY5KeZi1KateUelU0aRnQDmm8KDLiJZaf8bu', '123123', '1233', '08451100', 'Rua Francisco Orellana', 'Vila Iolanda(Lajeado)', 'São Paulo', 'SP', '123', 'images/perfil/1727739673.png', 123),
+(5, 'Nicoly Dos Santos Silva', 'vendedoranick@gmail.com', '$2y$10$gdot3ju0.lWhqs/SsP1YtOREHSRSK5AdHezbM/tJFN2j3SWaxazDO', '5022736632', '11981583773', '08461190', 'Rua Ribeirão Das Furnas 210', 'Cidade Popular', 'São Paulo', 'SP', 'Apto 3', 'images/14.png', 32),
+(6, 'maria', 'maria@gmail.com', '$2y$10$rCCrDBNuQZGWNhGUt4NCeuq9BhLDemunUf4wVraNgcFZXk8E7Hc9.', '5022736638', '11977999397', '08441-190', 'Rua Ribeirão das Furnas', 'Jardim Lajeado', 'São Paulo', 'SP', NULL, 'images/13.png', 22),
+(7, 'Edivan', 'edivanilson@gmail.com', '$2y$10$UG8TgLlUAE4ZZNXTX2oi0uQCeRlysz2obawIWVRtsX7UsmPDtTcdi', '123321445', '11988503140', '01153 000', 'Rua Vitorino Carmilo', 'Barra Funda', 'São Paulo', 'SP', 'Torre 2 ap 1052', 'images/perfil/1730775399.png', 2800),
+(8, 'gustavo souza', 'gustavosz@gmail.com', '$2y$10$0SxIg8s05zboRsJ.uaGQgOxGSopmYrYZSWj0CTv0QRWG7DdmGADHG', '12231244213', '12231321142', '66075-110', 'Rua Augusto Corrêa', 'Guamá', 'Belém', 'PA', 'Predinhos', 'images/perfil/1730776009.png', 223),
+(9, 'Rafaella Bertalucia', 'rafalucia@gmail.com', '$2y$10$S9jstV4mbdP1/oS6MYq4puEP1Gjfn13OrneQmItBk80XwXgn/ghFS', '5022736632', '11981583773', '08441190', 'Rua Ribeirão das Furnas', 'Jardim Lajeado', 'São Paulo', 'SP', 'Apto 3', 'images/perfil/1730776403.png', 23),
+(10, 'joao santos', 'jojo@gmail.com', '$2y$10$XZntAn0e5v67dlKZTMwARe.0uiR5dz2WU7KNB/SHR.NXh8y47TklW', '5022736638', '11981583773', '08461190', 'Rua Álcio Carneiro de Lima', 'Cidade Popular', 'São Paulo', 'SP', NULL, 'images/perfil/1730777040.png', 888),
+(11, 'Roberto Firmino', 'robertofirminho@gmail.com', '$2y$10$IvwWCDK78niH/mTKrF1X0ODsiM1SJa4AiUpWOXpVVoeDbqZi7Z4r6', '24124523532', '11981583773', '08441190', 'Rua Ribeirão das Furnas', 'Jardim Lajeado', 'São Paulo', 'SP', 'Apto 3', 'images/perfil/1730777386.png', 77),
+(12, 'Roberto Carlos', 'robertocarlos123@gmail.com', '$2y$10$xYkPdIOyveHfm3MowiFkpeFFL4npPBsK3XxlNPE9Ed0jMqe34tFUG', '2423532522', '11981583773', '08441-190', 'Rua Ribeirão das Furnas', 'Jardim Lajeado', 'São Paulo', 'SP', NULL, 'images/perfil/1730777862.png', 14),
+(13, 'Virginia Fonseca', 'virvirfonseca@gmail.com', '$2y$10$H4/GSDlZgO4yavJlFphxae7Gj6VFD3GEUg9mBGEkU.IYsP0Kow36y', '2334123213', '11981583773', '08441190', 'Rua Ribeirão das Furnas', 'Jardim Lajeado', 'São Paulo', 'SP', NULL, 'images/perfil/1730778036.png', 27);
 
 --
 -- Índices para tabelas despejadas
@@ -819,7 +805,7 @@ ALTER TABLE `tbcategoriaproduto`
 -- AUTO_INCREMENT de tabela `tbcliente`
 --
 ALTER TABLE `tbcliente`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT de tabela `tbcondicao`
@@ -933,7 +919,7 @@ ALTER TABLE `tbvenda`
 -- AUTO_INCREMENT de tabela `tbvendedor`
 --
 ALTER TABLE `tbvendedor`
-  MODIFY `idVendedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idVendedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Restrições para tabelas despejadas

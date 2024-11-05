@@ -112,7 +112,7 @@
                 justify-content: center;
 
                 padding: 1.5rem;
-                background-color: #5e3e24;
+                background-color: #1f628e;
             }
 
 
@@ -127,7 +127,7 @@
             }
 
             .header2 .drop-perfil i {
-                color: #5e3e24;
+                color: #1f628e;
             }
 
             .header2 .botao-abrir-menu i {

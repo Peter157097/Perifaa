@@ -380,8 +380,8 @@ section {
         <span class="reviews">({{ $vendedor->avaliacoes_count }} avaliações)</span>
     </div>
     <br>
-    <a  href="/perfilVendedor,{{ $vendedor->id }}">Ver perfil</a>
-    <a class="follow-btn" href="{{ url('/perfilVendedor', $vendedor->idVendedor)}}">Ver PErfil</a>
+    <a  href="/perfilVendedor,{{ $vendedor->id }}"></a>
+    <a class="follow-btn" href="{{ url('/perfilVendedor', $vendedor->idVendedor)}}">Ver perfil</a>
 </div>
   </div>
   <div class="profile-stats">

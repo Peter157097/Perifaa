@@ -53,10 +53,7 @@ class ClienteController extends Controller
         Log::info('Imagem Cliente: ' . $cliente->imagemCliente);
         $cliente->save();
 
-        Session::flash('cadastrarCliente', 'Cliente cadastrado com sucesso!');
-
-        Log::info('Cliente cadastrado com sucesso!');
-        return redirect("/");
+        return redirect('/', )->with('success', 'Cliente cadastro com sucesso! Você pode fazer login agora.');
     }
 
 

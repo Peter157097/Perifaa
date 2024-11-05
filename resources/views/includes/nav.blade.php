@@ -1,6 +1,6 @@
 <nav class="web">
     <!--Começo da nav-->
-    @if(session('is_vendedor'))
+   @if(session('is_admin'))
         <style>
             .web {
                 height: 40px;
@@ -13,7 +13,7 @@
                 box-shadow: 0 8px 8px rgba(148, 148, 148, 0.3);
                 /* Sombra somente embaixo */
                 position: relative;
-                background-color: #5e3e24;
+                background-color: #1f628e;
             }
 
 
@@ -123,6 +123,7 @@
                 background-color: #f5f5f5;
                 /* Adicionado */
             }
+          
 
             @media (max-width: 907px) {
                 .web2 {

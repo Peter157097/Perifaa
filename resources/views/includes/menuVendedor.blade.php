@@ -236,83 +236,86 @@
 
 
 
-        @media (max-width: 768px) {
-    /* Estilos para telas menores */
-    
-    /* Ícone do menu hambúrguer */
-    .hamburger {
-        top: 15px;
-        left: 15px;
-        font-size: 24px;
-    }
+    @media (max-width: 768px) {
+        /* Estilos para telas menores */
 
-    /* Menu lateral */
-    .sidebar {
-        width: 200px; /* Reduz a largura do menu */
-        left: -200px; /* Ajuste a posição inicial */
-    }
-    
-    .sidebar.open {
-        left: 0; /* Menu expandido */
-    }
+        /* Ícone do menu hambúrguer */
+        .hamburger {
+            top: 15px;
+            left: 15px;
+            font-size: 24px;
+        }
 
-    /* Ajuste do texto e espaçamento nos itens do menu */
-    .sidebar ul li a {
-        font-size: 14px;
-        padding: 10px;
-        margin-right: 10px;
-    }
+        /* Menu lateral */
+        .sidebar {
+            width: 200px;
+            /* Reduz a largura do menu */
+            left: -200px;
+            /* Ajuste a posição inicial */
+        }
 
-    /* Reorganização da barra de navegação da dashboard */
-    .navDash {
-        padding: 10px;
-        align-items: flex-start;
-    }
+        .sidebar.open {
+            left: 0;
+            /* Menu expandido */
+        }
 
-    .parte1, .parte2 {
-        padding: 10px;
-        text-align: left;
-    }
+        /* Ajuste do texto e espaçamento nos itens do menu */
+        .sidebar ul li a {
+            font-size: 14px;
+            padding: 10px;
+            margin-right: 10px;
+        }
 
-    /* Ajuste das fontes para dispositivos móveis */
-    .titulo1 {
-        font-size: 14px;
-    }
+        /* Reorganização da barra de navegação da dashboard */
+        .navDash {
+            padding: 10px;
+            align-items: flex-start;
+        }
 
-    .titulo2 {
-        font-size: 20px;
-    }
+        .parte1,
+        .parte2 {
+            padding: 10px;
+            text-align: left;
+        }
 
-    /* Ajuste do perfil de usuário */
-    .user-profile {
-        flex-direction: row;
-        gap: 5px;
-    }
+        /* Ajuste das fontes para dispositivos móveis */
+        .titulo1 {
+            font-size: 14px;
+        }
 
-    .user-info .user-name, .user-info .user-status {
-        font-size: 12px;
-    }
+        .titulo2 {
+            font-size: 20px;
+        }
 
-    .icons .icon {
-        width: 25px;
-        height: 25px;
-        font-size: 12px;
-    }
+        /* Ajuste do perfil de usuário */
+        .user-profile {
+            flex-direction: row;
+            gap: 5px;
+        }
 
-    /* Ajuste dos ícones */
-    .icon .fas {
-        font-size: 14px;
-    }
+        .user-info .user-name,
+        .user-info .user-status {
+            font-size: 12px;
+        }
 
-    /* Notificação do badge */
-    .notification .badge {
-        width: 10px;
-        height: 10px;
-        font-size: 7px;
-    }
-}
+        .icons .icon {
+            width: 25px;
+            height: 25px;
+            font-size: 12px;
+        }
 
-    
+        /* Ajuste dos ícones */
+        .icon .fas {
+            font-size: 14px;
+        }
+
+        /* Notificação do badge */
+        .notification .badge {
+            width: 10px;
+            height: 10px;
+            font-size: 7px;
+        }
+    }
 </style>
 <div class="hamburger" id="hamburger" onclick="toggleMenu()">
     &#9776;
@@ -332,7 +335,7 @@
                 Produtos</a></li>
         <li><a href="/mensagens" class="menu-item"><i class="fas fa-envelope"></i>Mensagens</a></li>
         <li><a href="{{url('editarPerfilVendedor')}}" class="menu-item"><i class="fas fa-user"></i>Perfil</a></li>
-        <li><a href="{{url('produtosVendedor')}}" class="menu-item"><i class="fas fa-cog"></i>Configurações</a></li>
+        <li><a href="{{url('produtosVendedor')}}" class="menu-item"><i class="fas fa-cog"></i>Produtos</a></li>
         <li><a href="{{ url('/logout') }}" class="menu-item"><i class="fas fa-sign-out-alt"></i>Sair</a></li>
     </ul>
 </nav>
@@ -342,7 +345,7 @@
     <div class="navDash">
         <div class="parte1">
             <div class="titulo1">
-                Bem vindo de volta, Alfredo!
+                Bem vindo de volta, {{ session('nomeVendedor') }}!
             </div>
             <div class="titulo2">
                 Dashboard Vendedor
@@ -353,10 +356,10 @@
 
             <div class="user-profile">
                 <a href="{{url('')}}" class="aPerifaa">
-                    <img class="imgLogin" src="{{url('images/fotogodo.png')}}" alt="Logo Perifa">
+                    <img class="imgLogin" src="{{ session('imagemVendedor') }}" alt="Logo Perifa">
                 </a>
                 <div class="user-info">
-                    <span class="user-name">Alfredo Torres</span>
+                    <span class="user-name">{{ session('nomeVendedor') }}</span>
                     <span class="user-status">$2,000.05 | VIP Member</span>
                 </div>
                 <div class="icons">

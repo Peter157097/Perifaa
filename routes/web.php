@@ -270,3 +270,9 @@ Route::post('/atualizar-senha', [EmailController::class, 'atualizarSenha']);
 Route::post('/filtrar-usuarios', [UserController::class, 'filtrarUsuarios'])->name('filtrar-usuarios');
 
 Route::post('/enviar-contato', [ContactController::class, 'enviarContato'])->name('enviar.contato');
+
+Route::get('/pagamentos', [PagamentoController::class, 'show'])->name('pagamentos.show');
+Route::post('/pagamentos', [PagamentoController::class, 'store']);
+Route::post('/gerar-boleto', [PagamentoController::class, 'gerarBoleto'])->name('gerar.boleto');
+Route::get('/sucesso', [PagamentoController::class, 'sucesso'])->name('boleto.sucesso');
+Route::get('/cancelado', [PagamentoController::class, 'cancelado'])->name('boleto.cancelado');

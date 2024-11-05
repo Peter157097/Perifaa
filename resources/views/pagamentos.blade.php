@@ -640,10 +640,12 @@
             font-size: 14px;
             line-height: 1.5;
         }
-        .container{
+
+        .container {
             flex-direction: column;
         }
-        .summary-section{
+
+        .summary-section {
             width: 100%;
         }
     }
@@ -673,171 +675,180 @@
             <div class="card-container">
                 <div class="containerMensagens">
                     @if(session('is_Cliente'))
-                        <div class="panelPedidos">
-                            <div class="itensPedidosContainer">
-                                <div class="itensWrap">
-                                    <div class="cardPedido">
-                                        <div class="imgProdutoPedido">
-                                            <img src="{{ url('images/teste.jpg') }}">
-                                        </div>
-                                        <div class="infoProdutoPedido">
-                                            <div class="infoPedido">
-                                                <ul class="labelPedido">
-                                                    <li class="nomeVendPedido">
-                                                        <span class="texto-inicial">Vestindo a Quebrada</span>
-                                                        <a href="/mensagens" class="texto-hover">
-                                                            Falar com vendedor
-                                                        </a>
-                                                    </li>
-                                                    <li>Nike Tech Fleece</li>
-                                                    <li>R$49,90</li>
-                                                </ul>
-                                                <ul class="statusPedido">
-                                                    <li class="sttsPedido">Status</li>
-                                                    <li class="situacaoPedido">
-                                                        Entregue
-                                                        <i class="fa-solid fa-circle-check"></i>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="ajudaPedido">
-                                            <ul class="listAjuda">
-                                                <li><i class="fa-solid fa-circle-info"></i> Detalhes</li>
+                    <div class="panelPedidos">
+                        <div class="itensPedidosContainer">
+                            <div class="itensWrap">
+                                <div class="cardPedido">
+                                    <div class="imgProdutoPedido">
+                                        <img src="{{ url('images/teste.jpg') }}">
+                                    </div>
+                                    <div class="infoProdutoPedido">
+                                        <div class="infoPedido">
+                                            <ul class="labelPedido">
+                                                <li class="nomeVendPedido">
+                                                    <span class="texto-inicial">Vestindo a Quebrada</span>
+                                                    <a href="/mensagens" class="texto-hover">
+                                                        Falar com vendedor
+                                                    </a>
+                                                </li>
+                                                <li>Nike Tech Fleece</li>
+                                                <li>R$49,90</li>
+                                            </ul>
+                                            <ul class="statusPedido">
+                                                <li class="sttsPedido">Status</li>
+                                                <li class="situacaoPedido">
+                                                    Entregue
+                                                    <i class="fa-solid fa-circle-check"></i>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="cardPedido">
-                                        <div class="imgProdutoPedido">
-                                            <img src="{{ url('images/teste.jpg') }}">
-                                        </div>
-                                        <div class="infoProdutoPedido">
-                                            <div class="infoPedido">
-                                                <ul class="labelPedido">
-                                                    <li class="nomeVendPedido">
-                                                        <span class="texto-inicial">Vestindo a Quebrada</span>
-                                                        <a href="/mensagens" class="texto-hover">
-                                                            Falar com vendedor
-                                                        </a>
-                                                    </li>
-                                                    <li>Nike Tech Fleece</li>
-                                                    <li>R$49,90</li>
-                                                </ul>
-                                                <ul class="statusPedido">
-                                                    <li class="sttsPedido">Status</li>
-                                                    <li class="situacaoPedido">
-                                                        Entregue
-                                                        <i class="fa-solid fa-circle-check"></i>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="ajudaPedido">
-                                            <ul class="listAjuda">
-                                                <li><i class="fa-solid fa-circle-info"></i> Detalhes</li>
+                                    <div class="ajudaPedido">
+                                        <ul class="listAjuda">
+                                            <li><i class="fa-solid fa-circle-info"></i> Detalhes</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="cardPedido">
+                                    <div class="imgProdutoPedido">
+                                        <img src="{{ url('images/teste.jpg') }}">
+                                    </div>
+                                    <div class="infoProdutoPedido">
+                                        <div class="infoPedido">
+                                            <ul class="labelPedido">
+                                                <li class="nomeVendPedido">
+                                                    <span class="texto-inicial">Vestindo a Quebrada</span>
+                                                    <a href="/mensagens" class="texto-hover">
+                                                        Falar com vendedor
+                                                    </a>
+                                                </li>
+                                                <li>Nike Tech Fleece</li>
+                                                <li>R$49,90</li>
+                                            </ul>
+                                            <ul class="statusPedido">
+                                                <li class="sttsPedido">Status</li>
+                                                <li class="situacaoPedido">
+                                                    Entregue
+                                                    <i class="fa-solid fa-circle-check"></i>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="cardPedido">
-                                        <div class="imgProdutoPedido">
-                                            <img src="{{ url('images/teste.jpg') }}">
-                                        </div>
-                                        <div class="infoProdutoPedido">
-                                            <div class="infoPedido">
-                                                <ul class="labelPedido">
-                                                    <li class="nomeVendPedido">
-                                                        <span class="texto-inicial">Vestindo a Quebrada</span>
-                                                        <a href="/mensagens" class="texto-hover">
-                                                            Falar com vendedor
-                                                        </a>
-                                                    </li>
-                                                    <li>Nike Tech Fleece</li>
-                                                    <li>R$49,90</li>
-                                                </ul>
-                                                <ul class="statusPedido">
-                                                    <li class="sttsPedido">Status</li>
-                                                    <li class="situacaoPedido">
-                                                        Entregue
-                                                        <i class="fa-solid fa-circle-check"></i>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="ajudaPedido">
-                                            <ul class="listAjuda">
-                                                <li><i class="fa-solid fa-circle-info"></i> Detalhes</li>
+                                    <div class="ajudaPedido">
+                                        <ul class="listAjuda">
+                                            <li><i class="fa-solid fa-circle-info"></i> Detalhes</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="cardPedido">
+                                    <div class="imgProdutoPedido">
+                                        <img src="{{ url('images/teste.jpg') }}">
+                                    </div>
+                                    <div class="infoProdutoPedido">
+                                        <div class="infoPedido">
+                                            <ul class="labelPedido">
+                                                <li class="nomeVendPedido">
+                                                    <span class="texto-inicial">Vestindo a Quebrada</span>
+                                                    <a href="/mensagens" class="texto-hover">
+                                                        Falar com vendedor
+                                                    </a>
+                                                </li>
+                                                <li>Nike Tech Fleece</li>
+                                                <li>R$49,90</li>
+                                            </ul>
+                                            <ul class="statusPedido">
+                                                <li class="sttsPedido">Status</li>
+                                                <li class="situacaoPedido">
+                                                    Entregue
+                                                    <i class="fa-solid fa-circle-check"></i>
+                                                </li>
                                             </ul>
                                         </div>
+                                    </div>
+                                    <div class="ajudaPedido">
+                                        <ul class="listAjuda">
+                                            <li><i class="fa-solid fa-circle-info"></i> Detalhes</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     @elseif(session('is_vendedor'))
-                        <div class="panelPedidos">
-                            <div class="pedidosTitlePanel">
-                                Seus pedidos
-                            </div>
-                            <div class="itensPedidosContainer">
-                                <div class="itensWrap">
-                                    <div class="cardPedido">
-                                        <div class="imgProdutoPedido">
-                                            <img src="{{ url('images/teste.jpg') }}">
-                                        </div>
-                                        <div class="infoProdutoPedido">
-                                            <div class="infoPedido">
-                                                <ul class="labelPedido">
-                                                    <li>Vestindo a Quebrada</li>
-                                                    <li>Nike Tech Fleece</li>
-                                                    <li>R$49,90</li>
-                                                </ul>
-                                                <ul class="statusPedido">
-                                                    <li class="sttsPedido">Status</li>
-                                                    <li class="situacaoPedido">
-                                                        Entregue
-                                                        <i class="fa-solid fa-circle-check"></i>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                    <div class="panelPedidos">
+                        <div class="pedidosTitlePanel">
+                            Seus pedidos
+                        </div>
+                        <div class="itensPedidosContainer">
+                            <div class="itensWrap">
+                                <div class="cardPedido">
+                                    <div class="imgProdutoPedido">
+                                        <img src="{{ url('images/teste.jpg') }}">
+                                    </div>
+                                    <div class="infoProdutoPedido">
+                                        <div class="infoPedido">
+                                            <ul class="labelPedido">
+                                                <li>Vestindo a Quebrada</li>
+                                                <li>Nike Tech Fleece</li>
+                                                <li>R$49,90</li>
+                                            </ul>
+                                            <ul class="statusPedido">
+                                                <li class="sttsPedido">Status</li>
+                                                <li class="situacaoPedido">
+                                                    Entregue
+                                                    <i class="fa-solid fa-circle-check"></i>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     @else
-                        <div class="panelPedidos">
-                            <div class="pedidosTitlePanel">
-                                Seus pedidos
-                            </div>
-                            <div class="itensPedidosContainer">
-                                <div class="containerNoRegister">
-                                    <div class="noRegisterImg">
-                                        <img src="{{url('images/msgSemRegistro.png')}}" class="noContentImg">
-                                    </div>
-                                    <div class="noRegisterMsg">
-                                        <h4>Quem é você?</h4>
-                                        <p>Faça
-                                            <a href="#">
-                                                <button class="abrir-modal" data-modal="modal-1">
-                                                    login
-                                                </button>
-                                            </a>
-                                            ou
-                                            <a href="#">
-                                                <button class="abrir-modal" data-modal="modal-2">
-                                                    cadastre-se
-                                                </button>
-                                            </a>para ver seus
-                                            <span>
-                                                pedidos.
-                                            </span>
-                                        </p>
-                                    </div>
+                    <div class="panelPedidos">
+                        <div class="pedidosTitlePanel">
+                            Seus pedidos
+                        </div>
+                        <div class="itensPedidosContainer">
+                            <div class="containerNoRegister">
+                                <div class="noRegisterImg">
+                                    <img src="{{url('images/msgSemRegistro.png')}}" class="noContentImg">
+                                </div>
+                                <div class="noRegisterMsg">
+                                    <h4>Quem é você?</h4>
+                                    <p>Faça
+                                        <a href="#">
+                                            <button class="abrir-modal" data-modal="modal-1">
+                                                login
+                                            </button>
+                                        </a>
+                                        ou
+                                        <a href="#">
+                                            <button class="abrir-modal" data-modal="modal-2">
+                                                cadastre-se
+                                            </button>
+                                        </a>para ver seus
+                                        <span>
+                                            pedidos.
+                                        </span>
+                                    </p>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     @endif
                 </div>
             </div>
+        </div>
+
+        <div class="qr-section hidden" id="qr-section">
+            <div class="timer" id="timer">30:00</div>
+            <div id="qrcode"></div> <!-- Aqui está o elemento que irá conter o QR Code -->
+            <p>Escaneie com o <strong>aplicativo do seu banco</strong> para realizar o pagamento.</p>
+            <p>Enviaremos uma <strong>confirmação do seu pedido</strong> pelo e-mail.</p>
+            <p><em>Muito obrigado :)</em></p>
+            <a href="#" class="back-link" onclick="returnToForm()">Voltar às compras</a>
         </div>
 
 
@@ -850,17 +861,17 @@
                         <div class="card-title">Transportadoras</div>
                         <label class="card-option">
                             <input type="radio" name="card-transportadora" checked>
-                            Correios SEDEX - R$xx,xx
+                            Correios SEDEX - R$11,00
                             <div class="card-delivery-date">Chegará entre 2 Out. - 5 Out.</div>
                         </label>
                         <label class="card-option">
                             <input type="radio" name="card-transportadora">
-                            Sequoia - R$xx,xx
+                            Sequoia - R$20,00
                             <div class="card-delivery-date">Chegará entre 2 Out. - 5 Out.</div>
                         </label>
                         <label class="card-option">
                             <input type="radio" name="card-transportadora">
-                            Azul - R$xx,xx
+                            Azul - R$10,00
                             <div class="card-delivery-date">Chegará entre 2 Out. - 5 Out.</div>
                         </label>
                     </div>
@@ -869,40 +880,11 @@
                         <div class="card-title">Endereços</div>
                         <label class="card-option">
                             <input type="radio" name="card-endereco" checked>
-                            Rua Gangrena, 63 - CEP: 08410-440
-                            <div class="card-complemento">Complemento: portão azul</div>
+                            {{ Session::get('logradouro', 'Logradouro não definido') }}, {{ Session::get('numCasaCliente', 'Número não definido') }} - CEP: {{ Session::get('cep', 'CEP não definido') }}
+                            <div class="card-complemento">Complemento: {{ Session::get('complemento', 'complemente não definido') }}</div>
                         </label>
-                        <label class="card-option">
-                            <input type="radio" name="card-endereco">
-                            Travessa Sífilis, 102A - CEP 08412-441
-                            <div class="card-complemento">Complemento: árvore pintada</div>
-                        </label>
-                        <div href="#section2" class="card-add-address">
-                            <svg width="16" height="16" fill="#a2856d" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 1v6H2v2h6v6h2v-6h6V7H10V1H8z" />
-                            </svg>
-                            <a href="#div2">Adicionar endereço</a>
-
-                        </div>
                     </div>
                 </div>
-
-
-
-                <div class="form-card" id="div2">
-                    <h2>ADICIONAR ENDEREÇO</h2>
-                    <input type="text" placeholder="Nome completo">
-                    <input type="text" placeholder="CEP">
-                    <input type="text" placeholder="Endereço">
-                    <div class="double-input">
-                        <input type="text" placeholder="Número">
-                        <input type="text" placeholder="Complemento">
-                    </div>
-                    <input type="text" placeholder="Observação / ponto de referência">
-                    <button>Pronto</button>
-                </div>
-
-
 
             </div>
 
@@ -912,45 +894,40 @@
                 <div class="form-section" id="form-section">
                     <h2>Forma de pagamento</h2>
                     <div class="payment-methods">
-                        <label><input type="radio" name="payment" value="pix" onclick="togglePaymentMethod()">
-                            Pix</label>
-                        <label><input type="radio" name="payment" value="credito" onclick="togglePaymentMethod()">
-                            Crédito</label>
-                        <label><input type="radio" name="payment" value="debito" onclick="togglePaymentMethod()"
-                                checked> Débito</label>
+                        <label>
+                            <input type="radio" name="payment" value="boleto" onclick="togglePaymentMethod()"> Boleto
+                        </label>
                     </div>
-                    <div id="payment-form">
-                        <div class="form-group">
-                            <input type="text" placeholder="Nome completo">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="CPF">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="Número do cartão">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="Validade">
-                            <input type="text" placeholder="CVC">
-                        </div>
-                    </div>
+
                     <div id="pix-message" class="pix-message">
                         <p>Após finalizar, você será redirecionado para uma página com um <strong>QR CODE</strong></p>
-                        <p>Escaneie com o <strong>aplicativo do seu banco</strong> para realizar o pagamento. Após isso,
-                            enviaremos uma <strong>confirmação</strong> do seu pedido pelo e-mail.</p>
+                        <p>Escaneie com o <strong>aplicativo do seu banco</strong> para realizar o pagamento. Após isso, enviaremos uma <strong>confirmação</strong> do seu pedido pelo e-mail.</p>
                     </div>
-                    <button class="finalize-button" onclick="showQRCode()">Finalizar</button>
+
+                    <div id="boleto-message" class="boleto-message" style="display: none;">
+                        <p>Após finalizar, você poderá <strong>baixar o boleto</strong> para pagamento.</p>
+                        <p>Imprima ou pague o boleto online pelo aplicativo do seu banco. Após o pagamento, enviaremos uma <strong>confirmação</strong> do seu pedido pelo e-mail.</p>
+                    </div>
+
+                    <form id="boleto-form" action="{{ route('gerar.boleto') }}" method="POST" style="display: none;">
+                        @csrf
+                        <input type="hidden" name="subtotal" value="{{ $subtotal }}"> <!-- Passa o subtotal como um valor oculto -->
+                    </form>
+
+                    <button class="finalize-button" onclick="finalizePayment()">Finalizar</button>
                 </div>
+
+
+                <?php
+                $subtotal = request('subtotal') ?? 0;
+                ?>
+
                 <div class="summary-section">
                     <h2>Resumo do pedido</h2>
                     <table>
                         <tr>
                             <td>Subtotal</td>
-                            <td>R$172,00</td>
-                        </tr>
-                        <tr>
-                            <td>Cupom</td>
-                            <td>-R$15,00</td>
+                            <td>R$<?= number_format($subtotal, 2, ',', '.') ?></td>
                         </tr>
                         <tr>
                             <td>Frete</td>
@@ -958,10 +935,11 @@
                         </tr>
                         <tr class="total">
                             <td>Total</td>
-                            <td>R$169,00</td>
+                            <td>R$ <span id="totalValue">{{ number_format($subtotal + 11, 2, ',', '.') }}</span></td>
                         </tr>
                     </table>
                 </div>
+
                 <div class="qr-section hidden" id="qr-section">
                     <div class="timer" id="timer">30:00</div>
                     <img src="https://via.placeholder.com/200" alt="QR Code">
@@ -972,6 +950,8 @@
                 </div>
             </div>
         </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
 
 
@@ -1000,15 +980,29 @@
 
             function togglePaymentMethod() {
                 const pixMessage = document.getElementById('pix-message');
-                const paymentForm = document.getElementById('payment-form');
+                const boletoMessage = document.getElementById('boleto-message');
                 const paymentType = document.querySelector('input[name="payment"]:checked').value;
+
+
+                pixMessage.style.display = 'none';
+                boletoMessage.style.display = 'none';
+
 
                 if (paymentType === 'pix') {
                     pixMessage.style.display = 'block';
-                    paymentForm.style.display = 'none';
+                } else if (paymentType === 'boleto') {
+                    boletoMessage.style.display = 'block';
+                }
+            }
+
+
+            function finalizePayment() {
+                const paymentType = document.querySelector('input[name="payment"]:checked').value;
+
+                if (paymentType === 'boleto') {
+                    document.getElementById('boleto-form').submit();
                 } else {
-                    pixMessage.style.display = 'none';
-                    paymentForm.style.display = 'block';
+                    finalizePurchase();
                 }
             }
 
@@ -1023,6 +1017,49 @@
                 document.getElementById('form-section').classList.remove('hidden');
                 stopTimer();
             }
+
+
+            function finalizePurchase() {
+                console.log("Finalizando compra e gerando QR Code");
+                const paymentType = document.querySelector('input[name="payment"]:checked').value;
+                const totalValue = document.querySelector('.total td:last-child').textContent;
+
+                const totalInCents = Math.round(parseFloat(totalValue.replace('R$', '').replace('.', '').replace(',', '.')) * 100);
+
+                if (paymentType === 'pix') {
+                    const pixCode = `00020101021126640014BR.GOV.BCB.PIX0eeduardosilva010506@gmail.com-ID12345678520400005303986540${totalInCents}5802BR5907EDUARDO09SAO PAULO62070503***6304`;
+
+                    let qrCodeElement = document.getElementById('qrcode');
+                    qrCodeElement.innerHTML = '';
+
+                    new QRCode(qrCodeElement, {
+                        text: pixCode,
+                        width: 128,
+                        height: 128,
+                    });
+
+                    showQRCode();
+                } else {
+                    alert("Pagamento com cartão será processado.");
+                }
+            }
+
+
+            function showQRCode() {
+                document.getElementById('form-section').classList.add('hidden');
+                document.getElementById('qr-section').classList.remove('hidden');
+                startTimer();
+            }
+
+
+            function returnToForm() {
+                document.getElementById('qr-section').classList.add('hidden');
+                document.getElementById('form-section').classList.remove('hidden');
+                stopTimer();
+            }
+
+
+
 
             let timerInterval;
 
@@ -1046,7 +1083,6 @@
                 clearInterval(timerInterval);
             }
         </script>
-
 
 </body>
 

@@ -1,15 +1,17 @@
-<html>
-<style>
-    
-</style>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Carrinho</title>
+    <style>
+        /* Adicione o estilo aqui */
+    </style>
 </head>
+<body>
 
 @include('includes.head')
 @include('includes.header')
 @include('includes.nav')
-
-<!-- CARRINHO VAZIO -->
-
 
 @if(session('success'))
     <p>{{ session('success') }}</p>
@@ -21,10 +23,7 @@
 
 @if($carrinho->isEmpty())
     <div class="containerCarrinhoVazio">
-
-        <div class="tituloCarrinho">
-            CARRINHO
-        </div>
+        <div class="tituloCarrinhoVazio">CARRINHO</div>
         <br>
         <div class="tituloCarrinhoVazio">
             <h3>Tá meio deserto aqui...</h3>
@@ -35,25 +34,20 @@
             Continue procurando algo do seu interesse!
         </div>
         <br>
-        <a href="produtos" class="linkHomeCarrinho">
-            Voltar às compras
-        </a>
+        <a href="produtos" class="linkHomeCarrinho">Voltar às compras</a>
     </div>
 @else
     <div class="containerCarrinho">
-        <div class="tituloCarrinho">
-            CARRINHO
-        </div>
+        <div class="tituloCarrinhoVazio">CARRINHO</div>
         <br>
 
-        <!-- card carrinho -->
-         
+        <!-- Card do carrinho -->
         @foreach ($carrinho as $item)
             <div class="containerCardCarrinho">
                 <div class="cardCaPt1">
                     <div class="partbrecho">
                         <i class="fa-solid fa-shop store-icon"></i>
-                        <h4>{{ $item->product->vendedor->nomeVendedor }}</h4> <!-- nome do brecho -->
+                        <h4>{{ $item->product->vendedor->nomeVendedor }}</h4>
                     </div>
                     <div class="partlixeira">
                         <form action="{{ route('carrinho.destroy', $item->idProduto) }}" method="POST" style="display:inline;">
@@ -63,9 +57,6 @@
                                 <i class="fa-solid fa-trash trash-icon"></i>
                             </button>
                         </form>
-
-
-
                     </div>
                 </div>
                 <hr class="linha">
@@ -73,7 +64,6 @@
                 <div class="cardCaPt2">
                     <div class="parteImagemItem">
                         <img src="{{ $item->product->imagemProduto }}" alt="Imagem do Produto" class="imagemProduto">
-
                     </div>
                     <div class="detalhesProduto">
                         <div class="titulosDetalhes">
@@ -81,14 +71,6 @@
                         </div>
                         <div class="parteDetalhesBanco">
                             <h6>{{ $item->product->nomeProduto }}</h6>
-                        </div>
-                    </div>
-                    <div class="detalhesProduto">
-                        <div class="titulosDetalhes">
-                            <h5>Estado</h5>
-                        </div>
-                        <div class="parteDetalhesBanco">
-                            <h6>Blusa Nike Dry-Fit</h6>
                         </div>
                     </div>
                     <div class="detalhesProduto">
@@ -112,18 +94,15 @@
                             <h5>Valor</h5>
                         </div>
                         <div class="parteDetalhesBanco">
-                            <h6>{{ $item->product->valorProduto }}</h6>
+                            <h6>R$ {{ number_format($item->product->valorProduto, 2, ',', '.') }}</h6>
                         </div>
                     </div>
-                    <input type="checkbox">
+                    <input type="checkbox" class="checkbox" data-preco="{{ $item->product->valorProduto }}">
                     <span class="checkmark"></span>
                 </div>
-
             </div>
-
-
-
         @endforeach
+
         <div class="checkout-wrapper">
             <div class="checkout-card">
                 <div class="checkout-header">
@@ -132,27 +111,24 @@
                 <div class="checkout-body">
                     <div class="checkout-info">
                         <p>Subtotal</p>
-                        <p class="subtotal-value">R$138,00</p>
+                        <p id="subtotal-value">R$ 0,00</p>
                     </div>
                     <hr>
                     <div class="checkout-footer">
-                        <button class="finalize-btn">Finalizar Compra</button>
+                        <!-- Formulário oculto para enviar o subtotal -->
+                        <form id="finalize-form" action="/pagamentos" method="POST">
+                            @csrf
+                            <input type="hidden" id="subtotal-input" name="subtotal">
+                            <button type="button" class="finalize-btn" onclick="submitFinalizeForm()">Finalizar Compra</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-
+    </div>
 @endif
-</div>
 
-<!-- Import do javascript -->
-<script src="{{('js/script.js')}}"></script>
-<!-- Imports do bootstrap do body -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
-
+<!-- JavaScript para calcular o subtotal -->
 <script>
     document.querySelectorAll('.checkbox').forEach(checkbox => {
         checkbox.addEventListener('change', function () {
@@ -160,12 +136,18 @@
             document.querySelectorAll('.checkbox:checked').forEach(checked => {
                 total += parseFloat(checked.getAttribute('data-preco'));
             });
-            document.getElementById('totalSelecionado').textContent = total.toFixed(2);
+            document.getElementById('subtotal-value').textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
         });
     });
+
+    function submitFinalizeForm() {
+        let subtotal = document.getElementById('subtotal-value').textContent.replace('R$ ', '').replace(',', '.');
+        document.getElementById('subtotal-input').value = subtotal;
+        document.getElementById('finalize-form').submit();
+    }
 </script>
 
-</body>
-
-</html>
 @include('includes.footer')
+
+</body>
+</html>

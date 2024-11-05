@@ -260,17 +260,19 @@ section {
           <h6><a href="#">Masculinas</a>/ <a href="#">Casaco</a>/ </h6>
 
           <div class="parte1">
-            <h2>{{$produtos->nomeProduto}}</h2>
             <!-- link para acionar modal de denúncia -->
-            <a href="#" data-toggle="modal" data-target="#modalDenuncia">Denunciar</a>
-            <form action="{{ route('favorites.add') }}" method="POST">
-              @csrf
-              <input type="hidden" name="product_id" value="{{ $produtos->idProduto }}">
-              <button id="favorite-button" class="btn btn-favorite {{ $favorited ? 'favorited' : '' }}"
-                data-product-id="{{ $produtos->idProduto }}">
-                {{ $favorited ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos' }}
-              </button>
-            </form>
+            <div class="botoes-entrar-produto">
+              <a href="#" data-toggle="modal" data-target="#modalDenuncia" class="denunciaEntrarProduto">Denunciar</a>
+              <form action="{{ route('favorites.add') }}" method="POST">
+                @csrf
+                <input type="hidden" name="product_id" value="{{ $produtos->idProduto }}">
+                <button id="favorite-button" class="btn btn-favorite {{ $favorited ? 'favorited' : '' }}"
+                  data-product-id="{{ $produtos->idProduto }}">
+                  {{ $favorited ? 'Adicionar aos Favoritos' : 'Remover dos favoritos' }}
+                </button>
+              </form>
+            </div>
+            <p>{{$produtos->nomeProduto}}</p>
           </div>
 
           <!-- Modal Denúncia -->
@@ -347,11 +349,11 @@ section {
             </div>
           </div>
 
-          <h4>Descrição</h4>
+  
           <p>{{$produtos->descricaoProduto}}</p>
 
           <div class="parte2">
-            <span class="price">{{$produtos->valorProduto}}</span>
+            <span class="price">R${{$produtos->valorProduto}}</span>
           </div>
 
           <div class="opcao-entrar-produto">

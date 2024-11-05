@@ -39,7 +39,7 @@
                 </a>
             </div>
         @else
-        
+
             <ul style="padding:0">
                 <div class="cards-body">
                     <div class="container-cards-favorite">

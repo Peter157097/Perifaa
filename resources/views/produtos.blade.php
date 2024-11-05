@@ -297,7 +297,6 @@
             </div>
 
             <div class="cards-body">
-
                 <div class="container-cards">
                     @foreach($produtos as $produto)
                     <a href="{{ url('/entrar-produto', $produto->idProduto)}}">
@@ -403,7 +402,14 @@
 
         <script>
         // deixa o icone de coracaozinho vermei
-        document.querySelectorAll(".cardMensagem").forEach(button => {
+        document.querySelectorAll(".botaoAmei").forEach(button => {
+        button.addEventListener("click", function(event) {
+        this.classList.toggle("clicado");
+        event.preventDefault(); // Previne o envio imediato do formulário
+        this.closest('form').submit(); // Envia o formulário após a animação
+    });
+});
+document.querySelectorAll(".botaoCarrinho").forEach(button => {
         button.addEventListener("click", function(event) {
         this.classList.toggle("clicado");
         event.preventDefault(); // Previne o envio imediato do formulário

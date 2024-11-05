@@ -95,16 +95,7 @@
                     <div class="pedidosTitlePanel">
                         Meus pedidos
                     </div>
-                    <div class="optPedidos">
-                        <a href="contato">
-                            <i class="fa-solid fa-phone"></i>
-                            Suporte
-                        </a>
-                        <a href="perfil">
-                            <i class="fa-solid fa-house"></i>
-                            Meus endereços
-                        </a>
-                    </div>
+                    
                     <div class="itensPedidosContainer">
                         <div class="itensWrap">
                             <div class="cardPedido">
@@ -279,16 +270,7 @@
                         <div class="pedidosTitlePanel">
                             Suas compras
                         </div>
-                        <div class="optPedidos">
-                            <a href="contato">
-                                <i class="fa-solid fa-phone"></i>
-                                Suporte
-                            </a>
-                            <a href="perfil">
-                                <i class="fa-solid fa-house"></i>
-                                Meus endereços
-                            </a>
-                        </div>
+                        
                         <div class="itensPedidosContainer">
                             <div class="itensWrap">
                                 <div class="cardPedido">

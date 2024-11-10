@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Cliente;
+use App\Models\Venda;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -54,6 +55,13 @@ class ClienteController extends Controller
         $cliente->save();
 
         return redirect('/', )->with('success', 'Cliente cadastro com sucesso! Você pode fazer login agora.');
+    }
+
+    public function pedidos(Request $request)
+    {
+        $idCliente = Session::get('id'); // Verifique o valor do cliente_id
+        $vendas = Venda::where('idCliente', $idCliente)->get();
+        return view('pedidos', compact('vendas'));
     }
 
 

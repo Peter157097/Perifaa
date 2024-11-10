@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PedidosController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\VendedorController;
@@ -126,14 +127,15 @@ Route::get('/mensagens', function () {
     ]);
 })->name('mensagens');
 
-Route::get('/pedidos', function () {
-    return view('pedidos');
-}); 
+Route::get('/pedidos', [ClienteController::class, 'pedidos'])->name('pedidos');
+
+
 Route::get('/mensagensAdmin', function () {
     return view('mensagensAdmin');
 }); 
 
 
+Route::post('/vendas/{id}/atualizarCodigoCorreios', [VendedorController::class, 'atualizarCodigoCorreios'])->name('atualizarCodigoCorreios');
 
 
 Route::get('/criaradmin', function () {
@@ -196,6 +198,9 @@ Route::get('/contato', function () {
 Route::get('/mensagensVendedor', function () {
     return view('mensagensVendedor');
 });
+
+Route::post('/send/{idVenda}', [VendedorController::class, 'send'])->name('send');
+
 
 Route::post('/cadastrarProdutosVendedor', [DashboardController::class, 'index'])->name('produto.store');
 Route::get('/produtos/search', [ProdutoController::class, 'search'])->name('produtos.search');

@@ -10,6 +10,8 @@ use App\Models\Tamanho;
 use App\Models\Categoria;
 use App\Models\Genero;
 use App\Models\Regiao;
+use App\Models\Venda;
+use App\Models\Pagamento;
 use App\Models\Condicao;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -19,25 +21,56 @@ use Illuminate\Support\Facades\Log;
 class VendedorController extends Controller
 {
 
-    public function index() {
+    public function index()
+    {
         $idVendedor = Session::get('idVendedor');
 
-    
-        if (!$idVendedor) {
-            // Redireciona se não houver vendedor logado
-            return redirect()->route('login')->with('error', 'Você precisa estar logado.');
-        }
-    
+
         $vendedor = Vendedor::find($idVendedor);
-    
-        if (!$vendedor) {
-            // Redireciona se o vendedor não for encontrado
-            return redirect()->route('login')->with('error', 'Vendedor não encontrado.');
+
+
+        // Recupera todas as vendas do vendedor logado
+        $vendas = Venda::where('idVendedor', $idVendedor)->where('idPagamento', 1)->get();
+
+        return view('dashboardVendedor', [
+            'vendedor' => $vendedor,
+            'vendas' => $vendas
+        ]);
+    }
+
+    public function send(Request $request, $idVenda)
+    {
+        // Encontre a venda pelo ID e atualize o campo idPagamento para 0
+        $venda = \App\Models\Venda::where('idVenda', $idVenda)->first();
+
+        if ($venda) {
+            $venda->idLoc = 1;
+            $venda->save();
+
+            return redirect()->back()->with('success', 'Pagamento atualizado com sucesso.');
+        } else {
+            return redirect()->back()->with('error', 'Venda não encontrada.');
         }
-    
-        return view('dashboardVendedor', ['vendedor' => $vendedor]);
-    }  
-    
+    }
+
+    public function atualizarCodigoCorreios(Request $request, $id)
+    {
+        // Validação do campo
+        $request->validate([
+            'codigoCorreios' => 'required|string',
+        ]);
+
+        // Atualização do campo no banco de dados
+        $venda = Venda::findOrFail($id);
+        $venda->codigoCorreio = $request->codigoCorreios;
+        $venda->idLoc = 1;
+        $venda->save();
+
+        return redirect()->route('dashboardVendedor')->with('success', 'Código dos Correios atualizado com sucesso.');
+    }
+
+
+
     public function store(Request $request)
     {
         $vendedor = new Vendedor;
@@ -54,40 +87,40 @@ class VendedorController extends Controller
         $vendedor->numCasaVendedor = $request->numCasaVendedor;
         $vendedor->senhaVendedor = Hash::make($request->senhaVendedor);
 
-        
+
         if ($request->hasFile('imagemVendedor')) {
             $file = $request->file('imagemVendedor');
             $filename = time() . '.' . $file->getClientOriginalExtension();
-        
+
             $file->move(public_path('images/perfil'), $filename);
             $vendedor->imagemVendedor = 'images/perfil/' . $filename;
         } else {
             $letras = range('a', 'z'); // Cria um array com letras de 'a' a 'z'
             $index = array_search(strtolower(substr($vendedor->nomeVendedor, 0, 1)), $letras); // Busca o índice da letra
-        
+
             if ($index !== false) {
                 $vendedor->imagemVendedor = 'images/' . ($index + 1) . '.png'; // Adiciona 1 ao índice para o número do arquivo
                 Log::info('Imagem Cliente: ' . $vendedor->imagemVendedor);
             }
         }
 
-    Log::info('Imagem Cliente: ' . $vendedor->imagemCliente);
+        Log::info('Imagem Cliente: ' . $vendedor->imagemCliente);
 
 
 
         $vendedor->save();
 
-        
+
         return redirect('/', )->with('success', 'Vendedor cadastro com sucesso! Você pode fazer login agora.');
 
-       
+
     }
 
     public function showProfile()
     {
 
-      
-        
+
+
         return view('perfil', [
             'nomeVendedor' => Session::get('nomeVendedor'),
             'emailVendedor' => Session::get('emailVendedor'),
@@ -98,7 +131,7 @@ class VendedorController extends Controller
             'estadoVendedor' => Session::get('estadoVendedor'),
             'imagemVendedor' => Session::get('imagemVendedor'),
             'numCasaVendedor' => Session::get('numCasaVendedor'),
-            
+
         ]);
     }
 

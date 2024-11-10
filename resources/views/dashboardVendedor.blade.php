@@ -630,17 +630,97 @@
                 </div>
                 <img src="images/mocaCard.png" alt="Imagem cadastro" class="imagem-flutuante">
             </div>
+            <style>
+                #modal {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.6);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .modal-content {
+                    background: #fff;
+                    padding: 20px;
+                    border-radius: 5px;
+                    width: 300px;
+                    text-align: center;
+                }
+            </style>
+            <script>
+                function openModal(idVenda) {
+                    const form = document.getElementById('correiosForm');
+                    form.action = `/vendas/${idVenda}/atualizarCodigoCorreios`; // Defina a rota correta aqui
+                    document.getElementById('modal').style.display = 'flex';
+                }
+
+                function closeModal() {
+                    document.getElementById('modal').style.display = 'none';
+                }
+            </script>
             <div class="card2">
                 <div class="info">
                     <h2>Vendas</h2>
                     <img src="images/muiegraf.png" alt="Vendedor">
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Valor Total</th>
+                                <th>ID Cliente</th>
+                                <th>ID Itens Venda</th>
+                                <th>ID Pagamento</th>
+                                <th>Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($vendas as $venda)
+                                <tr>
+                                    <td>{{ $venda->dataVenda }}</td>
+                                    <td>{{ $venda->valorTotalVenda }}</td>
+                                    <td>{{ $venda->idCliente }}</td>
+                                    <td>{{ $venda->idItensVenda }}</td>
+                                    <td>{{ $venda->idPagamento }}</td>
+                                    <td>
+                                        <form action="{{ route('send', $venda->idVenda) }}" method="POST">
+                                            @csrf
+                                            <button type="button"
+                                                onclick="openModal({{ $venda->idVenda }})">Entregar</button>
+
+                                        </form>
+
+
+
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+
                 </div>
+
+
                 <div class="chart">
                     <canvas id="myChart" width="400" height="200"></canvas>
                 </div>
             </div>
         </div>
-        
+        <div id="modal" style="display: none;">
+            <div class="modal-content">
+                <h2>Informe o Código dos Correios</h2>
+                <form id="correiosForm" action="" method="POST">
+                    @csrf
+                    <input type="text" name="codigoCorreios" required placeholder="Código Correios">
+                    <button type="submit">Salvar</button>
+                    <button type="button" onclick="closeModal()">Cancelar</button>
+                </form>
+            </div>
+        </div>
         <div class="cardComcoisas">
             <div class="abas">
                 <button id="aba-transacoes" class="active" onclick="showAba('transacoes')">Últimas
@@ -650,100 +730,40 @@
             </div>
             <div class="coisa">
                 <div id="transacoes" class="aba-content active">
-                    <!-- Transação 1 -->
-                    <div class="transaction-card">
-                        <div class="product-image">
-                            <img src="{{url('images/card-image-one.png')}}" alt="Produto Vendido">
+                    @foreach($vendas as $venda)
+                        <div class="transaction-card">
+                            <div class="product-image">
+                                <img src="{{ url('images/card-image-one.png') }}" alt="Produto Vendido">
+                            </div>
+                            <div class="product-details">
+                            <p>Produto do {{ $venda->cliente->nomeCliente ?? 'Cliente desconhecido' }}</p>
+                                </p>
+                                <span>{{ \Carbon\Carbon::parse($venda->dataVenda)->format('d/m, H:i') }}</span>
+                                <!-- Formata a data -->
+                            </div>
+                            <div class="transaction-price">
+                                <p class="transaction-amount">+ R${{ number_format($venda->valorTotalVenda, 2, ',', '.') }}
+                                </p>
+                         
+                                <!-- Exibe o método de pagamento -->
+                            </div>
                         </div>
-                        <div class="product-details">
-                            <p>Camiseta piet, GG</p>
-                            <span>27/07, 17:55</span>
-                        </div>
-                        <div class="transaction-price">
-                            <p class="transaction-amount">+ R$58.77</p>
-                            <p class="payment-method">Débito</p>
-                        </div>
-                    </div>
-                    <div class="transaction-card">
-                        <div class="product-image">
-                            <img src="{{url('images/card-image-one.png')}}" alt="Produto Vendido">
-                        </div>
-                        <div class="product-details">
-                            <p>Camiseta piet, GG</p>
-                            <span>27/07, 17:55</span>
-                        </div>
-                        <div class="transaction-price">
-                            <p class="transaction-amount">+ R$58.77</p>
-                            <p class="payment-method">Débito</p>
-                        </div>
-                    </div>
-                    <div class="transaction-card">
-                        <div class="product-image">
-                            <img src="{{url('images/card-image-one.png')}}" alt="Produto Vendido">
-                        </div>
-                        <div class="product-details">
-                            <p>Camiseta piet, GG</p>
-                            <span>27/07, 17:55</span>
-                        </div>
-                        <div class="transaction-price">
-                            <p class="transaction-amount">+ R$58.77</p>
-                            <p class="payment-method">Débito</p>
-                        </div>
-                    </div>
-                    <div class="transaction-card">
-                        <div class="product-image">
-                            <img src="{{url('images/card-image-one.png')}}" alt="Produto Vendido">
-                        </div>
-                        <div class="product-details">
-                            <p>Camiseta piet, GG</p>
-                            <span>27/07, 17:55</span>
-                        </div>
-                        <div class="transaction-price">
-                            <p class="transaction-amount">+ R$58.77</p>
-                            <p class="payment-method">Débito</p>
-                        </div>
-                    </div>
-
-                    <div class="transaction-card">
-                        <div class="product-image">
-                            <img src="{{url('images/card-image-one.png')}}" alt="Produto Vendido">
-                        </div>
-                        <div class="product-details">
-                            <p>Camiseta piet, GG</p>
-                            <span>27/07, 17:55</span>
-                        </div>
-                        <div class="transaction-price">
-                            <p class="transaction-amount">+ R$58.77</p>
-                            <p class="payment-method">Débito</p>
-                        </div>
-                    </div>
-                    <div class="transaction-card">
-                        <div class="product-image">
-                            <img src="{{url('images/card-image-one.png')}}" alt="Produto Vendido">
-                        </div>
-                        <div class="product-details">
-                            <p>Camiseta piet, GG</p>
-                            <span>27/07, 17:55</span>
-                        </div>
-                        <div class="transaction-price">
-                            <p class="transaction-amount">+ R$58.77</p>
-                            <p class="payment-method">Débito</p>
-                        </div>
-                    </div>
-
-
-                    <!-- Repita o card para mais transações -->
+                    @endforeach
                 </div>
 
-                <div div id="receita" class="aba-content">
-                </div>
 
-                <div id="vendidos" class="aba-content">
-                </div>
+                <!-- Repita o card para mais transações -->
             </div>
 
+            <div div id="receita" class="aba-content">
+            </div>
 
+            <div id="vendidos" class="aba-content">
+            </div>
         </div>
+
+
+    </div>
     </div>
 
 

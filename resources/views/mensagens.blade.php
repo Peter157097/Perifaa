@@ -19,6 +19,7 @@
 
         }
     </style>
+
     <body>
         @include('includes.header')
         @include('includes.nav')
@@ -35,11 +36,15 @@
                             </div>
                             <div class="shadowScroll"></div>
                         </div>
+
                         <div class="contentMsg">
                             <div class="selectedMsg">
+                                <div class="btnVoltarMsg">
+                                    <a href="/mensagens"><</a>
+                                </div>
                                 <div class="pfpSelectedMsg">
                                     <div class="pfpMsg">
-                                        <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        <img src="{{url('images/10.png')}}">
                                     </div>
                                 </div>
                                 <div class="infoSelectecMsg">
@@ -170,7 +175,7 @@
                             <div class="selectedMsg">
                                 <div class="pfpSelectedMsg">
                                     <div class="pfpMsg">
-                                        <img src="{{url('images/10.png')}}" class="pfpConsulta">
+                                        <img src="{{url('images/10.png')}}">
                                     </div>
                                 </div>
                                 <div class="infoSelectecMsg">
@@ -426,7 +431,7 @@
                 }
 
                 // Cria um elemento <p> para o texto da mensagem
-                const messageText = document.createElement('p');
+                const messageText = document.createElement('div');
                 messageText.classList.add('txtMsg'); // Adiciona a classe 'txtMsg'
                 messageText.textContent = mensagem.mensagem; // Define o texto da mensagem
 

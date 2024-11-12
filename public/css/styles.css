@@ -2610,6 +2610,8 @@ dialog #modal-2::backdrop {
 .buttonAmei {
     display: flex;
     padding: 20%;
+    background-color: transparent;
+    border: none;
 
 }
 
@@ -5173,15 +5175,16 @@ svg {
 
 .pfpMsg {
     border: x solid rgb(235, 235, 235);
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     overflow-y: hidden;
     display: flex;
 
-
 }
-
+.btnVoltarMsg{
+    display: none;
+}
 .containerMsg {
     display: flex;
     flex-wrap: wrap;
@@ -5322,8 +5325,17 @@ svg {
 }
 
 .pfpSelectedMsg {
-    padding: 0.7%;
+    padding: 0.4%;
     display: flex;
+    object-fit: cover;
+}
+
+.pfpSelectedMsg img{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(201, 201, 201);
+    border-radius: 50%;
 }
 
 .infoSelectecMsg {
@@ -5373,6 +5385,30 @@ svg {
 }
 
 @media (max-width: 768px) {
+    .btnVoltarMsg{
+        display: flex;
+        padding: 2%;
+        height: 100%;
+        width: fit-content;
+        align-items: center;
+    }
+    .pfpMsg {
+        border: 1px solid rgb(235, 235, 235);
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        overflow-y: hidden;
+        display: flex;
+    
+    }
+    .pfpSelectedMsg img{
+        display: flex;
+        height: 100%;
+        width: 100%;
+        background-color: rgb(201, 201, 201);
+        border-radius: 50%;
+    }
+    
     .scroll-sidePanelMsg{
         overflow-y: auto;
     }
@@ -5406,11 +5442,6 @@ svg {
         width: 100%;
         height: 100%;
 
-    }
-
-    .pfpMsg {
-        width: 40px;
-        height: 40px;
     }
 
     .titleMsg {
@@ -5513,9 +5544,23 @@ svg {
         font-size: 80%;
         padding: 50%;
     }
+    .mensagem-recebida{
+        font-size: 80%;
+        padding: 50%;
+    }
+    .contentWrite{
+        padding: 0.5%;
+    }
 }
 
 @media (max-width: 560px) {
+    .btnVoltarMsg{
+        display: flex;
+        padding: 2%;
+        height: 100%;
+        width: fit-content;
+        align-items: center;
+    }
     .scroll-sidePanelMsg{
         overflow-y: auto;
     }
@@ -5552,8 +5597,13 @@ svg {
     }
 
     .pfpMsg {
-        width: 40px;
-        height: 40px;
+        border: 1px solid rgb(235, 235, 235);
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        overflow-y: hidden;
+        display: flex;
+    
     }
 
     .titleMsg {
@@ -5659,9 +5709,20 @@ svg {
         font-size: 80%;
         padding: 50%;
     }
+    .mensagem-recebida{
+        font-size: 80%;
+        padding: 50%;
+    }
 }
 
 @media (max-width: 480px) {
+    .btnVoltarMsg{
+        display: flex;
+        padding: 2%;
+        height: 100%;
+        width: fit-content;
+        align-items: center;
+    }
     .scroll-sidePanelMsg{
         overflow-y: auto;
     }
@@ -5698,8 +5759,13 @@ svg {
     }
 
     .pfpMsg {
-        width: 40px;
-        height: 40px;
+        border: 1px solid rgb(235, 235, 235);
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        overflow-y: hidden;
+        display: flex;
+    
     }
 
     .titleMsg {
@@ -5808,9 +5874,23 @@ svg {
         font-size: 80%;
         padding: 50%;
     }
+    .mensagem-recebida{
+        font-size: 80%;
+        padding: 50%;
+    }
+    .contentWrite{
+        padding: 1%;
+    }
 }
 
 @media (max-width: 375px) {
+    .btnVoltarMsg{
+        display: flex;
+        padding: 2%;
+        height: 100%;
+        width: fit-content;
+        align-items: center;
+    }
     .scroll-sidePanelMsg{
         overflow-y: auto;
     }
@@ -5847,8 +5927,13 @@ svg {
     }
 
     .pfpMsg {
-        width: 40px;
-        height: 40px;
+        border: 1px solid rgb(235, 235, 235);
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        overflow-y: hidden;
+        display: flex;
+    
     }
 
     .titleMsg {
@@ -5950,10 +6035,21 @@ svg {
         height: fit-content;
     }
     .mensagem-enviada{
-        font-size: 80%;
+        font-size: 100%;
         padding: 50%;
     }
+    .mensagem-recebida{
+        font-size: 100%;
+        padding: 50%;
+    }
+    .contentWrite{
+        padding: 1%;
+    }
 
+    .txtMsg{
+        display: flex;
+        margin: 10px;
+    }
 }
 
 /*Style dos pedidos*/
@@ -6389,6 +6485,7 @@ svg {
     height: fit-content;
     padding: 0.2%;
     flex-direction: column;
+    margin-top: 2px;
 }
 
 .mensagem-recebida {
@@ -6401,8 +6498,7 @@ svg {
     border-radius: 6px;
     color: black;
     white-space: normal;
-
-
+    overflow-wrap: break-word;
 }
 
 .mensagem-enviada {
@@ -6413,6 +6509,7 @@ svg {
     align-self: flex-end;
     word-break: break-all;
     white-space: normal;
+    overflow-wrap: break-word;
     border-radius: 6px;
 
 }

@@ -1,15 +1,16 @@
 <?php
 
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Stripe\Stripe;
-use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session as LaravelSession; // Alias para a sessão do Laravel
+use Stripe\Checkout\Session as StripeSession; // Alias para a sessão do Stripe
 
 class PagamentoController extends Controller
 {
-    // Exibir a página de pagamento com um valor padrão
     public function show()
     {
         $subtotal = 0; // valor padrão ou de teste
@@ -17,42 +18,37 @@ class PagamentoController extends Controller
         // Criar um array com todas as informações que você deseja passar para a view
         $data = [
             'subtotal' => $subtotal,
-            'nome' => Session::get('nome'),
-            'email' => Session::get('email'),
-            'numero' => Session::get('numero'),
-            'logradouro' => Session::get('logradouro'),
-            'cep' => Session::get('cep'),
-            'cidade' => Session::get('cidade'),
-            'estado' => Session::get('estado'),
-            'imagemCliente' => Session::get('imagemCliente'),
-            'numCasaCliente' => Session::get('numCasaCliente')
+            'nome' => LaravelSession::get('nome'),
+            'email' => LaravelSession::get('email'),
+            'numero' => LaravelSession::get('numero'),
+            'logradouro' => LaravelSession::get('logradouro'),
+            'cep' => LaravelSession::get('cep'),
+            'cidade' => LaravelSession::get('cidade'),
+            'estado' => LaravelSession::get('estado'),
+            'imagemCliente' => LaravelSession::get('imagemCliente'),
+            'numCasaCliente' => LaravelSession::get('numCasaCliente')
         ];
     
         // Passar o array para a view
         return view('pagamentos', $data);
     }
     
-
-    // Método POST para exibir a página de pagamento com o subtotal fornecido
     public function store(Request $request)
     {
         $subtotal = $request->input('subtotal');
         return view('pagamentos', ['subtotal' => $subtotal]);
     }
 
-    // Gera o boleto em PDF
-    // Gera o boleto usando o valor de subtotal
     public function gerarBoleto(Request $request)
     {
         Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
     
         $subtotal = $request->input('subtotal');
     
-        session(['subtotal' => $subtotal]);
+        LaravelSession::put('subtotal', $subtotal);
     
         try {
-            $session = Session::create([
-                'payment_method_types' => ['boleto'],
+            $session = StripeSession::create([                 'payment_method_types' => ['boleto'],
                 'line_items' => [[
                     'price_data' => [
                         'currency' => 'brl',
@@ -80,7 +76,7 @@ class PagamentoController extends Controller
             return back()->withErrors('Erro ao gerar boleto: ' . $e->getMessage());
         }
     }
-    
+
 
     public function sucesso()
     {

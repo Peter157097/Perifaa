@@ -675,105 +675,7 @@
             <div class="card-container">
                 <div class="containerMensagens">
                     @if(session('is_Cliente'))
-                    <div class="panelPedidos">
-                        <div class="itensPedidosContainer">
-                            <div class="itensWrap">
-                                <div class="cardPedido">
-                                    <div class="imgProdutoPedido">
-                                        <img src="{{ url('images/teste.jpg') }}">
-                                    </div>
-                                    <div class="infoProdutoPedido">
-                                        <div class="infoPedido">
-                                            <ul class="labelPedido">
-                                                <li class="nomeVendPedido">
-                                                    <span class="texto-inicial">Vestindo a Quebrada</span>
-                                                    <a href="/mensagens" class="texto-hover">
-                                                        Falar com vendedor
-                                                    </a>
-                                                </li>
-                                                <li>Nike Tech Fleece</li>
-                                                <li>R$49,90</li>
-                                            </ul>
-                                            <ul class="statusPedido">
-                                                <li class="sttsPedido">Status</li>
-                                                <li class="situacaoPedido">
-                                                    Entregue
-                                                    <i class="fa-solid fa-circle-check"></i>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="ajudaPedido">
-                                        <ul class="listAjuda">
-                                            <li><i class="fa-solid fa-circle-info"></i> Detalhes</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="cardPedido">
-                                    <div class="imgProdutoPedido">
-                                        <img src="{{ url('images/teste.jpg') }}">
-                                    </div>
-                                    <div class="infoProdutoPedido">
-                                        <div class="infoPedido">
-                                            <ul class="labelPedido">
-                                                <li class="nomeVendPedido">
-                                                    <span class="texto-inicial">Vestindo a Quebrada</span>
-                                                    <a href="/mensagens" class="texto-hover">
-                                                        Falar com vendedor
-                                                    </a>
-                                                </li>
-                                                <li>Nike Tech Fleece</li>
-                                                <li>R$49,90</li>
-                                            </ul>
-                                            <ul class="statusPedido">
-                                                <li class="sttsPedido">Status</li>
-                                                <li class="situacaoPedido">
-                                                    Entregue
-                                                    <i class="fa-solid fa-circle-check"></i>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="ajudaPedido">
-                                        <ul class="listAjuda">
-                                            <li><i class="fa-solid fa-circle-info"></i> Detalhes</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="cardPedido">
-                                    <div class="imgProdutoPedido">
-                                        <img src="{{ url('images/teste.jpg') }}">
-                                    </div>
-                                    <div class="infoProdutoPedido">
-                                        <div class="infoPedido">
-                                            <ul class="labelPedido">
-                                                <li class="nomeVendPedido">
-                                                    <span class="texto-inicial">Vestindo a Quebrada</span>
-                                                    <a href="/mensagens" class="texto-hover">
-                                                        Falar com vendedor
-                                                    </a>
-                                                </li>
-                                                <li>Nike Tech Fleece</li>
-                                                <li>R$49,90</li>
-                                            </ul>
-                                            <ul class="statusPedido">
-                                                <li class="sttsPedido">Status</li>
-                                                <li class="situacaoPedido">
-                                                    Entregue
-                                                    <i class="fa-solid fa-circle-check"></i>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="ajudaPedido">
-                                        <ul class="listAjuda">
-                                            <li><i class="fa-solid fa-circle-info"></i> Detalhes</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
                     @elseif(session('is_vendedor'))
                     <div class="panelPedidos">
                         <div class="pedidosTitlePanel">
@@ -976,7 +878,7 @@
             }
 
             // Inicializa mostrando o primeiro conteúdo
-            showContent(0);
+            showContent(1);
 
             function togglePaymentMethod() {
                 const pixMessage = document.getElementById('pix-message');

@@ -85,7 +85,7 @@ class ProdutoController extends Controller
         $categorias = Categoria::all();
 
         // Paginar os resultados
-        $produtos = $query->paginate(10);
+        $produtos = $query->paginate(12);
         $filtros = $request->all();
         
 

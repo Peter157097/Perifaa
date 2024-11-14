@@ -16,6 +16,7 @@ class ItensVenda extends Model
         'idProduto',
         'qtdItensVenda',
         'subTotalItensVenda',
+        'idVenda',
     ];
 
     public $timestamps = false;

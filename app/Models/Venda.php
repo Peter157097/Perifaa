@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Models;
 
@@ -31,6 +31,10 @@ class Venda extends Model
     public function cliente()
     {
         return $this->belongsTo(Cliente::class, 'idCliente', 'idCliente');
+    }
+    public function primeiroItemVenda()
+    {
+        return $this->itensvenda()->first();
     }
 
     // Relacionamento com a tabela de Condições

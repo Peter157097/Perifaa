@@ -31,6 +31,7 @@ class VendedorController extends Controller
 
         // Recupera todas as vendas do vendedor logado
         $vendas = Venda::where('idVendedor', $idVendedor)->where('idPagamento', 1)->get();
+        
 
         return view('dashboardVendedor', [
             'vendedor' => $vendedor,

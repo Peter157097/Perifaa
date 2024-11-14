@@ -197,7 +197,7 @@
                                 </div> <!--Fim menu dropdown das roupas-->
                             </li>
                             </a>
-                            <li class="drop-hover"><a href="#" class="nav-hover">FEMININAS <i
+                            <li class="drop-hover"><a class="linkHomeCarrinho" href="{{ url('/produtos')}}">FEMININAS <i
                                         class="fa-solid fa-caret-right"></i></a>
                                 <div class="drop"> <!--Começo menu dropdown da categoria feminina-->
                                     <a href="#">Bermudas</a>

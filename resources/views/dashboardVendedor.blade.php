@@ -598,6 +598,91 @@
         height: auto !important;
     }
 
+    .sales-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .card2 {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        background-color: #fff;
+        transition: transform 0.2s ease;
+        position: relative;
+    }
+
+    .card2:hover {
+        transform: scale(1.03);
+    }
+
+    .card-header {
+        background-color: #0c6367;
+        color: #fff;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .card-header h3 {
+        margin: 0;
+        font-size: 1.1em;
+    }
+
+    .card-body {
+        padding: 15px;
+        flex-grow: 1;
+        /* Para expandir a área do corpo da carta */
+    }
+
+    .card-body p {
+        margin: 10px 0;
+        color: #333;
+    }
+
+    .item-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+
+    .card-footer {
+        padding: 15px;
+        text-align: center;
+        position: relative;
+    }
+
+    .action-btn {
+        background-color: #0c6367;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1em;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .action-btn:hover {
+        background-color: #183c3c;
+    }
+
+    /* Classe para a data */
+    .date-info {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        font-size: 0.8em;
+        /* Tamanho menor */
+        color: #555;
+    }
+
+
     /* Valor representando vendas mensais */
 </style>
 <!-- Fonte customizada para o logo -->
@@ -664,45 +749,38 @@
             </script>
             <div class="card2">
                 <div class="info">
-                    <h2>Vendas</h2>
-                    <img src="images/muiegraf.png" alt="Vendedor">
-
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Data</th>
-                                <th>Valor Total</th>
-                                <th>ID Cliente</th>
-                                <th>ID Itens Venda</th>
-                                <th>ID Pagamento</th>
-                                <th>Ação</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach($vendas as $venda)
-                                <tr>
-                                    <td>{{ $venda->dataVenda }}</td>
-                                    <td>{{ $venda->valorTotalVenda }}</td>
-                                    <td>{{ $venda->idCliente }}</td>
-                                    <td>{{ $venda->idItensVenda }}</td>
-                                    <td>{{ $venda->idPagamento }}</td>
-                                    <td>
+                    <div class="sales-container">
+                        @foreach($vendas as $venda)
+                            @if($venda->idLoc == 0) <!-- Condição para filtrar idLoc igual a 0 -->
+                                <div class="card2">
+                                    <div class="card-header">
+                                        <span>Data: {{ \Carbon\Carbon::parse($venda->dataVenda)->format('d/m/Y H:i') }}</span>
+                                    </div>
+                                    <div class="card-body">
+                                        <p><strong>Valor Total:</strong> R$
+                                            {{ number_format($venda->valorTotalVenda, 2, ',', '.') }}
+                                        </p>
+                                        <p><strong>Cliente:</strong> {{ $venda->cliente->nomeCliente }}</p>
+                                        <div class="item-image">
+                                            <!-- Exibir imagem do item -->
+                                            <img src="{{ asset($venda->cliente->imagemCliente) }}" alt="Imagem do Item">
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
                                         <form action="{{ route('send', $venda->idVenda) }}" method="POST">
                                             @csrf
-                                            <button type="button"
-                                                onclick="openModal({{ $venda->idVenda }})">Entregar</button>
-
+                                            <button type="button" onclick="openModal({{ $venda->idVenda }})"
+                                                class="action-btn">Entregar</button>
                                         </form>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    </div>
 
-
-
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
 
                 </div>
+
 
 
                 <div class="chart">
@@ -731,25 +809,26 @@
             <div class="coisa">
                 <div id="transacoes" class="aba-content active">
                     @foreach($vendas as $venda)
-                        <div class="transaction-card">
-                            <div class="product-image">
-                                <img src="{{ url('images/card-image-one.png') }}" alt="Produto Vendido">
+                        @if ($venda->idLoc == 1)
+                            <div class="transaction-card">
+                                <div class="product-image">
+                                    <img src="{{ url('images/card-image-one.png') }}" alt="Produto Vendido">
+                                </div>
+                                <div class="product-details">
+                                    <p>Produto do {{ $venda->cliente->nomeCliente ?? 'Cliente desconhecido' }}</p>
+                                    <span>{{ \Carbon\Carbon::parse($venda->dataVenda)->format('d/m, H:i') }}</span>
+                                    <!-- Formata a data -->
+                                </div>
+                                <div class="transaction-price">
+                                    <p class="transaction-amount">+ R${{ number_format($venda->valorTotalVenda, 2, ',', '.') }}
+                                    </p>
+                                    <!-- Exibe o método de pagamento -->
+                                </div>
                             </div>
-                            <div class="product-details">
-                            <p>Produto do {{ $venda->cliente->nomeCliente ?? 'Cliente desconhecido' }}</p>
-                                </p>
-                                <span>{{ \Carbon\Carbon::parse($venda->dataVenda)->format('d/m, H:i') }}</span>
-                                <!-- Formata a data -->
-                            </div>
-                            <div class="transaction-price">
-                                <p class="transaction-amount">+ R${{ number_format($venda->valorTotalVenda, 2, ',', '.') }}
-                                </p>
-                         
-                                <!-- Exibe o método de pagamento -->
-                            </div>
-                        </div>
+                        @endif
                     @endforeach
                 </div>
+
 
 
                 <!-- Repita o card para mais transações -->

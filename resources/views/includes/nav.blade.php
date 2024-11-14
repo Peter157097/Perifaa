@@ -282,8 +282,10 @@
         </li>
 
 
-        <li class="drop-hover"><a href="#" class="nav-hover">FEMININAS <i class="fa-solid fa-caret-down"></i></a>
-            <div class="drop"> <!--Começo menu dropdown da categoria feminina-->
+        <li class="dropdown"><a href="{{ url('/produtos?preco_ate=&genero%5B%5D=3') }}" class="linkHomeCarrinho">
+                FEMININAS <i class="fa-solid fa-caret-down"></i>
+            </a>
+            <div class="dropdown-menu"> <!--Começo menu dropdown da categoria feminina-->
                 <a href="#">Bermudas</a>
                 <a href="#">Blazer</a>
                 <a href="#">Camisa</a>
@@ -301,32 +303,10 @@
                 <a href="#">Kimono</a>
             </div> <!--Fim menu dropdown da categoria feminina-->
         </li>
-        <li class="drop-hover"><a href="#" class="nav-hover">MASCULINAS <i class="fa-solid fa-caret-down"></i></a>
-            <div class="drop"> <!--Começo menu dropdown da categoria Masculina-->
-                <a href="#">Bermudas</a>
-                <a href="#">Camisas</a>
-                <a href="#">Blusa</a>
-                <a href="#">Body</a>
-                <a href="#">Calças</a>
-                <a href="#">Croppeds</a>
-                <a href="#">Camisa</a>
-                <a href="#">Shorts</a>
-                <a href="#">Casaco</a>
-                <a href="#">Colete</a>
-                <a href="#">Conjuntos</a>
-                <a href="#">Suéteres</a>
-            </div> <!--Fim menu dropdown da categoria Masculina-->
-        </li>
-        <li class="drop-hover"><a href="#" class="nav-hover">CALÇADOS <i class="fa-solid fa-caret-down"></i></a>
-            <div class="drop"> <!--Começo menu dropdown da categoria calçados-->
-                <a href="#">Botas</a>
-                <a href="#">Sandálias</a>
-                <a href="#">Sapatos</a>
-                <a href="#">Tênis</a>
-            </div> <!--Fim menu dropdown da categoria calçados-->
-        </li>
-        <li class="drop-hover"><a href="#" class="nav-hover">INFANTIL <i class="fa-solid fa-caret-down"></i></a>
-            <div class="drop"> <!--Começo menu dropdown da categoria Infantil-->
+        <li class="dropdown"><a href="{{ url('/produtos?preco_ate=&genero%5B%5D=2') }}" class="linkHomeCarrinho">
+                MASCULINAS <i class="fa-solid fa-caret-down"></i>
+            </a>
+            <div class="dropdown-menu"> <!--Começo menu dropdown da categoria feminina-->
                 <a href="#">Bermudas</a>
                 <a href="#">Blazer</a>
                 <a href="#">Camisa</a>
@@ -338,17 +318,75 @@
                 <a href="#">Casaco</a>
                 <a href="#">Colete</a>
                 <a href="#">Conjuntos</a>
-                <a href="#">Macaquinho</a>
+                <a href="#">Macacão</a>
                 <a href="#">Saia</a>
                 <a href="#">Vestido</a>
-            </div> <!--Fim menu dropdown da categoria infantil-->
+                <a href="#">Kimono</a>
+            </div> <!--Fim menu dropdown da categoria feminina-->
         </li>
-        <li class="drop-hover" id="hover-marrom"><a href="#" class="nav-hover">BOLSAS & MOCHILAS <i
-                    class="fa-solid fa-caret-down"></i></a>
-            <div class="drop"> <!--Começo menu dropdown da categoria Infantil-->
-                <a href="#">Bolsas</a>
-                <a href="#">Mochilas & Pochetes</a>
-            </div> <!--Fim menu dropdown da categoria infantil-->
+        <li class="dropdown"><a href="{{ url('/produtos?preco_ate=&categorias%5B%5D=8') }}" class="linkHomeCarrinho">
+                CALÇADOS <i class="fa-solid fa-caret-down"></i>
+            </a>
+            <div class="dropdown-menu"> <!--Começo menu dropdown da categoria feminina-->
+                <a href="#">Bermudas</a>
+                <a href="#">Blazer</a>
+                <a href="#">Camisa</a>
+                <a href="#">Body</a>
+                <a href="#">Calça</a>
+                <a href="#">Croppeds</a>
+                <a href="#">Camisa</a>
+                <a href="#">Shorts</a>
+                <a href="#">Casaco</a>
+                <a href="#">Colete</a>
+                <a href="#">Conjuntos</a>
+                <a href="#">Macacão</a>
+                <a href="#">Saia</a>
+                <a href="#">Vestido</a>
+                <a href="#">Kimono</a>
+            </div> <!--Fim menu dropdown da categoria feminina-->
+        </li>
+        <li class="dropdown"><a href="{{ url('/produtos?preco_ate=&tamanho%5B%5D=10&tamanho%5B%5D=11&tamanho%5B%5D=41&tamanho%5B%5D=42&tamanho%5B%5D=47&tamanho%5B%5D=48&tamanho%5B%5D=49&tamanho%5B%5D=50') }}" class="linkHomeCarrinho">
+                INFANTIL <i class="fa-solid fa-caret-down"></i>
+            </a>
+            <div class="dropdown-menu"> <!--Começo menu dropdown da categoria feminina-->
+                <a href="#">Bermudas</a>
+                <a href="#">Blazer</a>
+                <a href="#">Camisa</a>
+                <a href="#">Body</a>
+                <a href="#">Calça</a>
+                <a href="#">Croppeds</a>
+                <a href="#">Camisa</a>
+                <a href="#">Shorts</a>
+                <a href="#">Casaco</a>
+                <a href="#">Colete</a>
+                <a href="#">Conjuntos</a>
+                <a href="#">Macacão</a>
+                <a href="#">Saia</a>
+                <a href="#">Vestido</a>
+                <a href="#">Kimono</a>
+            </div> <!--Fim menu dropdown da categoria feminina-->
+        </li>
+        
+        <li class="dropdown"><a href="{{ url('/produtos?preco_ate=&categorias%5B%5D=11') }}" class="linkHomeCarrinho">
+                BOLSAS & MOCHILAS <i class="fa-solid fa-caret-down"></i>
+            </a>
+            <div class="dropdown-menu"> <!--Começo menu dropdown da categoria feminina-->
+                <a href="#">Bermudas</a>
+                <a href="#">Blazer</a>
+                <a href="#">Camisa</a>
+                <a href="#">Body</a>
+                <a href="#">Calça</a>
+                <a href="#">Croppeds</a>
+                <a href="#">Camisa</a>
+                <a href="#">Shorts</a>
+                <a href="#">Casaco</a>
+                <a href="#">Colete</a>
+                <a href="#">Conjuntos</a>
+                <a href="#">Macacão</a>
+                <a href="#">Saia</a>
+                <a href="#">Vestido</a>
+                <a href="#">Kimono</a>
+            </div> <!--Fim menu dropdown da categoria feminina-->
         </li>
         <li><a href="{{url('contato')}}" class="nav-hover">CONTATO</i></a></li>
     </ul>

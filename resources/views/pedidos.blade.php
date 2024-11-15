@@ -94,13 +94,13 @@
                        
                             <div class="cardPedido">
                                 <div class="imgProdutoPedido">
-                                    <img src="{{ url('images/teste.jpg') }}">
+                                    <img src="{{ url($venda->produto->imagemProduto) }}">
                                 </div>
                                 <div class="infoProdutoPedido">
                                     <div class="infoPedido">
                                         <ul class="labelPedido">
                                             <li class="nomeVendPedido">
-                                                <span class="texto-inicial">Vestindo a Quebrada</span>
+                                                <span class="texto-inicial">{{$venda->produto->nomeProduto}}</span>
                                                 <a href="/mensagens" class="texto-hover">
                                                     Falar com vendedor
                                                 </a>

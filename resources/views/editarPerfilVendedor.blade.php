@@ -6,7 +6,7 @@
     .card-container {
         display: flex;
         justify-content: space-between;
-        background-color: #009b5f;
+        background-color: #00a849;
         border-radius: 15px;
         padding: 20px;
         width: 100%;
@@ -58,7 +58,7 @@
         border-radius: 5px;
         border: none;
         font-size: 14px;
-        background-color: #007e38;
+        background-color: #00a849;
         color: #fff;
         transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.2s;
     }
@@ -206,7 +206,7 @@
         display: flex;
         justify-content: space-between;
         padding: 20px;
-        background-color: #00a000;
+        background-color: #00a849;
         border-radius: 10px;
     }
 
@@ -234,9 +234,9 @@
     .input-container input {
         width: 100%;
         padding: 10px 40px 10px 10px;
-        border: 2px solid #006400;
-        border-radius: 5px;
-        background-color: #008000;
+       
+        
+        background-color: #007e38;
         color: #ffffff;
         font-size: 16px;
     }

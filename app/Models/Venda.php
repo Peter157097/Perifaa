@@ -16,6 +16,7 @@ class Venda extends Model
         'dataVenda',
         'valorTotalVenda',
         'idCliente',
+        'idProduto',
         'idVendedor',
         'idItensVenda',
         'numCasaCliente',

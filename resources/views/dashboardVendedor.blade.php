@@ -727,6 +727,17 @@
                     align-items: center;
                     justify-content: center;
                 }
+                #modal2 {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.6);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
 
                 .modal-content {
                     background: #fff;
@@ -746,6 +757,14 @@
                 function closeModal() {
                     document.getElementById('modal').style.display = 'none';
                 }
+                function openModal2() {
+
+                    document.getElementById('modal2').style.display = 'flex';
+                }
+
+                function closeModal2() {
+                    document.getElementById('modal2').style.display = 'none';
+                }
             </script>
             <div class="card2">
                 <div class="info">
@@ -760,11 +779,12 @@
                                         <p><strong>Valor Total:</strong> R$
                                             {{ number_format($venda->valorTotalVenda, 2, ',', '.') }}
                                         </p>
-                                        <p><strong>Cliente:</strong> {{ $venda->cliente->nomeCliente }}</p>
+                                        <button type="button" onclick="openModal2()"> <p><strong>Cliente:</strong> {{ $venda->cliente->nomeCliente }}</p> </button>
                                         <div class="item-image">
                                             <!-- Exibir imagem do item -->
-                                            <img src="{{ asset($venda->cliente->imagemCliente) }}" alt="Imagem do Item">
+                                            <img src="{{ asset($venda->produto->imagemProduto) }}" alt="Imagem do Item">
                                         </div>
+                                        <p><strong>Produto:</strong> {{ $venda->produto->nomeProduto }}</p>
                                     </div>
                                     <div class="card-footer">
                                         <form action="{{ route('send', $venda->idVenda) }}" method="POST">
@@ -772,6 +792,8 @@
                                             <button type="button" onclick="openModal({{ $venda->idVenda }})"
                                                 class="action-btn">Entregar</button>
                                         </form>
+
+                                        
                                     </div>
                                 </div>
                             @endif
@@ -799,6 +821,14 @@
                 </form>
             </div>
         </div>
+        <div id="modal2" style="display: none;">
+            <div class="modal-content">
+                <h3>{{$venda->cliente->nomeCliente}}</h3>
+                <p><strong>Cep:</strong> {{ $venda->cliente->cepCliente }}</p>
+                <p><strong>Numero:</strong> {{ $venda->numCasaCliente }}</p>
+                <button type="button" onclick="closeModal2()">Cancelar</button>
+            </div>
+        </div>
         <div class="cardComcoisas">
             <div class="abas">
                 <button id="aba-transacoes" class="active" onclick="showAba('transacoes')">Últimas
@@ -812,11 +842,12 @@
                         @if ($venda->idLoc == 1)
                             <div class="transaction-card">
                                 <div class="product-image">
-                                    <img src="{{ url('images/card-image-one.png') }}" alt="Produto Vendido">
+                                    <img src="{{ asset( $venda->produto->imagemProduto ) }}" alt="Produto Vendido">
                                 </div>
                                 <div class="product-details">
                                     <p>Produto do {{ $venda->cliente->nomeCliente ?? 'Cliente desconhecido' }}</p>
-                                    <span>{{ \Carbon\Carbon::parse($venda->dataVenda)->format('d/m, H:i') }}</span>
+                                    <span>{{ \Carbon\Carbon::parse($venda->dataVenda)->format('d/m, H:i') }}</span><br>
+                                    <span>{{ $venda->produto->nomeProduto}}</span>
                                     <!-- Formata a data -->
                                 </div>
                                 <div class="transaction-price">

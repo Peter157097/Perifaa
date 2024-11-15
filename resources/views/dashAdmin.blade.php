@@ -103,153 +103,90 @@
                 <div class="adminGraficoContainer">
                     <div class="bigCardGrafico">
                         <div class="titleBigGraficoAdmin">
-                            Acessos <span class="tempoGraficoAdmin">| Mensais</span>
+                            Acessos <span class="tempoGraficoAdmin"> | Mensais</span>
                         </div>
                         <div class="graficoAdmin">
                             <div id="top_x_div" class="graficoAcessos"></div>
                         </div>
                     </div>
+                    <div class="bigCardGrafico">
+                        <div class="titleBigGraficoAdmin">
+                            Vendas <span class="tempoGraficoAdmin"> | Mensais</span>
+                        </div>
+                        <div class="graficoAdmin">
+                            <div id="vendasPorMes" class="graficoAcessos"></div>
+                        </div>
+                    </div>
 
-                    <div class="cardGrafico">
-                        <div class="titleGraficoAdmin">
-                            <div class="graficoIconContainer">
-                                <div class="graficoIcon">
-                                    <img src="./images/graficoIcon.png">
-                                </div>
-                            </div>
+                    <div class="bigCardGrafico">
+                        <div class="titleBigGraficoAdmin">
+                            Regiões com mais usuários
                         </div>
-                        <div class="infosGraficoAdmin">
-                            <div class="labelGraficoContainer">
-                                Acessos <span class="tempoGraficoAdmin"> | últimas 24 horas</span>
-                            </div>
-                            <div class="numerosGrafico">
-                                &#11165; 24.387
-                            </div>
-                            <div class="titleGraficoAdminAlt">
-                                Dia anterior
-                            </div>
-                            <div class="numerosGraficoAlt">
-                                &#11167; 15.486
-                            </div>
-                        </div>
-                        <div class="btnGraficoContainer">
-                            <button class="btnDetalhesGrafico">
-                                <a>Detalhes</a>
-                            </button>
-                        </div>
+                        <div id="graficoRegioes" class="graficoCategorias"></div>
                     </div>
-                    <div class="cardGrafico">
-                        <div class="titleGraficoAdmin">
-                            <div class="graficoIconContainer">
-                                <div class="graficoIcon">
-                                    <img src="./images/graficoIcon.png">
-                                </div>
-                            </div>
+                    <div class="bigCardGrafico">
+                        <div class="titleBigGraficoAdmin">
+                            Categorias mais vendidas
                         </div>
-                        <div class="infosGraficoAdmin">
-                            <div class="labelGraficoContainer">
-                                Vendas <span class="tempoGraficoAdmin"> | últimas 24 horas</span>
-                            </div>
-                            <div class="numerosGrafico">
-                                &#11165; 4.387
-                            </div>
-                            <div class="titleGraficoAdminAlt">
-                                Dia anterior
-                            </div>
-                            <div class="numerosGraficoAlt">
-                                &#11167; 2.486
-                            </div>
-                        </div>
-                        <div class="btnGraficoContainer">
-                            <button class="btnDetalhesGrafico">
-                                <a>Detalhes</a>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="cardGrafico">
-                        <div class="titleGraficoAdmin">
-                            <div class="graficoIconContainer">
-                                <div class="graficoIcon">
-                                    <img src="./images/graficoIcon.png">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="infosGraficoAdmin">
-                            <div class="labelGraficoContainer">
-                                Denuncias <span class="tempoGraficoAdmin"> | últimas 24 horas</span>
-                            </div>
-                            <div class="numerosGrafico">
-                                &#11165; 387
-                            </div>
-                            <div class="titleGraficoAdminAlt">
-                                Dia anterior
-                            </div>
-                            <div class="numerosGraficoAlt">
-                                &#11167; 257
-                            </div>
-                        </div>
-                        <div class="btnGraficoContainer">
-                            <button class="btnDetalhesGrafico">
-                                <a>Detalhes</a>
-                            </button>
-                        </div>
+                        <div id="barchart_values" class="graficoCategorias"></div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="admContainerDenuncia">
-            <div class="admDenuncia">
-                <div class="titleDash">
-                    Produtos mais denunciados
+    <div class="admContainerDenuncia">
+        <div class="admDenuncia">
+            <div class="titleDash">
+                Produtos mais denunciados
+            </div>
+            @foreach($denuncias as $denuncia)
+                <div class="cardDenuncia-top">
+                    <div class="infoDenuncia-top">
+                        <p class="nomeVendDenuncia">
+                            Nome Vendedor
+                        </p>
+                    </div>
                 </div>
-                @foreach($denuncias as $denuncia)
-                    <div class="cardDenuncia-top">
-                        <div class="infoDenuncia-top">
-                            <p class="nomeVendDenuncia">
-                                Nome Vendedor
+                <div class="admCardDenuncia">
+                    <div class="placeholderImg">
+                        <img src="{{$denuncia->produto->imagemProduto}}">
+                    </div>
+                    <div class="infoDenuncia">
+                        <div class="topDenuncia">
+                            <p class="itemTopDenuncia">Produto</p>
+                            <p class="itemTopDenuncia">Descrição</p>
+                            <P class="itemTopDenuncia">Valor</P>
+                            <P class="itemTopDenuncia">Id Denuncia</P>
+                            <P class="itemTopDenuncia">Email</P>
+                        </div>
+                        <div class="bottomDenuncia">
+                            <p class="itemBottomDenuncia">
+                                {{$denuncia->produto->nomeProduto ?? 'Descrição Indisponível' }}
+                            </p>
+                            <p class="itemBottomDenuncia">
+                                {{ $denuncia->produto->descricaoProduto ?? 'Descrição Indisponível' }}
+                            </p>
+                            <p class="itemBottomDenuncia">
+                                {{$denuncia->Produto->valorProduto ?? 'Descrição Indisponível' }}
+                            </p>
+                            <p class="itemBottomDenuncia">{{ $denuncia->idDenuncia ?? 'Descrição Indisponível' }}</p>
+                            <p class="itemBottomDenuncia">{{ $denuncia->cliente->emailCliente ?? 'Nome Indisponível' }}
                             </p>
                         </div>
-                    </div>
-                    <div class="admCardDenuncia">
-                        <div class="placeholderImg">
-                            <img src="{{$denuncia->produto->imagemProduto}}">
-                        </div>
-                        <div class="infoDenuncia">
-                            <div class="topDenuncia">
-                                <p class="itemTopDenuncia">Produto</p>
-                                <p class="itemTopDenuncia">Descrição</p>
-                                <P class="itemTopDenuncia">Valor</P>
-                                <P class="itemTopDenuncia">Id Denuncia</P>
-                                <P class="itemTopDenuncia">Email</P>
-                            </div>
-                            <div class="bottomDenuncia">
-                                <p class="itemBottomDenuncia">
-                                    {{$denuncia->produto->nomeProduto ?? 'Descrição Indisponível' }}
-                                </p>
-                                <p class="itemBottomDenuncia">
-                                    {{ $denuncia->produto->descricaoProduto ?? 'Descrição Indisponível' }}
-                                </p>
-                                <p class="itemBottomDenuncia">
-                                    {{$denuncia->Produto->valorProduto ?? 'Descrição Indisponível' }}
-                                </p>
-                                <p class="itemBottomDenuncia">{{ $denuncia->idDenuncia ?? 'Descrição Indisponível' }}</p>
-                                <p class="itemBottomDenuncia">{{ $denuncia->cliente->emailCliente ?? 'Nome Indisponível' }}
-                                </p>
-                            </div>
-                            <div class="btnDenunciaContainer">
+                        <div class="btnDenunciaContainer">
                             <button class="btnAcaoDetalhes">
-                                    <a href="/entrar-produto/{{$denuncia->produto->idProduto}}">Ver anuncio</a>
-                                </button>
-                                <button class="btnAcaoExcluir">
-                                    <a>Excluir anuncio</a>
-                                </button>
-                            </div>
+                                <a href="/entrar-produto/{{$denuncia->produto->idProduto}}">Ver anuncio</a>
+                            </button>
+                            <button class="btnAcaoExcluir">
+                                <a>Excluir anuncio</a>
+                            </button>
                         </div>
                     </div>
-                @endforeach
-            </div>
+                </div>
+            @endforeach
         </div>
+    </div>
     </div>
     <script>
         // Função para abrir/fechar o menu lateral
@@ -328,7 +265,147 @@
 
             var chart = new google.charts.Bar(document.getElementById('top_x_div'));
             chart.draw(data, google.charts.Bar.convertOptions(options));
+
+
         };
+
+    </script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['bar'] });
+        google.charts.setOnLoadCallback(drawStuff);
+
+        function drawStuff() {
+            var data = new google.visualization.arrayToDataTable([
+                ['Mês', 'Vendas'],
+                ["Jan.", 1000],
+                ["Fev.", 2459],
+                ["Março", 1870],
+                ['Abril', 3211],
+                ["Maio", 4657],
+                ["Jun.", 9820],
+                ["Jul.", 7405],
+                ["Ago.", 8654],
+                ["Set.", 4254],
+                ["Out.", 6214],
+                ["Nov.", 8700],
+                ['Dez.', 6870]
+
+            ]);
+
+            var options = {
+                height: '100%', // Ajusta o gráfico para ocupar toda a altura
+                legend: {
+                    position: 'none',
+
+                },
+                chart: {
+
+                },
+                hAxis: {
+                    title: ''
+                },
+                bar: {
+                    groupWidth: "99%",
+                },
+                colors: ['#2a89c7']
+            };
+
+            var chart = new google.charts.Bar(document.getElementById('vendasPorMes'));
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+        };
+
+    </script>
+    <script type="text/javascript">
+        google.charts.load("current", { packages: ["corechart"] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ["Categoria", "Vendas"],
+                ["Camisas", 1349],
+                ["Calças", 1211],
+                ["Tênis", 842],
+                ["Acessórios", 452]
+            ]);
+
+            var view = new google.visualization.DataView(data);
+
+            var options = {
+                chartArea: { width: '70%', height: '80%' },
+                colors: ['#2a89c7'],
+                width: '100%',
+                height: '100%',
+                bar: { groupWidth: "95%" },
+                legend: { position: "none" },
+            };
+            var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+            chart.draw(view, options);
+        }
+    </script>
+    <script type="text/javascript">
+        google.charts.load("current", { packages: ["corechart"] });
+        google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Estado', 'Usuários'],
+                ['SP', 11],
+                ['RJ', 2],
+                ['MG', 2],
+                ['RS', 2],
+                ['BA', 7]
+
+            ]);
+
+
+
+            function generateColors(dataTable) {
+                var colors = [];
+                var maxUsers = 0;
+
+                // Encontrar o máximo número de usuários
+                for (var i = 1; i < dataTable.getNumberOfRows(); i++) {
+                    var numUsers = dataTable.getValue(i, 1);
+                    if (numUsers > maxUsers) {
+                        maxUsers = numUsers;
+                    }
+                }
+
+                // Cor base azul similar a #2a89c7
+                var baseColor = { r: 42, g: 137, b: 199 }; // RGB para #2a89c7
+
+                // Gerar cores em tons de azul com base no número de usuários
+                for (var i = 0; i < dataTable.getNumberOfRows(); i++) {
+                    var numUsers = dataTable.getValue(i, 1);
+                    var intensity = Math.floor((numUsers / maxUsers) * 100); // Faixa de intensidade
+
+                    // Ajustar o tom de azul com base na intensidade
+                    var r = baseColor.r;
+                    var g = baseColor.g;
+                    var b = Math.max(0, baseColor.b - intensity); // Diminuir o componente azul para intensificar o tom
+
+                    // Garantir que a cor esteja dentro dos limites de 0 a 255
+                    r = Math.min(255, Math.max(0, r));
+                    g = Math.min(255, Math.max(0, g));
+                    b = Math.min(255, Math.max(0, b));
+
+                    colors.push(`rgb(${r}, ${g}, ${b})`);
+                }
+
+                return colors;
+            }
+
+            // Obter cores dinâmicas
+            var colorsArray = generateColors(data);
+
+            var options = {
+                colors: colorsArray,
+                width: '100%',
+                height: '100%', // Altura fixa para visualização estável
+                pieHole: 0.2,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('graficoRegioes'));
+            chart.draw(data, options);
+        }
     </script>
 </body>
 

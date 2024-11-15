@@ -41,7 +41,7 @@
                         <div class="infoDenuncia">
                             <div class="topDenuncia">
                                 <p class="itemTopDenuncia">Produto</p>
-                                <p class="itemTopDenuncia">Descrição</p>
+                                <p class="itemTopDenuncia">Motivo da denuncia</p>
                                 <P class="itemTopDenuncia">Valor</P>
                                 <P class="itemTopDenuncia">Id Denuncia</P>
                                 <P class="itemTopDenuncia">Email</P>
@@ -51,7 +51,7 @@
                                     {{$denuncia->produto->nomeProduto ?? 'Descrição Indisponível' }}
                                 </p>
                                 <p class="itemBottomDenuncia">
-                                    {{ $denuncia->produto->descricaoProduto ?? 'Descrição Indisponível' }}
+                                    {{$denuncia->descDenuncia}}
                                 </p>
                                 <p class="itemBottomDenuncia">
                                     {{$denuncia->Produto->valorProduto ?? 'Descrição Indisponível' }}
@@ -64,9 +64,16 @@
                                 <button class="btnAcaoDetalhes">
                                     <a href="/entrar-produto/{{$denuncia->produto->idProduto}}">Ver anuncio</a>
                                 </button>
-                                <button class="btnAcaoExcluir">
-                                    <a>Excluir anuncio</a>
-                                </button>
+                                <form action="{{ route('denuncia.destroy', $denuncia->idDenuncia) }}" method="POST"
+                                    onsubmit="return confirm('Tem certeza que deseja excluir esta denúncia?');"
+                                    class="">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btnAcaoExcluir">
+                                        <a>Excluir denúncia</a>
+                                    </button>
+                                </form>
+
                             </div>
                         </div>
                     </div>

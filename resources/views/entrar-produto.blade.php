@@ -219,8 +219,15 @@ section {
     </div>
   @endif
     @if(Session::has('cadastrarDenuncia'))
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-      alert("{{ Session::get('cadastrarDenuncia') }}");
+                Swal.fire({
+                    title: 'Denuncia enviada com sucesso!',
+                    text: '{{ session('success') }}',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#5e3e24'
+                });
     </script>
   @endif
     <div class="container-entrar-produto">

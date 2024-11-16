@@ -756,4 +756,13 @@
                 pesquisacep(e.target.value, document.querySelector('#modal-2'));
             }
         }, true);
+
+        
+        $(document).ready(function () {
+            // Aplica máscaras ao Modal 3
+            $("#cpf").mask("000.000.000-00");
+            $("#telefone").mask("(00) 00000-0000");
+            $("#cep").mask("00000-000");
+            $("#numeroVendedor").mask("(00) 00000-0000");
+        });
     </script>

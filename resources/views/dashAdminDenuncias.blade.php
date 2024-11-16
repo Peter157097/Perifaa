@@ -12,6 +12,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <style>
+     .modal-content {
+        border-radius: 15px;
+        padding: 20px;
+        background-color: #ede9e2;
+       
+        border: none;
+    }
+
+    .modal-content p {
+        font-weight: 600;
+        color: #1f628e;
+    }
+    .btnAcaoExcluir a{
+        background-color: #1f628e;
+        padding: 10px;
+        border-radius: 16px;
+        color: #ede9e2;
+    }
+
+    .btnAcaoExcluir:hover{
+        color: #ede9e2;
+    }
+    .excluir-denun a{
+        color: #ede9e2;
+    }
+
+    .modal-footer button {
+    all: unset;
+    border: none;
+    cursor: pointer;
+}
+</style>
 </head>
 
 <body class="bodyAdmin">
@@ -62,14 +95,40 @@
                                 <button class="btnAcaoDetalhes">
                                     <a href="/entrar-produto/{{$denuncia->produto->idProduto}}">Ver anuncio</a>
                                 </button>
-                                <form action="{{ route('denuncia.destroy', $denuncia->idDenuncia) }}" method="POST"
-                                    onsubmit="return confirm('Tem certeza que deseja excluir esta denúncia?');" class="">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btnAcaoExcluir">
-                                        <a>Excluir denúncia</a>
-                                    </button>
-                                </form>
+                                 <button class="btnAcaoExcluir " data-toggle="modal"
+                                    data-target="#modalExcluir">
+                                    Excluir denúncia
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="modalExcluir" tabindex="-1" role="dialog"
+                                    aria-labelledby="modalExcluirLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="modalExcluirLabel">Excluir Denúncia</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Fechar">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Deseja realmente excluir esta denúncia?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <form action="{{ route('denuncia.destroy', $denuncia->idDenuncia) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btnAcaoExcluir" data-toggle="modal"
+                                                        data-target="#modalExcluir">
+                                                        <a class="excluir-denun">Excluir denúncia</a>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
                             </div>
                         </div>

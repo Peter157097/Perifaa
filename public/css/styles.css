@@ -4870,6 +4870,7 @@ svg {
 
 .btnAcaoDetalhes a {
     color: white;
+    
 }
 
 .btnAcaoDetalhes:hover {
@@ -4881,13 +4882,11 @@ svg {
 }
 
 .btnAcaoDetalhes:hover a{
+    text-decoration: none;
     transition: color 0.4s ease-in-out;
     width: 100%;
     color: rgb(0, 0, 0);
 }
-
-
-
 
 .btnAcaoExcluir {
     font-size: 2vh;
@@ -4895,7 +4894,7 @@ svg {
     color: white;
     background-color: rgb(180, 83, 83);
     border: 1px solid white;
-    width: 100%;
+    width: 15%;
     border-radius: 30px;
     transition: background-color 0.4s ease-in-out;
     transition: width, 0.2s ease-in-out;

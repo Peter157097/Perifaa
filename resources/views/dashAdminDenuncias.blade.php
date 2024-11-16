@@ -37,10 +37,12 @@
         background-color: #1f628e;
         padding: 10px;
         border-radius: 16px;
+        text-decoration: none;
         color: #ede9e2;
     }
 
     .btnAcaoExcluir:hover{
+       
         color: #ede9e2;
     }
     .excluir-denun a{
@@ -51,6 +53,7 @@
     all: unset;
     border: none;
     cursor: pointer;
+    color: white;
 }
 </style>
 </head>
@@ -130,7 +133,7 @@
                                                     @method('DELETE')
                                                     <button type="submit" class="btnAcaoExcluir" data-toggle="modal"
                                                         data-target="#modalExcluir">
-                                                        <a class="excluir-denun">Excluir denúncia</a>
+                                                        <a>Excluir denúncia</a>
                                                     </button>
                                                 </form>
                                             </div>

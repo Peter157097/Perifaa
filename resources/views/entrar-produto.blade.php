@@ -7,6 +7,7 @@
   margin-bottom: 10px; 
   }
 main {
+  border-radius: 20px;
   padding-top: 10px;
   background-color: #ffffff;
   max-width: 1200px;
@@ -358,7 +359,7 @@ section {
           </div>
 
   
-          <p>{{$produtos->descricaoProduto}}</p>
+          <p class="descEntrarProd">{{$produtos->descricaoProduto}}</p>
 
           <div class="parte2">
             <span class="price">R${{$produtos->valorProduto}}</span>
@@ -398,8 +399,7 @@ section {
   </aside>
   <div class="profile-container">
   <div class="profile-info">
-    <img src="{{ url('$vendedor->imagemVendedor') }}" alt="Foto do usuário" class="profile-photo">
-  
+  <img src="{{ asset($vendedor->imagemVendedor) }}" alt="Foto do usuário"   class="profile-photo"> 
     <div class="profile-details">
     <h4 class="profile-name">{{ $vendedor->nomeVendedor }}</h4>
     <p class="profile-location">{{ $vendedor->localizacao }}</p>

@@ -120,7 +120,7 @@
 
                     <div class="bigCardGrafico">
                         <div class="titleBigGraficoAdmin">
-                            Regiões com mais usuários
+                            Usuários por Região <span class="tempoGraficoAdmin"> | Clientes e vendedores</span>
                         </div>
                         <div id="graficoRegioes" class="graficoAcessos"></div>
                     </div>
@@ -135,7 +135,7 @@
         </div>
     </div>
 
-    
+
     </div>
     <script>
         // Função para abrir/fechar o menu lateral
@@ -220,44 +220,44 @@
         };
     </script>
 
-<script type="text/javascript">
-    google.charts.load('current', { 'packages': ['bar'] });
-    google.charts.setOnLoadCallback(drawStuff);
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['bar'] });
+        google.charts.setOnLoadCallback(drawStuff);
 
-    function drawStuff() {
-        // Passando os dados da view para o gráfico
-        var vendasMensais = @json($vendasMensais);
+        function drawStuff() {
+            // Passando os dados da view para o gráfico
+            var vendasMensais = @json($vendasMensais);
 
-        // Transformando os dados para o formato que o Google Charts espera
-        var dataArray = [['Mês', 'Vendas']];
-        
-        vendasMensais.forEach(function(venda) {
-            // Criando o nome do mês baseado no número do mês (1 a 12)
-            var meses = ["Jan.", "Fev.", "Mar.", "Abr.", "Maio", "Jun.", "Jul.", "Ago.", "Set.", "Out.", "Nov.", "Dez."];
-            dataArray.push([meses[venda.mes - 1], venda.total]);
-        });
+            // Transformando os dados para o formato que o Google Charts espera
+            var dataArray = [['Mês', 'Vendas']];
 
-        // Criando o DataTable
-        var data = new google.visualization.arrayToDataTable(dataArray);
+            vendasMensais.forEach(function (venda) {
+                // Criando o nome do mês baseado no número do mês (1 a 12)
+                var meses = ["Jan.", "Fev.", "Mar.", "Abr.", "Maio", "Jun.", "Jul.", "Ago.", "Set.", "Out.", "Nov.", "Dez."];
+                dataArray.push([meses[venda.mes - 1], venda.total]);
+            });
 
-        var options = {
-            height: '100%', // Ajusta o gráfico para ocupar toda a altura
-            legend: { position: 'none' },
-            hAxis: { title: '' },
-            bar: { groupWidth: "99%" },
-            colors: ['#2a89c7'],
-            vAxis: {
-        minValue: 0, // Define o valor mínimo do eixo Y
-        maxValue: 10000 // Define o valor máximo (ajuste conforme necessário)
-    }
-        };
-        
-        // Criando o gráfico
-        var chart = new google.charts.Bar(document.getElementById('vendasPorMes'));
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-    }
+            // Criando o DataTable
+            var data = new google.visualization.arrayToDataTable(dataArray);
 
-</script>
+            var options = {
+                height: '100%', // Ajusta o gráfico para ocupar toda a altura
+                legend: { position: 'none' },
+                hAxis: { title: '' },
+                bar: { groupWidth: "99%" },
+                colors: ['#2a89c7'],
+                vAxis: {
+                    minValue: 0, // Define o valor mínimo do eixo Y
+                    maxValue: 10000 // Define o valor máximo (ajuste conforme necessário)
+                }
+            };
+
+            // Criando o gráfico
+            var chart = new google.charts.Bar(document.getElementById('vendasPorMes'));
+            chart.draw(data, google.charts.Bar.convertOptions(options));
+        }
+
+    </script>
 
     <script type="text/javascript">
         google.charts.load("current", { packages: ["corechart"] });
@@ -350,23 +350,23 @@
         }
     </script>
     <script type="text/javascript">
-    google.charts.load("current", { packages: ["corechart"] });
-    google.charts.setOnLoadCallback(drawChart);
+        google.charts.load("current", { packages: ["corechart"] });
+        google.charts.setOnLoadCallback(drawChart);
 
-    // Dados do backend convertidos para JSON
-    var usuariosPorEstado = @json($usuariosPorEstado);
+        // Dados do backend convertidos para JSON
+        var usuariosPorEstado = @json($usuariosPorEstado);
 
-    function drawChart() {
-        // Construir os dados para o gráfico
-        var dataArray = [['Estado', 'Usuários']];
-        usuariosPorEstado.forEach(function (item) {
-            dataArray.push([item.estado, parseInt(item.total)]);
-        });
+        function drawChart() {
+            // Construir os dados para o gráfico
+            var dataArray = [['Estado', 'Usuários']];
+            usuariosPorEstado.forEach(function (item) {
+                dataArray.push([item.estado, parseInt(item.total)]);
+            });
 
-        // Criar DataTable
-        var data = google.visualization.arrayToDataTable(dataArray);
+            // Criar DataTable
+            var data = google.visualization.arrayToDataTable(dataArray);
 
-        function generateColors(dataTable) {
+            function generateColors(dataTable) {
                 var colors = [];
                 var maxUsers = 0;
 
@@ -405,18 +405,16 @@
             // Obter cores dinâmicas
             var colorsArray = generateColors(data)
 
-        // Configurações do gráfico
-        var options = {
-            colors: colorsArray,
-            title: 'Usuários por Região (Clientes e Vendedores)',
-          
-        };
+            // Configurações do gráfico
+            var options = {
+                colors: colorsArray,
+            };
 
-        // Renderizar o gráfico
-        var chart = new google.visualization.PieChart(document.getElementById('graficoRegioes'));
-        chart.draw(data, options);
-    }
-</script>
+            // Renderizar o gráfico
+            var chart = new google.visualization.PieChart(document.getElementById('graficoRegioes'));
+            chart.draw(data, options);
+        }
+    </script>
 </body>
 
 </html>

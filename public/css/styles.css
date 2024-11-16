@@ -3146,7 +3146,7 @@ dialog #modal-2::backdrop {
     width: 100%;
 }
 
-.descEntrarProduto {}
+
 
 .itens {
     align-self: flex-end;
@@ -3246,6 +3246,7 @@ a {
     gap: 10px;
     padding-bottom: 10px;
 }
+
 
 .adicionar-carrinho-entrada-produto {
     background-color: #fff;

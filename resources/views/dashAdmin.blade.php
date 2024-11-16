@@ -122,13 +122,13 @@
                         <div class="titleBigGraficoAdmin">
                             Regiões com mais usuários
                         </div>
-                        <div id="graficoRegioes" class="graficoCategorias"></div>
+                        <div id="graficoRegioes" class="graficoAcessos"></div>
                     </div>
                     <div class="bigCardGrafico">
                         <div class="titleBigGraficoAdmin">
                             Categorias mais vendidas
                         </div>
-                        <div id="barchart_values" class="graficoCategorias"></div>
+                        <div id="barchart_values" class="graficoAcessos"></div>
                     </div>
                 </div>
             </div>
@@ -409,7 +409,7 @@
         var options = {
             colors: colorsArray,
             title: 'Usuários por Região (Clientes e Vendedores)',
-            width: 750,
+          
         };
 
         // Renderizar o gráfico

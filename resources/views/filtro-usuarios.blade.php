@@ -99,8 +99,6 @@
             </div>
         </div>
     </div>
-    >
-
     <script>
         // Função para abrir/fechar o menu lateral
         function toggleMenu() {

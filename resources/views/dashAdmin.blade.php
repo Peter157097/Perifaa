@@ -178,9 +178,15 @@
                             <button class="btnAcaoDetalhes">
                                 <a href="/entrar-produto/{{$denuncia->produto->idProduto}}">Ver anuncio</a>
                             </button>
-                            <button class="btnAcaoExcluir">
-                                <a>Excluir anuncio</a>
-                            </button>
+                            <form action="{{ route('denuncia.destroy', $denuncia->idDenuncia) }}" method="POST"
+                                    onsubmit="return confirm('Tem certeza que deseja excluir esta denúncia?');"
+                                    class="">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btnAcaoExcluir">
+                                        <a>Excluir denúncia</a>
+                                    </button>
+                                </form>
                         </div>
                     </div>
                 </div>
@@ -222,6 +228,7 @@
             });
         });
     </script>
+
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', { 'packages': ['bar'] });
@@ -268,53 +275,47 @@
 
 
         };
-
     </script>
-    <script type="text/javascript">
-        google.charts.load('current', { 'packages': ['bar'] });
-        google.charts.setOnLoadCallback(drawStuff);
 
-        function drawStuff() {
-            var data = new google.visualization.arrayToDataTable([
-                ['Mês', 'Vendas'],
-                ["Jan.", 1000],
-                ["Fev.", 2459],
-                ["Março", 1870],
-                ['Abril', 3211],
-                ["Maio", 4657],
-                ["Jun.", 9820],
-                ["Jul.", 7405],
-                ["Ago.", 8654],
-                ["Set.", 4254],
-                ["Out.", 6214],
-                ["Nov.", 8700],
-                ['Dez.', 6870]
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['bar'] });
+    google.charts.setOnLoadCallback(drawStuff);
 
-            ]);
+    function drawStuff() {
+        // Passando os dados da view para o gráfico
+        var vendasMensais = @json($vendasMensais);
 
-            var options = {
-                height: '100%', // Ajusta o gráfico para ocupar toda a altura
-                legend: {
-                    position: 'none',
+        // Transformando os dados para o formato que o Google Charts espera
+        var dataArray = [['Mês', 'Vendas']];
+        
+        vendasMensais.forEach(function(venda) {
+            // Criando o nome do mês baseado no número do mês (1 a 12)
+            var meses = ["Jan.", "Fev.", "Mar.", "Abr.", "Maio", "Jun.", "Jul.", "Ago.", "Set.", "Out.", "Nov.", "Dez."];
+            dataArray.push([meses[venda.mes - 1], venda.total]);
+        });
 
-                },
-                chart: {
+        // Criando o DataTable
+        var data = new google.visualization.arrayToDataTable(dataArray);
 
-                },
-                hAxis: {
-                    title: ''
-                },
-                bar: {
-                    groupWidth: "99%",
-                },
-                colors: ['#2a89c7']
-            };
-
-            var chart = new google.charts.Bar(document.getElementById('vendasPorMes'));
-            chart.draw(data, google.charts.Bar.convertOptions(options));
+        var options = {
+            height: '100%', // Ajusta o gráfico para ocupar toda a altura
+            legend: { position: 'none' },
+            hAxis: { title: '' },
+            bar: { groupWidth: "99%" },
+            colors: ['#2a89c7'],
+            vAxis: {
+        minValue: 0, // Define o valor mínimo do eixo Y
+        maxValue: 10000 // Define o valor máximo (ajuste conforme necessário)
+    }
         };
+        
+        // Criando o gráfico
+        var chart = new google.charts.Bar(document.getElementById('vendasPorMes'));
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+    }
 
-    </script>
+</script>
+
     <script type="text/javascript">
         google.charts.load("current", { packages: ["corechart"] });
         google.charts.setOnLoadCallback(drawChart);
@@ -341,6 +342,7 @@
             chart.draw(view, options);
         }
     </script>
+
     <script type="text/javascript">
         google.charts.load("current", { packages: ["corechart"] });
         google.charts.setOnLoadCallback(drawChart);
@@ -354,9 +356,6 @@
                 ['BA', 7]
 
             ]);
-
-
-
             function generateColors(dataTable) {
                 var colors = [];
                 var maxUsers = 0;
@@ -407,6 +406,74 @@
             chart.draw(data, options);
         }
     </script>
+    <script type="text/javascript">
+    google.charts.load("current", { packages: ["corechart"] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    // Dados do backend convertidos para JSON
+    var usuariosPorEstado = @json($usuariosPorEstado);
+
+    function drawChart() {
+        // Construir os dados para o gráfico
+        var dataArray = [['Estado', 'Usuários']];
+        usuariosPorEstado.forEach(function (item) {
+            dataArray.push([item.estado, parseInt(item.total)]);
+        });
+
+        // Criar DataTable
+        var data = google.visualization.arrayToDataTable(dataArray);
+
+        function generateColors(dataTable) {
+                var colors = [];
+                var maxUsers = 0;
+
+                // Encontrar o máximo número de usuários
+                for (var i = 1; i < dataTable.getNumberOfRows(); i++) {
+                    var numUsers = dataTable.getValue(i, 1);
+                    if (numUsers > maxUsers) {
+                        maxUsers = numUsers;
+                    }
+                }
+
+                // Cor base azul similar a #2a89c7
+                var baseColor = { r: 42, g: 137, b: 199 }; // RGB para #2a89c7
+
+                // Gerar cores em tons de azul com base no número de usuários
+                for (var i = 0; i < dataTable.getNumberOfRows(); i++) {
+                    var numUsers = dataTable.getValue(i, 1);
+                    var intensity = Math.floor((numUsers / maxUsers) * 100); // Faixa de intensidade
+
+                    // Ajustar o tom de azul com base na intensidade
+                    var r = baseColor.r;
+                    var g = baseColor.g;
+                    var b = Math.max(0, baseColor.b - intensity); // Diminuir o componente azul para intensificar o tom
+
+                    // Garantir que a cor esteja dentro dos limites de 0 a 255
+                    r = Math.min(255, Math.max(0, r));
+                    g = Math.min(255, Math.max(0, g));
+                    b = Math.min(255, Math.max(0, b));
+
+                    colors.push(`rgb(${r}, ${g}, ${b})`);
+                }
+
+                return colors;
+            }
+
+            // Obter cores dinâmicas
+            var colorsArray = generateColors(data)
+
+        // Configurações do gráfico
+        var options = {
+            colors: colorsArray,
+            title: 'Usuários por Região (Clientes e Vendedores)',
+            width: 750,
+        };
+
+        // Renderizar o gráfico
+        var chart = new google.visualization.PieChart(document.getElementById('graficoRegioes'));
+        chart.draw(data, options);
+    }
+</script>
 </body>
 
 </html>

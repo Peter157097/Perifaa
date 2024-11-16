@@ -14,6 +14,9 @@ use App\Http\Controllers\DenunciaController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PagamentoController;
+use Illuminate\Support\Facades\DB;
+
 use App\Models\Produto;
 use App\Models\Cliente;
 use App\Models\Denuncia;
@@ -174,9 +177,25 @@ Route::get('/dashAdminDenuncias', function () {
 });
 Route::get('/dashAdmin', function () {
     $denuncias = Denuncia::with(['cliente','produto','vendedor'])->get();
+    $usuariosPorEstado = DB::table(DB::raw('(
+        (SELECT estadoVendedor as estado, COUNT(*) as total FROM tbVendedor GROUP BY estadoVendedor)
+        UNION ALL
+        (SELECT estadoCliente as estado, COUNT(*) as total FROM tbCliente GROUP BY estadoCliente)
+    ) as combined'))
+    ->select('estado', DB::raw('SUM(total) as total'))
+    ->groupBy('estado')
+    ->get();
 
+    $vendasMensais = DB::table('tbVenda')
+    ->select(DB::raw('MONTH(dataVenda) as mes'), DB::raw('SUM(valorTotalVenda) as total'))
+    ->groupBy(DB::raw('MONTH(dataVenda)'))
+    ->orderBy(DB::raw('MONTH(dataVenda)'))
+    ->get();
     return view('/dashAdmin', [
         'denuncias' => $denuncias,
+        'usuariosPorEstado' => $usuariosPorEstado,
+        'vendasMensais' => $vendasMensais,
+
     ]);
 });
 

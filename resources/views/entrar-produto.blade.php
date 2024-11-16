@@ -462,13 +462,31 @@ section {
       if (result.success) {
         document.getElementById('mensagemInput').value = '';
         $('#modalMensagem').modal('hide'); // Fecha o modal após enviar a mensagem
-        alert('Mensagem enviada!');
+        Swal.fire({
+                    title: 'Mensagem enviada com sucesso!',
+                    text: '{{ session('success') }}',
+                    icon: 'success',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#5e3e24'
+                });
       } else {
-        alert('Erro ao enviar mensagem. Tente novamente.');
+        Swal.fire({
+                    title: 'Não foi possivel enviar a mensagem',
+                    text: '{{ session('success') }}',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#5e3e24'
+                });
       }
     } catch (error) {
       console.error('Erro:', error);
-      alert('Erro ao enviar mensagem. Tente novamente.');
+      Swal.fire({
+                    title: 'Não foi possivel se conectar ao chat! tente novamente mais tarde.',
+                    text: '{{ session('success') }}',
+                    icon: 'error',
+                    confirmButtonText: 'OK',
+                    confirmButtonColor: '#5e3e24'
+                });
     }
   }
 </script>

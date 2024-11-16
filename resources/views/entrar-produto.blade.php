@@ -334,6 +334,7 @@ section {
                     @csrf
                     <input type="hidden" name="tipoDenuncia" value="Itens proibido">
                     <input type="hidden" name="idProduto" value="{{ $produtos->idProduto }}">
+                    <input type="hidden" name="idVendedor" value="{{ $produtos->idVendedor }}">
                     <input type="hidden" name="idCliente" value="{{ session('id') }}">
                     <input type="hidden" id="dataDenuncia" name="dataDenuncia" value="{{ date('Y-m-d') }}" required>
                     <div class="form-group large-form-group">

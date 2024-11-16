@@ -18,6 +18,7 @@ class DenunciaController extends Controller
         $Denuncia->dataDenuncia = $request->dataDenuncia;
         $Denuncia->idProduto = $request->idProduto;
         $Denuncia->idCliente = $request->idCliente;
+        $Denuncia->idVendedor = $request->idVendedor;
 
         $Denuncia->save();
         

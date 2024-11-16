@@ -39,9 +39,8 @@
 
                         <div class="contentMsg">
                             <div class="selectedMsg">
-                                <div class="btnVoltarMsg">
-                                    <a href="/mensagens">
-                                    </a>
+                            <div class="btnVoltarMsg">
+                                    <a href="/mensagens"><</a>
                                 </div>
                                 <div class="pfpSelectedMsg">
                                     <div class="pfpMsg">
@@ -174,6 +173,9 @@
                         </div>
                         <div class="contentMsg">
                             <div class="selectedMsg">
+                                <div class="btnVoltarMsg">
+                                    <a href="/mensagens"><</a>
+                                </div>
                                 <div class="pfpSelectedMsg">
                                     <div class="pfpMsg">
                                         <img src="{{url('images/user-icon.png')}}">
@@ -511,7 +513,7 @@
                         const mensagens = await response.json();
 
                         messagesDiv.innerHTML = '';
-                        
+
                         mensagens.forEach((mensagem) => {
                             const messageContainer = document.createElement('div');
                             messageContainer.classList.add('messageContainer');
@@ -538,7 +540,7 @@
                         });
 
                         messagesDiv.scrollTop = messagesDiv.scrollHeight; // Rolagem automática
-                       
+
                     } catch (error) {
                         console.error('Erro ao carregar histórico:', error);
                     }

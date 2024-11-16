@@ -135,64 +135,7 @@
         </div>
     </div>
 
-    <div class="admContainerDenuncia">
-        <div class="admDenuncia">
-            <div class="titleDash">
-                Produtos mais denunciados
-            </div>
-            @foreach($denuncias as $denuncia)
-                <div class="cardDenuncia-top">
-                    <div class="infoDenuncia-top">
-                        <p class="nomeVendDenuncia">
-                            Nome Vendedor
-                        </p>
-                    </div>
-                </div>
-                <div class="admCardDenuncia">
-                    <div class="placeholderImg">
-                        <img src="{{$denuncia->produto->imagemProduto}}">
-                    </div>
-                    <div class="infoDenuncia">
-                        <div class="topDenuncia">
-                            <p class="itemTopDenuncia">Produto</p>
-                            <p class="itemTopDenuncia">Descrição</p>
-                            <P class="itemTopDenuncia">Valor</P>
-                            <P class="itemTopDenuncia">Id Denuncia</P>
-                            <P class="itemTopDenuncia">Email</P>
-                        </div>
-                        <div class="bottomDenuncia">
-                            <p class="itemBottomDenuncia">
-                                {{$denuncia->produto->nomeProduto ?? 'Descrição Indisponível' }}
-                            </p>
-                            <p class="itemBottomDenuncia">
-                                {{ $denuncia->produto->descricaoProduto ?? 'Descrição Indisponível' }}
-                            </p>
-                            <p class="itemBottomDenuncia">
-                                {{$denuncia->Produto->valorProduto ?? 'Descrição Indisponível' }}
-                            </p>
-                            <p class="itemBottomDenuncia">{{ $denuncia->idDenuncia ?? 'Descrição Indisponível' }}</p>
-                            <p class="itemBottomDenuncia">{{ $denuncia->cliente->emailCliente ?? 'Nome Indisponível' }}
-                            </p>
-                        </div>
-                        <div class="btnDenunciaContainer">
-                            <button class="btnAcaoDetalhes">
-                                <a href="/entrar-produto/{{$denuncia->produto->idProduto}}">Ver anuncio</a>
-                            </button>
-                            <form action="{{ route('denuncia.destroy', $denuncia->idDenuncia) }}" method="POST"
-                                    onsubmit="return confirm('Tem certeza que deseja excluir esta denúncia?');"
-                                    class="">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button class="btnAcaoExcluir">
-                                        <a>Excluir denúncia</a>
-                                    </button>
-                                </form>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </div>
+    
     </div>
     <script>
         // Função para abrir/fechar o menu lateral

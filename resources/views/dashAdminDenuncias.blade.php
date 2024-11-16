@@ -16,9 +16,7 @@
 
 <body class="bodyAdmin">
     @include('includes.menuAdmin')
-
     <div class="containerFloatImg">
-
     </div>
     <div class="containerAdmin">
         <div class="admContainerDenuncia">
@@ -30,7 +28,7 @@
                     <div class="cardDenuncia-top">
                         <div class="infoDenuncia-top">
                             <p class="nomeVendDenuncia">
-                                Nome Vendedor
+                                {{$denuncia->vendedor->nomeVendedor ?? 'Nome indisponivel' }}
                             </p>
                         </div>
                     </div>
@@ -65,8 +63,7 @@
                                     <a href="/entrar-produto/{{$denuncia->produto->idProduto}}">Ver anuncio</a>
                                 </button>
                                 <form action="{{ route('denuncia.destroy', $denuncia->idDenuncia) }}" method="POST"
-                                    onsubmit="return confirm('Tem certeza que deseja excluir esta denúncia?');"
-                                    class="">
+                                    onsubmit="return confirm('Tem certeza que deseja excluir esta denúncia?');" class="">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btnAcaoExcluir">

@@ -4856,6 +4856,7 @@ svg {
 }
 
 .btnAcaoDetalhes {
+    cursor: pointer;
     font-size: 2vh;
     align-self: center;
     color: white;
@@ -4866,16 +4867,27 @@ svg {
     transition: background-color 0.4s ease-in-out;
     transition: width, 0.2s ease-in-out;
 }
-.btnAcaoDetalhes a{
+
+.btnAcaoDetalhes a {
     color: white;
 }
 
 .btnAcaoDetalhes:hover {
-    color: rgb(255, 255, 255);
+    border: 1px solid rgb(206, 206, 206);
+    color: rgb(0, 0, 0);
     background-color: white;
-    border: 1px solid rgb(180, 180, 180);
-    cursor: pointer;
+    transition: color 0.4s ease-in-out;
+    
 }
+
+.btnAcaoDetalhes:hover a{
+    transition: color 0.4s ease-in-out;
+    width: 100%;
+    color: rgb(0, 0, 0);
+}
+
+
+
 
 .btnAcaoExcluir {
     font-size: 2vh;
@@ -4883,23 +4895,21 @@ svg {
     color: white;
     background-color: rgb(180, 83, 83);
     border: 1px solid white;
-    width: 15%;
+    width: 100%;
     border-radius: 30px;
     transition: background-color 0.4s ease-in-out;
     transition: width, 0.2s ease-in-out;
-    width: 100%;
 }
 
 .btnAcaoExcluir:hover {
     color: rgb(179, 17, 17);
     background-color: white;
-    border: 1px solid rgb(180, 180, 180);
+    border: 1px solid rgb(204, 204, 204);
     cursor: pointer;
 }
 
 .btnDetalhesGrafico:hover {
-    width: 65%;
-    ;
+    width: 65%;;
     color: black;
     background-color: white;
     border: 1px solid black;

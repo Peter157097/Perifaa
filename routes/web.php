@@ -167,6 +167,7 @@ Route::post('/carrinho/add', [CarrinhoController::class, 'addCarrinho'])->name('
 Route::post('/carrinho/toggle', [CarrinhoController::class, 'toggleCarrinho'])->name('carrinho.toggle');
 
 Route::post('/cadastrarDenuncia', [DenunciaController::class, 'store'])->name('Denuncia.store');
+
 // Rota para Denuncia
 Route::get('/dashAdminDenuncias', function () {
     $denuncias = Denuncia::with(['cliente','produto','vendedor'])->get();
@@ -175,6 +176,7 @@ Route::get('/dashAdminDenuncias', function () {
         'denuncias' => $denuncias,
     ]);
 });
+
 Route::get('/dashAdmin', function () {
     $denuncias = Denuncia::with(['cliente','produto','vendedor'])->get();
     $usuariosPorEstado = DB::table(DB::raw('(

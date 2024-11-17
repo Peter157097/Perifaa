@@ -675,7 +675,7 @@
             <div class="card-container">
                 <div class="containerMensagens">
                     @if(session('is_Cliente'))
-                    
+
                     @elseif(session('is_vendedor'))
                     <div class="panelPedidos">
                         <div class="pedidosTitlePanel">
@@ -791,6 +791,7 @@
             </div>
 
         </div>
+
         <div class="content" id="content3">
             <div class="container">
                 <div class="form-section" id="form-section">
@@ -799,192 +800,265 @@
                         <label>
                             <input type="radio" name="payment" value="boleto" onclick="togglePaymentMethod()"> Boleto
                         </label>
+                        <label>
+                            <input type="radio" name="payment" value="cartao" onclick="togglePaymentMethod()"> Cartão
+                        </label>
                     </div>
 
-                    <div id="pix-message" class="pix-message">
-                        <p>Após finalizar, você será redirecionado para uma página com um <strong>QR CODE</strong></p>
-                        <p>Escaneie com o <strong>aplicativo do seu banco</strong> para realizar o pagamento. Após isso, enviaremos uma <strong>confirmação</strong> do seu pedido pelo e-mail.</p>
-                    </div>
-
+                    <!-- Boleto Message and Form -->
                     <div id="boleto-message" class="boleto-message" style="display: none;">
                         <p>Após finalizar, você poderá <strong>baixar o boleto</strong> para pagamento.</p>
                         <p>Imprima ou pague o boleto online pelo aplicativo do seu banco. Após o pagamento, enviaremos uma <strong>confirmação</strong> do seu pedido pelo e-mail.</p>
                     </div>
-
                     <form id="boleto-form" action="{{ route('gerar.boleto') }}" method="POST" style="display: none;">
                         @csrf
-                        <input type="hidden" name="subtotal" value="{{ $subtotal }}"> <!-- Passa o subtotal como um valor oculto -->
+                        <input type="hidden" name="subtotal" value="{{ $subtotal }}">
                     </form>
 
+                    <!-- Payment Form -->
+                    <div id="payment-form" style="display: none;">
+                        <form action="{{ route('pagar.cartao') }}" method="post">
+                            @csrf
+
+                            <input type="hidden" name="valorTotalVenda" value="{{ $subtotal + 11 }}">
+                            <input type="hidden" name="idCliente" value="{{ Session::get('id', 'id não definido') }}">
+                            <input type="hidden" name="logradouroEntrega" value="{{ Session::get('logradouro', 'Logradouro não definido') }}">
+                            <input type="hidden" name="numCasaEntrega" value="{{ Session::get('numCasaCliente') }}">
+                            <input type="hidden" name="metodoPagamento" value="1">
+
+
+                            @foreach($selectedProducts as $product)
+                            <input type="hidden" name="produtos[]" value="{{ $product['id'] }}">
+                            <input type="hidden" name="vendedores[]" value="{{ $product['idVendedor'] }}">
+                            @endforeach
+
+                            <!-- Dados do cartão -->
+                            <div class="form-group">
+                                <input type="text" name="nomeCartao" placeholder="Nome completo" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="cpfCartao" placeholder="CPF" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="numeroCartao" placeholder="Número do cartão" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="validadeCartao" placeholder="Validade (MM/AA)" required>
+                                <input type="text" name="cvcCartao" placeholder="CVC" required>
+                            </div>
+
+                        </form>
+                    </div>
+
+
+
                     <button class="finalize-button" onclick="finalizePayment()">Finalizar</button>
-                </div>
+
+                    <div class="summary-section">
+                        <h2>Resumo do Pedido</h2>
+                        <p>Subtotal: R$ {{ number_format($subtotal, 2, ',', '.') }}</p>
+                        <p>Frete: R$ 11</p>
+                        <p>Total: R$ {{ number_format($subtotal + 11, 2, ',', '.') }}</p>
+
+                        <h3>Produtos Selecionados:</h3>
+                        <ul>
+                            @if (!empty($selectedProducts))
+                            @foreach ($selectedProducts as $product)
+                            <li>
+                                ID: {{ $product['id'] }}, Nome: {{ $product['nome'] }},
+                                Vendedor: {{ $product['idVendedor'] }}, IdCliente: {{ Session::get('id', 'id não definido') }}
+                            </li>
+                            <input type="hidden" name="produto_ids[]" value="{{ $product['id'] }}">
+                            <input type="hidden" name="vendedor_ids[]" value="{{ $product['idVendedor'] }}">
+                            @endforeach
+                            @else
+                            <li>Nenhum produto selecionado</li>
+                            @endif
+                        </ul>
+                    </div>
 
 
-                <?php
-                $subtotal = request('subtotal') ?? 0;
-                ?>
 
-                <div class="summary-section">
-                    <h2>Resumo do pedido</h2>
-                    <table>
-                        <tr>
-                            <td>Subtotal</td>
-                            <td>R$<?= number_format($subtotal, 2, ',', '.') ?></td>
-                        </tr>
-                        <tr>
-                            <td>Frete</td>
-                            <td>R$11,00</td>
-                        </tr>
-                        <tr class="total">
-                            <td>Total</td>
-                            <td>R$ <span id="totalValue">{{ number_format($subtotal + 11, 2, ',', '.') }}</span></td>
-                        </tr>
-                    </table>
-                </div>
 
-                <div class="qr-section hidden" id="qr-section">
-                    <div class="timer" id="timer">30:00</div>
-                    <img src="https://via.placeholder.com/200" alt="QR Code">
-                    <p>Escaneie com o <strong>aplicativo do seu banco</strong> para realizar o pagamento.</p>
-                    <p>Enviaremos uma <strong>confirmação do seu pedido</strong> pelo e-mail.</p>
-                    <p><em>Muito obrigado :)</em></p>
-                    <a href="#" class="back-link" onclick="returnToForm()">Voltar às compras</a>
+
+                    <div class="qr-section hidden" id="qr-section">
+                        <div class="timer" id="timer">30:00</div>
+                        <img src="https://via.placeholder.com/200" alt="QR Code">
+                        <p>Escaneie com o <strong>aplicativo do seu banco</strong> para realizar o pagamento.</p>
+                        <p>Enviaremos uma <strong>confirmação do seu pedido</strong> pelo e-mail.</p>
+                        <p><em>Muito obrigado :)</em></p>
+                        <a href="#" class="back-link" onclick="returnToForm()">Voltar às compras</a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
-
-
-        <script>
-            function showContent(stepIndex) {
-                // Remove a classe 'step-active' de todos os círculos e conteúdos
-                document.querySelectorAll('.circle').forEach(circle => circle.classList.remove('step-active'));
-                document.querySelectorAll('.content').forEach(content => {
-                    content.classList.remove('step-active');
-                    content.style.display = 'none'; // Garante que o display seja ocultado antes
-                });
-
-                // Adiciona a classe 'step-active' ao círculo e conteúdo correspondentes
-                document.getElementById('step' + (stepIndex + 1)).classList.add('step-active');
-
-                // Usa setTimeout para garantir a transição ao mostrar o conteúdo
-                setTimeout(() => {
-                    const content = document.getElementById('content' + (stepIndex + 1));
-                    content.style.display = 'block';
-                    content.classList.add('step-active');
-                }, 100); // Pequeno atraso para suavizar a animação
-            }
-
-            // Inicializa mostrando o primeiro conteúdo
-            showContent(1);
-
-            function togglePaymentMethod() {
-                const pixMessage = document.getElementById('pix-message');
-                const boletoMessage = document.getElementById('boleto-message');
-                const paymentType = document.querySelector('input[name="payment"]:checked').value;
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
-                pixMessage.style.display = 'none';
-                boletoMessage.style.display = 'none';
 
 
-                if (paymentType === 'pix') {
-                    pixMessage.style.display = 'block';
-                } else if (paymentType === 'boleto') {
-                    boletoMessage.style.display = 'block';
-                }
-            }
+            <script>
+                function showContent(stepIndex) {
 
-
-            function finalizePayment() {
-                const paymentType = document.querySelector('input[name="payment"]:checked').value;
-
-                if (paymentType === 'boleto') {
-                    document.getElementById('boleto-form').submit();
-                } else {
-                    finalizePurchase();
-                }
-            }
-
-            function showQRCode() {
-                document.getElementById('form-section').classList.add('hidden');
-                document.getElementById('qr-section').classList.remove('hidden');
-                startTimer();
-            }
-
-            function returnToForm() {
-                document.getElementById('qr-section').classList.add('hidden');
-                document.getElementById('form-section').classList.remove('hidden');
-                stopTimer();
-            }
-
-
-            function finalizePurchase() {
-                console.log("Finalizando compra e gerando QR Code");
-                const paymentType = document.querySelector('input[name="payment"]:checked').value;
-                const totalValue = document.querySelector('.total td:last-child').textContent;
-
-                const totalInCents = Math.round(parseFloat(totalValue.replace('R$', '').replace('.', '').replace(',', '.')) * 100);
-
-                if (paymentType === 'pix') {
-                    const pixCode = `00020101021126640014BR.GOV.BCB.PIX0eeduardosilva010506@gmail.com-ID12345678520400005303986540${totalInCents}5802BR5907EDUARDO09SAO PAULO62070503***6304`;
-
-                    let qrCodeElement = document.getElementById('qrcode');
-                    qrCodeElement.innerHTML = '';
-
-                    new QRCode(qrCodeElement, {
-                        text: pixCode,
-                        width: 128,
-                        height: 128,
+                    document.querySelectorAll('.circle').forEach(circle => circle.classList.remove('step-active'));
+                    document.querySelectorAll('.content').forEach(content => {
+                        content.classList.remove('step-active');
+                        content.style.display = 'none';
                     });
 
-                    showQRCode();
-                } else {
-                    alert("Pagamento com cartão será processado.");
+                    document.getElementById('step' + (stepIndex + 1)).classList.add('step-active');
+
+                    setTimeout(() => {
+                        const content = document.getElementById('content' + (stepIndex + 1));
+                        content.style.display = 'block';
+                        content.classList.add('step-active');
+                    }, 100);
                 }
-            }
 
+                showContent(1);
 
-            function showQRCode() {
-                document.getElementById('form-section').classList.add('hidden');
-                document.getElementById('qr-section').classList.remove('hidden');
-                startTimer();
-            }
+                function togglePaymentMethod() {
 
+                    const boletoMessage = document.getElementById('boleto-message');
+                    const boletoForm = document.getElementById('boleto-form');
+                    const paymentForm = document.getElementById('payment-form');
 
-            function returnToForm() {
-                document.getElementById('qr-section').classList.add('hidden');
-                document.getElementById('form-section').classList.remove('hidden');
-                stopTimer();
-            }
+                    const paymentType = document.querySelector('input[name="payment"]:checked').value;
 
+                    boletoMessage.style.display = 'none';
+                    boletoForm.style.display = 'none';
+                    paymentForm.style.display = 'none';
 
-
-
-            let timerInterval;
-
-            function startTimer() {
-                let time = 30 * 60;
-                const timerDisplay = document.getElementById('timer');
-
-                timerInterval = setInterval(() => {
-                    const minutes = String(Math.floor(time / 60)).padStart(2, '0');
-                    const seconds = String(time % 60).padStart(2, '0');
-                    timerDisplay.textContent = `${minutes}:${seconds}`;
-
-                    if (--time < 0) {
-                        clearInterval(timerInterval);
-                        timerDisplay.textContent = 'Expirado';
+                    if (paymentType === 'boleto') {
+                        boletoMessage.style.display = 'block';
+                        boletoForm.style.display = 'block';
+                    } else if (paymentType === 'cartao') {
+                        paymentForm.style.display = 'block';
                     }
-                }, 1000);
-            }
+                }
 
-            function stopTimer() {
-                clearInterval(timerInterval);
-            }
-        </script>
+
+                function finalizePayment() {
+                    const paymentType = document.querySelector('input[name="payment"]:checked')?.value;
+
+                    if (!paymentType) {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Atenção',
+                            text: 'Por favor, selecione uma forma de pagamento.',
+                        });
+                        return;
+                    }
+
+                    if (paymentType === 'cartao') {
+                        Swal.fire({
+                            title: 'Processando pagamento...',
+                            html: 'Por favor, aguarde enquanto processamos o seu pagamento.',
+                            timer: 5000,
+                            timerProgressBar: true,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false,
+                            didOpen: () => {
+                                Swal.showLoading();
+                            },
+                        }).then(() => {
+                       
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Compra finalizada com sucesso!',
+                                text: 'Obrigado por sua compra!',
+                                confirmButtonText: 'Ok',
+                            }).then(() => {
+                 
+                                document.querySelector('#payment-form form').submit();
+                            });
+                        });
+                    } else if (paymentType === 'boleto') {
+                        document.getElementById('boleto-form').submit();
+                    } else {
+                        alert("Método de pagamento não suportado.");
+                    }
+                }
+
+
+                function showQRCode() {
+                    document.getElementById('form-section').classList.add('hidden');
+                    document.getElementById('qr-section').classList.remove('hidden');
+                    startTimer();
+                }
+
+                function returnToForm() {
+                    document.getElementById('qr-section').classList.add('hidden');
+                    document.getElementById('form-section').classList.remove('hidden');
+                    stopTimer();
+                }
+
+
+                function finalizePurchase() {
+                    console.log("Finalizando compra e gerando QR Code");
+                    const paymentType = document.querySelector('input[name="payment"]:checked').value;
+                    const totalValue = document.querySelector('.total td:last-child').textContent;
+
+                    const totalInCents = Math.round(parseFloat(totalValue.replace('R$', '').replace('.', '').replace(',', '.')) * 100);
+
+                    if (paymentType === 'pix') {
+                        const pixCode = `00020101021126640014BR.GOV.BCB.PIX0eeduardosilva010506@gmail.com-ID12345678520400005303986540${totalInCents}5802BR5907EDUARDO09SAO PAULO62070503***6304`;
+
+                        let qrCodeElement = document.getElementById('qrcode');
+                        qrCodeElement.innerHTML = '';
+
+                        new QRCode(qrCodeElement, {
+                            text: pixCode,
+                            width: 128,
+                            height: 128,
+                        });
+
+                        showQRCode();
+                    } else {
+                        alert("Pagamento com cartão será processado.");
+                    }
+                }
+
+
+                function showQRCode() {
+                    document.getElementById('form-section').classList.add('hidden');
+                    document.getElementById('qr-section').classList.remove('hidden');
+                    startTimer();
+                }
+
+
+                function returnToForm() {
+                    document.getElementById('qr-section').classList.add('hidden');
+                    document.getElementById('form-section').classList.remove('hidden');
+                    stopTimer();
+                }
+
+
+
+
+                let timerInterval;
+
+                function startTimer() {
+                    let time = 30 * 60;
+                    const timerDisplay = document.getElementById('timer');
+
+                    timerInterval = setInterval(() => {
+                        const minutes = String(Math.floor(time / 60)).padStart(2, '0');
+                        const seconds = String(time % 60).padStart(2, '0');
+                        timerDisplay.textContent = `${minutes}:${seconds}`;
+
+                        if (--time < 0) {
+                            clearInterval(timerInterval);
+                            timerDisplay.textContent = 'Expirado';
+                        }
+                    }, 1000);
+                }
+
+                function stopTimer() {
+                    clearInterval(timerInterval);
+                }
+            </script>
 
 </body>
 

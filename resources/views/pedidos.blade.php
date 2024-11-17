@@ -101,22 +101,20 @@
                                         <ul class="labelPedido">
                                             <li class="nomeVendPedido">
                                                 <span class="texto-inicial">{{$venda->produto->nomeProduto}}</span>
-                                                <a href="/mensagens" class="texto-hover">
-                                                    Falar com vendedor
-                                                </a>
+                                               
                                             </li>
 
-                                            <li>R$ {{ number_format($venda->valorTotalVenda, 2, ',', '.') }}</li>
+                                            <li>R$ {{ number_format($venda->produto->valorProduto, 2, ',', '.') }}</li>
                                         </ul>
                                         <ul class="statusPedido">
                                             <li class="sttsPedido">Status</li>
                                             <li class="situacaoPedido">
                                                 @if($venda->idLoc == 0)
-                                                    Aguardando
+                                                    Pagamento realizado
                                                 @elseif($venda->idLoc == 1)
                                                     Enviado - Código: {{ $venda->codigoCorreio ?? 'N/A' }}
                                                 @else
-                                                    Status desconhecido
+                                                    Pagamento Recusado
                                                 @endif
                                                 <i class="fa-solid fa-circle-check"></i>
                                             </li>

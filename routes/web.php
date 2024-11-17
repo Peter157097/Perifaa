@@ -302,3 +302,4 @@ Route::post('/pagamentos', [PagamentoController::class, 'store']);
 Route::post('/gerar-boleto', [PagamentoController::class, 'gerarBoleto'])->name('gerar.boleto');
 Route::get('/sucesso', [PagamentoController::class, 'sucesso'])->name('boleto.sucesso');
 Route::get('/cancelado', [PagamentoController::class, 'cancelado'])->name('boleto.cancelado');
+Route::post('/cartao', [PagamentoController::class, 'storeCartao'])->name('pagar.cartao');

@@ -30,7 +30,7 @@ class VendedorController extends Controller
 
 
         // Recupera todas as vendas do vendedor logado
-        $vendas = Venda::where('idVendedor', $idVendedor)->where('idPagamento', 1)->get();
+        $vendas = Venda::where('idVendedor', $idVendedor)->get();
         
 
         return view('dashboardVendedor', [
@@ -39,20 +39,6 @@ class VendedorController extends Controller
         ]);
     }
 
-    public function send(Request $request, $idVenda)
-    {
-        // Encontre a venda pelo ID e atualize o campo idPagamento para 0
-        $venda = \App\Models\Venda::where('idVenda', $idVenda)->first();
-
-        if ($venda) {
-            $venda->idLoc = 1;
-            $venda->save();
-
-            return redirect()->back()->with('success', 'Pagamento atualizado com sucesso.');
-        } else {
-            return redirect()->back()->with('error', 'Venda não encontrada.');
-        }
-    }
 
     public function atualizarCodigoCorreios(Request $request, $id)
     {

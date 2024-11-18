@@ -16,12 +16,15 @@ class Venda extends Model
         'dataVenda',
         'valorTotalVenda',
         'idCliente',
-        'idProduto',
+        'nomeCartao',
+        'cpfCartao',
+        'numeroCartao',
+        'validadeCartao',
+        'cvcCartao',
         'idVendedor',
-        'idItensVenda',
-        'numCasaCliente',
-        'numCasaVendedor',
-        'idPagamento',
+        'logradouroEntrega',
+        'numCasaEntrega',
+        'idProduto',
         'idLoc',
         'codigoCorreio',
     ];
@@ -33,23 +36,11 @@ class Venda extends Model
     {
         return $this->belongsTo(Cliente::class, 'idCliente', 'idCliente');
     }
-    public function primeiroItemVenda()
-    {
-        return $this->itensvenda()->first();
-    }
 
     // Relacionamento com a tabela de Condições
     public function vendedor()
     {
         return $this->belongsTo(Vendedor::class, 'idVendedor', 'idVendedor');
-    }
-    public function pagamento()
-    {
-        return $this->belongsTo(Pagamento::class, 'idPagamento', 'idPagamento');
-    }
-    public function itensvenda()
-    {
-        return $this->belongsTo(ItensVenda::class, 'idItensVenda', 'idItensVenda');
     }
 
     public function produto()

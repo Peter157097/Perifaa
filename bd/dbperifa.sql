@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05/11/2024 às 04:57
+-- Tempo de geração: 18/11/2024 às 02:02
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -77,7 +77,10 @@ CREATE TABLE `tbcarrinho` (
 INSERT INTO `tbcarrinho` (`idCarrinho`, `idProduto`, `idCliente`) VALUES
 (1, 2, 13),
 (2, 10, 15),
-(3, 4, 24);
+(3, 4, 24),
+(5, 20, 49),
+(6, 19, 49),
+(7, 19, 48);
 
 -- --------------------------------------------------------
 
@@ -127,23 +130,26 @@ CREATE TABLE `tbcliente` (
   `estadoCliente` varchar(30) NOT NULL,
   `imagemCliente` varchar(255) DEFAULT NULL,
   `numCasaCliente` int(11) DEFAULT NULL,
-  `preferencia` enum('masculina','feminina') DEFAULT NULL
+  `preferencia` enum('masculina','feminina') DEFAULT NULL,
+  `DataCriacao` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `tbcliente`
 --
 
-INSERT INTO `tbcliente` (`idCliente`, `nomeCliente`, `cpfCliente`, `emailCliente`, `senhaCliente`, `logradouroCliente`, `numeroCliente`, `complementoCliente`, `bairroCliente`, `cepCliente`, `cidadeCliente`, `estadoCliente`, `imagemCliente`, `numCasaCliente`, `preferencia`) VALUES
-(23, 'Marcus', '24056783810', 'marcusvini123@gmail.com', '$2y$10$LV.rnUsgkl3vjSkRU8dQlepnW5x23gF8EtT6epobRDk0/0P9jeUXy', 'Rua Piraitá', '11958030871', 'Casa', 'Jardim Jaraguá (Itaim Paulista)', '08160280', 'São Paulo', 'SP', 'images/logo3.jpeg', 12, 'masculina'),
-(40, 'Vanilza', '54212329912', 'vanilzinha@gmail.com', '$2y$10$s1JtqwKyOOBBGvdTL75cKu2GuUuREhBYE0kLhe49XlkylUCIgiHMO', 'Rua Osvaldo Souto de Oliveira', '1197874902', NULL, 'Cidade Nova São Miguel', '08042-530', 'São Paulo', 'SP', 'images/perfil/1730775650.png', 12, 'masculina'),
-(41, 'Rodrigo', '31231231232', 'rodrigo123@gmail.com', '$2y$10$ROHeTPGPjUZOZ9CAd7WbPOq5qHWk/sa/vLQbqhRXFfdJDWzQWnJia', 'Rua Moacir Dantas Itapicuru', '11995012342', 'Favelinha', 'Cidade Nova São Miguel', '08042-290', 'São Paulo', 'SP', 'images/perfil/1730775909.png', 112, 'masculina'),
-(42, 'Eduardo Teixeira', '892381923', 'eduardotx@gmail.com', '$2y$10$/56RhW5c/MDxtAPLw724q.0m4C/6VNb/6tgzVaV7b5blQEiQUzRKi', 'Rua Ribeirão das Furnas', '11981583773', NULL, 'Jardim Lajeado', '08441-190', 'São Paulo', 'SP', 'images/perfil/1730776198.png', 44, 'masculina'),
-(43, 'Nadia Augusta', '729104372124', 'nadiazinha@gmail.com', '$2y$10$zDPt3JSW5kZSrP2ZhI.YCuEW/4ZQ8s0A0Us3FlIRKrPeIyYyk1jyi', 'Rua Ribeirão das Furnas', '11981583773', NULL, 'Jardim Lajeado', '08441-190', 'São Paulo', 'SP', 'images/perfil/1730776835.png', 80, 'feminina'),
-(44, 'Dandara Galileia', '12231424244', 'dandarinha@gmail.com', '$2y$10$UETlAg7xja7eKsPLJ3T98usYn39PSdEcqKAaUC4Vy94GK3oEDm5Je', 'Rua Álcio Carneiro de Lima', '11981583773', NULL, 'Cidade Popular', '08461190', 'São Paulo', 'SP', 'images/perfil/1730777266.png', 1122, 'feminina'),
-(45, 'Rosangela Freire', '123223124214', 'rorofrefre@gmail.com', '$2y$10$4ZU5cUQdB1Hz767NhGvpVOq1e4Y6qhuTZrnMZf9iFgMKnJI/n2Z9i', 'Rua Ribeirão das Furnas', '11981583773', NULL, 'Jardim Lajeado', '08441-190', 'São Paulo', 'SP', 'images/perfil/1730777484.png', 1212, 'feminina'),
-(46, 'Rafaella Fields', '54212329912', 'rafaelafields@gmail.com', '$2y$10$AN1EZmmekFTHk9BEq5hFGOFFD/UU7kJoelhEDbiU9jOluCqq7.88a', 'Rua Ribeirão das Furnas', '11981583773', NULL, 'Jardim Lajeado', '08441-190', 'São Paulo', 'SP', 'images/perfil/1730777664.png', 99, 'feminina'),
-(47, 'Matheus Bergamota', '1342132132', 'bergamatheus@gmail.com', '$2y$10$vpnCUshy5TnKQpEs75Aae.4lAFuqdCnWA3GDxwikjyDAZiUn.O2Uq', 'Rua Ribeirão das Furnas', '11981583773', NULL, 'Jardim Lajeado', '08441-190', 'São Paulo', 'SP', 'images/perfil/1730777725.png', 19, 'masculina');
+INSERT INTO `tbcliente` (`idCliente`, `nomeCliente`, `cpfCliente`, `emailCliente`, `senhaCliente`, `logradouroCliente`, `numeroCliente`, `complementoCliente`, `bairroCliente`, `cepCliente`, `cidadeCliente`, `estadoCliente`, `imagemCliente`, `numCasaCliente`, `preferencia`, `DataCriacao`) VALUES
+(23, 'Marcus', '24056783810', 'marcusvini123@gmail.com', '$2y$10$LV.rnUsgkl3vjSkRU8dQlepnW5x23gF8EtT6epobRDk0/0P9jeUXy', 'Rua Piraitá', '11958030871', 'Casa', 'Jardim Jaraguá (Itaim Paulista)', '08160280', 'São Paulo', 'SP', 'images/logo3.jpeg', 12, 'masculina', NULL),
+(40, 'Vanilza', '54212329912', 'vanilzinha@gmail.com', '$2y$10$s1JtqwKyOOBBGvdTL75cKu2GuUuREhBYE0kLhe49XlkylUCIgiHMO', 'Rua Osvaldo Souto de Oliveira', '1197874902', NULL, 'Cidade Nova São Miguel', '08042-530', 'São Paulo', 'SP', 'images/perfil/1730775650.png', 12, 'masculina', NULL),
+(41, 'Rodrigo', '31231231232', 'rodrigo123@gmail.com', '$2y$10$ROHeTPGPjUZOZ9CAd7WbPOq5qHWk/sa/vLQbqhRXFfdJDWzQWnJia', 'Rua Moacir Dantas Itapicuru', '11995012342', 'Favelinha', 'Cidade Nova São Miguel', '08042-290', 'São Paulo', 'SP', 'images/perfil/1730775909.png', 112, 'masculina', NULL),
+(42, 'Eduardo Teixeira', '892381923', 'eduardotx@gmail.com', '$2y$10$/56RhW5c/MDxtAPLw724q.0m4C/6VNb/6tgzVaV7b5blQEiQUzRKi', 'Rua Ribeirão das Furnas', '11981583773', NULL, 'Jardim Lajeado', '08441-190', 'São Paulo', 'SP', 'images/perfil/1730776198.png', 44, 'masculina', NULL),
+(43, 'Nadia Augusta', '729104372124', 'nadiazinha@gmail.com', '$2y$10$zDPt3JSW5kZSrP2ZhI.YCuEW/4ZQ8s0A0Us3FlIRKrPeIyYyk1jyi', 'Rua Ribeirão das Furnas', '11981583773', NULL, 'Jardim Lajeado', '08441-190', 'São Paulo', 'SP', 'images/perfil/1730776835.png', 80, 'feminina', NULL),
+(44, 'Dandara Galileia', '12231424244', 'dandarinha@gmail.com', '$2y$10$UETlAg7xja7eKsPLJ3T98usYn39PSdEcqKAaUC4Vy94GK3oEDm5Je', 'Rua Álcio Carneiro de Lima', '11981583773', NULL, 'Cidade Popular', '08461190', 'São Paulo', 'RJ', 'images/perfil/1730777266.png', 1122, 'feminina', NULL),
+(45, 'Rosangela Freire', '123223124214', 'rorofrefre@gmail.com', '$2y$10$4ZU5cUQdB1Hz767NhGvpVOq1e4Y6qhuTZrnMZf9iFgMKnJI/n2Z9i', 'Rua Ribeirão das Furnas', '11981583773', NULL, 'Jardim Lajeado', '08441-190', 'São Paulo', 'RJ', 'images/perfil/1730777484.png', 1212, 'feminina', NULL),
+(46, 'Rafaella Fields', '54212329912', 'rafaelafields@gmail.com', '$2y$10$AN1EZmmekFTHk9BEq5hFGOFFD/UU7kJoelhEDbiU9jOluCqq7.88a', 'Rua Ribeirão das Furnas', '11981583773', NULL, 'Jardim Lajeado', '08441-190', 'São Paulo', 'SP', 'images/perfil/1730777664.png', 99, 'feminina', NULL),
+(47, 'Matheus Bergamota', '1342132132', 'bergamatheus@gmail.com', '$2y$10$vpnCUshy5TnKQpEs75Aae.4lAFuqdCnWA3GDxwikjyDAZiUn.O2Uq', 'Rua Ribeirão das Furnas', '11981583773', NULL, 'Jardim Lajeado', '08441-190', 'São Paulo', 'SP', 'images/perfil/1730777725.png', 19, 'masculina', NULL),
+(48, 'Luiz Fernando', '12332132123', 'fernandocli@gmail.com', '$2y$10$//k8c68gDWYOcrhWfgaFk.2ONQnsvP2utCj.mMthRvhgR3hxqA.Yu', 'Rua Baía da Guanabara', '11999710372', 'Casa', 'Jardim Fanganiello', '08450462', 'São Paulo', 'SP', 'images/12.png', 32, 'masculina', NULL),
+(49, '123123123casd', '24056783810', '123123123casd@gmail.com', '$2y$10$mlzmWTzgBerdYR0QR4lvmuP7q2xY2Wog6q57USnu57q81OecilWM6', 'Rua Doutor Wilson Issamo Minada', '11951788048', NULL, 'Vila Nova Curuçá', '08031400', 'São Paulo', 'SP', NULL, 1234, 'masculina', NULL);
 
 -- --------------------------------------------------------
 
@@ -557,14 +563,32 @@ CREATE TABLE `tbtelefonevendedor` (
 
 CREATE TABLE `tbvenda` (
   `idVenda` int(11) NOT NULL,
-  `dataVenda` date NOT NULL,
+  `dataVenda` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `valorTotalVenda` decimal(10,2) NOT NULL,
   `idCliente` int(11) DEFAULT NULL,
+  `nomeCartao` varchar(256) NOT NULL,
+  `cpfCartao` varchar(25) NOT NULL,
+  `numeroCartao` varchar(17) NOT NULL,
+  `validadeCartao` char(5) NOT NULL,
+  `cvcCartao` char(3) NOT NULL,
   `idVendedor` int(11) NOT NULL,
-  `idItensVenda` int(11) NOT NULL,
-  `numCasaCliente` int(11) DEFAULT NULL,
-  `numCasaVendedor` int(11) DEFAULT NULL
+  `logradouroEntrega` varchar(256) NOT NULL,
+  `numCasaEntrega` int(11) DEFAULT NULL,
+  `metodoPagamento` int(11) NOT NULL,
+  `idProduto` int(11) NOT NULL,
+  `idLoc` int(11) DEFAULT NULL,
+  `codigoCorreio` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `tbvenda`
+--
+
+INSERT INTO `tbvenda` (`idVenda`, `dataVenda`, `valorTotalVenda`, `idCliente`, `nomeCartao`, `cpfCartao`, `numeroCartao`, `validadeCartao`, `cvcCartao`, `idVendedor`, `logradouroEntrega`, `numCasaEntrega`, `metodoPagamento`, `idProduto`, `idLoc`, `codigoCorreio`) VALUES
+(3, '2024-11-18 01:00:27', 131.00, 49, 'Eduardo', '123123123123', '123412231', '12345', '123', 4, 'Rua Doutor Wilson Issamo Minada', 1234, 1, 20, NULL, NULL),
+(4, '2024-11-18 01:00:31', 131.00, 49, 'Eduardo', '123123123123', '123412231', '12345', '123', 4, 'Rua Doutor Wilson Issamo Minada', 1234, 1, 19, NULL, NULL),
+(5, '2024-11-18 01:00:34', 131.00, 49, 'Xarp', '223121323', '55555555555', '12345', '123', 4, 'Rua Doutor Wilson Issamo Minada', 1234, 1, 20, NULL, NULL),
+(6, '2024-11-18 01:01:16', 131.00, 49, 'Xarp', '223121323', '55555555555', '12345', '123', 4, 'Rua Doutor Wilson Issamo Minada', 1234, 1, 19, NULL, '08451100');
 
 -- --------------------------------------------------------
 
@@ -599,11 +623,11 @@ INSERT INTO `tbvendedor` (`idVendedor`, `nomeVendedor`, `emailVendedor`, `senhaV
 (3, 'luiz vendedor', 'fernandovendedor@gmail.com', '$2y$10$fAsIMBY9cVLBKv9kU77KLO0pY1cdYGrgOuDuTxRwBOwImNT/iHoQS', '', '119998131', '08450462', 'Rua Baía da Guanabara', 'Jardim Fanganiello', 'São Paulo', 'SP', 'casa 2', 'images/perfil/1724544506.png', NULL),
 (4, 'Manoel Feio', 'dou@gmail.com', '$2y$10$XhlbNKEEjFpA46vOMWY5KeZi1KateUelU0aRnQDmm8KDLiJZaf8bu', '123123', '1233', '08451100', 'Rua Francisco Orellana', 'Vila Iolanda(Lajeado)', 'São Paulo', 'SP', '123', 'images/perfil/1727739673.png', 123),
 (5, 'Nicoly Dos Santos Silva', 'vendedoranick@gmail.com', '$2y$10$gdot3ju0.lWhqs/SsP1YtOREHSRSK5AdHezbM/tJFN2j3SWaxazDO', '5022736632', '11981583773', '08461190', 'Rua Ribeirão Das Furnas 210', 'Cidade Popular', 'São Paulo', 'SP', 'Apto 3', 'images/14.png', 32),
-(6, 'maria', 'maria@gmail.com', '$2y$10$rCCrDBNuQZGWNhGUt4NCeuq9BhLDemunUf4wVraNgcFZXk8E7Hc9.', '5022736638', '11977999397', '08441-190', 'Rua Ribeirão das Furnas', 'Jardim Lajeado', 'São Paulo', 'SP', NULL, 'images/13.png', 22),
-(7, 'Edivan', 'edivanilson@gmail.com', '$2y$10$UG8TgLlUAE4ZZNXTX2oi0uQCeRlysz2obawIWVRtsX7UsmPDtTcdi', '123321445', '11988503140', '01153 000', 'Rua Vitorino Carmilo', 'Barra Funda', 'São Paulo', 'SP', 'Torre 2 ap 1052', 'images/perfil/1730775399.png', 2800),
-(8, 'gustavo souza', 'gustavosz@gmail.com', '$2y$10$0SxIg8s05zboRsJ.uaGQgOxGSopmYrYZSWj0CTv0QRWG7DdmGADHG', '12231244213', '12231321142', '66075-110', 'Rua Augusto Corrêa', 'Guamá', 'Belém', 'PA', 'Predinhos', 'images/perfil/1730776009.png', 223),
-(9, 'Rafaella Bertalucia', 'rafalucia@gmail.com', '$2y$10$S9jstV4mbdP1/oS6MYq4puEP1Gjfn13OrneQmItBk80XwXgn/ghFS', '5022736632', '11981583773', '08441190', 'Rua Ribeirão das Furnas', 'Jardim Lajeado', 'São Paulo', 'SP', 'Apto 3', 'images/perfil/1730776403.png', 23),
-(10, 'joao santos', 'jojo@gmail.com', '$2y$10$XZntAn0e5v67dlKZTMwARe.0uiR5dz2WU7KNB/SHR.NXh8y47TklW', '5022736638', '11981583773', '08461190', 'Rua Álcio Carneiro de Lima', 'Cidade Popular', 'São Paulo', 'SP', NULL, 'images/perfil/1730777040.png', 888),
+(6, 'maria', 'maria@gmail.com', '$2y$10$rCCrDBNuQZGWNhGUt4NCeuq9BhLDemunUf4wVraNgcFZXk8E7Hc9.', '5022736638', '11977999397', '08441-190', 'Rua Ribeirão das Furnas', 'Jardim Lajeado', 'São Paulo', 'SE', NULL, 'images/13.png', 22),
+(7, 'Edivan', 'edivanilson@gmail.com', '$2y$10$UG8TgLlUAE4ZZNXTX2oi0uQCeRlysz2obawIWVRtsX7UsmPDtTcdi', '123321445', '11988503140', '01153 000', 'Rua Vitorino Carmilo', 'Barra Funda', 'São Paulo', 'RJ', 'Torre 2 ap 1052', 'images/perfil/1730775399.png', 2800),
+(8, 'gustavo souza', 'gustavosz@gmail.com', '$2y$10$0SxIg8s05zboRsJ.uaGQgOxGSopmYrYZSWj0CTv0QRWG7DdmGADHG', '12231244213', '12231321142', '66075-110', 'Rua Augusto Corrêa', 'Guamá', 'Belém', 'RJ', 'Predinhos', 'images/perfil/1730776009.png', 223),
+(9, 'Rafaella Bertalucia', 'rafalucia@gmail.com', '$2y$10$S9jstV4mbdP1/oS6MYq4puEP1Gjfn13OrneQmItBk80XwXgn/ghFS', '5022736632', '11981583773', '08441190', 'Rua Ribeirão das Furnas', 'Jardim Lajeado', 'São Paulo', 'MT', 'Apto 3', 'images/perfil/1730776403.png', 23),
+(10, 'joao santos', 'jojo@gmail.com', '$2y$10$XZntAn0e5v67dlKZTMwARe.0uiR5dz2WU7KNB/SHR.NXh8y47TklW', '5022736638', '11981583773', '08461190', 'Rua Álcio Carneiro de Lima', 'Cidade Popular', 'São Paulo', 'RJ', NULL, 'images/perfil/1730777040.png', 888),
 (11, 'Roberto Firmino', 'robertofirminho@gmail.com', '$2y$10$IvwWCDK78niH/mTKrF1X0ODsiM1SJa4AiUpWOXpVVoeDbqZi7Z4r6', '24124523532', '11981583773', '08441190', 'Rua Ribeirão das Furnas', 'Jardim Lajeado', 'São Paulo', 'SP', 'Apto 3', 'images/perfil/1730777386.png', 77),
 (12, 'Roberto Carlos', 'robertocarlos123@gmail.com', '$2y$10$xYkPdIOyveHfm3MowiFkpeFFL4npPBsK3XxlNPE9Ed0jMqe34tFUG', '2423532522', '11981583773', '08441-190', 'Rua Ribeirão das Furnas', 'Jardim Lajeado', 'São Paulo', 'SP', NULL, 'images/perfil/1730777862.png', 14),
 (13, 'Virginia Fonseca', 'virvirfonseca@gmail.com', '$2y$10$H4/GSDlZgO4yavJlFphxae7Gj6VFD3GEUg9mBGEkU.IYsP0Kow36y', '2334123213', '11981583773', '08441190', 'Rua Ribeirão das Furnas', 'Jardim Lajeado', 'São Paulo', 'SP', NULL, 'images/perfil/1730778036.png', 27);
@@ -642,7 +666,8 @@ ALTER TABLE `tbcategoriaproduto`
 -- Índices de tabela `tbcliente`
 --
 ALTER TABLE `tbcliente`
-  ADD PRIMARY KEY (`idCliente`);
+  ADD PRIMARY KEY (`idCliente`),
+  ADD KEY `idCliente` (`idCliente`);
 
 --
 -- Índices de tabela `tbcondicao`
@@ -733,7 +758,8 @@ ALTER TABLE `tbproduto`
   ADD KEY `idCondicao` (`idCondicao`),
   ADD KEY `idCategoriaProduto` (`idCategoriaProduto`),
   ADD KEY `idGenero` (`idGenero`),
-  ADD KEY `idRegiao` (`idRegiao`);
+  ADD KEY `idRegiao` (`idRegiao`),
+  ADD KEY `idProduto` (`idProduto`);
 
 --
 -- Índices de tabela `tbregiao`
@@ -764,8 +790,9 @@ ALTER TABLE `tbtelefonevendedor`
 --
 ALTER TABLE `tbvenda`
   ADD PRIMARY KEY (`idVenda`),
-  ADD KEY `idItensVenda` (`idItensVenda`),
-  ADD KEY `idVendedor` (`idVendedor`);
+  ADD KEY `idVendedor` (`idVendedor`),
+  ADD KEY `fk_tbVenda_idCliente` (`idCliente`),
+  ADD KEY `fk_tbVenda_idProduto` (`idProduto`);
 
 --
 -- Índices de tabela `tbvendedor`
@@ -793,7 +820,7 @@ ALTER TABLE `tbadministrador`
 -- AUTO_INCREMENT de tabela `tbcarrinho`
 --
 ALTER TABLE `tbcarrinho`
-  MODIFY `idCarrinho` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idCarrinho` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `tbcategoriaproduto`
@@ -805,7 +832,7 @@ ALTER TABLE `tbcategoriaproduto`
 -- AUTO_INCREMENT de tabela `tbcliente`
 --
 ALTER TABLE `tbcliente`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT de tabela `tbcondicao`
@@ -913,7 +940,7 @@ ALTER TABLE `tbtelefonevendedor`
 -- AUTO_INCREMENT de tabela `tbvenda`
 --
 ALTER TABLE `tbvenda`
-  MODIFY `idVenda` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idVenda` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `tbvendedor`
@@ -966,8 +993,8 @@ ALTER TABLE `tbproduto`
 -- Restrições para tabelas `tbvenda`
 --
 ALTER TABLE `tbvenda`
-  ADD CONSTRAINT `idItensVenda` FOREIGN KEY (`idItensVenda`) REFERENCES `tbitensvenda` (`idItensVenda`),
-  ADD CONSTRAINT `idVendedor` FOREIGN KEY (`idVendedor`) REFERENCES `tbvendedor` (`idVendedor`);
+  ADD CONSTRAINT `fk_tbVenda_idCliente` FOREIGN KEY (`idCliente`) REFERENCES `tbcliente` (`idCliente`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_tbVenda_idProduto` FOREIGN KEY (`idProduto`) REFERENCES `tbproduto` (`idProduto`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

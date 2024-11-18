@@ -750,7 +750,7 @@
             <script>
                 function openModal(idVenda) {
                     const form = document.getElementById('correiosForm');
-                    form.action = `/vendas/${idVenda}/atualizarCodigoCorreios`; // Defina a rota correta aqui
+                    form.action = `/vendas/${idVenda}/atualizarCodigoCorreios`;// Defina a rota correta aqui
                     document.getElementById('modal').style.display = 'flex';
                 }
 
@@ -770,7 +770,7 @@
                 <div class="info">
                     <div class="sales-container">
                         @foreach($vendas as $venda)
-                            @if($venda->idLoc == 0) <!-- Condição para filtrar idLoc igual a 0 -->
+                            @if($venda->idLoc == 0 && $venda->idLoc==null) <!-- Condição para filtrar idLoc igual a 0 -->
                                 <div class="card2">
                                     <div class="card-header">
                                         <span>Data: {{ \Carbon\Carbon::parse($venda->dataVenda)->format('d/m/Y H:i') }}</span>

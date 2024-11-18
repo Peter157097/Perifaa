@@ -6541,3 +6541,17 @@ svg {
     background-color: transparent;
     border: none;
 }
+
+.btnExcluir {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btnExcluir:hover {
+    background-color: #e60000;
+}

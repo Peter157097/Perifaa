@@ -83,6 +83,7 @@
                                         <p class="itemInfoConsulta">{{ $usuario->nome }}</p>
                                         <p class="itemInfoConsulta">{{ $usuario->email }}</p>
                                         <p class="itemInfoConsulta">{{ ucfirst($usuario->tipo) }}</p>
+                                        <button class="btnExcluir" onclick="excluirUsuario('{{ $usuario->tipo }}', {{ $usuario->id }})">Excluir</button>
                                     </div>
                                 </div>
                             @endforeach
@@ -162,10 +163,11 @@
                                 </div>
                             </div>
                             <div class="infoConsulta">
-                                <p class="itemInfoConsulta">${usuario.nome}</p>
-                                <p class="itemInfoConsulta">${usuario.email}</p>
-                                <p class="itemInfoConsulta">${usuario.tipo.charAt(0).toUpperCase() + usuario.tipo.slice(1)}</p>
-                            </div>
+                                        <p class="itemInfoConsulta">{{ $usuario->nome }}</p>
+                                        <p class="itemInfoConsulta">{{ $usuario->email }}</p>
+                                        <p class="itemInfoConsulta">{{ ucfirst($usuario->tipo) }}</p>
+                                        <button class="btnExcluir" onclick="excluirUsuario('{{ $usuario->tipo }}', {{ $usuario->id }})">Excluir</button>
+                                </div>
                         </div>
                     `;
                 });
@@ -178,6 +180,28 @@
     // Adiciona o evento 'input' ao campo de nome e 'change' ao campo de tipo
     document.getElementById('nome').addEventListener('input', realizarBuscaDinamica);
     document.getElementById('tipo').addEventListener('change', realizarBuscaDinamica);
+
+    function excluirUsuario(tipo, id) {
+    if (confirm('Tem certeza que deseja excluir este usuário?')) {
+        fetch(`/usuarios/excluir`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+            },
+            body: JSON.stringify({ tipo, id }),
+        })
+        .then(response => {
+            if (response.ok) {
+                alert('Usuário excluído com sucesso!');
+                location.reload(); // Atualiza a página
+            } else {
+                alert('Erro ao excluir usuário. Tente novamente.');
+            }
+        });
+    }
+}
+
 </script>
 </body>
 

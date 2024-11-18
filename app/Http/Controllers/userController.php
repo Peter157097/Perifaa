@@ -9,26 +9,23 @@ class UserController extends Controller
 {
     public function mostrarTelaFiltro()
 {
-    // Carregar todos os usuários inicialmente
     $usuarios = DB::table('tbCliente')
-                  ->select('nomeCliente as nome', 'emailCliente as email', 'imagemCliente as imagem', DB::raw('"cliente" as tipo'))
+                  ->select('idCliente as id', 'nomeCliente as nome', 'emailCliente as email', 'imagemCliente as imagem', DB::raw('"cliente" as tipo'))
                   ->get()
                   ->merge(
                       DB::table('tbVendedor')
-                      ->select('nomeVendedor as nome', 'emailVendedor as email', 'imagemVendedor as imagem', DB::raw('"vendedor" as tipo'))
+                      ->select('idVendedor as id', 'nomeVendedor as nome', 'emailVendedor as email', 'imagemVendedor as imagem', DB::raw('"vendedor" as tipo'))
                       ->get()
                   )
                   ->merge(
                       DB::table('tbAdministrador')
-                      ->select('nomeAdministrador as nome', 'emailAdministrador as email', 'imagemAdministrador as imagem', DB::raw('"administrador" as tipo'))
+                      ->select('idAdministrador as id', 'nomeAdministrador as nome', 'emailAdministrador as email', 'imagemAdministrador as imagem', DB::raw('"administrador" as tipo'))
                       ->get()
                   );
 
-    // Retorna a view com todos os usuários
     return view('filtro-usuarios', [
         'usuarios' => $usuarios,
-        'tipoSelecionado' => 'todos', // Você pode mudar isso se necessário
-    
+        'tipoSelecionado' => 'todos',
     ]);
 }
 
@@ -103,6 +100,25 @@ public function pesquisarUsuarios(Request $request)
     }
 
     return response()->json($usuarios);
+}
+public function excluirUsuario(Request $request)
+{
+    $tipo = $request->input('tipo');
+    $id = $request->input('id');
+
+    try {
+        if ($tipo === 'cliente') {
+            DB::table('tbCliente')->where('idCliente', $id)->delete();
+        } elseif ($tipo === 'vendedor') {
+            DB::table('tbVendedor')->where('idVendedor', $id)->delete();
+        } elseif ($tipo === 'administrador') {
+            DB::table('tbAdministrador')->where('idAdministrador', $id)->delete();
+        }
+
+        return response()->json(['success' => true, 'message' => 'Usuário excluído com sucesso.']);
+    } catch (\Exception $e) {
+        return response()->json(['success' => false, 'message' => 'Erro ao excluir usuário.']);
+    }
 }
 
 

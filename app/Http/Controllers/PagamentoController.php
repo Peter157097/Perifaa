@@ -6,8 +6,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Stripe\Stripe;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Session as LaravelSession; 
-use Stripe\Checkout\Session as StripeSession;
+use Illuminate\Support\Facades\Session as LaravelSession; // Alias para a sessão do Laravel
+use Stripe\Checkout\Session as StripeSession; // Alias para a sessão do Stripe
 
 
 class PagamentoController extends Controller

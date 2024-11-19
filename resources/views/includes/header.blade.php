@@ -1,7 +1,6 @@
 @php
-    $totalCarrinho = \App\Models\Carrinho::count();
-
-    $totalCarrinho -= 2;
+    $idCliente = Session::get('id');
+    $totalCarrinho = \App\Models\Carrinho::where('idCliente', $idCliente)->count();
 @endphp
 
 <style>

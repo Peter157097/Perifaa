@@ -316,6 +316,56 @@
             font-size: 7px;
         }
     }
+    @media (max-width: 768px) {
+
+
+
+
+
+
+    /* Barra de navegação da dashboard */
+    .navDash {
+        padding: 10px;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .parte1,
+    .parte2 {
+        padding: 5px;
+        text-align: center;
+    }
+
+    .titulo1 {
+        font-size: 14px;
+    }
+
+    .titulo2 {
+        font-size: 20px;
+    }
+
+    /* Ajuste do perfil de usuário */
+    .user-profile {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .user-info .user-name,
+    .user-info .user-status {
+        font-size: 12px;
+    }
+
+    .icons .icon {
+        width: 25px;
+        height: 25px;
+        font-size: 12px;
+    }
+
+    .icon .fas {
+        font-size: 14px;
+    }
+}
+
 </style>
 <div class="hamburger" id="hamburger" onclick="toggleMenu()">
     &#9776;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <title>Carrinho</title>
@@ -7,21 +8,15 @@
         /* Adicione o estilo aqui */
     </style>
 </head>
+
 <body>
 
-@include('includes.head')
-@include('includes.header')
-@include('includes.nav')
+    @include('includes.head')
+    @include('includes.header')
+    @include('includes.nav')
 
-@if(session('success'))
-    <p>{{ session('success') }}</p>
-@endif
 
-@if(session('error'))
-    <p>{{ session('error') }}</p>
-@endif
-
-@if($carrinho->isEmpty())
+    @if($carrinho->isEmpty())
     <div class="containerCarrinhoVazio">
         <div class="tituloCarrinhoVazio">CARRINHO</div>
         <br>
@@ -36,71 +31,79 @@
         <br>
         <a href="produtos" class="linkHomeCarrinho">Voltar às compras</a>
     </div>
-@else
+    @else
     <div class="containerCarrinho">
         <div class="tituloCarrinhoVazio">CARRINHO</div>
         <br>
 
         <!-- Card do carrinho -->
         @foreach ($carrinho as $item)
-            <div class="containerCardCarrinho">
-                <div class="cardCaPt1">
-                    <div class="partbrecho">
-                        <i class="fa-solid fa-shop store-icon"></i>
-                        <h4>{{ $item->product->vendedor->nomeVendedor }}</h4>
-                    </div>
-                    <div class="partlixeira">
-                        <form action="{{ route('carrinho.destroy', $item->idProduto) }}" method="POST" style="display:inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
-                                <i class="fa-solid fa-trash trash-icon"></i>
-                            </button>
-                        </form>
-                    </div>
+        <div class="containerCardCarrinho">
+            <div class="cardCaPt1">
+                <div class="partbrecho">
+                    <i class="fa-solid fa-shop store-icon"></i>
+                    <h4>{{ $item->product->vendedor->nomeVendedor }}</h4>
                 </div>
-                <hr class="linha">
-
-                <div class="cardCaPt2">
-                    <div class="parteImagemItem">
-                        <img src="{{ $item->product->imagemProduto }}" alt="Imagem do Produto" class="imagemProduto">
-                    </div>
-                    <div class="detalhesProduto">
-                        <div class="titulosDetalhes">
-                            <h5>Peça</h5>
-                        </div>
-                        <div class="parteDetalhesBanco">
-                            <h6>{{ $item->product->nomeProduto }}</h6>
-                        </div>
-                    </div>
-                    <div class="detalhesProduto">
-                        <div class="titulosDetalhes">
-                            <h5>Cor</h5>
-                        </div>
-                        <div class="parteDetalhesBanco">
-                            <h6>{{ $item->product->cor->nomeCor }}</h6>
-                        </div>
-                    </div>
-                    <div class="detalhesProduto">
-                        <div class="titulosDetalhes">
-                            <h5>Tamanho</h5>
-                        </div>
-                        <div class="parteDetalhesBanco">
-                            <h6>{{ $item->product->tamanho->nomeTamanho }}</h6>
-                        </div>
-                    </div>
-                    <div class="detalhesProduto">
-                        <div class="titulosDetalhes">
-                            <h5>Valor</h5>
-                        </div>
-                        <div class="parteDetalhesBanco">
-                            <h6>R$ {{ number_format($item->product->valorProduto, 2, ',', '.') }}</h6>
-                        </div>
-                    </div>
-                    <input type="checkbox" class="checkbox" data-preco="{{ $item->product->valorProduto }}">
-                    <span class="checkmark"></span>
+                <div class="partlixeira">
+                    <form action="{{ route('carrinho.destroy', $item->idProduto) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" style="background: none; border: none; padding: 0; cursor: pointer;">
+                            <i class="fa-solid fa-trash trash-icon"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
+            <hr class="linha">
+
+            <div class="cardCaPt2">
+                <div class="parteImagemItem">
+                    <img src="{{ $item->product->imagemProduto }}" alt="Imagem do Produto" class="imagemProduto">
+                </div>
+                <div class="detalhesProduto">
+                    <div class="titulosDetalhes">
+                        <h5>Peça</h5>
+                    </div>
+                    <div class="parteDetalhesBanco">
+                        <h6>{{ $item->product->nomeProduto }}</h6>
+                    </div>
+                </div>
+                <div class="detalhesProduto">
+                    <div class="titulosDetalhes">
+                        <h5>Cor</h5>
+                    </div>
+                    <div class="parteDetalhesBanco">
+                        <h6>{{ $item->product->cor->nomeCor }}</h6>
+                    </div>
+                </div>
+                <div class="detalhesProduto">
+                    <div class="titulosDetalhes">
+                        <h5>Tamanho</h5>
+                    </div>
+                    <div class="parteDetalhesBanco">
+                        <h6>{{ $item->product->tamanho->nomeTamanho }}</h6>
+                    </div>
+                </div>
+                <div class="detalhesProduto">
+                    <div class="titulosDetalhes">
+                        <h5>Valor</h5>
+                    </div>
+                    <div class="parteDetalhesBanco">
+                        <h6>R$ {{ number_format($item->product->valorProduto, 2, ',', '.') }}</h6>
+                    </div>
+                </div>
+                <input type="checkbox"
+                    class="checkbox"
+                    data-preco="{{ $item->product->valorProduto }}"
+                    data-id="{{ $item->product->idProduto }}"
+                    data-nome="{{ $item->product->nomeProduto }}"
+                    data-vendedor="{{ $item->product->idVendedor }}">
+
+
+                <span class="checkmark"></span>
+                <span class="checkmark"></span>
+            </div>
+        </div>
         @endforeach
 
         <div class="checkout-wrapper">
@@ -119,6 +122,7 @@
                         <form id="finalize-form" action="/pagamentos" method="POST">
                             @csrf
                             <input type="hidden" id="subtotal-input" name="subtotal">
+                            <input type="hidden" id="selected-products" name="selectedProducts">
                             <button type="button" class="finalize-btn" onclick="submitFinalizeForm()">Finalizar Compra</button>
                         </form>
                     </div>
@@ -126,28 +130,47 @@
             </div>
         </div>
     </div>
-@endif
+    @endif
 
-<!-- JavaScript para calcular o subtotal -->
-<script>
-    document.querySelectorAll('.checkbox').forEach(checkbox => {
-        checkbox.addEventListener('change', function () {
-            let total = 0;
-            document.querySelectorAll('.checkbox:checked').forEach(checked => {
-                total += parseFloat(checked.getAttribute('data-preco'));
+    <!-- JavaScript para calcular o subtotal -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        document.querySelectorAll('.checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                let total = 0;
+                let selectedProducts = [];
+
+                document.querySelectorAll('.checkbox:checked').forEach(checked => {
+                    const idVendedor = checked.getAttribute('data-vendedor');
+
+                    if (!idVendedor) {
+                        console.error("idVendedor não encontrado para o produto:", checked);
+                    }
+
+                    total += parseFloat(checked.getAttribute('data-preco'));
+
+                    selectedProducts.push({
+                        id: checked.getAttribute('data-id'),
+                        nome: checked.getAttribute('data-nome'),
+                        idVendedor: idVendedor
+                    });
+                });
+
+                document.getElementById('subtotal-value').textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
+                document.getElementById('selected-products').value = JSON.stringify(selectedProducts);
             });
-            document.getElementById('subtotal-value').textContent = 'R$ ' + total.toFixed(2).replace('.', ',');
         });
-    });
 
-    function submitFinalizeForm() {
-        let subtotal = document.getElementById('subtotal-value').textContent.replace('R$ ', '').replace(',', '.');
-        document.getElementById('subtotal-input').value = subtotal;
-        document.getElementById('finalize-form').submit();
-    }
-</script>
+        function submitFinalizeForm() {
+            let subtotal = document.getElementById('subtotal-value').textContent.replace('R$ ', '').replace(',', '.');
+            document.getElementById('subtotal-input').value = subtotal;
+            document.getElementById('finalize-form').submit();
+        }
+    </script>
 
-@include('includes.footer')
+    @include('includes.footer')
 
 </body>
+
 </html>

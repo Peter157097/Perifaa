@@ -118,7 +118,7 @@ class CarrinhoController extends Controller
   {
       // Obtém o ID do cliente logado da sessão
       $clientId = Session::get('id'); 
-  
+      
       // Encontra o favorito usando as colunas corretas
       $carrinho = Carrinho::where('idProduto', $productId)
                           ->where('idCliente', $clientId)

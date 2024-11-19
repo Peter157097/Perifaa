@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Session;
 
 class DashboardController extends Controller
 {
-    public function index()
+     public function index()
     {
         $tamanhos = Tamanho::all();
         $regioes = Regiao::all();
@@ -40,14 +40,39 @@ class DashboardController extends Controller
         }
 
 
+    
+
+        $idVendedor = Session::get('idVendedor');
+
+        if (!$idVendedor) {
+            return redirect()->route('login')->with('error', 'Você precisa estar logado.');
+        }
+
+        $vendedor = Vendedor::find($idVendedor);
+
+        if (!$vendedor) {
+            return redirect()->route('login')->with('error', 'Vendedor não encontrado.');
+        }
+
+        // Busca os produtos do vendedor
+        $produtos = $vendedor->produtos;
+        $cores = Cor::all(); // Assumindo que você tem um modelo Cor
+        $tamanhos = Tamanho::all(); // Assumindo que você tem um modelo Tamanho
+        $categorias = Categoria::all();
+        $generos = Genero::all();
+        $regioes = Regiao::all();
+        $condicoes = Condicao::all();
+
         return view('cadastrarProdutosVendedor', [
-            'cores' => Cor::all(),
-            'tamanhos' => $tamanhos,
-            'regioes' => $regioes,
-            'categorias' => $categorias,
-            'roupas' => $roupas,
-            'condicoes' => $condicoes,
             'vendedor' => $vendedor,
+            'produtos' => $produtos,
+            'roupas' => $roupas,
+            'cores' => $cores,
+            'tamanhos' => $tamanhos,
+            'categorias' => $categorias,
+            'generos' => $generos,
+            'regioes' => $regioes,
+            'condicoes' => $condicoes,
         ]);
     }
 

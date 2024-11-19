@@ -467,7 +467,7 @@
                         </div>
                         <div class="inputs">
                             <label for="email">CPF</label>
-                            <input type="text" id="cpf" name="cpfCliente" placeholder="nome@gmail.com" required>
+                            <input type="text" id="cpf" name="cpfCliente" placeholder="XXX.XXX.XXX-XX" required>
                         </div>
                         <div class="inputs">
                             <label for="telefone">Telefone</label>

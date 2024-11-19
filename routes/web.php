@@ -15,6 +15,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PagamentoController;
+use App\Http\Controllers\GraficoController;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Produto;
@@ -303,3 +304,6 @@ Route::post('/gerar-boleto', [PagamentoController::class, 'gerarBoleto'])->name(
 Route::get('/sucesso', [PagamentoController::class, 'sucesso'])->name('boleto.sucesso');
 Route::get('/cancelado', [PagamentoController::class, 'cancelado'])->name('boleto.cancelado');
 Route::post('/cartao', [PagamentoController::class, 'storeCartao'])->name('pagar.cartao');
+
+Route::get('/dados-grafico', [GraficoController::class, 'obterDados']);
+Route::get('/vendas-por-categoria', [GraficoController::class, 'getVendasPorCategoria']);

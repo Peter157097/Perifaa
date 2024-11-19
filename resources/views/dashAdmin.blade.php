@@ -101,14 +101,15 @@
                 </div>
 
                 <div class="adminGraficoContainer">
-                    <div class="bigCardGrafico">
-                        <div class="titleBigGraficoAdmin">
-                            Acessos <span class="tempoGraficoAdmin"> | Mensais</span>
-                        </div>
-                        <div class="graficoAdmin">
-                            <div id="top_x_div" class="graficoAcessos"></div>
-                        </div>
-                    </div>
+                <div class="bigCardGrafico">
+    <div class="titleBigGraficoAdmin">
+        Usuários Criados <span class="tempoGraficoAdmin">| Mensais</span>
+    </div>
+    <div class="graficoAdmin">
+        <div id="top_x_div" class="graficoAcessos"></div>
+    </div>
+</div>
+
                     <div class="bigCardGrafico">
                         <div class="titleBigGraficoAdmin">
                             Vendas <span class="tempoGraficoAdmin"> | Mensais</span>
@@ -126,8 +127,8 @@
                     </div>
                     <div class="bigCardGrafico">
                         <div class="titleBigGraficoAdmin">
-                            Categorias mais vendidas
-                        </div>
+                         Categorias mais vendidas
+                         </div>
                         <div id="barchart_values" class="graficoAcessos"></div>
                     </div>
                 </div>
@@ -137,6 +138,8 @@
 
 
     </div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
     <script>
         // Função para abrir/fechar o menu lateral
         function toggleMenu() {
@@ -174,117 +177,154 @@
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-        google.charts.load('current', { 'packages': ['bar'] });
-        google.charts.setOnLoadCallback(drawStuff);
+       document.addEventListener('DOMContentLoaded', function () {
+    google.charts.load('current', { 'packages': ['bar'] });
+    google.charts.setOnLoadCallback(drawStuff);
 
-        function drawStuff() {
-            var data = new google.visualization.arrayToDataTable([
-                ['Mês', 'Acessos'],
-                ["Jan.", 44000],
-                ["Fev.", 31000],
-                ["Março", 12000],
-                ['Abril', 20000],
-                ["Maio", 44000],
-                ["Jun.", 31000],
-                ["Jul.", 18000],
-                ["Ago.", 40000],
-                ["Set.", 10000],
-                ["Out.", 13000],
-                ["Nov.", 16000],
-                ['Dez.', 60000]
+    async function drawStuff() {
+        try {
+            // Requisição para buscar os dados
+            const response = await fetch('/dados-grafico');
+            const data = await response.json();
 
-            ]);
+            // Processa os dados para o gráfico
+            const rows = [];
+            rows.push(['Mês', 'Vendedores', 'Clientes']); // Cabeçalho
 
-            var options = {
-                height: '100%', // Ajusta o gráfico para ocupar toda a altura
-                legend: {
-                    position: 'none',
-
-                },
-                chart: {
-
-                },
-                hAxis: {
-                    title: ''
-                },
-                bar: {
-                    groupWidth: "99%",
-                },
-                colors: ['#2a89c7']
-            };
-
-            var chart = new google.charts.Bar(document.getElementById('top_x_div'));
-            chart.draw(data, google.charts.Bar.convertOptions(options));
-
-
-        };
-    </script>
-
-    <script type="text/javascript">
-        google.charts.load('current', { 'packages': ['bar'] });
-        google.charts.setOnLoadCallback(drawStuff);
-
-        function drawStuff() {
-            // Passando os dados da view para o gráfico
-            var vendasMensais = @json($vendasMensais);
-
-            // Transformando os dados para o formato que o Google Charts espera
-            var dataArray = [['Mês', 'Vendas']];
-
-            vendasMensais.forEach(function (venda) {
-                // Criando o nome do mês baseado no número do mês (1 a 12)
-                var meses = ["Jan.", "Fev.", "Mar.", "Abr.", "Maio", "Jun.", "Jul.", "Ago.", "Set.", "Out.", "Nov.", "Dez."];
-                dataArray.push([meses[venda.mes - 1], venda.total]);
+            const meses = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Ot', 'Nov', 'Dec'];
+            meses.forEach(mes => {
+                const vendedores = data.vendedores.find(v => v.mes === mes)?.total || 0;
+                const clientes = data.clientes.find(c => c.mes === mes)?.total || 0;
+                rows.push([mes, vendedores, clientes]);
             });
 
-            // Criando o DataTable
-            var data = new google.visualization.arrayToDataTable(dataArray);
+            // Configura o gráfico
+            const chartData = google.visualization.arrayToDataTable(rows);
 
-            var options = {
-                height: '100%', // Ajusta o gráfico para ocupar toda a altura
-                legend: { position: 'none' },
-                hAxis: { title: '' },
-                bar: { groupWidth: "99%" },
-                colors: ['#2a89c7'],
-                vAxis: {
-                    minValue: 0, // Define o valor mínimo do eixo Y
-                    maxValue: 10000 // Define o valor máximo (ajuste conforme necessário)
-                }
-            };
-
-            // Criando o gráfico
-            var chart = new google.charts.Bar(document.getElementById('vendasPorMes'));
-            chart.draw(data, google.charts.Bar.convertOptions(options));
-        }
-
-    </script>
-
-    <script type="text/javascript">
-        google.charts.load("current", { packages: ["corechart"] });
-        google.charts.setOnLoadCallback(drawChart);
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ["Categoria", "Vendas"],
-                ["Camisas", 1349],
-                ["Calças", 1211],
-                ["Tênis", 842],
-                ["Acessórios", 452]
-            ]);
-
-            var view = new google.visualization.DataView(data);
-
-            var options = {
-                chartArea: { width: '70%', height: '80%' },
-                colors: ['#2a89c7'],
-                width: '100%',
+            const options = {
                 height: '100%',
-                bar: { groupWidth: "95%" },
-                legend: { position: "none" },
+                legend: { position: 'bottom' },
+                bar: { groupWidth: "80%" },
+                colors: ['#ADD8E6', '#00008B']
             };
-            var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
-            chart.draw(view, options);
+
+            const chart = new google.charts.Bar(document.getElementById('top_x_div'));
+            chart.draw(chartData, google.charts.Bar.convertOptions(options));
+        } catch (error) {
+            console.error('Erro ao carregar os dados do gráfico:', error);
         }
+    }
+});
     </script>
+
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['bar'] });
+    google.charts.setOnLoadCallback(drawStuff);
+
+    function drawStuff() {
+        // Passando os dados da view para o gráfico
+        var vendasMensais = @json($vendasMensais);
+
+        // Lista dos meses do ano
+        var meses = ["Jan.", "Fev.", "Mar.", "Abr.", "Maio", "Jun.", "Jul.", "Ago.", "Set.", "Out.", "Nov.", "Dez."];
+
+        // Inicializando o array de dados com todos os meses e valores de vendas (inicialmente 0)
+        var dataArray = [['Mês', 'Vendas']];
+
+        // Criando um objeto para mapear as vendas por mês
+        var vendasPorMes = {};
+
+        // Preenchendo o objeto com os dados de vendas mensais
+        vendasMensais.forEach(function (venda) {
+            vendasPorMes[venda.mes - 1] = venda.total;
+        });
+
+        // Preenchendo o array dataArray com os meses e as vendas (colocando 0 caso não tenha vendas)
+        meses.forEach(function (mes, index) {
+            dataArray.push([mes, vendasPorMes[index] || 0]);
+        });
+
+        // Criando o DataTable
+        var data = new google.visualization.arrayToDataTable(dataArray);
+
+        var options = {
+            height: '100%', // Ajusta o gráfico para ocupar toda a altura
+            legend: { position: 'none' },
+            hAxis: { title: '' },
+            bar: { groupWidth: "99%" },
+            colors: ['#2a89c7'],
+            vAxis: {
+                minValue: 0, // Define o valor mínimo do eixo Y
+                maxValue: 10000, // Define o valor máximo (ajuste conforme necessário)
+                format: 'decimal', // Formato numérico decimal
+                viewWindow: { min: 0 }, // Garante que o eixo Y começa do 0
+            },
+            annotations: {
+                alwaysOutside: true, // Exibe os rótulos de valores sempre fora das barras
+                textStyle: {
+                    fontSize: 12, // Tamanho da fonte
+                    bold: true, // Negrito
+                    color: '#000', // Cor do texto
+                }
+            }
+        };
+
+        // Ajuste manual no formato de exibição dos valores no eixo Y
+        var formatter = new google.visualization.NumberFormat({
+            prefix: 'R$ ', // Adiciona o prefixo "R$"
+            fractionDigits: 2, // Exibe duas casas decimais
+            groupingSymbol: '.', // Define o símbolo de agrupamento para milhares (ponto)
+            decimalSymbol: ',' // Define o símbolo decimal como vírgula
+        });
+
+        // Formata todos os valores da coluna 1 (Vendas) no gráfico
+        formatter.format(data, 1);
+
+        // Criando o gráfico
+        var chart = new google.charts.Bar(document.getElementById('vendasPorMes'));
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+    }
+</script>
+
+
+
+<script type="text/javascript">
+    google.charts.load("current", { packages: ["corechart"] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        // Fazer uma requisição AJAX para buscar os dados
+        fetch('/vendas-por-categoria')
+            .then(response => response.json())
+            .then(data => {
+                // Converter os dados recebidos para o formato do gráfico
+                let chartData = [["Categoria", "Vendas"]];
+                data.forEach(item => {
+                    chartData.push([item.categoria, parseInt(item.vendas)]);
+                });
+
+                // Gerar o DataTable do Google Charts
+                var dataTable = google.visualization.arrayToDataTable(chartData);
+
+                var options = {
+                    chartArea: { width: '70%', height: '80%' },
+                    colors: ['#2a89c7'],
+                    width: '100%',
+                    height: '100%',
+                    bar: { groupWidth: "95%" },
+                    legend: { position: "none" },
+                };
+
+                var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+                chart.draw(dataTable, options);
+            })
+            .catch(error => console.error('Erro ao carregar os dados:', error));
+    }
+</script>
+
+
+
+
 
     <script type="text/javascript">
         google.charts.load("current", { packages: ["corechart"] });
@@ -349,6 +389,10 @@
             chart.draw(data, options);
         }
     </script>
+
+
+
+
     <script type="text/javascript">
         google.charts.load("current", { packages: ["corechart"] });
         google.charts.setOnLoadCallback(drawChart);

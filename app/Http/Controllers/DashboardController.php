@@ -8,6 +8,7 @@ use App\Models\Tamanho;
 use App\Models\Regiao;
 use App\Models\Categoria;
 use App\Models\Roupa;
+use App\Models\Genero;
 use App\Models\Condicao;
 use App\Models\Produto;
 use App\Models\Vendedor;
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Session;
 
 class DashboardController extends Controller
 {
-     public function index()
+    public function index()
     {
         $tamanhos = Tamanho::all();
         $regioes = Regiao::all();

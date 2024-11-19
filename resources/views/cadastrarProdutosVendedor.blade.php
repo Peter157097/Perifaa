@@ -454,6 +454,125 @@
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         /* Sombra mais leve */
     }
+
+
+    @media (max-width: 800px) {
+    /* Menu lateral */
+    .sidebar {
+        width: 100%;
+        left: -100%;
+        padding-top: 10px;
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .hamburger {
+        left: 10px;
+    }
+
+    .sidebar ul li a {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    /* Container principal */
+    .containerdashboard {
+        padding: 0 10px;
+    }
+
+    /* Cabeçalho da dashboard */
+    .navDash {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .parte1 {
+        padding-left: 0;
+        margin-bottom: 10px;
+    }
+
+    .titulo1,
+    .titulo2 {
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .parte2 {
+        padding-right: 0;
+    }
+
+    /* Card do formulário */
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        width: %;
+        gap: 20px;
+    }
+
+    .form-section {
+        width: 100%;
+        padding-right: 10px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    /* Seção de imagens */
+    .image-section {
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+    }
+
+    .image-upload {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .image-upload img {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+    }
+
+    /* Botão de upload e de finalizar cadastro */
+    .upload-btn {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .caixa-botao {
+        width: 100%;
+        margin-top: 90px;
+    }
+
+    .finalizar-cadastro-botao {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    /* Imagem do personagem */
+    .imagem-personagem img {
+        
+        max-width: 100%;
+        height: auto;
+    }
+}
+
 </style>
 <!-- Fonte customizada para o logo -->
 <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap" rel="stylesheet">

@@ -1,5 +1,4 @@
 @include('includes.headVendedor')
-
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
@@ -126,11 +125,6 @@
         /* Mover o botão de hambúrguer para longe do menu quando aberto */
     }
 
-
-
-
-
-
     .user-profile {
         display: flex;
         align-items: center;
@@ -192,21 +186,7 @@
         /* Ajuste no tamanho do ícone do Font Awesome */
     }
 
-    .notification .badge {
-        position: absolute;
-        top: -3px;
-        right: -3px;
-        background-color: red;
-        color: white;
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        font-size: 8px;
-        /* Texto do badge menor */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+
 
     .containerdashboard {
         width: 100%;
@@ -244,9 +224,7 @@
 
     .parte2 {
         padding-right: 6vh;
-
     }
-
 
     .card {
         position: relative;
@@ -266,7 +244,6 @@
         z-index: 2;
         position: relative;
         width: 50%;
-
     }
 
     .destaque {
@@ -274,7 +251,6 @@
         font-family: "Poppins", sans-serif;
         font-weight: bold;
     }
-
 
     .imagem-flutuante {
         position: absolute;
@@ -306,7 +282,6 @@
         color: black;
     }
 
-
     @media (max-width: 768px) {
         .imagem-flutuante {
             position: absolute;
@@ -322,7 +297,6 @@
         .card {
             padding: 5px;
             width: 50vh;
-
             /* Reduz o padding em telas menores */
         }
 
@@ -331,17 +305,12 @@
             position: relative;
             width: 40%;
         }
-
     }
-
-
 
     .transaction-container {
         width: 100%;
         background-color: #2d6047;
     }
-
-
 
     .transaction-card {
         background-color: #fff;
@@ -398,7 +367,6 @@
     .transaction-amount {
         color: #00A868;
         font-size: 15px;
-
         font-weight: bold;
     }
 
@@ -419,6 +387,8 @@
         display: flex;
         justify-content: flex-start;
         margin-bottom: 20px;
+        position: relative;
+        /* Necessário para posicionamento relativo dos botões */
     }
 
     .abas button {
@@ -432,6 +402,8 @@
         border-radius: 25px;
         margin-right: 5px;
         transition: all 0.6s ease;
+        position: relative;
+        /* Para posicionar a bolinha em relação ao botão */
     }
 
     .abas button.active {
@@ -442,10 +414,30 @@
 
     .abas button:hover {
         background-color: #004d42;
-        /* Cor de fundo ao passar o mouse */
         color: white;
-        /* Texto em branco ao passar o mouse */
     }
+
+    .badge {
+        position: absolute;
+        top: -5px;
+        /* Posiciona acima do botão */
+        right: -5px;
+        /* Posiciona à direita */
+        background-color: #ff6347;
+        /* Cor de fundo */
+        color: white;
+        /* Cor do texto */
+        font-size: 10px;
+        font-weight: bold;
+        padding: 3px 6px;
+        border-radius: 50%;
+        /* Forma circular */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        /* Sombra para destaque */
+        z-index: 10;
+        /* Garante que fique acima de outros elementos */
+    }
+
 
     .aba-content {
         display: none;
@@ -482,7 +474,6 @@
         /* Habilitar barra de rolagem vertical */
     }
 
-
     /* Estilo da barra de rolagem */
     .coisa::-webkit-scrollbar {
         width: 8px;
@@ -504,7 +495,6 @@
         /* Deixar as bordas arredondadas */
         border: 2px solid #d0d0d0;
         /* Bordas ao redor do polegar */
-
     }
 
     /* Polegar ao passar o mouse por cima */
@@ -545,7 +535,6 @@
         height: auto;
     }
 
-
     @media (max-width: 768px) {
         .info img {
             width: 15vh;
@@ -556,7 +545,6 @@
             padding: 5px;
             width: 50vh;
         }
-
     }
 
     .chart {
@@ -766,6 +754,22 @@
         justify-content: space-between;
     }
 
+    #modal,
+    #modal2 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        /* Valor alto para garantir que está no topo */
+    }
+
+
     .btn {
         padding: 10px 20px;
         border: none;
@@ -794,15 +798,117 @@
         background: #e6e6e6;
     }
 
+    .botaun {
+        background: #f8f9fa;
+        color: #004d42;
+        border: 2px solid #004d42;
+        border-radius: 25px;
+        padding: 10px 20px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .botaun:hover {
+        background: #e6e6e6;
+        color: #00332e;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        transform: scale(1.05);
+    }
+
+    button.client {
+        all: unset;
+        color: inherit;
+        font: inherit;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+
+    button.client:hover {
+        color: #00bf63;
+    }
+
+
+    .sales-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .sales-card {
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px;
+        width: 95%;
+        height: auto;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: relative;
+        flex-wrap: wrap;
+        /* Para melhorar em telas menores */
+    }
+
+    .sales-image img {
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+        object-fit: cover;
+    }
+
+    .sales-details {
+        flex-grow: 1;
+        margin-left: 10px;
+        text-align: left;
+    }
+
+    .sales-details p {
+        margin: 0;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .sales-details span {
+        font-size: 12px;
+        color: #555;
+    }
+
+    .sales-price {
+        text-align: right;
+    }
+
+    .sales-amount {
+        color: #00A868;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .sales-actions {
+        text-align: right;
+    }
+
+    .sales-btn {
+        background-color: #2d6047;
+        color: #fff;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .sales-btn:hover {
+        background-color: #23853d;
+    }
 
 
     /* Valor representando vendas mensais */
 </style>
 <!-- Fonte customizada para o logo -->
 <script>
-
-
-
     function openModal(idVenda) {
         const form = document.getElementById('correiosForm');
         form.action = `/vendas/${idVenda}/atualizarCodigoCorreios`;// Defina a rota correta aqui
@@ -821,51 +927,52 @@
         document.getElementById('modal2').style.display = 'none';
     }
 </script>
-
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function () {
-        google.charts.load('current', { 'packages': ['bar'] });
-        google.charts.setOnLoadCallback(drawStuff);
 
-        async function drawStuff() {
-            try {
-                // Requisição para buscar os dados
-                const response = await fetch('/dados-grafico');
-                const data = await response.json();
 
-                // Processa os dados para o gráfico
-                const rows = [];
-                rows.push(['Mês', 'Vendedores', 'Clientes']); // Cabeçalho
+<body>
+    @include('includes.menuVendedor')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if(session('success') || $vendasPendentes)
+        <script>
+            // Monta a mensagem de sucesso
+            let mensagem = '{{ session('success') }}';
 
-                const meses = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Ot', 'Nov', 'Dec'];
-                meses.forEach(mes => {
-                    const vendedores = data.vendedores.find(v => v.mes === mes)?.total || 0;
-                    const clientes = data.clientes.find(c => c.mes === mes)?.total || 0;
-                    rows.push([mes, vendedores, clientes]);
-                });
+            // Verifica se existem vendas pendentes
+            @if($vendasPendentes)
+                mensagem += '\nExistem vendas para serem concluídas!';
+            @endif
 
-                // Configura o gráfico
-                const chartData = google.visualization.arrayToDataTable(rows);
-
-                const options = {
-                    height: '100%',
-                    legend: { position: 'bottom' },
-                    bar: { groupWidth: "80%" },
-                    colors: ['#ADD8E6', '#00008B']
-                };
-
-                const chart = new google.charts.Bar(document.getElementById('top_x_div'));
-                chart.draw(chartData, google.charts.Bar.convertOptions(options));
-            } catch (error) {
-                console.error('Erro ao carregar os dados do gráfico:', error);
-            }
-        }
-    });
-</script>
-
-<script type="text/javascript">
+            // Exibe o alerta de sucesso, com a mensagem de vendas pendentes, se aplicável
+            Swal.fire({
+                title: 'Sucesso!',
+                text: mensagem,
+                icon: 'success',
+                confirmButtonText: 'OK',
+                confirmButtonColor: '#00a849'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    @if($vendasPendentes)
+                        // Redireciona para a página de vendas pendentes
+                        window.location.href = "{{ route('vendasPendentes') }}";
+                    @endif
+                }
+            });
+        </script>
+    @endif
+    <div class="itensContainer">
+        <div class="p1">
+            <div class="card">
+                <div class="content">
+                    <h2>Faça o <span class="destaque">cadastro</span> de novos produtos para venda!</h2>
+                    <p>Atualize seu estoque e ofereça mais opções aos seus clientes!</p>
+                    <a href="{{url('cadastrarProdutosVendedor')}}"><button class="botaoCardPreto">Fazer
+                            Cadastro</button></a>
+                </div>
+                <img src="images/mocaCard.png" alt="Imagem cadastro" class="imagem-flutuante">
+            </div>
+            <script type="text/javascript">
     google.charts.load('current', { 'packages': ['bar'] });
     google.charts.setOnLoadCallback(drawStuff);
 
@@ -896,25 +1003,31 @@
         var data = new google.visualization.arrayToDataTable(dataArray);
 
         var options = {
-            height: '100%', // Ajusta o gráfico para ocupar toda a altura
+            height: 300, // Altura do gráfico
             legend: { position: 'none' },
-            hAxis: { title: '' },
-            bar: { groupWidth: "99%" },
-            colors: ['#2a89c7'],
+            hAxis: { 
+                title: '',
+                textStyle: { fontSize: 12, color: '#6B7280' }, // Fonte moderna para o eixo X
+            },
+            bar: { groupWidth: "50%" }, // Barras mais estreitas para equilíbrio visual
+            colors: ['#00bf63'], // Verde personalizado
             vAxis: {
-                minValue: 0, // Define o valor mínimo do eixo Y
-                maxValue: 10000, // Define o valor máximo (ajuste conforme necessário)
-                format: 'decimal', // Formato numérico decimal
-                viewWindow: { min: 0 }, // Garante que o eixo Y começa do 0
+                minValue: 0,
+                textStyle: { fontSize: 12, color: '#6B7280' }, // Fonte moderna para o eixo Y
+                gridlines: { color: '#E5E7EB' }, // Gridlines com cinza claro
             },
             annotations: {
-                alwaysOutside: true, // Exibe os rótulos de valores sempre fora das barras
+                alwaysOutside: true,
                 textStyle: {
-                    fontSize: 12, // Tamanho da fonte
-                    bold: true, // Negrito
-                    color: '#000', // Cor do texto
+                    fontSize: 10,
+                    bold: true,
+                    color: '#111827' // Texto em preto para contraste
                 }
-            }
+            },
+            animation: {
+                duration: 500, // Duração da animação
+                easing: 'out', // Suavização da animação
+            },
         };
 
         // Ajuste manual no formato de exibição dos valores no eixo Y
@@ -934,106 +1047,36 @@
     }
 </script>
 
-<body>
+<br>
+<div style="display: flex; gap: 20px; align-items: flex-start; margin-top: 20px;">
+    <!-- Mini Cards -->
+    <div style="display: flex; flex-direction: column; gap: 15px;">
+        <div class="miniCard" style="padding: 15px; border: 1px solid #E5E7EB; border-radius: 8px; background: #00bf63; color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            <div style="font-size: 16px; font-weight: bold;">Produtos para a venda</div>
+            <div style="font-size: 24px; font-weight: bold;">1,250</div>
+        </div>
+        <div class="miniCard" style="padding: 15px; border: 1px solid #E5E7EB; border-radius: 8px; background: #00bf63; color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            <div style="font-size: 16px; font-weight: bold;">Pedidos Vendidos</div>
+            <div style="font-size: 24px; font-weight: bold;">850</div>
+        </div>
+    </div>
 
-    @include('includes.menuVendedor')
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @if(session('success') || $vendasPendentes)
-    <script>
-        // Monta a mensagem de sucesso
-        let mensagem = '{{ session('success') }}';
-
-        // Verifica se existem vendas pendentes
-        @if($vendasPendentes)
-            mensagem += '\nExistem vendas para serem concluídas!';
-        @endif
-
-        // Exibe o alerta de sucesso, com a mensagem de vendas pendentes, se aplicável
-        Swal.fire({
-            title: 'Sucesso!',
-            text: mensagem,
-            icon: 'success',
-            confirmButtonText: 'OK',
-            confirmButtonColor: '#00a849'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                @if($vendasPendentes)
-                    // Redireciona para a página de vendas pendentes
-                    window.location.href = "{{ route('vendasPendentes') }}";
-                @endif
-            }
-        });
-    </script>
-@endif
+    <!-- Gráfico -->
+    <div class="bigCardGrafico" style="flex-grow: 1; padding: 15px; border: 1px solid #E5E7EB; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+        <div class="titleBigGraficoAdmin" style="font-family: 'Arial', sans-serif; color: #00bf63; font-size: 16px; font-weight: bold; margin-bottom: 10px; text-align: center;">
+            Vendas Mensais
+        </div>
+        <div class="graficoAdmin" style="padding: 10px;">
+            <div id="vendasPorMes" style="height: 300px; width: 100%;"></div>
+        </div>
+    </div>
+</div>
+<br>
 
 
-    <div class="itensContainer">
-        <div class="p1">
-            <div class="card">
-                <div class="content">
-                    <h2>Faça o <span class="destaque">cadastro</span> de novos produtos para venda!</h2>
-                    <p>Atualize seu estoque e ofereça mais opções aos seus clientes!</p>
-                    <a href="{{url('cadastrarProdutosVendedor')}}"><button class="botaoCardPreto">Fazer
-                            Cadastro</button></a>
-                </div>
-                <img src="images/mocaCard.png" alt="Imagem cadastro" class="imagem-flutuante">
-            </div>
-            <div class="bigCardGrafico">
-                <div class="titleBigGraficoAdmin">
-                    Vendas <span class="tempoGraficoAdmin"> | Mensais</span>
-                </div>
-                <div class="graficoAdmin">
-                    <div id="vendasPorMes" class="graficoAcessos"></div>
-                </div>
-            </div>
-
-            <div class="card2">
-                <div class="info">
-                    <div class="sales-container">
-                        @forelse($vendas as $venda)
-                            @if($venda->idLoc == 0 || $venda->idLoc == null) <!-- Condição para filtrar idLoc igual a 0 -->
-                                <div class="card2">
-                                    <div class="card-header">
-                                        <span>Data: {{ \Carbon\Carbon::parse($venda->dataVenda)->format('d/m/Y H:i') }}</span>
-                                    </div>
-                                    <div class="card-body">
-                                        <p><strong>Valor Total:</strong> R$
-                                            {{ number_format($venda->valorTotalVenda, 2, ',', '.') }}</p>
-                                        <button type="button" onclick="openModal2()">
-                                            <p><strong>Cliente:</strong> {{ $venda->cliente->nomeCliente ?? 'Desconhecido' }}
-                                            </p>
-                                        </button>
-                                        <div class="item-image">
-                                            <img src="{{ asset($venda->produto->imagemProduto ?? 'padrao.png') }}"
-                                                alt="Imagem do Item">
-                                        </div>
-                                        <p><strong>Produto:</strong>
-                                            {{ $venda->produto->nomeProduto ?? 'Produto não encontrado' }}</p>
-                                    </div>
-                                    <div class="card-footer">
-                                        <form action="{{ route('send', $venda->idVenda) }}" method="POST">
-                                            @csrf
-                                            <button type="button" onclick="openModal({{ $venda->idVenda }})"
-                                                class="action-btn">Entregar</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            @endif
-                        @empty
-                            <p>Nenhuma venda encontrada para este vendedor.</p>
-                        @endforelse
-                    </div>
-
-
-                </div>
-
-
-
-                <div class="chart">
+            <!-- <div class="chart">
                     <canvas id="myChart" width="400" height="200"></canvas>
-                </div>
-            </div>
+                </div> -->
         </div>
         <div id="modal" style="display: none;">
             <div class="modal-content">
@@ -1052,7 +1095,7 @@
                     <h3>{{ $venda->cliente->nomeCliente ?? 'Cliente desconhecido' }}</h3>
                     <p><strong>Cep:</strong> {{ $venda->cliente->cepCliente ?? 'Não informado' }}</p>
                     <p><strong>Número:</strong> {{ $venda->numCasaCliente ?? 'Não informado' }}</p>
-                    <button type="button" onclick="closeModal2()">Cancelar</button>
+                    <button class="botaun" type="button" onclick="closeModal2()">Cancelar</button>
                 </div>
             @else
                 <div class="modal-content">
@@ -1063,98 +1106,93 @@
         </div>
         <div class="cardComcoisas">
             <div class="abas">
-                <button id="aba-transacoes" class="active" onclick="showAba('transacoes')">Últimas
-                    transações</button>
-                <button id="aba-receita" onclick="showAba('receita')">Receita total</button>
-                <button id="aba-vendidos" onclick="showAba('vendidos')">Mais Vendidos</button>
+                <button id="aba-transacoes" class="active" onclick="showAba('transacoes')">Vendas recentes <span
+                        class="badge">5</span></button> <!-- ai so colocar esse span nos outros q vai tb -->
+                <button id="aba-receita" onclick="showAba('receita')">Enviados</button>
+                <button id="aba-vendidos" onclick="showAba('vendidos')">Finalizados</button>
             </div>
             <div class="coisa">
                 <div id="transacoes" class="aba-content active">
+                    <div class="transaction-container">
+                        @forelse($vendas as $venda)
+                            @if($venda->idLoc == 0 || $venda->idLoc == null)
+                                <div class="sales-card">
+                                    <!-- Imagem do produto -->
+                                    <div class="sales-image">
+                                        <img src="{{ asset($venda->produto->imagemProduto ?? 'padrao.png') }}"
+                                            alt="Imagem do Produto">
+                                    </div>
+                                    <!-- Detalhes do produto -->
+                                    <div class="sales-details">
+                                        <p>
+                                            Venda para
+                                            <button type="button" class="client" onclick="openModal2()">
+                                                {{ $venda->cliente->nomeCliente ?? 'Cliente desconhecido' }}
+                                            </button>
+                                        </p>
+                                        <span>{{ \Carbon\Carbon::parse($venda->dataVenda)->format('d/m, H:i') }}</span><br>
+                                        <span>{{ $venda->produto->nomeProduto ?? 'Produto não encontrado' }}</span>
+                                    </div>
+                                    <!-- Preço da transação -->
+                                    <div class="sales-price">
+                                        <p class="sales-amount">
+                                            + R${{ number_format($venda->valorTotalVenda, 2, ',', '.') }}
+                                        </p>
+                                    </div>
+                                    <!-- Botão de ação -->
+                                    <div class="sales-actions">
+                                        <form action="{{ route('send', $venda->idVenda) }}" method="POST">
+                                            @csrf
+                                            <button type="button" onclick="openModal({{ $venda->idVenda }})"
+                                                class="sales-btn">Entregar</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            @endif
+                        @empty
+                            <p>Nenhuma venda encontrada para este vendedor.</p>
+                        @endforelse
+                    </div>
+
+
+                </div>
+                <div id="receita" class="aba-content">
                     @foreach($vendas as $venda)
                         @if ($venda->idLoc == 1)
-                            <div class="transaction-card">
+                            <div class="sales-card">
                                 <div class="product-image">
                                     <img src="{{ asset($venda->produto->imagemProduto) }}" alt="Produto Vendido">
                                 </div>
-                                <div class="product-details">
-                                    <p>Produto do {{ $venda->cliente->nomeCliente ?? 'Cliente desconhecido' }}</p>
+                                <div class="sales-details">
+                                    <p>Produto de {{ $venda->cliente->nomeCliente ?? 'Cliente desconhecido' }} enviado!</p>
                                     <span>{{ \Carbon\Carbon::parse($venda->dataVenda)->format('d/m, H:i') }}</span><br>
                                     <span>{{ $venda->produto->nomeProduto}}</span>
-                                    <!-- Formata a data -->
                                 </div>
                                 <div class="transaction-price">
                                     <p class="transaction-amount">+ R${{ number_format($venda->valorTotalVenda, 2, ',', '.') }}
                                     </p>
-                                    <!-- Exibe o método de pagamento -->
                                 </div>
                             </div>
                         @endif
                     @endforeach
                 </div>
-
-
-
-                <!-- Repita o card para mais transações -->
-            </div>
-
-            <div div id="receita" class="aba-content">
-            </div>
-
-            <div id="vendidos" class="aba-content">
+                <div id="vendidos" class="aba-content">
+                </div>
             </div>
         </div>
-
-
-    </div>
-    </div>
-
-
-
-
     </div>
 
     <script>
-        // Função para abrir/fechar o menu lateral
-        function toggleMenu() {
-            const sidebar = document.getElementById('sidebar');
-            const hamburger = document.getElementById('hamburger');
 
-            // Alterna a classe 'open' para abrir/fechar o menu
-            sidebar.classList.toggle('open');
-
-            // Alterna o ícone entre hambúrguer e "X"
-            if (sidebar.classList.contains('open')) {
-                hamburger.innerHTML = '&times;';  // Ícone de "X" (multiplicação)
-            } else {
-                hamburger.innerHTML = '&#9776;';  // Ícone de hambúrguer
-            }
-        }
-
-        // Função para selecionar item do menu
-        function selectMenu(element) {
-            // Remove a classe 'selected' de todos os itens
-            const items = document.querySelectorAll('.menu-item');
-            items.forEach(item => item.classList.remove('selected'));
-
-            // Adiciona a classe 'selected' ao item clicado
-            element.classList.add('selected');
-        }
-
-        // Atribuir a função de seleção aos links
-        document.querySelectorAll('.menu-item').forEach(item => {
-            item.addEventListener('click', function () {
-                selectMenu(item);
-            });
-        });
 
         function showAba(abaName) {
             // Esconde todos os conteúdos das abas
-            document.getElementById("transacoes").style.display = "none";
-            document.getElementById("receita").style.display = "none";
-            document.getElementById("vendidos").style.display = "none";
+            const abas = document.querySelectorAll('.aba-content');
+            abas.forEach(aba => aba.classList.remove('active'));
 
             // Mostra o conteúdo da aba selecionada
-            document.getElementById(abaName).style.display = "block";
+            const abaSelecionada = document.getElementById(abaName);
+            abaSelecionada.classList.add('active');
 
             // Remove a classe "active" de todos os botões
             const buttons = document.querySelectorAll('.abas button');
@@ -1164,9 +1202,9 @@
             document.querySelector(`#aba-${abaName}`).classList.add('active');
         }
 
-        // Função para garantir que a aba "Últimas transações" esteja visível ao carregar a página
+        // Garante que a aba "Últimas transações" esteja visível ao carregar a página
         window.onload = function () {
-            showAba('transacoes');  // Mostra a aba de transações automaticamente ao carregar
+            showAba('transacoes');
         };
 
         const ctx = document.getElementById('myChart').getContext('2d');
@@ -1210,8 +1248,6 @@
 
 
     </script>
-
-
 </body>
 
 </html>

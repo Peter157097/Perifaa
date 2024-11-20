@@ -148,7 +148,7 @@ class ProdutoController extends Controller
         }
 
         // Busca os produtos do vendedor
-        $produtos = $vendedor->produtos()->orderBy('idProduto', 'desc')->get();
+        $produtos = $vendedor->produtos;
         $cores = Cor::all(); // Assumindo que você tem um modelo Cor
         $tamanhos = Tamanho::all(); // Assumindo que você tem um modelo Tamanho
         $categorias = Categoria::all();

@@ -1057,6 +1057,44 @@
                     clearInterval(timerInterval);
                 }
             </script>
+                <script>
+        function applyMask(input, maskFunction) {
+            input.addEventListener('input', (e) => {
+                e.target.value = maskFunction(e.target.value);
+            });
+        }
+
+        function cpfMask(value) {
+            return value
+                .replace(/\D/g, '') // Remove tudo que não for número
+                .replace(/(\d{3})(\d)/, '$1.$2') // Coloca o primeiro ponto
+                .replace(/(\d{3})(\d)/, '$1.$2') // Coloca o segundo ponto
+                .replace(/(\d{3})(\d{1,2})$/, '$1-$2'); // Coloca o traço no final
+        }
+
+        function cardNumberMask(value) {
+            return value
+                .replace(/\D/g, '') // Remove tudo que não for número
+                .replace(/(\d{4})(\d)/g, '$1 $2') // Adiciona espaço a cada 4 dígitos
+                .trim(); // Remove espaços extras
+        }
+
+        function dateMask(value) {
+            return value
+                .replace(/\D/g, '') // Remove tudo que não for número
+                .replace(/(\d{2})(\d)/, '$1/$2'); // Adiciona a barra
+        }
+
+        function cvcMask(value) {
+            return value.replace(/\D/g, ''); // Remove tudo que não for número
+        }
+
+        // Aplica as máscaras
+        applyMask(document.querySelector('[name="cpfCartao"]'), cpfMask);
+        applyMask(document.querySelector('[name="numeroCartao"]'), cardNumberMask);
+        applyMask(document.querySelector('[name="validadeCartao"]'), dateMask);
+        applyMask(document.querySelector('[name="cvcCartao"]'), cvcMask);
+    </script>
 
 </body>
 

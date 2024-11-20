@@ -19,6 +19,80 @@
 
 
     .wrapper {
+    width: 300px;
+    height: 500px;
+    background: white;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0;
+    transform: scale(0.95);
+    transition: box-shadow 0.5s, transform 0.5s;
+}
+
+.wrapper:hover {
+    transform: scale(1);
+    box-shadow: 5px 20px 30px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+.top {
+    height: 60%; /* Ajusta o espaço da imagem dentro do card */
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta a imagem para cobrir o espaço sem distorção */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.bottom {
+    width: 100%;
+    height: 40%; /* Resto do espaço para os detalhes */
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+}
+
+.details {
+    padding: 10px 0;
+}
+
+.details h1 {
+    font-size: 18px;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+}
+
+.details p {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #333;
+}
+
+.edit {
+    cursor: pointer;
+    color: #254053;
+    transition: color 0.3s;
+}
+
+.edit:hover {
+    color: #00394B;
+}
+
+    .wrapper {
         width: 300px;
         height: 500px;
         background: white;
@@ -42,7 +116,7 @@
             .top {
                 height: 80%;
                 width: 100%;
-                background: url(https://s-media-cache-ak0.pinimg.com/736x/49/80/6f/49806f3f1c7483093855ebca1b8ae2c4.jpg) no-repeat center center;
+                background: url(https://i.pinimg.com/736x/22/2f/6c/222f6c8233a4930847b49e0dbc7b18b7.jpg) no-repeat center center;
                 -webkit-background-size: 100%;
                 -moz-background-size: 100%;
                 -o-background-size: 100%;
@@ -285,14 +359,18 @@
         padding-top: 50px;
     }
     .search-bar {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
     margin-bottom: 20px;
     text-align: center;
 }
 
 .search-bar input {
-    width: 100%;
-    max-width: 600px;
-    padding: 10px;
+    width: 50%;
+    height: 50px;
+    padding: 5px;
     font-size: 16px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -303,6 +381,28 @@
     border-color: #7453fc; /* Cor do tema */
     box-shadow: 0 0 5px rgba(116, 83, 252, 0.5);
 }
+/* Estilo para o fundo do título */
+.titulo-loja {
+    padding: 20px;
+    text-align: center;
+}
+
+/* Estilo do título principal */
+.titulo-principal {
+    font-size: 36px;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    color: #000; /* Preto para o texto */
+    margin: 0; /* Remove espaçamento extra */
+}
+
+/* Estilo do subtítulo */
+.subtitulo {
+    font-size: 16px;
+    color: #eee; /* Cinza claro para contraste */
+    margin: 0; /* Remove espaçamento extra */
+}
+
 
 </style>
 <script>
@@ -348,8 +448,15 @@
         <div class="part2">
             <div class="carousel-container">
             <div class="search-bar">
-                            <input type="text" id="searchInput" placeholder="Pesquise produtos...">
-                        </div>
+                <div class="titulo-loja">
+                        <h1 class="titulo-principal">LOJA DO SEU ZÉ</h1>
+                        <p class="subtitulo">Clique no produto para visualizar e editar mais detalhes.</p>
+                    </div>
+                <input type="text" id="searchInput" placeholder="Pesquise produtos...">
+
+
+            </div>
+            
                 <button class="carousel-arrow left" id="prev">&lt;</button>
                 <div class="carousel-wrapper" id="carousel">
                     @foreach($produtos as $produto)

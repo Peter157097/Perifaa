@@ -90,44 +90,57 @@
 
                 <div class="itensPedidosContainer">
                     <div class="itensWrap">
-                        @foreach($vendas as $venda)
-                       
-                            <div class="cardPedido">
-                                <div class="imgProdutoPedido">
-                                    <img src="{{ url($venda->produto->imagemProduto) }}">
+                        @if ($vendas->isEmpty())
+                            <div class="pedidoVazioContainer">
+                                <div class="pedidoVazioIcon">
+                                    <i>Ops...</i>
                                 </div>
-                                <div class="infoProdutoPedido">
-                                    <div class="infoPedido">
-                                        <ul class="labelPedido">
-                                            <li class="nomeVendPedido">
-                                                <span class="texto-inicial">{{$venda->produto->nomeProduto}}</span>
-                                               
-                                            </li>
+                                <div class="pedidoVazioText">
+                                    <p>Parece que você ainda não fez um pedido </p>
+                                    <p>Relaxa, o mar tá cheio de peixe</p>
+                                </div>
+                                <a href="produtos" class="linkHomeCarrinho">Voltar às compras</a>
+                            </div>
+                        @else
+                            @foreach($vendas as $venda)
 
-                                            <li>R$ {{ number_format($venda->produto->valorProduto, 2, ',', '.') }}</li>
-                                        </ul>
-                                        <ul class="statusPedido">
-                                            <li class="sttsPedido">Status</li>
-                                            <li class="situacaoPedido">
-                                                @if($venda->idLoc == 0)
-                                                    Pagamento realizado
-                                                @elseif($venda->idLoc == 1)
-                                                    Enviado - Código: {{ $venda->codigoCorreio ?? 'N/A' }}
-                                                @else
-                                                    Pagamento Recusado
-                                                @endif
-                                                <i class="fa-solid fa-circle-check"></i>
-                                            </li>
+                                <div class="cardPedido">
+                                    <div class="imgProdutoPedido">
+                                        <img src="{{ url($venda->produto->imagemProduto) }}">
+                                    </div>
+                                    <div class="infoProdutoPedido">
+                                        <div class="infoPedido">
+                                            <ul class="labelPedido">
+                                                <li class="nomeVendPedido">
+                                                    <span class="texto-inicial">{{$venda->produto->nomeProduto}}</span>
+
+                                                </li>
+
+                                                <li>R$ {{ number_format($venda->produto->valorProduto, 2, ',', '.') }}</li>
+                                            </ul>
+                                            <ul class="statusPedido">
+                                                <li class="sttsPedido">Status</li>
+                                                <li class="situacaoPedido">
+                                                    @if($venda->idLoc == 0)
+                                                        Pagamento realizado
+                                                    @elseif($venda->idLoc == 1)
+                                                        Enviado - Código: {{ $venda->codigoCorreio ?? 'N/A' }}
+                                                    @else
+                                                        Pagamento Recusado
+                                                    @endif
+                                                    <i class="fa-solid fa-circle-check"></i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="ajudaPedido">
+                                        <ul class="listAjuda">
+                                            <li><i class="fa-solid fa-circle-info"></i> Detalhes</li>
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="ajudaPedido">
-                                    <ul class="listAjuda">
-                                        <li><i class="fa-solid fa-circle-info"></i> Detalhes</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        @endif
                     </div>
                 </div>
             </div>

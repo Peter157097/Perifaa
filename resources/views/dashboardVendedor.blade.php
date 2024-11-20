@@ -682,109 +682,334 @@
         color: #555;
     }
 
+    #modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #modal2 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-content {
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        width: 300px;
+        text-align: center;
+    }
+
+    #modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+
+    /* Estilo do conteúdo do modal */
+    .modal-content {
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    /* Título do modal */
+    .modal-content h2 {
+        color: #004d42;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    /* Estilo do input */
+    .modal-content input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #004d42;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        font-size: 1rem;
+    }
+
+    .modal-content input:focus {
+        outline: none;
+        box-shadow: 0 0 5px #004d42;
+    }
+
+    /* Estilo dos botões */
+    .modal-buttons {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .btn.salvar {
+        background: #004d42;
+        color: #fff;
+    }
+
+    .btn.salvar:hover {
+        background: #006b5c;
+    }
+
+    .btn.cancelar {
+        background: #f2f2f2;
+        color: #004d42;
+        border: 1px solid #004d42;
+    }
+
+    .btn.cancelar:hover {
+        background: #e6e6e6;
+    }
+
+
 
     /* Valor representando vendas mensais */
 </style>
 <!-- Fonte customizada para o logo -->
+<script>
 
 
+
+    function openModal(idVenda) {
+        const form = document.getElementById('correiosForm');
+        form.action = `/vendas/${idVenda}/atualizarCodigoCorreios`;// Defina a rota correta aqui
+        document.getElementById('modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('modal').style.display = 'none';
+    }
+    function openModal2() {
+
+        document.getElementById('modal2').style.display = 'flex';
+    }
+
+    function closeModal2() {
+        document.getElementById('modal2').style.display = 'none';
+    }
+</script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        google.charts.load('current', { 'packages': ['bar'] });
+        google.charts.setOnLoadCallback(drawStuff);
+
+        async function drawStuff() {
+            try {
+                // Requisição para buscar os dados
+                const response = await fetch('/dados-grafico');
+                const data = await response.json();
+
+                // Processa os dados para o gráfico
+                const rows = [];
+                rows.push(['Mês', 'Vendedores', 'Clientes']); // Cabeçalho
+
+                const meses = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Ot', 'Nov', 'Dec'];
+                meses.forEach(mes => {
+                    const vendedores = data.vendedores.find(v => v.mes === mes)?.total || 0;
+                    const clientes = data.clientes.find(c => c.mes === mes)?.total || 0;
+                    rows.push([mes, vendedores, clientes]);
+                });
+
+                // Configura o gráfico
+                const chartData = google.visualization.arrayToDataTable(rows);
+
+                const options = {
+                    height: '100%',
+                    legend: { position: 'bottom' },
+                    bar: { groupWidth: "80%" },
+                    colors: ['#ADD8E6', '#00008B']
+                };
+
+                const chart = new google.charts.Bar(document.getElementById('top_x_div'));
+                chart.draw(chartData, google.charts.Bar.convertOptions(options));
+            } catch (error) {
+                console.error('Erro ao carregar os dados do gráfico:', error);
+            }
+        }
+    });
+</script>
+
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['bar'] });
+    google.charts.setOnLoadCallback(drawStuff);
+
+    function drawStuff() {
+        // Passando os dados da view para o gráfico
+        var vendasMensais = @json($vendasMensais);
+
+        // Lista dos meses do ano
+        var meses = ["Jan.", "Fev.", "Mar.", "Abr.", "Maio", "Jun.", "Jul.", "Ago.", "Set.", "Out.", "Nov.", "Dez."];
+
+        // Inicializando o array de dados com todos os meses e valores de vendas (inicialmente 0)
+        var dataArray = [['Mês', 'Vendas']];
+
+        // Criando um objeto para mapear as vendas por mês
+        var vendasPorMes = {};
+
+        // Preenchendo o objeto com os dados de vendas mensais
+        vendasMensais.forEach(function (venda) {
+            vendasPorMes[venda.mes - 1] = venda.total;
+        });
+
+        // Preenchendo o array dataArray com os meses e as vendas (colocando 0 caso não tenha vendas)
+        meses.forEach(function (mes, index) {
+            dataArray.push([mes, vendasPorMes[index] || 0]);
+        });
+
+        // Criando o DataTable
+        var data = new google.visualization.arrayToDataTable(dataArray);
+
+        var options = {
+            height: '100%', // Ajusta o gráfico para ocupar toda a altura
+            legend: { position: 'none' },
+            hAxis: { title: '' },
+            bar: { groupWidth: "99%" },
+            colors: ['#2a89c7'],
+            vAxis: {
+                minValue: 0, // Define o valor mínimo do eixo Y
+                maxValue: 10000, // Define o valor máximo (ajuste conforme necessário)
+                format: 'decimal', // Formato numérico decimal
+                viewWindow: { min: 0 }, // Garante que o eixo Y começa do 0
+            },
+            annotations: {
+                alwaysOutside: true, // Exibe os rótulos de valores sempre fora das barras
+                textStyle: {
+                    fontSize: 12, // Tamanho da fonte
+                    bold: true, // Negrito
+                    color: '#000', // Cor do texto
+                }
+            }
+        };
+
+        // Ajuste manual no formato de exibição dos valores no eixo Y
+        var formatter = new google.visualization.NumberFormat({
+            prefix: 'R$ ', // Adiciona o prefixo "R$"
+            fractionDigits: 2, // Exibe duas casas decimais
+            groupingSymbol: '.', // Define o símbolo de agrupamento para milhares (ponto)
+            decimalSymbol: ',' // Define o símbolo decimal como vírgula
+        });
+
+        // Formata todos os valores da coluna 1 (Vendas) no gráfico
+        formatter.format(data, 1);
+
+        // Criando o gráfico
+        var chart = new google.charts.Bar(document.getElementById('vendasPorMes'));
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+    }
+</script>
 
 <body>
 
     @include('includes.menuVendedor')
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @if(session('success'))
-        <script>
-            Swal.fire({
-                title: 'Sucesso!',
-                text: '{{ session('success') }}',
-                icon: 'success',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#00a849'
-            });
-        </script>
-    @endif
+    @if(session('success') || $vendasPendentes)
+    <script>
+        // Monta a mensagem de sucesso
+        let mensagem = '{{ session('success') }}';
+
+        // Verifica se existem vendas pendentes
+        @if($vendasPendentes)
+            mensagem += '\nExistem vendas para serem concluídas!';
+        @endif
+
+        // Exibe o alerta de sucesso, com a mensagem de vendas pendentes, se aplicável
+        Swal.fire({
+            title: 'Sucesso!',
+            text: mensagem,
+            icon: 'success',
+            confirmButtonText: 'OK',
+            confirmButtonColor: '#00a849'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                @if($vendasPendentes)
+                    // Redireciona para a página de vendas pendentes
+                    window.location.href = "{{ route('vendasPendentes') }}";
+                @endif
+            }
+        });
+    </script>
+@endif
+
+
     <div class="itensContainer">
         <div class="p1">
             <div class="card">
                 <div class="content">
                     <h2>Faça o <span class="destaque">cadastro</span> de novos produtos para venda!</h2>
                     <p>Atualize seu estoque e ofereça mais opções aos seus clientes!</p>
-                    <button class="botaoCardPreto">Fazer Cadastro</button>
+                    <a href="{{url('cadastrarProdutosVendedor')}}"><button class="botaoCardPreto">Fazer
+                            Cadastro</button></a>
                 </div>
                 <img src="images/mocaCard.png" alt="Imagem cadastro" class="imagem-flutuante">
             </div>
-            <style>
-                #modal {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0, 0, 0, 0.6);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
-                #modal2 {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0, 0, 0, 0.6);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                }
+            <div class="bigCardGrafico">
+                <div class="titleBigGraficoAdmin">
+                    Vendas <span class="tempoGraficoAdmin"> | Mensais</span>
+                </div>
+                <div class="graficoAdmin">
+                    <div id="vendasPorMes" class="graficoAcessos"></div>
+                </div>
+            </div>
 
-                .modal-content {
-                    background: #fff;
-                    padding: 20px;
-                    border-radius: 5px;
-                    width: 300px;
-                    text-align: center;
-                }
-            </style>
-            <script>
-                function openModal(idVenda) {
-                    const form = document.getElementById('correiosForm');
-                    form.action = `/vendas/${idVenda}/atualizarCodigoCorreios`;// Defina a rota correta aqui
-                    document.getElementById('modal').style.display = 'flex';
-                }
-
-                function closeModal() {
-                    document.getElementById('modal').style.display = 'none';
-                }
-                function openModal2() {
-
-                    document.getElementById('modal2').style.display = 'flex';
-                }
-
-                function closeModal2() {
-                    document.getElementById('modal2').style.display = 'none';
-                }
-            </script>
             <div class="card2">
                 <div class="info">
                     <div class="sales-container">
-                        @foreach($vendas as $venda)
-                            @if($venda->idLoc == 0 && $venda->idLoc==null) <!-- Condição para filtrar idLoc igual a 0 -->
+                        @forelse($vendas as $venda)
+                            @if($venda->idLoc == 0 || $venda->idLoc == null) <!-- Condição para filtrar idLoc igual a 0 -->
                                 <div class="card2">
                                     <div class="card-header">
                                         <span>Data: {{ \Carbon\Carbon::parse($venda->dataVenda)->format('d/m/Y H:i') }}</span>
                                     </div>
                                     <div class="card-body">
                                         <p><strong>Valor Total:</strong> R$
-                                            {{ number_format($venda->valorTotalVenda, 2, ',', '.') }}
-                                        </p>
-                                        <button type="button" onclick="openModal2()"> <p><strong>Cliente:</strong> {{ $venda->cliente->nomeCliente }}</p> </button>
+                                            {{ number_format($venda->valorTotalVenda, 2, ',', '.') }}</p>
+                                        <button type="button" onclick="openModal2()">
+                                            <p><strong>Cliente:</strong> {{ $venda->cliente->nomeCliente ?? 'Desconhecido' }}
+                                            </p>
+                                        </button>
                                         <div class="item-image">
-                                            <!-- Exibir imagem do item -->
-                                            <img src="{{ asset($venda->produto->imagemProduto) }}" alt="Imagem do Item">
+                                            <img src="{{ asset($venda->produto->imagemProduto ?? 'padrao.png') }}"
+                                                alt="Imagem do Item">
                                         </div>
-                                        <p><strong>Produto:</strong> {{ $venda->produto->nomeProduto }}</p>
+                                        <p><strong>Produto:</strong>
+                                            {{ $venda->produto->nomeProduto ?? 'Produto não encontrado' }}</p>
                                     </div>
                                     <div class="card-footer">
                                         <form action="{{ route('send', $venda->idVenda) }}" method="POST">
@@ -792,12 +1017,12 @@
                                             <button type="button" onclick="openModal({{ $venda->idVenda }})"
                                                 class="action-btn">Entregar</button>
                                         </form>
-
-                                        
                                     </div>
                                 </div>
                             @endif
-                        @endforeach
+                        @empty
+                            <p>Nenhuma venda encontrada para este vendedor.</p>
+                        @endforelse
                     </div>
 
 
@@ -816,18 +1041,25 @@
                 <form id="correiosForm" action="" method="POST">
                     @csrf
                     <input type="text" name="codigoCorreios" required placeholder="Código Correios">
-                    <button type="submit">Salvar</button>
-                    <button type="button" onclick="closeModal()">Cancelar</button>
+                    <button type="submit" class="btn salvar">Salvar</button>
+                    <button type="button" class="btn cancelar" onclick="closeModal()">Cancelar</button>
                 </form>
             </div>
         </div>
         <div id="modal2" style="display: none;">
-            <div class="modal-content">
-                <h3>{{$venda->cliente->nomeCliente}}</h3>
-                <p><strong>Cep:</strong> {{ $venda->cliente->cepCliente }}</p>
-                <p><strong>Numero:</strong> {{ $venda->numCasaCliente }}</p>
-                <button type="button" onclick="closeModal2()">Cancelar</button>
-            </div>
+            @if(isset($venda))
+                <div class="modal-content">
+                    <h3>{{ $venda->cliente->nomeCliente ?? 'Cliente desconhecido' }}</h3>
+                    <p><strong>Cep:</strong> {{ $venda->cliente->cepCliente ?? 'Não informado' }}</p>
+                    <p><strong>Número:</strong> {{ $venda->numCasaCliente ?? 'Não informado' }}</p>
+                    <button type="button" onclick="closeModal2()">Cancelar</button>
+                </div>
+            @else
+                <div class="modal-content">
+                    <p>Nenhuma venda selecionada para exibir.</p>
+                    <button type="button" onclick="closeModal2()">Fechar</button>
+                </div>
+            @endif
         </div>
         <div class="cardComcoisas">
             <div class="abas">
@@ -842,7 +1074,7 @@
                         @if ($venda->idLoc == 1)
                             <div class="transaction-card">
                                 <div class="product-image">
-                                    <img src="{{ asset( $venda->produto->imagemProduto ) }}" alt="Produto Vendido">
+                                    <img src="{{ asset($venda->produto->imagemProduto) }}" alt="Produto Vendido">
                                 </div>
                                 <div class="product-details">
                                     <p>Produto do {{ $venda->cliente->nomeCliente ?? 'Cliente desconhecido' }}</p>

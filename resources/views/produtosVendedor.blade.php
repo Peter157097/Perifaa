@@ -284,7 +284,55 @@
         width: 100%;
         padding-top: 50px;
     }
+    .search-bar {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.search-bar input {
+    width: 100%;
+    max-width: 600px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+.search-bar input:focus {
+    border-color: #7453fc; /* Cor do tema */
+    box-shadow: 0 0 5px rgba(116, 83, 252, 0.5);
+}
+
 </style>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('searchInput');
+    const carouselItems = document.querySelectorAll('.carousel-item');
+
+    // Filtrar produtos conforme o texto digitado
+    searchInput.addEventListener('input', () => {
+        const filter = searchInput.value.toLowerCase();
+        let hasVisibleItems = false;
+
+        carouselItems.forEach(item => {
+            const productName = item.querySelector('.details h1').textContent.toLowerCase();
+            if (productName.includes(filter)) {
+                item.style.display = 'block';
+                hasVisibleItems = true;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+
+        // Caso não tenha texto, mostra todos os produtos
+        if (!filter.trim()) {
+            carouselItems.forEach(item => (item.style.display = 'block'));
+        }
+    });
+});
+
+</script>
 
 
 <body>
@@ -299,10 +347,15 @@
 
         <div class="part2">
             <div class="carousel-container">
+            <div class="search-bar">
+                            <input type="text" id="searchInput" placeholder="Pesquise produtos...">
+                        </div>
                 <button class="carousel-arrow left" id="prev">&lt;</button>
                 <div class="carousel-wrapper" id="carousel">
                     @foreach($produtos as $produto)
                         <div class="carousel-item">
+
+
                             <div class="wrapper">
                                 <div class="container">
                                     <div class="top">

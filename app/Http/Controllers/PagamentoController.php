@@ -114,10 +114,10 @@ class PagamentoController extends Controller
 
         $validatedData = $request->validate([
             'nomeCartao' => 'required|string|max:256',
-            'cpfCartao' => 'required|string|max:25',
-            'numeroCartao' => 'required|string|max:17',
-            'validadeCartao' => 'required|string|max:5',
-            'cvcCartao' => 'required|string|max:3',
+            'cpfCartao' => 'required|string|max:256',
+            'numeroCartao' => 'required|string|max:256',
+            'validadeCartao' => 'required|string|max:256',
+            'cvcCartao' => 'required|string|max:256',
         ]);
     
         try {

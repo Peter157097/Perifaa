@@ -378,7 +378,7 @@
             <div class="carousel-container">
                 <div class="search-bar">
                     <div class="titulo-loja">
-                        <h1 class="titulo-principal">LOJA DO SEU ZÉ</h1>
+                        <h1 class="titulo-principal">{{$vendedor->nomeVendedor}}</h1>
                         <p class="subtitulo">Clique no produto para visualizar e editar mais detalhes.</p>
                     </div>
                     <input type="text" id="searchInput" placeholder="Pesquise produtos...">

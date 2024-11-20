@@ -97,7 +97,7 @@
                                 </div>
                                 <div class="pedidoVazioText">
                                     <p>Parece que você ainda não fez um pedido </p>
-                                    <p>Relaxa, o mar tá cheio de peixe</p>
+                                    <p>Relaxa, o mar tá cheio de peixe...</p>
                                 </div>
                                 <a href="produtos" class="linkHomeCarrinho">Voltar às compras</a>
                             </div>

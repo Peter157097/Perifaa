@@ -113,6 +113,11 @@
         /* Mover o botão de hambúrguer para longe do menu quando aberto */
     }
 
+
+
+
+
+
     .user-profile {
         display: flex;
         align-items: center;
@@ -380,7 +385,7 @@
                 Produtos</a></li>
         <li><a href="#saques" class="menu-item"><i class="fas fa-envelope"></i>Mensagens</a></li>
         <li><a href="{{url('editarPerfilVendedor')}}" class="menu-item"><i class="fas fa-user"></i>Perfil</a></li>
-        <li><a href="{{url('produtosVendedor')}}" class="menu-item"><i class="fa-regular fa-pen-to-square"></i>Editar produtos</a></li>
+        <li><a href="{{url('produtosVendedor')}}" class="menu-item"><i class="fas fa-cog"></i>Produtos</a></li>
         <li><a href="{{ url('/logout') }}" class="menu-item"><i class="fas fa-sign-out-alt"></i>Sair</a></li>
     </ul>
 </nav>
@@ -405,9 +410,20 @@
                 </a>
                 <div class="user-info">
                     <span class="user-name">{{ session('nomeVendedor') }}</span>
-                    <span class="user-status">Vendedor</span> 
+                    <span class="user-status">$2,000.05 | VIP Member</span>
                 </div>
-        
+                <div class="icons">
+                    <div class="icon notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">1</span>
+                    </div>
+                    <div class="icon search">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="icon menu">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
             </div>
         </div>
 

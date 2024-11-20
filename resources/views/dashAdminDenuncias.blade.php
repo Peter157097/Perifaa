@@ -72,6 +72,7 @@
                     <div class="cardDenuncia-top">
                         <div class="infoDenuncia-top">
                             <p class="nomeVendDenuncia">
+                            <i class="fa-solid fa-shop"></i>
                                 {{$denuncia->vendedor->nomeVendedor ?? 'Nome indisponivel' }}
                             </p>
                         </div>
@@ -108,7 +109,7 @@
                                 </button>
                                  <button class="btnAcaoExcluir " data-toggle="modal"
                                     data-target="#modalExcluir">
-                                    Excluir denúncia
+                                    <p>Excluir denúncia</p>
                                 </button>
 
                                 <!-- Modal -->

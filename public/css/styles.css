@@ -4883,11 +4883,14 @@ svg {
     color: rgb(0, 0, 0);
 }
 
+
+
 .btnAcaoExcluir {
+    cursor: pointer;
     font-size: 2vh;
     align-self: center;
     color: white;
-    background-color: rgb(180, 83, 83);
+    background-color: rgb(202, 62, 62);
     border: 1px solid white;
     width: 15%;
     border-radius: 30px;
@@ -4895,21 +4898,29 @@ svg {
     transition: width, 0.2s ease-in-out;
 }
 
+.btnAcaoExcluir p {
+    color: rgb(255, 255, 255);
+    margin: 0;
+}
+
 .btnAcaoExcluir:hover {
-    color: rgb(179, 17, 17);
-    background-color: white;
-    border: 1px solid rgb(204, 204, 204);
-    cursor: pointer;
+    border: 1px solid rgb(255, 0, 0);
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    transition: color 0.4s ease-in-out;
+    
 }
 
-.btnDetalhesGrafico:hover {
-    width: 65%;;
-    color: black;
-    background-color: white;
-    border: 1px solid black;
-    cursor: pointer;
-
+.btnAcaoExcluir:hover p{
+    text-decoration: none;
+    transition: color 0.4s ease-in-out;
+    width: 100%;
+    color: rgb(255, 0, 0);
 }
+
+
+
+
 
 .titleNavAdmin {
     opacity: 0.5;

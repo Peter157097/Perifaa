@@ -190,7 +190,8 @@ class DashboardController extends Controller
         $produto->save();
 
    
-        return redirect()->back()->with('success', 'Cadastro efetuado com sucesso!');
+        return redirect()->route('produtosVendedor')->with('success', 'Cadastro efetuado com sucesso!');
+
     }
 
 }

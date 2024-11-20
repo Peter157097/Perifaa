@@ -12,6 +12,8 @@ use App\Models\Genero;
 use App\Models\Regiao;
 use App\Models\Venda;
 use App\Models\Pagamento;
+use Illuminate\Support\Facades\DB;
+
 use App\Models\Condicao;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -25,24 +27,54 @@ class VendedorController extends Controller
     {
         $idVendedor = Session::get('idVendedor');
 
+        // Recupera a contagem de produtos cadastrados pelo vendedor
+        $totalProdutos = DB::table('tbProduto') // Supondo que a tabela de produtos seja 'tbProduto'
+            ->where('idVendedor', $idVendedor) // Filtra pelos produtos do vendedor
+            ->count();
+
+        // Recupera a contagem de vendas com idLoc igual a 1
+        $totalVendasConcluidas = DB::table('tbVenda') // Supondo que a tabela de vendas seja 'tbVenda'
+            ->where('idVendedor', $idVendedor)
+            ->where('idLoc', 1)
+            ->count();
+
+        // Soma das vendas mensais (já existente no código)
+        $vendasMensais = DB::table('tbVenda')
+            ->select(
+                DB::raw('MONTH(dataVenda) as mes'),
+                DB::raw('SUM(valorTotalVenda) as total')
+            )
+            ->where('idVendedor', $idVendedor)
+            ->groupBy(DB::raw('MONTH(dataVenda)'))
+            ->orderBy(DB::raw('MONTH(dataVenda)'))
+            ->get();
+
+        // Dados do vendedor
         $vendedor = Vendedor::find($idVendedor);
 
+        // Vendas pendentes (idLoc = 0 ou null)
+        $vendasPendentes = Venda::where('idVendedor', $idVendedor)
+            ->where(function ($query) {
+                $query->where('idLoc', 0)
+                    ->orWhereNull('idLoc');
+            })
+            ->exists();
 
-        $vendasExistem = Venda::where('idVendedor', $idVendedor)->exists();
-
-        if ($vendasExistem) {
-            // Recupera as vendas apenas se existirem
-            $vendas = Venda::where('idVendedor', $idVendedor)->get();
-        } else {
-            // Se não houver vendas, inicializa como coleção vazia
-            $vendas = collect();
-        }
-
-
+        $vendasNaoConcluidas = DB::table('tbVenda')
+            ->where('idVendedor', $idVendedor)
+            ->where('idLoc', 0)
+            ->count();
+        // Recupera todas as vendas do vendedor logado
+        $vendas = Venda::where('idVendedor', $idVendedor)->get();
 
         return view('dashboardVendedor', [
             'vendedor' => $vendedor,
-            'vendas' => $vendas
+            'vendas' => $vendas,
+            'vendasMensais' => $vendasMensais,
+            'vendasPendentes' => $vendasPendentes,
+            'totalProdutos' => $totalProdutos, // Passa o total de produtos para a view
+            'totalVendasConcluidas' => $totalVendasConcluidas, // Passa o total de vendas concluídas para a view
+            'vendasNaoConcluidas' => $vendasNaoConcluidas // Passa o total de vendas concluídas para a view
         ]);
     }
 
@@ -105,7 +137,9 @@ class VendedorController extends Controller
         $vendedor->save();
 
 
-        return redirect('/',)->with('success', 'Vendedor cadastro com sucesso! Você pode fazer login agora.');
+        return redirect('/', )->with('success', 'Vendedor cadastro com sucesso! Você pode fazer login agora.');
+
+
     }
 
     public function showProfile()
@@ -184,4 +218,6 @@ class VendedorController extends Controller
 
         return redirect('/editarPerfilVendedor')->with('success', 'Perfil atualizado com sucesso!');
     }
+
+
 }

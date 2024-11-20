@@ -973,105 +973,110 @@
                 <img src="images/mocaCard.png" alt="Imagem cadastro" class="imagem-flutuante">
             </div>
             <script type="text/javascript">
-    google.charts.load('current', { 'packages': ['bar'] });
-    google.charts.setOnLoadCallback(drawStuff);
+                google.charts.load('current', { 'packages': ['bar'] });
+                google.charts.setOnLoadCallback(drawStuff);
 
-    function drawStuff() {
-        // Passando os dados da view para o gráfico
-        var vendasMensais = @json($vendasMensais);
+                function drawStuff() {
+                    // Passando os dados da view para o gráfico
+                    var vendasMensais = @json($vendasMensais);
 
-        // Lista dos meses do ano
-        var meses = ["Jan.", "Fev.", "Mar.", "Abr.", "Maio", "Jun.", "Jul.", "Ago.", "Set.", "Out.", "Nov.", "Dez."];
+                    // Lista dos meses do ano
+                    var meses = ["Jan.", "Fev.", "Mar.", "Abr.", "Maio", "Jun.", "Jul.", "Ago.", "Set.", "Out.", "Nov.", "Dez."];
 
-        // Inicializando o array de dados com todos os meses e valores de vendas (inicialmente 0)
-        var dataArray = [['Mês', 'Vendas']];
+                    // Inicializando o array de dados com todos os meses e valores de vendas (inicialmente 0)
+                    var dataArray = [['Mês', 'Vendas']];
 
-        // Criando um objeto para mapear as vendas por mês
-        var vendasPorMes = {};
+                    // Criando um objeto para mapear as vendas por mês
+                    var vendasPorMes = {};
 
-        // Preenchendo o objeto com os dados de vendas mensais
-        vendasMensais.forEach(function (venda) {
-            vendasPorMes[venda.mes - 1] = venda.total;
-        });
+                    // Preenchendo o objeto com os dados de vendas mensais
+                    vendasMensais.forEach(function (venda) {
+                        vendasPorMes[venda.mes - 1] = venda.total;
+                    });
 
-        // Preenchendo o array dataArray com os meses e as vendas (colocando 0 caso não tenha vendas)
-        meses.forEach(function (mes, index) {
-            dataArray.push([mes, vendasPorMes[index] || 0]);
-        });
+                    // Preenchendo o array dataArray com os meses e as vendas (colocando 0 caso não tenha vendas)
+                    meses.forEach(function (mes, index) {
+                        dataArray.push([mes, vendasPorMes[index] || 0]);
+                    });
 
-        // Criando o DataTable
-        var data = new google.visualization.arrayToDataTable(dataArray);
+                    // Criando o DataTable
+                    var data = new google.visualization.arrayToDataTable(dataArray);
 
-        var options = {
-            height: 300, // Altura do gráfico
-            legend: { position: 'none' },
-            hAxis: { 
-                title: '',
-                textStyle: { fontSize: 12, color: '#6B7280' }, // Fonte moderna para o eixo X
-            },
-            bar: { groupWidth: "50%" }, // Barras mais estreitas para equilíbrio visual
-            colors: ['#00bf63'], // Verde personalizado
-            vAxis: {
-                minValue: 0,
-                textStyle: { fontSize: 12, color: '#6B7280' }, // Fonte moderna para o eixo Y
-                gridlines: { color: '#E5E7EB' }, // Gridlines com cinza claro
-            },
-            annotations: {
-                alwaysOutside: true,
-                textStyle: {
-                    fontSize: 10,
-                    bold: true,
-                    color: '#111827' // Texto em preto para contraste
+                    var options = {
+                        height: 300, // Altura do gráfico
+                        legend: { position: 'none' },
+                        hAxis: {
+                            title: '',
+                            textStyle: { fontSize: 12, color: '#6B7280' }, // Fonte moderna para o eixo X
+                        },
+                        bar: { groupWidth: "50%" }, // Barras mais estreitas para equilíbrio visual
+                        colors: ['#00bf63'], // Verde personalizado
+                        vAxis: {
+                            minValue: 0,
+                            textStyle: { fontSize: 12, color: '#6B7280' }, // Fonte moderna para o eixo Y
+                            gridlines: { color: '#E5E7EB' }, // Gridlines com cinza claro
+                        },
+                        annotations: {
+                            alwaysOutside: true,
+                            textStyle: {
+                                fontSize: 10,
+                                bold: true,
+                                color: '#111827' // Texto em preto para contraste
+                            }
+                        },
+                        animation: {
+                            duration: 500, // Duração da animação
+                            easing: 'out', // Suavização da animação
+                        },
+                    };
+
+                    // Ajuste manual no formato de exibição dos valores no eixo Y
+                    var formatter = new google.visualization.NumberFormat({
+                        prefix: 'R$ ', // Adiciona o prefixo "R$"
+                        fractionDigits: 2, // Exibe duas casas decimais
+                        groupingSymbol: '.', // Define o símbolo de agrupamento para milhares (ponto)
+                        decimalSymbol: ',' // Define o símbolo decimal como vírgula
+                    });
+
+                    // Formata todos os valores da coluna 1 (Vendas) no gráfico
+                    formatter.format(data, 1);
+
+                    // Criando o gráfico
+                    var chart = new google.charts.Bar(document.getElementById('vendasPorMes'));
+                    chart.draw(data, google.charts.Bar.convertOptions(options));
                 }
-            },
-            animation: {
-                duration: 500, // Duração da animação
-                easing: 'out', // Suavização da animação
-            },
-        };
+            </script>
 
-        // Ajuste manual no formato de exibição dos valores no eixo Y
-        var formatter = new google.visualization.NumberFormat({
-            prefix: 'R$ ', // Adiciona o prefixo "R$"
-            fractionDigits: 2, // Exibe duas casas decimais
-            groupingSymbol: '.', // Define o símbolo de agrupamento para milhares (ponto)
-            decimalSymbol: ',' // Define o símbolo decimal como vírgula
-        });
+            <br>
+            <div style="display: flex; gap: 20px; align-items: flex-start; margin-top: 20px;">
+                <!-- Mini Cards -->
+                <div style="display: flex; flex-direction: column; gap: 15px;">
+                    <div class="miniCard"
+                        style="padding: 15px; border: 1px solid #E5E7EB; border-radius: 8px; background: #00bf63; color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                        <div style="font-size: 16px; font-weight: bold;">Produtos Cadastrados</div>
+                        <div style="font-size: 24px; font-weight: bold;">{{ $totalProdutos }}</div>
+                    </div>
+                    <div class="miniCard"
+                        style="padding: 15px; border: 1px solid #E5E7EB; border-radius: 8px; background: #00bf63; color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                        <div style="font-size: 16px; font-weight: bold;">Vendas Concluídas</div>
+                        <div style="font-size: 24px; font-weight: bold;">{{ $totalVendasConcluidas }}</div>
+                    </div>
+                </div>
 
-        // Formata todos os valores da coluna 1 (Vendas) no gráfico
-        formatter.format(data, 1);
 
-        // Criando o gráfico
-        var chart = new google.charts.Bar(document.getElementById('vendasPorMes'));
-        chart.draw(data, google.charts.Bar.convertOptions(options));
-    }
-</script>
-
-<br>
-<div style="display: flex; gap: 20px; align-items: flex-start; margin-top: 20px;">
-    <!-- Mini Cards -->
-    <div style="display: flex; flex-direction: column; gap: 15px;">
-        <div class="miniCard" style="padding: 15px; border: 1px solid #E5E7EB; border-radius: 8px; background: #00bf63; color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-            <div style="font-size: 16px; font-weight: bold;">Produtos para a venda</div>
-            <div style="font-size: 24px; font-weight: bold;">1,250</div>
-        </div>
-        <div class="miniCard" style="padding: 15px; border: 1px solid #E5E7EB; border-radius: 8px; background: #00bf63; color: white; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-            <div style="font-size: 16px; font-weight: bold;">Pedidos Vendidos</div>
-            <div style="font-size: 24px; font-weight: bold;">850</div>
-        </div>
-    </div>
-
-    <!-- Gráfico -->
-    <div class="bigCardGrafico" style="flex-grow: 1; padding: 15px; border: 1px solid #E5E7EB; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-        <div class="titleBigGraficoAdmin" style="font-family: 'Arial', sans-serif; color: #00bf63; font-size: 16px; font-weight: bold; margin-bottom: 10px; text-align: center;">
-            Vendas Mensais
-        </div>
-        <div class="graficoAdmin" style="padding: 10px;">
-            <div id="vendasPorMes" style="height: 300px; width: 100%;"></div>
-        </div>
-    </div>
-</div>
-<br>
+                <!-- Gráfico -->
+                <div class="bigCardGrafico"
+                    style="flex-grow: 1; padding: 15px; border: 1px solid #E5E7EB; border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                    <div class="titleBigGraficoAdmin"
+                        style="font-family: 'Arial', sans-serif; color: #00bf63; font-size: 16px; font-weight: bold; margin-bottom: 10px; text-align: center;">
+                        Vendas Mensais
+                    </div>
+                    <div class="graficoAdmin" style="padding: 10px;">
+                        <div id="vendasPorMes" style="height: 300px; width: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+            <br>
 
 
             <!-- <div class="chart">
@@ -1106,8 +1111,10 @@
         </div>
         <div class="cardComcoisas">
             <div class="abas">
-                <button id="aba-transacoes" class="active" onclick="showAba('transacoes')">Vendas recentes <span
-                        class="badge">5</span></button> <!-- ai so colocar esse span nos outros q vai tb -->
+                <button id="aba-transacoes" class="active" onclick="showAba('transacoes')">
+                    Vendas recentes <span class="badge">{{ $vendasNaoConcluidas }}</span>
+                </button>
+                <!-- ai so colocar esse span nos outros q vai tb -->
                 <button id="aba-receita" onclick="showAba('receita')">Enviados</button>
                 <button id="aba-vendidos" onclick="showAba('vendidos')">Finalizados</button>
             </div>

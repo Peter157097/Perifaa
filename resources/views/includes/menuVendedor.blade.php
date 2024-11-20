@@ -383,7 +383,7 @@
                     class="fas fa-tachometer-alt"></i>Dashboard</a></li>
         <li><a href="{{url('cadastrarProdutosVendedor')}}" class="menu-item"><i class="fas fa-box-open"></i>Cadastrar
                 Produtos</a></li>
-        <li><a href="#saques" class="menu-item"><i class="fas fa-envelope"></i>Mensagens</a></li>
+        <li><a href="{{url('mensagensVendedor')}}" class="menu-item"><i class="fas fa-envelope"></i>Mensagens</a></li>
         <li><a href="{{url('editarPerfilVendedor')}}" class="menu-item"><i class="fas fa-user"></i>Perfil</a></li>
         <li><a href="{{url('produtosVendedor')}}" class="menu-item"><i class="fas fa-cog"></i>Produtos</a></li>
         <li><a href="{{ url('/logout') }}" class="menu-item"><i class="fas fa-sign-out-alt"></i>Sair</a></li>
@@ -410,20 +410,9 @@
                 </a>
                 <div class="user-info">
                     <span class="user-name">{{ session('nomeVendedor') }}</span>
-                    <span class="user-status">$2,000.05 | VIP Member</span>
+                    <span class="user-status">Vendedor</span>
                 </div>
-                <div class="icons">
-                    <div class="icon notification">
-                        <i class="fas fa-bell"></i>
-                        <span class="badge">1</span>
-                    </div>
-                    <div class="icon search">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <div class="icon menu">
-                        <i class="fas fa-bars"></i>
-                    </div>
-                </div>
+
             </div>
         </div>
 

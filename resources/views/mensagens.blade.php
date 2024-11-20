@@ -39,8 +39,10 @@
 
                         <div class="contentMsg">
                             <div class="selectedMsg">
-                            <div class="btnVoltarMsg">
-                                    <a href="/mensagens"><</a>
+                                <div class="btnVoltarMsg">
+                                    <a href="/mensagens">
+                                        <i class="fa-solid fa-arrow-left"></i>
+                                    </a>
                                 </div>
                                 <div class="pfpSelectedMsg">
                                     <div class="pfpMsg">
@@ -48,7 +50,7 @@
                                     </div>
                                 </div>
                                 <div class="infoSelectecMsg">
-                                    <div class="titleSelectedImg">
+                                    <div class="titleSelectedMsg">
                                         <div id="mostrarNome"></div>
                                     </div>
                                     <div class="optionsSelectedMsg">
@@ -174,7 +176,9 @@
                         <div class="contentMsg">
                             <div class="selectedMsg">
                                 <div class="btnVoltarMsg">
-                                    <a href="/mensagens"><</a>
+                                    <a href="/mensagens">
+                                        <i class="fa-solid fa-arrow-left"></i>
+                                    </a>
                                 </div>
                                 <div class="pfpSelectedMsg">
                                     <div class="pfpMsg">
@@ -182,8 +186,8 @@
                                     </div>
                                 </div>
                                 <div class="infoSelectecMsg">
-                                    <div class="titleSelectedImg">
-
+                                    <div class="titleSelectedMsg">
+                                        <div id="mostrarNome"></div>
                                     </div>
                                     <div class="optionsSelectedMsg">
                                         <div class="optItem">
@@ -278,8 +282,8 @@
                                     </div>
                                 </div>
                                 <div class="infoSelectecMsg">
-                                    <div class="titleSelectedImg">
-
+                                    <div class="titleSelectedMsg">
+                                        <div id="mostrarNome"></div>
                                     </div>
                                     <div class="optionsSelectedMsg">
                                         <div class="optItem">
@@ -425,11 +429,10 @@
                         const response = await fetch(endpoint);
                         const contatos = await response.json();
 
-                        contatos.forEach((contato) => {
+                        contatos.forEach(async (contato) => {
                             const contatoItem = document.createElement('div');
                             contatoItem.classList.add('cardMensagem');
-                            contatoItem.dataset.idContato = tipoUsuario === 'vendedor' ? contato.idCliente : contato
-                                .idVendedor;
+                            contatoItem.dataset.idContato = tipoUsuario === 'vendedor' ? contato.idCliente : contato.idVendedor;
 
                             const contatoItem2 = document.createElement('div');
                             contatoItem2.classList.add('pfpMsgContainer');
@@ -445,29 +448,50 @@
 
                             const contatoItem6 = document.createElement('div');
                             contatoItem6.classList.add('titleMsg');
-                            contatoItem6.textContent = tipoUsuario === 'vendedor' ? contato.nomeCliente : contato
-                                .nomeVendedor;
-
+                            contatoItem6.textContent = tipoUsuario === 'vendedor' ? contato.nomeCliente : contato.nomeVendedor;
 
                             const contatoItem7 = document.createElement('div');
                             contatoItem7.classList.add('bodyMsg');
 
+                            // Aqui você busca as mensagens mais recentes
+                            try {
+                                const mensagensResponse = await fetch(`http://localhost:3000/mensagens/${contato.idCliente || contato.idVendedor}`, {
+                                    headers: {
+                                        'id-usuario': idUsuario,
+                                        'tipo-usuario': tipoUsuario
+                                    }
+                                });
+                                const mensagens = await mensagensResponse.json();
 
-                            contatoItem5.appendChild(contatoItem7);
+                                // Pega a última mensagem da conversa
+                                if (mensagens.length > 0) {
+                                    const ultimaMensagem = mensagens[mensagens.length - 1];
+                                    const messageText = document.createElement('div');
+                                    messageText.classList.add('txtMsg');
+                                    messageText.textContent = ultimaMensagem.mensagem;
+                                    contatoItem7.appendChild(messageText);
+                                }
+
+                            } catch (error) {
+                                console.error('Erro ao buscar mensagens:', error);
+                            }
+
+
                             contatoItem5.appendChild(contatoItem6);
+                            contatoItem5.appendChild(contatoItem7);
                             contatoItem3.appendChild(contatoItem4);
                             contatoItem2.appendChild(contatoItem3);
                             contatoItem.appendChild(contatoItem2);
                             contatoItem.appendChild(contatoItem5);
 
-
-
                             contatoItem.onclick = () => {
-                                document.querySelectorAll('.cliente-item').forEach(item => item.classList.remove(
-                                    'active'));
+                                document.querySelectorAll('.cliente-item').forEach(item => item.classList.remove('active'));
                                 contatoItem.classList.add('active');
                                 idContatoAtual = contatoItem.dataset.idContato;
                                 nomeContato = tipoUsuario === 'vendedor' ? contato.nomeCliente : contato.nomeVendedor;
+
+                                document.getElementById('mostrarNome').textContent = nomeContato;
+
                                 carregarHistorico(idContatoAtual);
                                 document.querySelectorAll(".cardMensagem").forEach(button => {
                                     button.addEventListener("click", function (event) {
@@ -512,17 +536,34 @@
                         });
                         const mensagens = await response.json();
 
-                        messagesDiv.innerHTML = '';
+                        messagesDiv.innerHTML = ''; // Limpa as mensagens anteriores
+
+                        let ultimaDataExibida = null; // Variável para armazenar a última data/hora exibida
 
                         mensagens.forEach((mensagem) => {
                             const messageContainer = document.createElement('div');
                             messageContainer.classList.add('messageContainer');
 
+                            const dataMsg = mensagem.created_at;
+                            const horario = new Date(dataMsg).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+                            // Converte a data/hora da mensagem para um formato de data
+                            const dataMensagem = new Date(dataMsg);
+
+                            // Verifica se já exibimos a data/hora dentro de um intervalo de 30 minutos
+                            if (ultimaDataExibida === null || (dataMensagem - ultimaDataExibida) > 1800000) { // 30 minutos = 1800000 ms
+                                // Se for a primeira mensagem ou passou mais de 30 minutos, exibe a data/hora
+                                const dataMsgDiv = document.createElement('div');
+                                dataMsgDiv.classList.add('dataMsg');
+                                dataMsgDiv.textContent = horario;
+                                messageContainer.appendChild(dataMsgDiv);
+                                ultimaDataExibida = dataMensagem; // Atualiza a última data exibida
+                            }
+
                             const newMessage = document.createElement('div');
 
                             // Verifica se a mensagem foi enviada ou recebida
-                            if (mensagem.enviado === 1 && tipoUsuario === 'cliente' || mensagem.enviado === 0 &&
-                                tipoUsuario === 'vendedor') {
+                            if (mensagem.enviado === 1 && tipoUsuario === 'cliente' || mensagem.enviado === 0 && tipoUsuario === 'vendedor') {
                                 newMessage.classList.add('mensagem-enviada');
                             } else {
                                 newMessage.classList.add('mensagem-recebida');
@@ -533,10 +574,10 @@
                             messageText.classList.add('txtMsg'); // Adiciona a classe 'txtMsg'
                             messageText.textContent = mensagem.mensagem; // Define o texto da mensagem
 
-                            newMessage.appendChild(messageText); // Adiciona o <p> ao novo contêiner da mensagem
-                            messageContainer.appendChild(
-                                newMessage); // Adiciona o contêiner da mensagem ao contêiner principal
-                            messagesDiv.appendChild(messageContainer); // Adiciona o contêiner de mensagem ao display
+                            // Adiciona a bolha de mensagem
+                            newMessage.appendChild(messageText);
+                            messageContainer.appendChild(newMessage);
+                            messagesDiv.appendChild(messageContainer);
                         });
 
                         messagesDiv.scrollTop = messagesDiv.scrollHeight; // Rolagem automática

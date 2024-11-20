@@ -18,6 +18,7 @@ class Mensagens extends Model
         'idVendedor',
         'mensagem',
         'enviado',
+        'created_at',
     ];
 
     // Define as relações com outros modelos, se necessário

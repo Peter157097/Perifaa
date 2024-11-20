@@ -5074,6 +5074,7 @@ svg {
 }
 
 /*style das mensagens*/
+
 .mensagensContainer {
     display: flex;
     flex-wrap: wrap;
@@ -5333,6 +5334,7 @@ svg {
     padding: 0.4%;
     display: flex;
     object-fit: cover;
+    align-items: center;
 }
 
 .pfpSelectedMsg img{
@@ -5347,7 +5349,7 @@ svg {
     width: 100%;
 }
 
-.titleSelectedImg {
+.titleSelectedMsg {
     font-weight: 500;
     font-size: 85%;
     display: flex;
@@ -6554,4 +6556,10 @@ svg {
 
 .btnExcluir:hover {
     background-color: #e60000;
+}
+.dataMsg {
+    font-size: 0.8rem;
+    color: #999;
+    margin-bottom: 5px; /* Espaço entre o horário e a bolha */
+    text-align: center;
 }

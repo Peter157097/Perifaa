@@ -421,6 +421,8 @@
     .container {
         display: flex;
         gap: 20px;
+        flex-direction: row;
+
         padding: 20px;
         background-color: #f2ede4;
         transition: opacity 0.5s ease;
@@ -449,7 +451,7 @@
     }
 
     .summary-section {
-        width: 250px;
+        width: 100%;
     }
 
     .form-section h2,
@@ -855,19 +857,15 @@
                     <button class="finalize-button" onclick="finalizePayment()">Finalizar</button>
 
                     <div class="summary-section">
-                        <h2>Resumo do Pedido</h2>
+                        <h3>Resumo do Pedido</h3>
                         <p>Subtotal: R$ {{ number_format($subtotal, 2, ',', '.') }}</p>
                         <p>Frete: R$ 11</p>
                         <p>Total: R$ {{ number_format($subtotal + 11, 2, ',', '.') }}</p>
 
-                        <h3>Produtos Selecionados:</h3>
                         <ul>
                             @if (!empty($selectedProducts))
                             @foreach ($selectedProducts as $product)
-                            <li>
-                                ID: {{ $product['id'] }}, Nome: {{ $product['nome'] }},
-                                Vendedor: {{ $product['idVendedor'] }}, IdCliente: {{ Session::get('id', 'id não definido') }}
-                            </li>
+     
                             <input type="hidden" name="produto_ids[]" value="{{ $product['id'] }}">
                             <input type="hidden" name="vendedor_ids[]" value="{{ $product['idVendedor'] }}">
                             @endforeach

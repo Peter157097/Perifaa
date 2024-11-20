@@ -751,6 +751,24 @@
         });
     </script>
 
+        <script>
+        document.getElementById('valor').addEventListener('input', function (e) {
+            let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não for dígito
+            value = (value / 100).toFixed(2); // Divide por 100 e fixa 2 casas decimais
+            value = value.replace('.', ','); // Troca o ponto por vírgula
+            e.target.value = 'R$ ' + value; // Adiciona o símbolo de R$
+        });
+
+        document.getElementById('valor').addEventListener('focus', function (e) {
+            if (e.target.value === '') e.target.value = 'R$ 0,00';
+        });
+
+        document.getElementById('valor').addEventListener('blur', function (e) {
+            if (e.target.value === 'R$ 0,00') e.target.value = '';
+        });
+    </script>
+
+
 </body>
 
 </html>

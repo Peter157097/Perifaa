@@ -12,8 +12,6 @@ use App\Models\Genero;
 use App\Models\Regiao;
 use App\Models\Venda;
 use App\Models\Pagamento;
-use Illuminate\Support\Facades\DB;
-
 use App\Models\Condicao;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -27,31 +25,24 @@ class VendedorController extends Controller
     {
         $idVendedor = Session::get('idVendedor');
 
-        $vendasMensais = DB::table('tbVenda')
-        ->select(
-            DB::raw('MONTH(dataVenda) as mes'),
-            DB::raw('SUM(valorTotalVenda) as total')
-        )
-        ->where('idVendedor', $idVendedor) // Filtra pelo idVendedor da sessão
-        ->groupBy(DB::raw('MONTH(dataVenda)'))
-        ->orderBy(DB::raw('MONTH(dataVenda)'))
-        ->get();
-
         $vendedor = Vendedor::find($idVendedor);
 
-        $vendasPendentes = Venda::where('idVendedor', $idVendedor)
-        ->where('idLoc', 0)->where('idLoc',null)
-        ->exists(); 
 
-        // Recupera todas as vendas do vendedor logado
-        $vendas = Venda::where('idVendedor', $idVendedor)->get();
-        
+        $vendasExistem = Venda::where('idVendedor', $idVendedor)->exists();
+
+        if ($vendasExistem) {
+            // Recupera as vendas apenas se existirem
+            $vendas = Venda::where('idVendedor', $idVendedor)->get();
+        } else {
+            // Se não houver vendas, inicializa como coleção vazia
+            $vendas = collect();
+        }
+
+
 
         return view('dashboardVendedor', [
             'vendedor' => $vendedor,
-            'vendas' => $vendas,
-            'vendasMensais' => $vendasMensais,
-            'vendasPendentes' => $vendasPendentes
+            'vendas' => $vendas
         ]);
     }
 
@@ -114,9 +105,7 @@ class VendedorController extends Controller
         $vendedor->save();
 
 
-        return redirect('/', )->with('success', 'Vendedor cadastro com sucesso! Você pode fazer login agora.');
-
-
+        return redirect('/',)->with('success', 'Vendedor cadastro com sucesso! Você pode fazer login agora.');
     }
 
     public function showProfile()
@@ -195,6 +184,4 @@ class VendedorController extends Controller
 
         return redirect('/editarPerfilVendedor')->with('success', 'Perfil atualizado com sucesso!');
     }
-
-
 }

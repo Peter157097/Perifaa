@@ -231,7 +231,8 @@ Route::get('/dashboardVendedor', [VendedorController::class, 'index'])->name('da
 
 Route::match(['get', 'post'], '/filtro-usuarios', [UserController::class, 'mostrarTelaFiltro'])->name('mostrar.filtro');
 
-Route::delete('/usuarios/excluir', [UserController::class, 'excluirUsuario'])->name('usuarios.excluir');
+Route::post('/excluir-usuario', [UserController::class, 'excluirUsuario'])->name('excluir-usuario');
+
 Route::post('/filtro-usuarios', [UserController::class, 'filtrarUsuarios'])->name('filtrar-usuarios');
 
 // Rota para o produtosVendedor

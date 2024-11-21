@@ -15,6 +15,5 @@ yarn-error.log
 /.vscode
 Krisp_2.46.8.exe
 
-storage/logs
-/laravel.log
+storage/logs/laravel.log
 servidor.js

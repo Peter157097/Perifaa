@@ -64,6 +64,7 @@
 
     .sidebar ul li {
         padding: 10px;
+        padding-left: 0px;
     }
 
     .sidebar ul li a {
@@ -388,7 +389,7 @@
                 Produtos</a></li>
         <li><a href="{{url('mensagens')}}" class="menu-item"><i class="fas fa-envelope"></i>Mensagens</a></li>
         <li><a href="{{url('editarPerfilVendedor')}}" class="menu-item"><i class="fas fa-user"></i>Perfil</a></li>
-        <li><a href="{{url('produtosVendedor')}}" class="menu-item"><i class="fas fa-cog"></i>Produtos</a></li>
+        <li><a href="{{url('produtosVendedor')}}" class="menu-item"><i class="fa-regular fa-pen-to-square"></i>Produtos</a></li>
         <li><a href="{{ url('/logout') }}" class="menu-item"><i class="fas fa-sign-out-alt"></i>Sair</a></li>
     </ul>
 </nav>

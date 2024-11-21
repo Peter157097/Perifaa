@@ -967,6 +967,7 @@
                                 title: 'Compra finalizada com sucesso!',
                                 text: 'Obrigado por sua compra!',
                                 confirmButtonText: 'Ok',
+                                confirmButtonColor: '#5e3e24'
                             }).then(() => {
                  
                                 document.querySelector('#payment-form form').submit();

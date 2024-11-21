@@ -113,22 +113,35 @@
                                             <ul class="labelPedido">
                                                 <li class="nomeVendPedido">
                                                     <span class="texto-inicial">{{$venda->produto->nomeProduto}}</span>
-
+                                                    <span class="texto-hover">Falar com vendedor</span>
                                                 </li>
 
-                                                <li>R$ {{ number_format($venda->produto->valorProduto, 2, ',', '.') }}</li>
+                                                <li>R$ {{ number_format($venda->produto->valorProduto, 2, ',', '.') }}
+                                                </li>
                                             </ul>
                                             <ul class="statusPedido">
                                                 <li class="sttsPedido">Status</li>
                                                 <li class="situacaoPedido">
                                                     @if($venda->idLoc == 0)
-                                                        Pagamento realizado
+                                                        <span class="situacaoPedidoPago">
+                                                            Pagamento realizado
+                                                            <i class="fa-solid fa-circle-check"></i>
+                                                        </span>
+                                                        Aguarde o envio do vendedor
                                                     @elseif($venda->idLoc == 1)
-                                                        Enviado - Código: {{ $venda->codigoCorreio ?? 'N/A' }}
+                                                        <span class="situacaoPedidoEnviado">
+                                                            Enviado
+                                                            <i class="fa-solid fa-truck"></i>
+                                                        </span>
+                                                        Rastreio:
+                                                        <strong> {{ $venda->codigoCorreio ?? 'N/A' }}</strong>
                                                     @else
-                                                        Pagamento Recusado
+                                                        <span class="situacaoPedidoRecusado">
+                                                            Pagamento Recusado
+                                                            <i class="fa-solid fa-circle-xmark"></i>
+                                                        </span>
                                                     @endif
-                                                    <i class="fa-solid fa-circle-check"></i>
+
                                                 </li>
                                             </ul>
                                         </div>

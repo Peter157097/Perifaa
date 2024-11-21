@@ -6249,9 +6249,26 @@ svg {
     width: 90%;
     font-weight: 550;
 }
-
 .situacaoPedido {
-    color: rgb(17, 153, 78);
+    display: flex;
+    flex-wrap: wrap;
+}
+.situacaoPedidoPago {
+    display: flex;
+    color: rgb(30, 130, 223);
+    width: 100%;
+    align-items: center;
+}
+
+.situacaoPedidoEnviado {
+    color: rgb(32, 185, 45);
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.situacaoPedidoRecusado {
+    color: rgb(211, 28, 28);
 }
 
 .optPedidos {

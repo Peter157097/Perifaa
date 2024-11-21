@@ -37,7 +37,7 @@ app.get('/clientes-conversas/:idVendedor', (req, res) => {
     const idVendedor = req.params.idVendedor;
 
     const query = `
-        SELECT DISTINCT c.idCliente, c.nomeCliente
+        SELECT DISTINCT c.idCliente, c.nomeCliente, c.imagemCliente
         FROM mensagens m
         INNER JOIN tbCliente c ON m.idCliente = c.idCliente
         WHERE m.idVendedor = ?
@@ -58,7 +58,7 @@ app.get('/conversas/:idCliente', (req, res) => {
     const idCliente = req.params.idCliente;
 
     const query = `
-        SELECT DISTINCT v.idVendedor, v.nomeVendedor
+        SELECT DISTINCT v.idVendedor, v.nomeVendedor, v.imagemVendedor
         FROM mensagens m
         INNER JOIN tbVendedor v ON m.idVendedor = v.idVendedor
         WHERE m.idCliente = ?

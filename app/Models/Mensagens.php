@@ -21,14 +21,23 @@ class Mensagens extends Model
         'created_at',
     ];
 
-    // Define as relações com outros modelos, se necessário
+    // Relação com o modelo Cliente
     public function cliente()
     {
         return $this->belongsTo(Cliente::class, 'idCliente');
     }
 
+    // Relação com o modelo Vendedor
     public function vendedor()
     {
         return $this->belongsTo(Vendedor::class, 'idVendedor');
+    }
+
+    // Accessor para retornar a imagem de quem enviou
+    public function getImagemEnviadaPorAttribute()
+    {
+        return $this->cliente
+            ? $this->cliente->imagemCliente
+            : ($this->vendedor ? $this->vendedor->imagemVendedor : null);
     }
 }

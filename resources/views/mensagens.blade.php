@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="pfpSelectedMsg">
                                     <div class="pfpMsg">
-                                        <img src="{{url('images/user-icon.png')}}">
+                                        <img id="imgContatoSelecionado" src="{{ url('images/perfil/user-icon.png') }}">
                                     </div>
                                 </div>
                                 <div class="infoSelectecMsg">
@@ -182,7 +182,7 @@
                                 </div>
                                 <div class="pfpSelectedMsg">
                                     <div class="pfpMsg">
-                                        <img src="{{url('images/user-icon.png')}}">
+                                        <img id="imgContatoSelecionado" src="{{ url('images/perfil/user-icon.png') }}">
                                     </div>
                                 </div>
                                 <div class="infoSelectecMsg">
@@ -278,7 +278,8 @@
                             <div class="selectedMsg">
                                 <div class="pfpSelectedMsg">
                                     <div class="pfpMsg">
-                                        <img src="{{url('images/user-icon.png')}}">
+                                        <img id="imgContatoSelecionado"
+                                            src="{{ url('images/perfil/user-icon.png') }}">
                                     </div>
                                 </div>
                                 <div class="infoSelectecMsg">
@@ -316,7 +317,6 @@
                                             class="inputCampo">
                                     </div>
                                     <div class="msgIcon">
-
                                         <div class="send-message">
                                             <button onclick="enviarMensagem()" class="btnEnviarMsg">
                                                 <i class="fa-solid fa-paper-plane" title="Enviar"></i>
@@ -443,6 +443,12 @@
                             const contatoItem4 = document.createElement('img');
                             contatoItem4.classList.add('pfpMsgImg');
 
+                            // Aqui você define a URL da imagem correta
+                            const imagem = tipoUsuario === 'vendedor' ? contato.imagemCliente : contato.imagemVendedor;
+
+                            // Defina a URL da imagem no `src` do elemento `img`
+                            contatoItem4.src = imagem ? imagem : '{{ url('images/perfil/user-icon.png') }}';
+
                             const contatoItem5 = document.createElement('div');
                             contatoItem5.classList.add('containerMsg');
 
@@ -471,11 +477,9 @@
                                     messageText.textContent = ultimaMensagem.mensagem;
                                     contatoItem7.appendChild(messageText);
                                 }
-
                             } catch (error) {
                                 console.error('Erro ao buscar mensagens:', error);
                             }
-
 
                             contatoItem5.appendChild(contatoItem6);
                             contatoItem5.appendChild(contatoItem7);
@@ -490,9 +494,14 @@
                                 idContatoAtual = contatoItem.dataset.idContato;
                                 nomeContato = tipoUsuario === 'vendedor' ? contato.nomeCliente : contato.nomeVendedor;
 
+                                // Define a imagem do contato selecionado com base na URL da imagem
+                                const imgContatoSelecionado = document.getElementById('imgContatoSelecionado');
+                                const imagem = tipoUsuario === 'vendedor' ? contato.imagemCliente : contato.imagemVendedor;
+                                imgContatoSelecionado.src = imagem ? imagem : '{{ url('images/perfil/user-icon.png') }}'; // Se não tiver imagem, use a imagem padrão
+
                                 document.getElementById('mostrarNome').textContent = nomeContato;
 
-                                carregarHistorico(idContatoAtual);
+
                                 document.querySelectorAll(".cardMensagem").forEach(button => {
                                     button.addEventListener("click", function (event) {
                                         this.classList.toggle("clicado");
@@ -516,7 +525,7 @@
                                         });
                                     });
                                 });
-
+                                carregarHistorico(idContatoAtual);
                             };
 
                             listaClientes.appendChild(contatoItem);
@@ -586,7 +595,17 @@
                         console.error('Erro ao carregar histórico:', error);
                     }
                 }
+                const mensagemInput = document.getElementById('mensagemInput');
+                mensagemInput.addEventListener('keydown', async function (event) {
+                    
+                    if (event.key === 'Enter') {
+                        
+                        event.preventDefault();
 
+                      
+                        await enviarMensagem();
+                    }
+                });
                 async function enviarMensagem() {
                     const mensagem = document.getElementById('mensagemInput').value;
 
@@ -606,8 +625,8 @@
 
                             const result = await response.json();
                             if (result.success) {
-                                document.getElementById('mensagemInput').value = '';
-                                carregarHistorico(idContatoAtual);
+                                document.getElementById('mensagemInput').value = ''; // Limpa o campo de mensagem
+                                carregarHistorico(idContatoAtual); // Atualiza o histórico de mensagens
                             } else {
                                 alert('Erro ao enviar mensagem.');
                             }

@@ -1157,7 +1157,6 @@
                                 </div>
                             @endif
                         @empty
-                            <p>Nenhuma venda encontrada para este vendedor.</p>
                         @endforelse
                     </div>
 

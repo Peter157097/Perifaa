@@ -6307,6 +6307,7 @@ svg {
 
 .listAjuda {
     align-items: center;
+    justify-content: center;
     margin: 0;
     padding: 0;
     display: flex;
@@ -6431,13 +6432,12 @@ svg {
         display: flex;
         align-items: center;
         width: 100%;
-        justify-content: center;
     }
 
     .statusPedido {
         flex-wrap: wrap;
         align-items: center;
-        width: 50%;
+        width: 70%;
         display: flex;
         align-content: center;
 

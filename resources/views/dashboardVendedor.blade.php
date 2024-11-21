@@ -340,7 +340,7 @@
     }
 
     .product-image img {
-        width: 50px;
+        width: 100%;
         height: 50px;
         border-radius: 5px;
     }
@@ -934,33 +934,7 @@
 <body>
     @include('includes.menuVendedor')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @if(session('success') || $vendasPendentes)
-        <script>
-            // Monta a mensagem de sucesso
-            let mensagem = '{{ session('success') }}';
 
-            // Verifica se existem vendas pendentes
-            @if($vendasPendentes)
-                mensagem += '\nExistem vendas para serem concluídas!';
-            @endif
-
-            // Exibe o alerta de sucesso, com a mensagem de vendas pendentes, se aplicável
-            Swal.fire({
-                title: 'Sucesso!',
-                text: mensagem,
-                icon: 'success',
-                confirmButtonText: 'OK',
-                confirmButtonColor: '#00a849'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    @if($vendasPendentes)
-                        // Redireciona para a página de vendas pendentes
-                        window.location.href = "{{ route('vendasPendentes') }}";
-                    @endif
-                }
-            });
-        </script>
-    @endif
     <div class="itensContainer">
         <div class="p1">
             <div class="card">
@@ -972,6 +946,23 @@
                 </div>
                 <img src="images/mocaCard.png" alt="Imagem cadastro" class="imagem-flutuante">
             </div>
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+            @if(Session::has('cadastrarDenuncia'))
+                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                <script>
+                    Swal.fire({
+                        title: 'Denuncia enviada com sucesso!',
+                        text: '{{ session('success') }}',
+                        icon: 'success',
+                        confirmButtonText: 'OK',
+                        confirmButtonColor: '#5e3e24'
+                    });
+                </script>
+            @endif
             <script type="text/javascript">
                 google.charts.load('current', { 'packages': ['bar'] });
                 google.charts.setOnLoadCallback(drawStuff);

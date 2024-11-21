@@ -41,6 +41,9 @@
         transition: 0.3s;
         z-index: 1000;
     }
+    ul li{
+        padding: 0;
+    }
 
     /* Logo no topo */
     .sidebar .logo {
